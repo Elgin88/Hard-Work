@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MainCamera : MonoBehaviour
 {
-    private float _deltaX;
-    private float _deltaY;
-    private float _deltaZ;
+    [SerializeField] private float _deltaX;
+    [SerializeField] private float _deltaY;
+    [SerializeField] private float _deltaZ;
 
     private PlayerController _playerController;
     private Coroutine _moveWork = null;
@@ -15,10 +15,6 @@ public class MainCamera : MonoBehaviour
     {
         _playerController = FindObjectOfType<PlayerController>();
 
-        _deltaX = _playerController.transform.position.x - transform.position.x;
-        _deltaX = _playerController.transform.position.y - transform.position.y;
-        _deltaX = _playerController.transform.position.z - transform.position.z;
-
         StartCoroutineMove();
     }
 
@@ -26,8 +22,8 @@ public class MainCamera : MonoBehaviour
     {
         while (true)
         {
-            transform.position = new Vector3(_playerController.transform.position.x - _deltaX,
-                _playerController.transform.position.y + _deltaY, _playerController.transform.position.z + _deltaZ);
+            transform.position = new Vector3(_playerController.transform.position.x,
+                _playerController.transform.position.y - _deltaY, _playerController.transform.position.z + _deltaZ);
 
             yield return null;
         }
