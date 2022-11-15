@@ -8,12 +8,24 @@ public class MainCamera : MonoBehaviour
     [SerializeField] private float _deltaY;
     [SerializeField] private float _deltaZ;
 
-    private PlayerController _playerController;
+    [SerializeField] private float _speedChangeX;
+    [SerializeField] private float _speedChangeY;
+    [SerializeField] private float _speedChangeZ;
+
+    private PlayerController _player;
     private Coroutine _moveWork = null;
+
+    private float _currentCameraPositionX;
+    private float _currentCameraPositionY;
+    private float _currentCameraPositionZ;
 
     private void Start()
     {
-        _playerController = FindObjectOfType<PlayerController>();
+        _player = FindObjectOfType<PlayerController>();
+
+        _currentCameraPositionX = _player.transform.position.x;
+        _currentCameraPositionY = _player.transform.position.y - _deltaY;
+        _currentCameraPositionZ = _player.transform.position.z + _deltaZ;
 
         StartCoroutineMove();
     }
@@ -22,8 +34,18 @@ public class MainCamera : MonoBehaviour
     {
         while (true)
         {
-            transform.position = new Vector3(_playerController.transform.position.x,
-                _playerController.transform.position.y - _deltaY, _playerController.transform.position.z + _deltaZ);
+            _currentCameraPositionX = Mathf.MoveTowards
+                (_currentCameraPositionX, _player.transform.position.x, _speedChangeX * Time.deltaTime);
+
+            _currentCameraPositionY = Mathf.MoveTowards
+                (_currentCameraPositionY, _player.transform.position.y - _deltaY, _speedChangeY * Time.deltaTime);
+
+            _currentCameraPositionZ = Mathf.MoveTowards
+                (_currentCameraPositionZ, _player.transform.position.z + _deltaZ, _speedChangeZ * Time.deltaTime);
+
+
+            transform.position = new Vector3
+                (_currentCameraPositionX, _currentCameraPositionY, _currentCameraPositionZ);
 
             yield return null;
         }
