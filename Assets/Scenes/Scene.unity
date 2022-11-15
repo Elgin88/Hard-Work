@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -647,7 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a9ae0c700684a069d74d97a06b8b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flightSpeed: 15
+  _flightSpeed: 10
 --- !u!1001 &392939060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -738,7 +738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a9ae0c700684a069d74d97a06b8b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flightSpeed: 15
+  _flightSpeed: 10
 --- !u!1 &495015646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,7 +1333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a9ae0c700684a069d74d97a06b8b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flightSpeed: 15
+  _flightSpeed: 10
 --- !u!1 &1180018472 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2340625789108336181, guid: 97e6bf21169e047829c7e667041205b4, type: 3}
@@ -1351,7 +1351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a9ae0c700684a069d74d97a06b8b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flightSpeed: 15
+  _flightSpeed: 10
 --- !u!1 &1197528978 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2340625789108336181, guid: 97e6bf21169e047829c7e667041205b4, type: 3}
@@ -1369,7 +1369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a9ae0c700684a069d74d97a06b8b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flightSpeed: 15
+  _flightSpeed: 10
 --- !u!1 &1251881199 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2340625789108336181, guid: 97e6bf21169e047829c7e667041205b4, type: 3}
@@ -1387,7 +1387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a9ae0c700684a069d74d97a06b8b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flightSpeed: 15
+  _flightSpeed: 10
 --- !u!1 &1316762294
 GameObject:
   m_ObjectHideFlags: 0
