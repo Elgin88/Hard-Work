@@ -4,13 +4,13 @@ using UnityEngine;
 
 [RequireComponent(typeof(Player))]
 
-public class FinderPointForBlock : MonoBehaviour
+public class BlockLocationFinder : MonoBehaviour
 {
     private PointForBlock [] _points;
 
     private void Start()
     {
-        _points = FindObjectOfType<PointsForBlocks>().GetComponentsInChildren<PointForBlock>();        
+        _points = FindObjectOfType<BlockPointKeeper>().GetComponentsInChildren<PointForBlock>();        
     }
 
     public PointForBlock GetCurrentPoint()

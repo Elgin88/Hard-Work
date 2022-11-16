@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Player))]
 [RequireComponent(typeof(PlayerController))]
 
-public class PlayerSetCurrentSpeed : MonoBehaviour
+public class PlayerCurrentSpeedSetter : MonoBehaviour
 {
     private PlayerController _playerController;
     private Coroutine _changeSpeedWork = null; 

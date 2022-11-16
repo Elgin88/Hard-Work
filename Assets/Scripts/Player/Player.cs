@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(FinderPointForBlock))]
+[RequireComponent(typeof(BlockLocationFinder))]
 
 public class Player : MonoBehaviour
 {
@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _changeDownSpeed;
     [SerializeField] private float _blockTossHeight;
 
-    private FinderPointForBlock _pointsForBlock;
+    private BlockLocationFinder _pointsForBlock;
 
     public float MaxSpeed => _maxSpeed;
     public float MinSpeed => _minSpeed;
@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        _pointsForBlock = GetComponent<FinderPointForBlock>();
+        _pointsForBlock = GetComponent<BlockLocationFinder>();
     }
 
     public PointForBlock GetPointForBlock()

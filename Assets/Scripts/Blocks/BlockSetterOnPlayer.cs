@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SeterBlocksOnPlayer : MonoBehaviour
+public class BlockSetterOnPlayer : MonoBehaviour
 {
     private Coroutine _setBlock = null;
 

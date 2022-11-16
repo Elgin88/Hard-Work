@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Block))]
 
-public class MoverBlock : MonoBehaviour
+public class BlockMover : MonoBehaviour
 {
     [SerializeField] private float _flightSpeed;
 
