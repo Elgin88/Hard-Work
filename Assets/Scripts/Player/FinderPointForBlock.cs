@@ -10,7 +10,7 @@ public class FinderPointForBlock : MonoBehaviour
 
     private void Start()
     {
-        _points = FindObjectOfType<PointsForBlocks>().GetComponentsInChildren<PointForBlock>();
+        _points = FindObjectOfType<PointsForBlocks>().GetComponentsInChildren<PointForBlock>();        
     }
 
     public PointForBlock GetCurrentPoint()
