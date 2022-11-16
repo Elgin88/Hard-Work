@@ -17,4 +17,17 @@ public class FinderPointForBlock : MonoBehaviour
     {
         return _points[Random.Range(0, _points.Length)];
     }
+
+    public Vector3 FindPositionPointForBlock(PointForBlock pointForBlock)
+    {
+        Vector3 positionPointForBlock = new Vector3();
+
+        foreach (var point in _points)
+        {
+            if (point == pointForBlock)            
+                positionPointForBlock = point.transform.position;            
+        }
+
+        return positionPointForBlock;
+    }
 }

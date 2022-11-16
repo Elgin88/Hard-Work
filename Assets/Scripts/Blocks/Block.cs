@@ -12,8 +12,10 @@ public class Block : MonoBehaviour
     private Rigidbody _rigidbody;
     private Collider _collider;
     private Vector3 _topFlightPointOfBlock;
-    private Vector3 _currentPointForBlockOnPlayer;
+    private PointForBlock _pointForBlockOnPlayer;
     private Player _player;
+
+    public PointForBlock PointForBlockOnPlayer => _pointForBlockOnPlayer;
 
     private void Start()
     {
@@ -30,8 +32,6 @@ public class Block : MonoBehaviour
             _collider.enabled = false;
             _rigidbody.useGravity = false;
 
-            _currentPointForBlockOnPlayer = _player.GetPointForBlock().transform.position;
-
             Vector3 transformPositionWorld = transform.TransformDirection(transform.position);
 
             float topFlightPointOfBlockX = (_player.transform.position.x + transformPositionWorld.x) / 2;
@@ -40,8 +40,9 @@ public class Block : MonoBehaviour
 
             _topFlightPointOfBlock = new Vector3 (topFlightPointOfBlockX, topFlightPointOfBlockY,topFlightPointOfBlockZ);
 
+            _pointForBlockOnPlayer = _player.GetPointForBlock();
             _moveBlock.SetTopFlightPoint(_topFlightPointOfBlock);
-            _moveBlock.StartCoroutineMove();
+            _moveBlock.StartCoroutineFlight();
         }
     }
     
