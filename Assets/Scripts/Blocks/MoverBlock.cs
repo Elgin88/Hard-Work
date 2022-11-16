@@ -36,7 +36,7 @@ public class MoverBlock : MonoBehaviour
             else
             {
                 transform.position = Vector3.MoveTowards
-                    (transform.position, GetPositionPointForBlock(_block.PointForBlockOnPlayer), _flightSpeed * Time.deltaTime);
+                    (transform.position, GetPositionPointOnPlayer(_block.PointForBlockOnPlayer), _flightSpeed * Time.deltaTime);
 
                 if (transform.position == _block.PointForBlockOnPlayer.transform.position)
                     StopCoroutineFlight();
@@ -46,9 +46,9 @@ public class MoverBlock : MonoBehaviour
         }
     }
 
-    private Vector3 GetPositionPointForBlock(PointForBlock pointForBlock)
+    private Vector3 GetPositionPointOnPlayer(PointForBlock pointOnPlayer)
     {
-        return _player.GetPositionPointForBlock(pointForBlock);
+        return _player.GetPositionPointOnPlayer(pointOnPlayer);
     }
 
     public void SetTopFlightPoint(Vector3 topFlightPointOfBlock)

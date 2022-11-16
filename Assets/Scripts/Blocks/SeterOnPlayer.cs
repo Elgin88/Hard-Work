@@ -11,7 +11,7 @@ public class SeterBlocksOnPlayer : MonoBehaviour
         while (true)
         {
 
-
+            //В работе
 
 
 

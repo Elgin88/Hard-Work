@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(MoverBlock))]
+[RequireComponent(typeof(Collider))]
 
 public class Block : MonoBehaviour
 {
-    private MoverBlock _moveBlock;
+    private PointForBlock _pointForBlockOnPlayer;
+    private MoverBlock _moverBlock;
     private Rigidbody _rigidbody;
     private Collider _collider;
     private Vector3 _topFlightPointOfBlock;
-    private PointForBlock _pointForBlockOnPlayer;
     private Player _player;
 
     public PointForBlock PointForBlockOnPlayer => _pointForBlockOnPlayer;
 
     private void Start()
     {
-        _collider = GetComponent<Collider>();
+        _moverBlock = GetComponent<MoverBlock>();
         _rigidbody = GetComponent<Rigidbody>();
-        _moveBlock = GetComponent<MoverBlock>();
+        _collider = GetComponent<Collider>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -41,9 +41,8 @@ public class Block : MonoBehaviour
             _topFlightPointOfBlock = new Vector3 (topFlightPointOfBlockX, topFlightPointOfBlockY,topFlightPointOfBlockZ);
 
             _pointForBlockOnPlayer = _player.GetPointForBlock();
-            _moveBlock.SetTopFlightPoint(_topFlightPointOfBlock);
-            _moveBlock.StartCoroutineFlight();
+            _moverBlock.SetTopFlightPoint(_topFlightPointOfBlock);
+            _moverBlock.StartCoroutineFlight();
         }
-    }
-    
+    }    
 }

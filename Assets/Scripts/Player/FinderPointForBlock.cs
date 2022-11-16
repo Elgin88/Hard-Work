@@ -18,16 +18,16 @@ public class FinderPointForBlock : MonoBehaviour
         return _points[Random.Range(0, _points.Length)];
     }
 
-    public Vector3 FindPositionPointForBlock(PointForBlock pointForBlock)
+    public Vector3 FindPositionPointOnPlayer(PointForBlock pointOnPlayer)
     {
-        Vector3 positionPointForBlock = new Vector3();
+        Vector3 positionPointOnPlayer = new Vector3();
 
         foreach (var point in _points)
         {
-            if (point == pointForBlock)            
-                positionPointForBlock = point.transform.position;            
+            if (point == pointOnPlayer)            
+                positionPointOnPlayer = point.transform.position;            
         }
 
-        return positionPointForBlock;
+        return positionPointOnPlayer;
     }
 }

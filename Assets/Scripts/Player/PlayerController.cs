@@ -1,8 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Player))]
 [RequireComponent(typeof(PlayerSetCurrentSpeed))]
+[RequireComponent(typeof(Player))]
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,8 +21,9 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _playerSetCurrentSpeed = GetComponent<PlayerSetCurrentSpeed>();
-        _joystick = FindObjectOfType<FixedJoystick>();
         _rigidbody = GetComponent<Rigidbody>();
+
+        _joystick = FindObjectOfType<FixedJoystick>();
 
         _currentHorizontal = _joystick.Horizontal;
         _currentVertical = _joystick.Vertical;

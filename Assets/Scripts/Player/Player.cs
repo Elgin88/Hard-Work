@@ -30,9 +30,9 @@ public class Player : MonoBehaviour
         return _pointsForBlock.GetCurrentPoint();
     }
 
-    public Vector3 GetPositionPointForBlock(PointForBlock pointForBlock)
+    public Vector3 GetPositionPointOnPlayer(PointForBlock pointForBlock)
     {
-        return _pointsForBlock.FindPositionPointForBlock(pointForBlock);
+        return _pointsForBlock.FindPositionPointOnPlayer(pointForBlock);
     }
 
 }
