@@ -4,22 +4,22 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider))]
-[RequireComponent(typeof(MoveBlock))]
+[RequireComponent(typeof(MoverBlock))]
 
 public class Block : MonoBehaviour
 {
-    private MoveBlock _moveBlock;
+    private MoverBlock _moveBlock;
     private Rigidbody _rigidbody;
     private Collider _collider;
     private Vector3 _topFlightPointOfBlock;
-    private Vector3 _currentPointPositionOnPlayer;
+    private Vector3 _currentPointForBlockOnPlayer;
     private Player _player;
 
     private void Start()
     {
         _collider = GetComponent<Collider>();
         _rigidbody = GetComponent<Rigidbody>();
-        _moveBlock = GetComponent<MoveBlock>();
+        _moveBlock = GetComponent<MoverBlock>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -30,7 +30,7 @@ public class Block : MonoBehaviour
             _collider.enabled = false;
             _rigidbody.useGravity = false;
 
-            _currentPointPositionOnPlayer = _player.GetCurrentPoint().transform.position;
+            _currentPointForBlockOnPlayer = _player.GetPointForBlock().transform.position;
 
             Vector3 transformPositionWorld = transform.TransformDirection(transform.position);
 

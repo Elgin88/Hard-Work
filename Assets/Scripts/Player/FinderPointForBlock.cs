@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Player))]
 
-public class ChoosePointForBlock : MonoBehaviour
+public class FinderPointForBlock : MonoBehaviour
 {
     private PointForBlock [] _points;
 

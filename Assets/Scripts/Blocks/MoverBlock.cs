@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveBlock : MonoBehaviour
+public class MoverBlock : MonoBehaviour
 {
     [SerializeField] private float _flightSpeed;
 
@@ -44,7 +44,7 @@ public class MoveBlock : MonoBehaviour
 
     private Vector3 GetPointOnPlayer()
     {
-        return _player.GetCurrentPoint().transform.position;
+        return _player.GetPointForBlock().transform.position;
     }
 
     public void SetTopFlightPoint(Vector3 topPoint)

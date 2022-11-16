@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SetOnPlayer : MonoBehaviour
+public class SeterOnPlayer : MonoBehaviour
 {
     private Coroutine _setBlock = null;
 
@@ -10,6 +10,12 @@ public class SetOnPlayer : MonoBehaviour
     {
         while (true)
         {
+
+
+
+
+
+
             yield return null;
         }
     }
