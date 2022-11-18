@@ -5,37 +5,39 @@ using UnityEngine;
 
 public class BlockFixer : MonoBehaviour
 {
-    private Coroutine _setBlockWork;
+    private Coroutine _fixBlock;
 
     private void Start()
     {
-        //StartCoroutineSetBlock();
+        
     }
 
-    private IEnumerator SetBlock()
+    private IEnumerator FixBlock(Block block)
     {
         while (true)
         {
-            //В работе
+            
+            
+
 
             yield return null;
         }
     }
 
-    public void StartCoroutineSetBlock()
+    public void StartCoroutineSetBlock(Block block)
     {
-        if (_setBlockWork == null)
+        if (_fixBlock == null)
         {
-            _setBlockWork = StartCoroutine(SetBlock());
+            _fixBlock = StartCoroutine(FixBlock(block));
         }
     }
 
     public void StopCoroutineSetBlock()
     {
-        if (_setBlockWork != null)
+        if (_fixBlock != null)
         {
-            StopCoroutine(_setBlockWork);
-            _setBlockWork = null;
+            StopCoroutine(_fixBlock);
+            _fixBlock = null;
         }
     }
 }

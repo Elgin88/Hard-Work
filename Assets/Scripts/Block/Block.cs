@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    private BlockPoint _pointForBlockOnPlayer;
+    private BlockPoint _blockPoint;
     private BlockMover _moverBlock;
     private Rigidbody _rigidbody;
     private Collider _collider;
@@ -17,7 +17,7 @@ public class Block : MonoBehaviour
 
     public Player Player => _player;
 
-    public BlockPoint PointForBlockOnPlayer => _pointForBlockOnPlayer;
+    public BlockPoint BlockPoint => _blockPoint;
 
     private void Start()
     {
