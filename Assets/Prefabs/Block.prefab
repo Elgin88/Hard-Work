@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2340625789108336183}
   - component: {fileID: 2340625789108336180}
   - component: {fileID: 5556667016917499181}
+  - component: {fileID: 764913165366726638}
   m_Layer: 0
   m_Name: Block
   m_TagString: Untagged
@@ -125,3 +126,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 859f45043ed1d4398aaa7daddafde734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &764913165366726638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2340625789108336181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60a9ae0c700684a069d74d97a06b8b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flightSpeed: 10
+  _tossHeight: 3
