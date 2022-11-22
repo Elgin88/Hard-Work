@@ -54,6 +54,6 @@ public class Block : MonoBehaviour
 
     public void SetQuaternion(Transform playerTransform)
     {
-        transform.rotation = Quaternion.FromToRotation(transform.localPosition, playerTransform.localPosition) ;
+        
     }
 }
