@@ -2,28 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Block))]
+[RequireComponent(typeof(BlockFixer))]
+
 public class BlockMover : MonoBehaviour
 {
     [SerializeField] private float _flightSpeed;
     [SerializeField] private float _tossHeight;
+    
 
-    private BlockPointFinder _finderBlockPoint;
+    private BlockFixer _blockFixer;
     private BlockPoint _blockPoint;
-
     private Coroutine _flightWork = null;
     private Vector3 _topFlightPoint;
-
+    private Block _block;
     private bool _isReachTopPoint = false;
+
+    public BlockPoint BlockPoint => _blockPoint;
 
     private void Start()
     {
-        _finderBlockPoint = FindObjectOfType<Player>().GetComponent<BlockPointFinder>();
+        _blockFixer = GetComponent<BlockFixer>();
+        _block = GetComponent<Block>();
     }
 
-    private IEnumerator Flight()
+    private IEnumerator Move()
     {
-        _blockPoint = _finderBlockPoint.GetBlockPoin();
-
         while (true)
         {
             if (_isReachTopPoint == false)
@@ -40,22 +44,32 @@ public class BlockMover : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, _blockPoint.transform.position, _flightSpeed * Time.deltaTime);
 
                 if (transform.position == _blockPoint.transform.position)
-                    StopCoroutineFlight();
+                {
+                    StopCoroutineMove();
+                    _blockFixer.StartCoroutineFixBlock(_block, _blockPoint);
+                }
             }
 
             yield return null;
         }
     }
 
-    public void StartCoroutineFlight()
+    public Vector3 GetPosition()
     {
+        return transform.position;
+    }
+
+    public void StartCoroutineFlight(BlockPoint blockPoint)
+    {
+        _blockPoint = blockPoint;
+
         if (_flightWork == null)
         {
-            _flightWork = StartCoroutine(Flight());
+            _flightWork = StartCoroutine(Move());
         }
     }
 
-    public void StopCoroutineFlight()
+    public void StopCoroutineMove()
     {
         if (_flightWork != null)
         {

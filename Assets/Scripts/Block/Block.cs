@@ -8,12 +8,15 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+    [SerializeField] private float _delayForTaken;
+
+    private BlockPointFinder _blockPointFinder;
     private BlockPoint _blockPoint;
     private BlockMover _moverBlock;
     private Rigidbody _rigidbody;
     private Collider _collider;
-    private Vector3 _topFlightPointOfBlock;
     private Player _player;
+    
 
     public Player Player => _player;
 
@@ -21,6 +24,7 @@ public class Block : MonoBehaviour
 
     private void Start()
     {
+        _blockPointFinder = FindObjectOfType<BlockPointFinder>().GetComponent<BlockPointFinder>();
         _moverBlock = GetComponent<BlockMover>();
         _rigidbody = GetComponent<Rigidbody>();
         _collider = GetComponent<Collider>();
@@ -30,15 +34,26 @@ public class Block : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Player>(out Player player))
         {
-            _collider.enabled = false;
-            _rigidbody.useGravity = false;
+            if (Time.realtimeSinceStartup > _delayForTaken)
+                _blockPoint = _blockPointFinder.TryChooseBlockPoin();
 
-            _moverBlock.StartCoroutineFlight();
+            if (Time.realtimeSinceStartup > _delayForTaken & _blockPoint != null)
+            {
+                _collider.enabled = false;
+                _rigidbody.useGravity = false;
+
+               _moverBlock.StartCoroutineFlight(_blockPoint);
+            }            
         }
     }
 
     public void SetPosition(float x, float y, float z)
     {
-        transform.position.Set(x, y, z);
+        transform.position = new Vector3 (x, y, z);
+    }
+
+    public void SetQuaternion(Transform playerTransform)
+    {
+        transform.rotation = Quaternion.FromToRotation(transform.localPosition, playerTransform.localPosition) ;
     }
 }
