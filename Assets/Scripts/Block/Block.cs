@@ -34,6 +34,9 @@ public class Block : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Player>(out Player player))
         {
+            _rigidbody.isKinematic = false;
+            _rigidbody.useGravity = true ;
+
             if (Time.realtimeSinceStartup > _delayForTaken)
                 _blockPoint = _blockPointFinder.TryChooseBlockPoin();
 
@@ -52,9 +55,8 @@ public class Block : MonoBehaviour
         transform.position = new Vector3 (x, y, z);
     }
 
-    public void SetQuaternion(Transform playerTransform)
+    public void SetQuaternion(Rigidbody rigidbody)
     {
-
-
+        transform.rotation = Quaternion.LookRotation(rigidbody.velocity);
     }
 }

@@ -2,23 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Player))]
+[RequireComponent(typeof(BlockPoints))]
 
 public class BlockPointFinder : MonoBehaviour
 {
-    private BlockPoint [] _tempPoints;
-    private List<BlockPoint> _points;
-    private int _numberTakenPoint = 0;
+    private BlockPoints _blockPoints;
 
     private void Start()
     {
-        _tempPoints = FindObjectOfType<BlockPoints>().GetComponentsInChildren<BlockPoint>();
-        _points = new List<BlockPoint>();
-
-        foreach (var point in _tempPoints)
-        {
-            _points.Add(point);            
-        }
+        _blockPoints = GetComponent<BlockPoints>();
     }
 
     public BlockPoint TryChooseBlockPoin()
@@ -27,17 +19,17 @@ public class BlockPointFinder : MonoBehaviour
 
         while (isWork)
         {
-            int index = Random.Range(0, _points.Count);            
+            int index = Random.Range(0, _blockPoints.GetCountPoints());           
 
-            if (_points[index].IsTaken == false)
+            if (_blockPoints.CheckPointOnTaken(index) == false)
             {
-                _points[index].TakePlace();
-                _numberTakenPoint++;
+                _blockPoints.TakePlace(index);
+                _blockPoints.IncreaseNumberTakenPointInRow();
 
-                return _points[index];
+                return _blockPoints.GetBlockPoint(index);
             }
 
-            if (_points.Count == _numberTakenPoint)
+            if (_blockPoints.CheckFullNessRow())
                 isWork = false;
         }
 

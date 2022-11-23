@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Player))]
-
 public class BlockFixer : MonoBehaviour
 {
     private Player _player;
@@ -13,7 +11,7 @@ public class BlockFixer : MonoBehaviour
 
     private void Start()
     {
-        _player = GetComponent<Player>();
+        _player = FindObjectOfType<Player>().GetComponent<Player>();
     }
 
     private IEnumerator FixBlock()
@@ -21,7 +19,7 @@ public class BlockFixer : MonoBehaviour
         while (true)
         {
             _block.SetPosition(_blockPoint.transform.position.x , _blockPoint.transform.position.y, _blockPoint.transform.position.z);
-            _block.SetQuaternion(_player.transform);
+            _block.SetQuaternion(_player.Rigidbody);
 
             yield return null;
         }
