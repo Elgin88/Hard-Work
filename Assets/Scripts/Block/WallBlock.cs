@@ -15,9 +15,7 @@ public class WallBlock : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("2");
-
-        if (collision.other.TryGetComponent<Player>(out Player player))
+        if (collision.gameObject.TryGetComponent<Player>(out Player player))
         {
             Destroy(_wall.gameObject);
 
