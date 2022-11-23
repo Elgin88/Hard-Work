@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private PlayerSpeedSetter _playerSpeedSetter;
-    private FixedJoystick _joystick;
+    private VariableJoystick _joystick;
     private Coroutine _moveWork = null;
     private Rigidbody _rigidbody;
 
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
         _playerSpeedSetter = GetComponent<PlayerSpeedSetter>();
         _rigidbody = GetComponent<Rigidbody>();
 
-        _joystick = FindObjectOfType<FixedJoystick>();
+        _joystick = FindObjectOfType<VariableJoystick>();
 
         _currentHorizontal = _joystick.Horizontal;
         _currentVertical = _joystick.Vertical;
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
             {
                 _isJoystickTurn = true;
 
-                _rigidbody.velocity = new Vector3(_joystick.Horizontal * _playerSpeedSetter.CurrentSpeed * -1, _rigidbody.velocity.y, _joystick.Vertical * _playerSpeedSetter.CurrentSpeed * -1);
+                _rigidbody.velocity = new Vector3(_joystick.Horizontal * _playerSpeedSetter.CurrentSpeed, _rigidbody.velocity.y, _joystick.Vertical * _playerSpeedSetter.CurrentSpeed);
 
                 _currentHorizontal = _joystick.Horizontal;
                 _currentVertical = _joystick.Vertical;
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
             {
                 _isJoystickTurn = false;
 
-                _rigidbody.velocity = new Vector3(_currentHorizontal * _playerSpeedSetter.CurrentSpeed * -1, _rigidbody.velocity.y, _currentVertical * _playerSpeedSetter.CurrentSpeed * -1);
+                _rigidbody.velocity = new Vector3(_currentHorizontal * _playerSpeedSetter.CurrentSpeed, _rigidbody.velocity.y, _currentVertical * _playerSpeedSetter.CurrentSpeed);
             }
 
             yield return null;
