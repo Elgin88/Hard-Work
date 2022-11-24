@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockPoint : MonoBehaviour
+public class Point : MonoBehaviour
 {
     private bool _isTaken = false;
 

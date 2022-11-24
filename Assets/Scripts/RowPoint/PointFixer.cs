@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockPointFixer : MonoBehaviour
+public class PointFixer : MonoBehaviour
 {
     private Transform _playerTransform;
 

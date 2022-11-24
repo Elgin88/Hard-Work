@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockPoints : MonoBehaviour
+public class RowPoints : MonoBehaviour
 {
-    private List<BlockPoint> _points = new List<BlockPoint>();
-    private BlockPoint[] _tempPoints;
+    private List<Point> _points = new List<Point>();
+    private Point[] _tempPoints;
     private int _numberTakenPointInRow = 0;
 
     private void Start()
     {
-        _tempPoints = GetComponentsInChildren<BlockPoint>();
+        _tempPoints = GetComponentsInChildren<Point>();
 
         for (int i = 0; i < _tempPoints.Length; i++)        
             _points.Add(_tempPoints[i]);
@@ -41,7 +41,7 @@ public class BlockPoints : MonoBehaviour
         _numberTakenPointInRow++;
     }
 
-    public BlockPoint GetBlockPoint(int index)
+    public Point GetBlockPoint(int index)
     {
         return _points[index];
     }
@@ -54,7 +54,7 @@ public class BlockPoints : MonoBehaviour
         return false;
     }
 
-    public void AddPoint(BlockPoint blockPoint)
+    public void AddPoint(Point blockPoint)
     {
         _points.Add(blockPoint);
     }

@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BlockPoints))]
+[RequireComponent(typeof(RowPoints))]
 
-public class BlockPointFinder : MonoBehaviour
+public class PointFinder : MonoBehaviour
 {
-    private BlockPoints _blockPoints;
-    private BlockPointCreater _blockPointCreater;
+    private RowPoints _blockPoints;
+    private RowPointCreater _blockPointCreater;
 
     private void Start()
     {
-        _blockPointCreater = GetComponent<BlockPointCreater>();
-        _blockPoints = GetComponent<BlockPoints>();
+        _blockPointCreater = GetComponent<RowPointCreater>();
+        _blockPoints = GetComponent<RowPoints>();
         _blockPoints.GetCountPoints();
     }
 
-    public BlockPoint TryTakeBlockPoin()
+    public Point TryTakeBlockPoin()
     {
         bool isWork = true;
 

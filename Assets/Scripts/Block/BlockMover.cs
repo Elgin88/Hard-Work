@@ -11,13 +11,13 @@ public class BlockMover : MonoBehaviour
     [SerializeField] private float _tossHeight;    
 
     private BlockFixer _blockFixer;
-    private BlockPoint _blockPoint;
+    private Point _blockPoint;
     private Coroutine _flightWork = null;
     private Vector3 _topFlightPoint;
     private Block _block;
     private bool _isReachTopPoint = false;
 
-    public BlockPoint BlockPoint => _blockPoint;
+    public Point BlockPoint => _blockPoint;
 
     private void Start()
     {
@@ -58,7 +58,7 @@ public class BlockMover : MonoBehaviour
         return transform.position;
     }
 
-    public void StartCoroutineFlight(BlockPoint blockPoint)
+    public void StartCoroutineFlight(Point blockPoint)
     {
         _blockPoint = blockPoint;
 

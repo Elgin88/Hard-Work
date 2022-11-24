@@ -10,19 +10,19 @@ public class Block : MonoBehaviour
 {
     [SerializeField] private float _delayForTaken;
 
-    private BlockPointFinder _blockPointFinder;
-    private BlockPoint _blockPoint;
+    private PointFinder _blockPointFinder;
+    private Point _blockPoint;
     private BlockMover _moverBlock;
     private Rigidbody _rigidbody;
     private Collider _collider;
     private Player _player;    
 
     public Player Player => _player;
-    public BlockPoint BlockPoint => _blockPoint;
+    public Point BlockPoint => _blockPoint;
 
     private void Start()
     {
-        _blockPointFinder = FindObjectOfType<BlockPointFinder>().GetComponent<BlockPointFinder>();
+        _blockPointFinder = FindObjectOfType<PointFinder>().GetComponent<PointFinder>();
         _moverBlock = GetComponent<BlockMover>();
         _rigidbody = GetComponent<Rigidbody>();
         _collider = GetComponent<Collider>();

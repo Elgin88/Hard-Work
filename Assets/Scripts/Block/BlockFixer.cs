@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BlockFixer : MonoBehaviour
 {
-    private BlockPointCreater _blockPointCreate;
-    private BlockPoint _blockPoint;
+    private RowPointCreater _blockPointCreate;
+    private Point _blockPoint;
     private Coroutine _fixBlock = null;
     private Player _player;
     private Block _block;
@@ -13,7 +13,7 @@ public class BlockFixer : MonoBehaviour
     private void Start()
     {
         _player = FindObjectOfType<Player>().GetComponent<Player>();
-        _blockPointCreate = FindObjectOfType<BlockPoints>().GetComponent<BlockPointCreater>();
+        _blockPointCreate = FindObjectOfType<RowPoints>().GetComponent<RowPointCreater>();
     }
 
     private IEnumerator FixBlock()
@@ -28,7 +28,7 @@ public class BlockFixer : MonoBehaviour
         }
     }
 
-    public void StartCoroutineFixBlock(Block block, BlockPoint blockPoint)
+    public void StartCoroutineFixBlock(Block block, Point blockPoint)
     {
         _block = block;
         _blockPoint = blockPoint;          

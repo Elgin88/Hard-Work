@@ -14564,7 +14564,7 @@ GameObject:
   - component: {fileID: 704842515}
   - component: {fileID: 704842516}
   m_Layer: 0
-  m_Name: BlockPoints
+  m_Name: RowPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
