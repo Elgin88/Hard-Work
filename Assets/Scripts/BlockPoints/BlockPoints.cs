@@ -54,8 +54,8 @@ public class BlockPoints : MonoBehaviour
         return false;
     }
 
-    public void AddPoint(BlockPoint newblockPoint)
+    public void AddPoint(BlockPoint blockPoint)
     {
-        _points.Add(newblockPoint);
+        _points.Add(blockPoint);
     }
 }
