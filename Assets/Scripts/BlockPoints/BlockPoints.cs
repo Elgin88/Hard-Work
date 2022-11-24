@@ -14,11 +14,16 @@ public class BlockPoints : MonoBehaviour
 
         for (int i = 0; i < _tempPoints.Length; i++)        
             _points.Add(_tempPoints[i]);
+
+        _tempPoints = null;
     }
 
     public int GetCountPoints()
     {
-        return _points.Count;
+        int count;
+        count = _points.Count;
+
+        return count;
     }
 
     public bool CheckPointOnTaken(int index)
@@ -47,5 +52,10 @@ public class BlockPoints : MonoBehaviour
             return true;        
 
         return false;
+    }
+
+    public void AddPoint(BlockPoint newblockPoint)
+    {
+        _points.Add(newblockPoint);
     }
 }

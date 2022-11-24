@@ -15,11 +15,9 @@ public class Block : MonoBehaviour
     private BlockMover _moverBlock;
     private Rigidbody _rigidbody;
     private Collider _collider;
-    private Player _player;
-    
+    private Player _player;    
 
     public Player Player => _player;
-
     public BlockPoint BlockPoint => _blockPoint;
 
     private void Start()
@@ -38,7 +36,7 @@ public class Block : MonoBehaviour
             _rigidbody.useGravity = true ;
 
             if (Time.realtimeSinceStartup > _delayForTaken)
-                _blockPoint = _blockPointFinder.TryChooseBlockPoin();
+                _blockPoint = _blockPointFinder.TryTakeBlockPoin();
 
             if (Time.realtimeSinceStartup > _delayForTaken & _blockPoint != null)
             {
@@ -55,8 +53,8 @@ public class Block : MonoBehaviour
         transform.position = new Vector3 (x, y, z);
     }
 
-    public void SetQuaternion(Rigidbody rigidbody)
+    public void SetQuaternion(Rigidbody rigidbodyPlayer)
     {
-        transform.rotation = Quaternion.LookRotation(rigidbody.velocity);
+        transform.rotation = Quaternion.LookRotation(rigidbodyPlayer.velocity);
     }
 }

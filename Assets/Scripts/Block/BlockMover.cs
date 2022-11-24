@@ -8,8 +8,7 @@ using UnityEngine;
 public class BlockMover : MonoBehaviour
 {
     [SerializeField] private float _flightSpeed;
-    [SerializeField] private float _tossHeight;
-    
+    [SerializeField] private float _tossHeight;    
 
     private BlockFixer _blockFixer;
     private BlockPoint _blockPoint;
@@ -22,8 +21,8 @@ public class BlockMover : MonoBehaviour
 
     private void Start()
     {
-        _blockFixer = GetComponent<BlockFixer>();
         _block = GetComponent<Block>();
+        _blockFixer = GetComponent<BlockFixer>();
     }
 
     private IEnumerator Move()

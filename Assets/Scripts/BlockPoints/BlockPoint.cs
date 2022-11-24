@@ -13,7 +13,6 @@ public class BlockPoint : MonoBehaviour
         _isTaken = true;
     }
 
-
     public Vector3 FindCurrentPosition()
     {
         return transform.position;

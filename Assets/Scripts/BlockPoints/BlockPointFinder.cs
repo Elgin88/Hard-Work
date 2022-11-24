@@ -7,13 +7,16 @@ using UnityEngine;
 public class BlockPointFinder : MonoBehaviour
 {
     private BlockPoints _blockPoints;
+    private BlockPointCreater _blockPointCreater;
 
     private void Start()
     {
+        _blockPointCreater = GetComponent<BlockPointCreater>();
         _blockPoints = GetComponent<BlockPoints>();
+        _blockPoints.GetCountPoints();
     }
 
-    public BlockPoint TryChooseBlockPoin()
+    public BlockPoint TryTakeBlockPoin()
     {
         bool isWork = true;
 
@@ -25,9 +28,10 @@ public class BlockPointFinder : MonoBehaviour
             {
                 _blockPoints.TakePlace(index);
                 _blockPoints.IncreaseNumberTakenPointInRow();
+                _blockPointCreater.CreateBlockPoint(_blockPoints.GetBlockPoint(index));
 
                 return _blockPoints.GetBlockPoint(index);
-            }
+            }            
 
             if (_blockPoints.CheckFullNessRow())
                 isWork = false;
