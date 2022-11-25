@@ -10,19 +10,19 @@ public class Block : MonoBehaviour
 {
     [SerializeField] private float _delayForTaken;
 
-    private PointFinder _blockPointFinder;
-    private Point _blockPoint;
+    private PointFinderInLine _rowPointFinder;
+    private Point _point;
     private BlockMover _moverBlock;
     private Rigidbody _rigidbody;
     private Collider _collider;
     private Player _player;    
 
     public Player Player => _player;
-    public Point BlockPoint => _blockPoint;
+    public Point BlockPoint => _point;
 
     private void Start()
     {
-        _blockPointFinder = FindObjectOfType<PointFinder>().GetComponent<PointFinder>();
+        _rowPointFinder = FindObjectOfType<PointFinderInLine>().GetComponent<PointFinderInLine>();
         _moverBlock = GetComponent<BlockMover>();
         _rigidbody = GetComponent<Rigidbody>();
         _collider = GetComponent<Collider>();
@@ -36,14 +36,14 @@ public class Block : MonoBehaviour
             _rigidbody.useGravity = true ;
 
             if (Time.realtimeSinceStartup > _delayForTaken)
-                _blockPoint = _blockPointFinder.TryTakeBlockPoin();
+                _point = _rowPointFinder.TryTakeRandomPoin();
 
-            if (Time.realtimeSinceStartup > _delayForTaken & _blockPoint != null)
+            if (Time.realtimeSinceStartup > _delayForTaken & _point != null)
             {
                 _collider.enabled = false;
                 _rigidbody.useGravity = false;
 
-               _moverBlock.StartCoroutineFlight(_blockPoint);
+               _moverBlock.StartCoroutineFlight(_point);
             }            
         }
     }

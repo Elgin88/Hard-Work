@@ -23,6 +23,12 @@ public class BlockMover : MonoBehaviour
     {
         _block = GetComponent<Block>();
         _blockFixer = GetComponent<BlockFixer>();
+
+        if (_flightSpeed == 0)
+            Debug.Log("In BlocMover no _flightSpeed");
+
+        if (_flightSpeed == 0)
+            Debug.Log("In BlocMover no _tossHeight");
     }
 
     private IEnumerator Move()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BlockFixer : MonoBehaviour
 {
-    private RowPointCreater _blockPointCreate;
+    private RowOfPointsCreater _blockPointCreate;
     private Point _blockPoint;
     private Coroutine _fixBlock = null;
     private Player _player;
@@ -13,7 +13,7 @@ public class BlockFixer : MonoBehaviour
     private void Start()
     {
         _player = FindObjectOfType<Player>().GetComponent<Player>();
-        _blockPointCreate = FindObjectOfType<RowPoints>().GetComponent<RowPointCreater>();
+        _blockPointCreate = FindObjectOfType<LineOfPoints>().GetComponent<RowOfPointsCreater>();
     }
 
     private IEnumerator FixBlock()
@@ -21,8 +21,7 @@ public class BlockFixer : MonoBehaviour
         while (true)
         {
             _block.SetPosition(_blockPoint.transform.position.x , _blockPoint.transform.position.y, _blockPoint.transform.position.z);
-            _block.SetQuaternion(_player.Rigidbody);
-            
+            _block.SetQuaternion(_player.Rigidbody);            
 
             yield return null;
         }
