@@ -3095,7 +3095,6 @@ GameObject:
   - component: {fileID: 137755254}
   - component: {fileID: 137755248}
   - component: {fileID: 137755255}
-  - component: {fileID: 137755256}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3233,21 +3232,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxSpeed: 3
-  _minSpeed: 0
+  _minSpeed: 0.000000001
   _deltaUpSpeed: 10
   _deltaDownSpeed: 10
---- !u!114 &137755256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137755247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e553cf16cf2604a3da68b483e02773e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &138289604 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2340625789108336176, guid: 97e6bf21169e047829c7e667041205b4, type: 3}
@@ -39973,8 +39960,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2051340228}
-  - component: {fileID: 2051340230}
   - component: {fileID: 2051340229}
+  - component: {fileID: 2051340230}
+  - component: {fileID: 2051340231}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -40019,6 +40007,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d302ab8e78bf34435a8a58c44718a2f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _template: {fileID: 6541730180338864512, guid: 332d8fe1051b14bfdb95911ba09d8c02, type: 3}
+--- !u!114 &2051340231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051340227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 769b58cad049c4473a8d1ada15adc503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2051948716

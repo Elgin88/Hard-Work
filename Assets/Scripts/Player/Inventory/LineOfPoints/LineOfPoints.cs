@@ -6,7 +6,10 @@ using UnityEngine;
 
 public class LineOfPoints : MonoBehaviour
 {
-    private bool _isTaken;
+    private Point [] _points;
+
+    private  Coroutine _checkIsTakenWork;
+    private bool _isTaken = false;
     private PointFinderInLine _pointFinderInLine;
     private int _numberTakenPoint = 0;
 
@@ -16,9 +19,13 @@ public class LineOfPoints : MonoBehaviour
     private void Start()
     {
         _pointFinderInLine = GetComponent<PointFinderInLine>();
+
+        _checkIsTakenWork = StartCoroutine(CheckIsTaken());
+
+        _points = GetComponentsInChildren<Point>();
     }
 
-    public void TakeAllPoints()
+    public void TakenAllPoints()
     {
         _isTaken = true;
     }
@@ -42,4 +49,21 @@ public class LineOfPoints : MonoBehaviour
 
         return null;        
     }
+
+    private IEnumerator CheckIsTaken()
+    {
+        while (true)
+        {
+            foreach (var point in _points)
+            {
+                if (point.IsTaken == false)
+                {
+                    _isTaken = false;
+                }
+            }
+
+            yield return null;
+        }    
+    }
+
 }

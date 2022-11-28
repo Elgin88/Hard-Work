@@ -2,29 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Inventory))]
+
 public class PointFinder : MonoBehaviour
 {
-    private List<LineOfPoints> _lines = new List<LineOfPoints>();
-    private LineOfPoints[] _tempLines;
+    private Inventory _inventory;
 
     private void Start()
     {
-        _tempLines = GetComponentsInChildren<LineOfPoints>();
-
-        foreach (var tempLine in _tempLines)
-        {
-            _lines.Add(tempLine);
-        }
+        _inventory = GetComponent<Inventory>();
     }
 
     public Point TryTakePoint()
     {
-        foreach (var line in _lines)
+        for (int i = 0; i < _inventory.GetCountLines(); i++)
         {
-            if (line.IsTaken == false)
+            if (_inventory.IsTaken(i) == false)
             {
-                return line.TryTakePoint();
-            }            
+                return _inventory.TryTakePoint(i);
+            }
         }
 
         return null;        

@@ -32,7 +32,7 @@ public class PointFinderInLine : MonoBehaviour
 
                     if (_lineOfPoins.NumberTakenPoint == _points.Length)
                     {
-                        _lineOfPoins.TakeAllPoints();
+                        _lineOfPoins.TakenAllPoints();
                     }
 
                     return _points[index];
