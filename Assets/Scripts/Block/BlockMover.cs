@@ -11,13 +11,13 @@ public class BlockMover : MonoBehaviour
     [SerializeField] private float _tossHeight;    
 
     private BlockFixer _blockFixer;
-    private Point _blockPoint;
+    private Point _pointOnPlayer;
     private Coroutine _flightWork = null;
     private Vector3 _topFlightPoint;
     private Block _block;
     private bool _isReachTopPoint = false;
 
-    public Point BlockPoint => _blockPoint;
+    public Point PointOnPlayer => _pointOnPlayer;
 
     private void Start()
     {
@@ -37,7 +37,7 @@ public class BlockMover : MonoBehaviour
         {
             if (_isReachTopPoint == false)
             {
-                _topFlightPoint = new Vector3((_blockPoint.transform.position.x + transform.position.x) / 2, _blockPoint.transform.position.y + _tossHeight, (_blockPoint.transform.position.z + transform.position.z) / 2);
+                _topFlightPoint = new Vector3((_pointOnPlayer.transform.position.x + transform.position.x) / 2, _pointOnPlayer.transform.position.y + _tossHeight, (_pointOnPlayer.transform.position.z + transform.position.z) / 2);
 
                 transform.position = Vector3.MoveTowards(transform.position, _topFlightPoint, _flightSpeed * Time.deltaTime);
 
@@ -46,12 +46,12 @@ public class BlockMover : MonoBehaviour
             }
             else
             {
-                transform.position = Vector3.MoveTowards(transform.position, _blockPoint.transform.position, _flightSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, _pointOnPlayer.transform.position, _flightSpeed * Time.deltaTime);
 
-                if (transform.position == _blockPoint.transform.position)
+                if (transform.position == _pointOnPlayer.transform.position)
                 {
                     StopCoroutineMove();
-                    _blockFixer.StartCoroutineFixBlock(_block, _blockPoint);
+                    _blockFixer.StartCoroutineFixBlock(_block, _pointOnPlayer);
                 }
             }
 
@@ -66,7 +66,7 @@ public class BlockMover : MonoBehaviour
 
     public void StartCoroutineFlight(Point blockPoint)
     {
-        _blockPoint = blockPoint;
+        _pointOnPlayer = blockPoint;
 
         if (_flightWork == null)
         {

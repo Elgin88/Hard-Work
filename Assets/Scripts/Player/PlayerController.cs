@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
             {
                 _isJoystickTurn = true;
 
-                _rigidbody.velocity = new Vector3(_joystick.Horizontal * _playerSpeedSetter.CurrentSpeed, _rigidbody.velocity.y, _joystick.Vertical * _playerSpeedSetter.CurrentSpeed);
+                _rigidbody.velocity = new Vector3(_joystick.Horizontal * _playerSpeedSetter.CurrentSpeed, 0, _joystick.Vertical * _playerSpeedSetter.CurrentSpeed);
 
                 _currentHorizontal = _joystick.Horizontal;
                 _currentVertical = _joystick.Vertical;

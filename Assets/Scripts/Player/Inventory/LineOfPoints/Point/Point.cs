@@ -8,7 +8,7 @@ public class Point : MonoBehaviour
 
     public bool IsTaken => _isTaken;
 
-    public void SetPointIsTake()
+    public void TakePoint()
     {
         _isTaken = true;
     }
