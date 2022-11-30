@@ -13,7 +13,6 @@ public class Block : MonoBehaviour
     private BlockMover _moverBlock;
     private Inventory _inventory;
     private Rigidbody _rigidbody;
-    private Collider _collider;
     private Player _player;    
     private Point _point;
 
@@ -25,15 +24,14 @@ public class Block : MonoBehaviour
         _inventory = FindObjectOfType<Player>().GetComponentInChildren<Inventory>();
         _moverBlock = GetComponent<BlockMover>();
         _rigidbody = GetComponent<Rigidbody>();
-        _collider = GetComponent<Collider>();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.TryGetComponent<Player>(out Player player))
         {
-            _rigidbody.isKinematic = false;
-            _rigidbody.useGravity = true;
+            KinematicControll(false);
+            UseGravityControll(true);
 
             if (Time.realtimeSinceStartup > _delayForTaken)
             {
@@ -42,13 +40,23 @@ public class Block : MonoBehaviour
 
             if (Time.realtimeSinceStartup > _delayForTaken & _point != null)
             {
-                _collider.enabled = false;
-                _rigidbody.useGravity = false;
+                KinematicControll(false);
+                UseGravityControll(false);
 
                 _point.TakePoint();
                 _moverBlock.StartCoroutineFlight(_point);
             }            
         }
+    }
+
+    public void KinematicControll(bool status)
+    {
+        _rigidbody.isKinematic = status;
+    }
+
+    public void UseGravityControll(bool status)
+    {
+        _rigidbody.useGravity = status;
     }
 
     public void SetPosition(float x, float y, float z)

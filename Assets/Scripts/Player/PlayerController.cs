@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
             {
                 _isJoystickTurn = false;
 
-                _rigidbody.velocity = new Vector3(_currentHorizontal * _playerSpeedSetter.CurrentSpeed, _rigidbody.velocity.y, _currentVertical * _playerSpeedSetter.CurrentSpeed);
+                _rigidbody.velocity = new Vector3(_currentHorizontal * _playerSpeedSetter.CurrentSpeed, 0, _currentVertical * _playerSpeedSetter.CurrentSpeed);
 
                 transform.rotation = Quaternion.LookRotation(_player.CurrentDuraction);
             }

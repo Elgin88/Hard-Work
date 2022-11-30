@@ -18,14 +18,4 @@ public class Player : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
     }
-
-    private void Update()
-    {
-        if (_rigidbody.velocity!=Vector3.zero)
-        {
-            _currentDuraction = _rigidbody.velocity;
-        }
-
-        transform.position = new Vector3(transform.position.x, _higth, transform.position.z);        
-    }
 }
