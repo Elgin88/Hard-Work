@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(BlockMover))]
+[RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]
 
 public class Block : MonoBehaviour
@@ -33,7 +33,7 @@ public class Block : MonoBehaviour
         if (collision.gameObject.TryGetComponent<Player>(out Player player))
         {
             _rigidbody.isKinematic = false;
-            _rigidbody.useGravity = true ;
+            _rigidbody.useGravity = true;
 
             if (Time.realtimeSinceStartup > _delayForTaken)
             {
