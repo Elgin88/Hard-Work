@@ -8,31 +8,28 @@ public class LineOfPoints : MonoBehaviour
 {
     private Point [] _points;
 
-    private  Coroutine _checkIsTakenWork;
-    private bool _isTaken = false;
     private PointFinderInLine _pointFinderInLine;
+    private Coroutine _checkIsTakenWork = null;
+    private bool _isFull = false;
     private int _numberTakenPoint = 0;
 
-    public bool IsTaken => _isTaken;
+    public bool IsFull => _isFull;
     public int NumberTakenPoint => _numberTakenPoint;
 
     private void Start()
     {
         _pointFinderInLine = GetComponent<PointFinderInLine>();
-
-        _checkIsTakenWork = StartCoroutine(CheckIsTaken());
-
         _points = GetComponentsInChildren<Point>();
     }
 
     public void TakenAllPoints()
     {
-        _isTaken = true;
+        _isFull = true;
     }
 
     public void FreePointInLine()
     {
-        _isTaken = false;
+        _isFull = false;
     }
 
     public void IncreaceNumberTakenPoint()
@@ -42,28 +39,42 @@ public class LineOfPoints : MonoBehaviour
 
     public Point TryTakePoint()
     {
-        if (_isTaken == false)
+        if (CheckLineIsFull() == false)
         {
-            return _pointFinderInLine.TryTakeRandomPoin();
+            return _pointFinderInLine.TakeRandomPoin();
         }
 
         return null;        
     }
 
-    private IEnumerator CheckIsTaken()
+    public void MoveUp(float deltaY)
     {
-        while (true)
-        {
-            foreach (var point in _points)
-            {
-                if (point.IsTaken == false)
-                {
-                    _isTaken = false;
-                }
-            }
-
-            yield return null;
-        }    
+        transform.position = new Vector3(transform.position.x, transform.position.y + deltaY, transform.position.z);
     }
 
+    private bool CheckLineIsFull()
+    {
+        int numberOfTakenPoints = 0;
+
+        foreach (var point in _points)
+        {
+            _isFull = false;
+
+            if (point.IsTaken == true)
+            {
+                numberOfTakenPoints++;
+            }
+        }
+
+        if (_points.Length == numberOfTakenPoints)
+        {
+            _isFull = true;
+        }
+        else
+        {
+            _isFull = false;
+        }
+
+        return _isFull;           
+    }
 }

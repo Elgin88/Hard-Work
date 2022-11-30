@@ -52,6 +52,12 @@ public class PlayerController : MonoBehaviour
                 _isJoystickTurn = false;
 
                 _rigidbody.velocity = new Vector3(_currentHorizontal * _playerSpeedSetter.CurrentSpeed, _rigidbody.velocity.y, _currentVertical * _playerSpeedSetter.CurrentSpeed);
+
+                if (_rigidbody.velocity == null)
+                {
+                    _rigidbody.velocity = new Vector3(0.000001f, 0,0);                    
+                }
+
             }
 
             yield return null;

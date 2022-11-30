@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(BlockMover))]
 [RequireComponent(typeof(Collider))]
 
@@ -10,19 +10,20 @@ public class Block : MonoBehaviour
 {
     [SerializeField] private float _delayForTaken;
 
-    private PointFinderInLine _pointFinderInLine;
-    private Point _point;
     private BlockMover _moverBlock;
+    private Inventory _inventory;
     private Rigidbody _rigidbody;
     private Collider _collider;
+    private Vector3 _curentDirection;
     private Player _player;    
+    private Point _point;
 
     public Player Player => _player;
     public Point BlockPoint => _point;
 
     private void Start()
     {
-        _pointFinderInLine = FindObjectOfType<PointFinderInLine>().GetComponent<PointFinderInLine>();
+        _inventory = FindObjectOfType<Player>().GetComponentInChildren<Inventory>();
         _moverBlock = GetComponent<BlockMover>();
         _rigidbody = GetComponent<Rigidbody>();
         _collider = GetComponent<Collider>();
@@ -36,7 +37,9 @@ public class Block : MonoBehaviour
             _rigidbody.useGravity = true ;
 
             if (Time.realtimeSinceStartup > _delayForTaken)
-                _point = _pointFinderInLine.TryTakeRandomPoin();
+            {
+                _point = _inventory.TryTakePoin();
+            }
 
             if (Time.realtimeSinceStartup > _delayForTaken & _point != null)
             {
@@ -56,6 +59,11 @@ public class Block : MonoBehaviour
 
     public void SetQuaternion(Rigidbody rigidbodyPlayer)
     {
-        transform.rotation = Quaternion.LookRotation(rigidbodyPlayer.velocity);
+        if (rigidbodyPlayer.velocity != Vector3.zero)
+        {
+            _curentDirection = rigidbodyPlayer.velocity;
+        }
+
+        transform.rotation = Quaternion.LookRotation(_curentDirection);
     }
 }

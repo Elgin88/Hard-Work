@@ -7,6 +7,7 @@ using UnityEngine;
 public class LineOfPointsCreater : MonoBehaviour
 {
     [SerializeField] private LineOfPoints _template;
+    [SerializeField] private float _hight;
 
     private Inventory _inventory;
     private Coroutine _createLineWork;
@@ -14,21 +15,23 @@ public class LineOfPointsCreater : MonoBehaviour
     private void Start()
     {
         _inventory = GetComponent<Inventory>();
+
+        if (_template == null & _hight == 0)
+            Debug.Log("LineOfPointsCreater no SerializeField");
+
+        StartCoroutineCreateLine();
     }
 
     public IEnumerator CreateLine()
     {
         while (true)
         {
-            for (int i = 0; i < _inventory.GetCountLines(); i++)
+            if (_inventory.CheckInventoruIsFull() == true)
             {
-                if (_inventory.IsTaken(i) == true)
-                {
-                    LineOfPoints tempLineOfPoints = Instantiate(_template, _inventory.transform);
-                    _inventory.AddLine(tempLineOfPoints);
-                }
-            }   
-
+                LineOfPoints tempLineOfPoints = Instantiate(_template, _inventory.transform);
+                tempLineOfPoints.MoveUp(_hight);
+                _inventory.AddLine(tempLineOfPoints);
+            }
             yield return null;
         }        
     }

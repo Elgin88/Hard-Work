@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private List<LineOfPoints> _lines;
+    private List<LineOfPoints> _lines = new List<LineOfPoints>();
+    private bool _isInventoryFull = false;
+
+    public bool IsFullInventory => _isInventoryFull;
 
     private void Start()
     {
@@ -26,16 +29,14 @@ public class Inventory : MonoBehaviour
         return _lines.Count;
     }
 
-    public bool IsTaken(int index)
-    {
-        return _lines[index].IsTaken;
-    }
-
     public Point TryTakePoint(int index)
     {
-        if (_lines[index].IsTaken == false)
+        foreach (var line in _lines)
         {
-            return _lines[index].TryTakePoint();
+            if (line.IsFull == false)
+            {
+                return line.TryTakePoint();
+            }
         }
 
         return null;
@@ -44,5 +45,55 @@ public class Inventory : MonoBehaviour
     public void AddLine(LineOfPoints lineOfPoints)
     {
         _lines.Add(lineOfPoints);
+    }
+
+    public bool IsTaken(int index)
+    {
+        return _lines[index].IsFull;
+    }
+
+    public bool CheckInventoruIsFull()
+    {
+        int numberIsTakenLines = 0;
+
+        foreach (LineOfPoints line in _lines)
+        {
+            if (line.IsFull == true)
+            {
+                numberIsTakenLines++;
+            }
+
+            if (numberIsTakenLines == _lines.Count)
+            {
+                _isInventoryFull = true;
+            }
+            else
+            {
+                _isInventoryFull = false;
+            }
+        }
+
+        return _isInventoryFull;
+    }
+
+    public Point TryTakePoin()
+    {
+        foreach (var line in _lines)
+        {
+            if (CheckInventoruIsFull() == false)
+            {
+                if (line.IsFull == false)
+                {
+                    return line.TryTakePoint();
+                }                
+            }
+        }
+
+        return null;
+    }
+
+    public LineOfPoints GetLastLineInList()
+    {
+        return _lines[_lines.Count - 1];
     }
 }
