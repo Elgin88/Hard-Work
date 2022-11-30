@@ -14,7 +14,6 @@ public class Block : MonoBehaviour
     private Inventory _inventory;
     private Rigidbody _rigidbody;
     private Collider _collider;
-    private Vector3 _curentDirection;
     private Player _player;    
     private Point _point;
 
@@ -47,7 +46,7 @@ public class Block : MonoBehaviour
                 _rigidbody.useGravity = false;
 
                 _point.TakePoint();
-               _moverBlock.StartCoroutineFlight(_point);
+                _moverBlock.StartCoroutineFlight(_point);
             }            
         }
     }
@@ -57,13 +56,8 @@ public class Block : MonoBehaviour
         transform.position = new Vector3 (x, y, z);
     }
 
-    public void SetQuaternion(Rigidbody rigidbodyPlayer)
+    public void SetQuaternion(Vector3 currentRotation)
     {
-        if (rigidbodyPlayer.velocity != Vector3.zero)
-        {
-            _curentDirection = rigidbodyPlayer.velocity;
-        }
-
-        transform.rotation = Quaternion.LookRotation(_curentDirection);
+        transform.rotation = Quaternion.LookRotation(currentRotation);
     }
 }

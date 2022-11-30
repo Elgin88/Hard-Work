@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private VariableJoystick _joystick;
     private Coroutine _moveWork = null;
     private Rigidbody _rigidbody;
+    private Player _player;
 
     private float _currentHorizontal;
     private float _currentVertical;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         _playerSpeedSetter = GetComponent<PlayerSpeedSetter>();
         _rigidbody = GetComponent<Rigidbody>();
+        _player = GetComponent<Player>();
 
         _joystick = FindObjectOfType<VariableJoystick>();
 
@@ -44,7 +46,7 @@ public class PlayerController : MonoBehaviour
                 _currentHorizontal = _joystick.Horizontal;
                 _currentVertical = _joystick.Vertical;
 
-                transform.rotation = Quaternion.LookRotation(_rigidbody.velocity);
+                transform.rotation = Quaternion.LookRotation(_player.CurrentDuraction);
             }
                 
             else
@@ -53,11 +55,7 @@ public class PlayerController : MonoBehaviour
 
                 _rigidbody.velocity = new Vector3(_currentHorizontal * _playerSpeedSetter.CurrentSpeed, _rigidbody.velocity.y, _currentVertical * _playerSpeedSetter.CurrentSpeed);
 
-                if (_rigidbody.velocity == null)
-                {
-                    _rigidbody.velocity = new Vector3(0.000001f, 0,0);                    
-                }
-
+                transform.rotation = Quaternion.LookRotation(_player.CurrentDuraction);
             }
 
             yield return null;
