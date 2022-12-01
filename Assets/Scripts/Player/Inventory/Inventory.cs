@@ -5,9 +5,6 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     private List<LineOfPoints> _lines = new List<LineOfPoints>();
-    private bool _isInventoryFull = false;
-
-    public bool IsFullInventory => _isInventoryFull;
 
     private void Start()
     {
@@ -33,7 +30,7 @@ public class Inventory : MonoBehaviour
     {
         foreach (var line in _lines)
         {
-            if (line.IsFull == false)
+            if (line.CheckLineIsFull() == false)
             {
                 return line.TryTakePoint();
             }
@@ -47,42 +44,38 @@ public class Inventory : MonoBehaviour
         _lines.Add(lineOfPoints);
     }
 
-    public bool IsTaken(int index)
-    {
-        return _lines[index].IsFull;
-    }
-
-    public bool CheckInventoruIsFull()
+    public bool CheckIsInventoryFull()
     {
         int numberIsTakenLines = 0;
+        bool isFull = false;
 
         foreach (LineOfPoints line in _lines)
         {
-            if (line.IsFull == true)
+            if (line.CheckLineIsFull() == true)
             {
                 numberIsTakenLines++;
             }
 
             if (numberIsTakenLines == _lines.Count)
             {
-                _isInventoryFull = true;
+                isFull = true;                
             }
             else
             {
-                _isInventoryFull = false;
+                isFull = false;
             }
         }
 
-        return _isInventoryFull;
+        return isFull;
     }
 
     public Point TryTakePoin()
     {
         foreach (var line in _lines)
         {
-            if (CheckInventoruIsFull() == false)
+            if (CheckIsInventoryFull() == false)
             {
-                if (line.IsFull == false)
+                if (line.CheckLineIsFull() == false)
                 {
                     return line.TryTakePoint();
                 }                

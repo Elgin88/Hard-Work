@@ -17,11 +17,14 @@ public class PointFinderInLine : MonoBehaviour
 
         while (isWork)
         {
-            int index = Random.Range(0, _points.Length);
+            int index = Random.Range(0, _points.Length);            
 
             if (_points[index].IsTaken == false)
             {
+                _points[index].Take();
+
                 isWork = false;
+
                 return _points[index];
             }
         }

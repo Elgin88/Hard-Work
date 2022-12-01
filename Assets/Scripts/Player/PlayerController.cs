@@ -6,11 +6,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private Vector3 _currentDirection;
     private PlayerSpeedSetter _playerSpeedSetter;
     private VariableJoystick _joystick;
     private Coroutine _moveWork = null;
     private Rigidbody _rigidbody;
-    private Player _player;
 
     private float _currentHorizontal;
     private float _currentVertical;
@@ -18,17 +18,19 @@ public class PlayerController : MonoBehaviour
     private bool _isJoystickTurn = false;
 
     public bool IsJoystickWork => _isJoystickTurn;
+    public Vector3 CurrentDirection =>_currentDirection;
 
     private void Start()
     {
         _playerSpeedSetter = GetComponent<PlayerSpeedSetter>();
         _rigidbody = GetComponent<Rigidbody>();
-        _player = GetComponent<Player>();
 
         _joystick = FindObjectOfType<VariableJoystick>();
 
         _currentHorizontal = _joystick.Horizontal;
         _currentVertical = _joystick.Vertical;
+
+        _currentDirection = Vector3.right;
 
         StartCoroutineMove();
     }
@@ -43,10 +45,16 @@ public class PlayerController : MonoBehaviour
 
                 _rigidbody.velocity = new Vector3(_joystick.Horizontal * _playerSpeedSetter.CurrentSpeed, 0, _joystick.Vertical * _playerSpeedSetter.CurrentSpeed);
 
+                
                 _currentHorizontal = _joystick.Horizontal;
                 _currentVertical = _joystick.Vertical;
 
-                transform.rotation = Quaternion.LookRotation(_player.CurrentDuraction);
+                if (_rigidbody.velocity != Vector3.zero)
+                {
+                    _currentDirection = _rigidbody.velocity;
+                }
+
+                    transform.rotation = Quaternion.LookRotation(_currentDirection);
             }
                 
             else
@@ -55,7 +63,12 @@ public class PlayerController : MonoBehaviour
 
                 _rigidbody.velocity = new Vector3(_currentHorizontal * _playerSpeedSetter.CurrentSpeed, 0, _currentVertical * _playerSpeedSetter.CurrentSpeed);
 
-                transform.rotation = Quaternion.LookRotation(_player.CurrentDuraction);
+                if (_rigidbody.velocity != Vector3.zero)
+                {
+                    _currentDirection = _rigidbody.velocity;
+                }
+
+                transform.rotation = Quaternion.LookRotation(_currentDirection);
             }
 
             yield return null;
@@ -78,5 +91,4 @@ public class PlayerController : MonoBehaviour
             _moveWork = null;
         }
     }
-}
-	
+}	

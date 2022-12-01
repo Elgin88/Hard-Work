@@ -27,12 +27,18 @@ public class LineOfPointsCreater : MonoBehaviour
     {
         while (true)
         {
-            if (_inventory.CheckInventoruIsFull() == true && _inventory.GetCountLines() < _maxNumberLines)
+            if (_inventory.CheckIsInventoryFull() == true)
             {
-                LineOfPoints tempLineOfPoints = Instantiate(_template, _inventory.transform);
-                tempLineOfPoints.MoveUp(_deltaBetweenBlocks * _inventory.GetCountLines());
-                _inventory.AddLine(tempLineOfPoints);
+                Debug.Log("Inventory - " + _inventory.CheckIsInventoryFull());
+
+                if (_inventory.GetCountLines() < _maxNumberLines)
+                {
+                    LineOfPoints tempLineOfPoints = Instantiate(_template, _inventory.transform);
+                    tempLineOfPoints.MoveUp(_deltaBetweenBlocks * _inventory.GetCountLines());
+                    _inventory.AddLine(tempLineOfPoints);
+                }
             }
+
             yield return null;
         }        
     }

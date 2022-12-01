@@ -30,8 +30,7 @@ public class Block : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Player>(out Player player))
         {
-            KinematicControll(false);
-            UseGravityControll(true);
+            KinematicControll(true);
 
             if (Time.realtimeSinceStartup > _delayForTaken)
             {
@@ -41,9 +40,6 @@ public class Block : MonoBehaviour
             if (Time.realtimeSinceStartup > _delayForTaken & _point != null)
             {
                 KinematicControll(false);
-                UseGravityControll(false);
-
-                _point.TakePoint();
                 _moverBlock.StartCoroutineFlight(_point);
             }            
         }
@@ -52,11 +48,6 @@ public class Block : MonoBehaviour
     public void KinematicControll(bool status)
     {
         _rigidbody.isKinematic = status;
-    }
-
-    public void UseGravityControll(bool status)
-    {
-        _rigidbody.useGravity = status;
     }
 
     public void SetPosition(float x, float y, float z)

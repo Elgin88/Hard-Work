@@ -17,7 +17,7 @@ public class PointFinder : MonoBehaviour
     {
         for (int i = 0; i < _inventory.GetCountLines(); i++)
         {
-            if (_inventory.IsTaken(i) == false)
+            if (_inventory.CheckIsInventoryFull() == false)
             {
                 return _inventory.TryTakePoint(i);
             }
