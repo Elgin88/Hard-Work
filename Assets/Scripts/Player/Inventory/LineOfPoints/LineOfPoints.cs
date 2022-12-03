@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PointFinderInLine))]
-[RequireComponent(typeof(Point))]
 
 public class LineOfPoints : MonoBehaviour
 {
     private Point [] _points;
 
     private PointFinderInLine _pointFinderInLine;
-    private Coroutine _checkIsTakenWork = null;    
+    private bool _isFull;
     private int _numberTakenPoint = 0;
     
     public int NumberTakenPoint => _numberTakenPoint;
@@ -26,14 +25,9 @@ public class LineOfPoints : MonoBehaviour
         _numberTakenPoint++;
     }
 
-    public Point TryTakePoint()
+    public Point TakePoint()
     {
-        if (CheckLineIsFull() == false)
-        {
-            return _pointFinderInLine.TakeRandomPoin();
-        }
-
-        return null;        
+        return _pointFinderInLine.TakeRandomPoin();              
     }
 
     public void MoveUp(float deltaY)
@@ -43,8 +37,7 @@ public class LineOfPoints : MonoBehaviour
 
     public bool CheckLineIsFull()
     {
-        int numberOfTakenPoints = 0;
-        bool isFull = false;
+        int numberOfTakenPoints = 0;        
 
         foreach (Point point in _points)
         {
@@ -56,13 +49,13 @@ public class LineOfPoints : MonoBehaviour
 
         if (_points.Length == numberOfTakenPoints)
         {
-            isFull = true;
+            _isFull = true;
         }
         else
         {
-            isFull = false;
+            _isFull = false;
         }
 
-        return isFull;           
+        return _isFull;           
     }
 }

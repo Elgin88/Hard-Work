@@ -2,15 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(LineOfPoints))]
+
 public class Inventory : MonoBehaviour
 {
     private List<LineOfPoints> _lines = new List<LineOfPoints>();
 
+    private LineOfPointsCreater _lineCreater;
+    private bool _isFull;
+
     private void Start()
     {
-        LineOfPoints []tempLineOfPoints = GetComponentsInChildren<LineOfPoints>();
+        LineOfPoints []tempLine = GetComponentsInChildren<LineOfPoints>();
+        _lineCreater = GetComponent<LineOfPointsCreater>();
 
-        foreach (var line in tempLineOfPoints)
+        foreach (var line in tempLine)
         {
             _lines.Add(line);
         }
@@ -32,7 +38,7 @@ public class Inventory : MonoBehaviour
         {
             if (line.CheckLineIsFull() == false)
             {
-                return line.TryTakePoint();
+                return line.TakePoint();
             }
         }
 
@@ -47,7 +53,6 @@ public class Inventory : MonoBehaviour
     public bool CheckIsInventoryFull()
     {
         int numberIsTakenLines = 0;
-        bool isFull = false;
 
         foreach (LineOfPoints line in _lines)
         {
@@ -55,30 +60,34 @@ public class Inventory : MonoBehaviour
             {
                 numberIsTakenLines++;
             }
-
-            if (numberIsTakenLines == _lines.Count)
-            {
-                isFull = true;                
-            }
-            else
-            {
-                isFull = false;
-            }
         }
 
-        return isFull;
+        if (numberIsTakenLines == _lines.Count)
+        {
+            _isFull = true;
+        }
+        else
+        {
+            _isFull = false;
+        }
+
+        return _isFull;
     }
 
     public Point TryTakePoin()
     {
-        foreach (var line in _lines)
+        CheckIsInventoryFull();
+
+        if (_isFull == true)
         {
-            if (CheckIsInventoryFull() == false)
+            _lineCreater.TryCreateLine();
+        }
+
+        if (_isFull == false)
+        {
+            foreach (var line in _lines)
             {
-                if (line.CheckLineIsFull() == false)
-                {
-                    return line.TryTakePoint();
-                }                
+                line.TakePoint();
             }
         }
 

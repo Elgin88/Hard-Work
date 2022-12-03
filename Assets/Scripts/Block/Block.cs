@@ -14,10 +14,10 @@ public class Block : MonoBehaviour
     private Inventory _inventory;
     private Rigidbody _rigidbody;
     private Player _player;    
-    private Point _point;
+    private Point _pointOnPlayer;
 
     public Player Player => _player;
-    public Point BlockPoint => _point;
+    public Point BlockPoint => _pointOnPlayer;
 
     private void Start()
     {
@@ -32,15 +32,14 @@ public class Block : MonoBehaviour
         {
             KinematicControll(true);
 
-            if (Time.realtimeSinceStartup > _delayForTaken)
-            {
-                _point = _inventory.TryTakePoin();
-            }
+            _pointOnPlayer = _inventory.TryTakePoin();
 
-            if (Time.realtimeSinceStartup > _delayForTaken & _point != null)
+            Debug.Log(_pointOnPlayer);
+
+            if (_pointOnPlayer != null)
             {
                 KinematicControll(false);
-                _moverBlock.StartCoroutineFlight(_point);
+                _moverBlock.StartCoroutineFlight(_pointOnPlayer);
             }            
         }
     }
