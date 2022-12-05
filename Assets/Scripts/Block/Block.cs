@@ -4,49 +4,78 @@ using UnityEngine;
 
 [RequireComponent(typeof(BlockMover))]
 [RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(BoxCollider))]
 
 public class Block : MonoBehaviour
 {
     [SerializeField] private float _delayForTaken;
 
+    private BoxCollider _collider;
     private BlockMover _moverBlock;
     private Inventory _inventory;
     private Rigidbody _rigidbody;
-    private Player _player;    
-    private Point _pointOnPlayer;
+    private Player _player;
+    private Point _point;
 
     public Player Player => _player;
-    public Point BlockPoint => _pointOnPlayer;
+    public Point Point => _point;
 
     private void Start()
     {
         _inventory = FindObjectOfType<Player>().GetComponentInChildren<Inventory>();
         _moverBlock = GetComponent<BlockMover>();
         _rigidbody = GetComponent<Rigidbody>();
+        _collider = GetComponent<BoxCollider>();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.TryGetComponent<Player>(out Player player))
         {
-            KinematicControll(true);
+            KinematicOff();
+            GravityOn();
 
-            _pointOnPlayer = _inventory.TryTakePoin();
+            _point = _inventory.TryTakePoin();
 
-            Debug.Log(_pointOnPlayer);
-
-            if (_pointOnPlayer != null)
+            if (_point != null)
             {
-                KinematicControll(false);
-                _moverBlock.StartCoroutineFlight(_pointOnPlayer);
+                KinematicOn();
+                ColliderOff();
+                GravityOff();
+
+                _moverBlock.StartCoroutineFlight(_point);                
             }            
         }
     }
 
-    public void KinematicControll(bool status)
+    public void GravityOn()
     {
-        _rigidbody.isKinematic = status;
+        _rigidbody.useGravity = true;
+    }
+
+    public void GravityOff()
+    {
+        _rigidbody.useGravity = false;
+    }
+
+    public void ColliderOn()
+    {
+        _collider.enabled = true;
+    }
+
+    public void ColliderOff()
+    {
+        _collider.enabled = false;
+    }
+
+    public void KinematicOn()
+    {
+        _rigidbody.isKinematic = true;
+    }
+
+    public void KinematicOff()
+    {
+        _rigidbody.isKinematic = false;
     }
 
     public void SetPosition(float x, float y, float z)

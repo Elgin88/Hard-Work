@@ -1,101 +1,71 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(LineOfPoints))]
+[RequireComponent(typeof(LineOfPointsCreater))]
 
 public class Inventory : MonoBehaviour
 {
-    private List<LineOfPoints> _lines = new List<LineOfPoints>();
-
-    private LineOfPointsCreater _lineCreater;
     private bool _isFull;
+
+    private List<LineOfPoints> _lines = new List<LineOfPoints>();
+    private LineOfPointsCreater _lineOfPointsCreater;
 
     private void Start()
     {
-        LineOfPoints []tempLine = GetComponentsInChildren<LineOfPoints>();
-        _lineCreater = GetComponent<LineOfPointsCreater>();
+        LineOfPoints[] tempLines = GetComponentsInChildren<LineOfPoints>();
 
-        foreach (var line in tempLine)
+        foreach (LineOfPoints tempLine in tempLines)
         {
-            _lines.Add(line);
+            _lines.Add(tempLine);
         }
+
+        _lineOfPointsCreater = GetComponent<LineOfPointsCreater>();
+        _isFull = CheckIsFull();
     }
 
-    public LineOfPoints GetLineOfPoints(int index)
+    public void AddLine(LineOfPoints line)
     {
-        return _lines[index];
+        _lines.Add(line);
     }
 
-    public int GetCountLines()
+    public int GetCountOfLines()
     {
         return _lines.Count;
     }
 
-    public Point TryTakePoint(int index)
+    public Point TryTakePoin()
     {
-        foreach (var line in _lines)
+        Debug.Log("Invertory - CheckIsFull: " + CheckIsFull());
+
+        if (CheckIsFull() == false)        
         {
-            if (line.CheckLineIsFull() == false)
+            foreach (LineOfPoints line in _lines)
             {
-                return line.TakePoint();
-            }
-        }
-
-        return null;
-    }
-
-    public void AddLine(LineOfPoints lineOfPoints)
-    {
-        _lines.Add(lineOfPoints);
-    }
-
-    public bool CheckIsInventoryFull()
-    {
-        int numberIsTakenLines = 0;
-
-        foreach (LineOfPoints line in _lines)
-        {
-            if (line.CheckLineIsFull() == true)
-            {
-                numberIsTakenLines++;
-            }
-        }
-
-        if (numberIsTakenLines == _lines.Count)
-        {
-            _isFull = true;
+                return line.TryTakePoint();
+            }            
         }
         else
         {
-            _isFull = false;
-        }
-
-        return _isFull;
-    }
-
-    public Point TryTakePoin()
-    {
-        CheckIsInventoryFull();
-
-        if (_isFull == true)
-        {
-            _lineCreater.TryCreateLine();
-        }
-
-        if (_isFull == false)
-        {
-            foreach (var line in _lines)
-            {
-                line.TakePoint();
-            }
+            _lineOfPointsCreater.TryCreateLine();
         }
 
         return null;
     }
 
-    public LineOfPoints GetLastLineInList()
+    public bool CheckIsFull()
     {
-        return _lines[_lines.Count - 1];
+        foreach (LineOfPoints line in _lines)
+        {
+            if (line.CheckIsFull() == false)
+            {
+                _isFull = false;
+                return _isFull;
+            }
+        }
+
+        _isFull = true;
+        return _isFull;
     }
 }

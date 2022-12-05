@@ -1,61 +1,52 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PointFinderInLine))]
-
 public class LineOfPoints : MonoBehaviour
 {
-    private Point [] _points;
-
-    private PointFinderInLine _pointFinderInLine;
-    private bool _isFull;
-    private int _numberTakenPoint = 0;
-    
-    public int NumberTakenPoint => _numberTakenPoint;
+    private Point[] _points;
+    private bool _isFull = false;
 
     private void Start()
     {
-        _pointFinderInLine = GetComponent<PointFinderInLine>();
         _points = GetComponentsInChildren<Point>();
-    } 
-
-    public void IncreaceNumberTakenPoint()
-    {
-        _numberTakenPoint++;
     }
 
-    public Point TakePoint()
+    internal Point TryTakePoint()
     {
-        return _pointFinderInLine.TakeRandomPoin();              
+        if (CheckIsFull() == false)
+        {
+            foreach (Point point in _points)
+            {
+                if (point.CheckIsTaken() == false)
+                {
+                    point.Take();
+                    return point;
+                }
+            }            
+        }
+
+        return null;
     }
 
-    public void MoveUp(float deltaY)
+    public bool CheckIsFull()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y + deltaY, transform.position.z);
-    }
-
-    public bool CheckLineIsFull()
-    {
-        int numberOfTakenPoints = 0;        
-
         foreach (Point point in _points)
         {
-            if (point.IsTaken == true)
+            if (point.CheckIsTaken() == false)
             {
-                numberOfTakenPoints++;
+                _isFull = false;
+                return _isFull;
             }
         }
 
-        if (_points.Length == numberOfTakenPoints)
-        {
-            _isFull = true;
-        }
-        else
-        {
-            _isFull = false;
-        }
+        _isFull = true;
+        return _isFull;
+    }
 
-        return _isFull;           
+    internal void MoveUp(float deltaBetweenBlocks)
+    {
+        transform.position = new Vector3(transform.position.x, transform.position.y + deltaBetweenBlocks, transform.position.z);
     }
 }

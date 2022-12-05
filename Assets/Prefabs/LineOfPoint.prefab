@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 487237700893543883}
   - component: {fileID: 6541730180338864512}
-  - component: {fileID: 8337634796610389155}
-  - component: {fileID: 7435219709739294890}
   m_Layer: 0
   m_Name: LineOfPoint
   m_TagString: Untagged
@@ -52,30 +50,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05e75e58908ef4fffa4f0677f515f40c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8337634796610389155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 487237700893543892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 648a1cd6b23f84244835166d9921247a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7435219709739294890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 487237700893543892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afe21346d64d9434ca4241ec0bba904b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &487237700911999974

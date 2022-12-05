@@ -1,20 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Point : MonoBehaviour
 {
-    private bool _isTaken = false;
-
-    public bool IsTaken => _isTaken;
+    private bool _isTaken = false;    
 
     public void Take()
     {
         _isTaken = true;
     }
 
-    public Vector3 FindCurrentPosition()
+    public bool CheckIsTaken()
     {
-        return transform.position;
+        if (_isTaken == true)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

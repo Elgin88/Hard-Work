@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,17 +17,22 @@ public class LineOfPointsCreater : MonoBehaviour
     {
         _inventory = GetComponent<Inventory>();
 
-        if (_template == null || _deltaBetweenBlocks == 0 || _maxNumberLines==0)
-            Debug.Log("No SerializeField in LineOfPointsCreater ");
+        if (_template == null || _deltaBetweenBlocks ==0 || _maxNumberLines == 0)
+        {
+            Debug.Log("LineOfPointsCreater no SerializeField");
+        }
     }
 
     public void TryCreateLine()
     {
-        if (_inventory.GetCountLines() < _maxNumberLines)
+        if (_inventory.CheckIsFull() == true)
         {
-            LineOfPoints tempLineOfPoints = Instantiate(_template, _inventory.transform);
-            tempLineOfPoints.MoveUp(_deltaBetweenBlocks * _inventory.GetCountLines());
-            _inventory.AddLine(tempLineOfPoints);
+            if (_inventory.GetCountOfLines() <= _maxNumberLines)
+            {
+                LineOfPoints line = Instantiate(_template, _inventory.transform);
+                line.MoveUp(_deltaBetweenBlocks);
+                _inventory.AddLine(line);
+            }
         }
     }
 }
