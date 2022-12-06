@@ -9,7 +9,9 @@ public class LineOfPointsCreater : MonoBehaviour
 {
     [SerializeField] private LineOfPoints _template;
     [SerializeField] private float _deltaBetweenBlocks;
-    [SerializeField] private float _maxNumberLines;
+    [SerializeField] private int _maxNumberLines;
+
+    public int MaxNumberLines => _maxNumberLines;
 
     private Inventory _inventory;
 
@@ -30,7 +32,7 @@ public class LineOfPointsCreater : MonoBehaviour
             if (_inventory.GetCountOfLines() <= _maxNumberLines)
             {
                 LineOfPoints line = Instantiate(_template, _inventory.transform);
-                line.MoveUp(_deltaBetweenBlocks);
+                line.MoveUp(_deltaBetweenBlocks * _inventory.GetCountOfLines());
                 _inventory.AddLine(line);
             }
         }

@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private bool _isFull;
+    private bool _isFull = false;
 
     private List<LineOfPoints> _lines = new List<LineOfPoints>();
     private LineOfPointsCreater _lineOfPointsCreater;
@@ -22,7 +22,6 @@ public class Inventory : MonoBehaviour
         }
 
         _lineOfPointsCreater = GetComponent<LineOfPointsCreater>();
-        _isFull = CheckIsFull();
     }
 
     public void AddLine(LineOfPoints line)
@@ -37,18 +36,21 @@ public class Inventory : MonoBehaviour
 
     public Point TryTakePoin()
     {
-        Debug.Log("Invertory - CheckIsFull: " + CheckIsFull());
-
-        if (CheckIsFull() == false)        
+        if (CheckIsFull() == true && _lines.Count < _lineOfPointsCreater.MaxNumberLines)        
         {
-            foreach (LineOfPoints line in _lines)
-            {
-                return line.TryTakePoint();
-            }            
+            _lineOfPointsCreater.TryCreateLine();
         }
         else
         {
-            _lineOfPointsCreater.TryCreateLine();
+            foreach (LineOfPoints line in _lines)
+            {
+                Point point = line.TryTakePoint();
+
+                if (point!=null)
+                {
+                    return point;
+                }                
+            }
         }
 
         return null;

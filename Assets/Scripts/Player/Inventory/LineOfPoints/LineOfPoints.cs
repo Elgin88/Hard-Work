@@ -15,7 +15,7 @@ public class LineOfPoints : MonoBehaviour
 
     internal Point TryTakePoint()
     {
-        if (CheckIsFull() == false)
+        if (CheckIsFull() == false & _points != null)
         {
             foreach (Point point in _points)
             {
@@ -24,7 +24,7 @@ public class LineOfPoints : MonoBehaviour
                     point.Take();
                     return point;
                 }
-            }            
+            }
         }
 
         return null;
@@ -32,16 +32,20 @@ public class LineOfPoints : MonoBehaviour
 
     public bool CheckIsFull()
     {
-        foreach (Point point in _points)
+        if (_points !=null)
         {
-            if (point.CheckIsTaken() == false)
+            foreach (Point point in _points)
             {
-                _isFull = false;
-                return _isFull;
+                if (point.CheckIsTaken() == false)
+                {
+                    _isFull = false;
+                    return _isFull;
+                }
             }
-        }
 
-        _isFull = true;
+            _isFull = true;
+        }
+        
         return _isFull;
     }
 
