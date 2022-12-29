@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    [SerializeField] private float _delayForTaken;
+    [SerializeField] private float _delayForTaken = 8;
 
     private BoxCollider _collider;
     private BlockMover _moverBlock;
@@ -30,8 +30,12 @@ public class Block : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.TryGetComponent<Player>(out Player player))
+        if (collision.gameObject.TryGetComponent<Destroyer>(out Destroyer destroyer))
         {
+
+            Debug.Log(Time.time);
+
+
             KinematicOff();
             GravityOn();
 

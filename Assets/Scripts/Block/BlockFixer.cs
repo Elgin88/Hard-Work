@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class BlockFixer : MonoBehaviour
 {
-    private LineOfPointsCreater _blockPointCreate;
-    private Point _blockPoint;
     private Coroutine _fixBlock = null;
     private Player _player;
+    private Point _blockPoint;
     private Block _block;
 
     private void Start()
     {
         _player = FindObjectOfType<Player>().GetComponent<Player>();
-        _blockPointCreate = FindObjectOfType<LineOfPoints>().GetComponent<LineOfPointsCreater>();
     }
 
     private IEnumerator FixBlock()

@@ -7,13 +7,13 @@ using UnityEngine;
 
 public class BlockMover : MonoBehaviour
 {
-    [SerializeField] private float _flightSpeed;
-    [SerializeField] private float _tossHeight;    
+    [SerializeField] private float _flightSpeed = 10;
+    [SerializeField] private float _tossHeight = 3;    
 
     private BlockFixer _blockFixer;
-    private Point _pointOnPlayer;
     private Coroutine _flightWork = null;
     private Vector3 _topFlightPoint;
+    private Point _pointOnPlayer;
     private Block _block;
     private bool _isReachTopPoint = false;
 
@@ -21,8 +21,8 @@ public class BlockMover : MonoBehaviour
 
     private void Start()
     {
-        _block = GetComponent<Block>();
         _blockFixer = GetComponent<BlockFixer>();
+        _block = GetComponent<Block>();
 
         if (_flightSpeed == 0)
             Debug.Log("In BlocMover no _flightSpeed");
