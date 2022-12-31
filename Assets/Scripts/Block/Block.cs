@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(BlockMover))]
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(BlockFixer))]
 
 public class Block : MonoBehaviour
 {
@@ -30,16 +31,17 @@ public class Block : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.TryGetComponent<Destroyer>(out Destroyer destroyer))
+        if (collision.gameObject.TryGetComponent<Player>(out Player player))
         {
-
-            Debug.Log(Time.time);
-
-
             KinematicOff();
             GravityOn();
 
             _point = _inventory.TryTakePoin();
+
+            if (_point == null)
+            {
+                Debug.Log("Нет точки" + Time.time);
+            }
 
             if (_point != null)
             {
@@ -47,8 +49,8 @@ public class Block : MonoBehaviour
                 ColliderOff();
                 GravityOff();
 
-                _moverBlock.StartCoroutineFlight(_point);                
-            }            
+                _moverBlock.StartCoroutineFlight(_point);
+            }
         }
     }
 

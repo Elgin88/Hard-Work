@@ -36,20 +36,21 @@ public class Inventory : MonoBehaviour
 
     public Point TryTakePoin()
     {
-        if (CheckIsFull() == true && _lines.Count < _lineOfPointsCreater.MaxNumberLines)        
+        if (CheckIsFull() == true)        
         {
-            _lineOfPointsCreater.TryCreateLine();
-        }
-        else
-        {
-            foreach (LineOfPoints line in _lines)
+            if (_lines.Count < _lineOfPointsCreater.MaxNumberLines)
             {
-                Point point = line.TryTakePoint();
+                _lineOfPointsCreater.CreateLine();
+            }
+        }
 
-                if (point!=null)
-                {
-                    return point;
-                }                
+        foreach (LineOfPoints line in _lines)
+        {
+            Point point = line.TryTakePoint();
+
+            if (point != null)
+            {
+                return point;
             }
         }
 

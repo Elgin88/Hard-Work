@@ -49,7 +49,7 @@ public class LineOfPoints : MonoBehaviour
         return _isFull;
     }
 
-    internal void MoveUp(float deltaBetweenBlocks)
+    public void MoveUp(float deltaBetweenBlocks)
     {
         transform.position = new Vector3(transform.position.x, transform.position.y + deltaBetweenBlocks, transform.position.z);
     }

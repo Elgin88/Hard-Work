@@ -25,16 +25,10 @@ public class LineOfPointsCreater : MonoBehaviour
         }
     }
 
-    public void TryCreateLine()
+    public void CreateLine()
     {
-        if (_inventory.CheckIsFull() == true)
-        {
-            if (_inventory.GetCountOfLines() <= _maxNumberLines)
-            {
-                LineOfPoints line = Instantiate(_template, _inventory.transform);
-                line.MoveUp(_deltaBetweenBlocks * _inventory.GetCountOfLines());
-                _inventory.AddLine(line);
-            }
-        }
+        LineOfPoints line = Instantiate(_template, _inventory.transform);
+        line.MoveUp(_deltaBetweenBlocks * _inventory.GetCountOfLines());
+        _inventory.AddLine(line);
     }
 }

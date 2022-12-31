@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Player))]
-[RequireComponent(typeof(PlayerController))]
+[RequireComponent(typeof(PlayerMover))]
 
 public class PlayerSpeedSetter : MonoBehaviour
 {
@@ -12,7 +12,7 @@ public class PlayerSpeedSetter : MonoBehaviour
     [SerializeField] private float _deltaUpSpeed;
     [SerializeField] private float _deltaDownSpeed;
 
-    private PlayerController _playerController;
+    private PlayerMover _playerController;
     private Coroutine _changeSpeedWork = null;
     private float _currentSpeed;
 
@@ -24,7 +24,7 @@ public class PlayerSpeedSetter : MonoBehaviour
 
     private void Start()
     {
-        _playerController = GetComponent<PlayerController>();
+        _playerController = GetComponent<PlayerMover>();
         StartCoroutineChangeSpeed();
     }
 
@@ -32,7 +32,7 @@ public class PlayerSpeedSetter : MonoBehaviour
     {
         while (true)
         {
-            if (_playerController.IsJoystickWork)
+            if (_playerController.IsJoystickTurn == true)
             {
                 _currentSpeed = Mathf.MoveTowards(_currentSpeed, _maxSpeed, _deltaUpSpeed * Time.deltaTime);
             }

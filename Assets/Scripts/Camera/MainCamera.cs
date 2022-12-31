@@ -12,7 +12,7 @@ public class MainCamera : MonoBehaviour
     [SerializeField] private float _speedChangeY;
     [SerializeField] private float _speedChangeZ;
 
-    private PlayerController _player;
+    private PlayerMover _player;
     private Coroutine _moveWork = null;
 
     private float _currentCameraPositionX;
@@ -21,7 +21,7 @@ public class MainCamera : MonoBehaviour
 
     private void Start()
     {
-        _player = FindObjectOfType<PlayerController>();
+        _player = FindObjectOfType<PlayerMover>();
 
         _currentCameraPositionX = _player.transform.position.x;
         _currentCameraPositionY = _player.transform.position.y - _deltaY;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BlockFixer : MonoBehaviour
 {
+    private PlayerMover _playerMover;
     private Coroutine _fixBlock = null;
     private Player _player;
     private Point _blockPoint;
@@ -11,6 +12,7 @@ public class BlockFixer : MonoBehaviour
 
     private void Start()
     {
+        _playerMover = FindObjectOfType<Player>().GetComponent<PlayerMover>();
         _player = FindObjectOfType<Player>().GetComponent<Player>();
     }
 
@@ -19,7 +21,7 @@ public class BlockFixer : MonoBehaviour
         while (true)
         {
             _block.SetPosition(_blockPoint.transform.position.x , _blockPoint.transform.position.y, _blockPoint.transform.position.z);
-            _block.SetQuaternion(_player.GetCurrentDirection());            
+            _block.SetQuaternion(_player.GetCurrentDirection());
 
             yield return null;
         }
@@ -28,7 +30,8 @@ public class BlockFixer : MonoBehaviour
     public void StartCoroutineFixBlock(Block block, Point blockPoint)
     {
         _block = block;
-        _blockPoint = blockPoint;          
+        _blockPoint = blockPoint;
+        _block.KinematicOff();
 
         if (_fixBlock == null)
         {

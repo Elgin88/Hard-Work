@@ -4,21 +4,21 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerSpeedSetter))]
 [RequireComponent(typeof(Player))]
 
-public class PlayerController : MonoBehaviour
+public class PlayerMover : MonoBehaviour
 {
-    private Vector3 _currentDirection;
     private PlayerSpeedSetter _playerSpeedSetter;
     private VariableJoystick _joystick;
-    private Coroutine _moveWork = null;
     private Rigidbody _rigidbody;
+    private Coroutine _moveWork = null;
+    private Vector3 _currentDirectionOfVelocity;
 
-    private float _currentHorizontal;
-    private float _currentVertical;
+    private float _currentJoystickValueHorizontal;
+    private float _currentJoystickValueVertical;
 
     private bool _isJoystickTurn = false;
 
-    public bool IsJoystickWork => _isJoystickTurn;
-    public Vector3 CurrentDirection =>_currentDirection;
+    public bool IsJoystickTurn => _isJoystickTurn;
+    public Vector3 CurrentDirection =>_currentDirectionOfVelocity;
 
     private void Start()
     {
@@ -27,10 +27,10 @@ public class PlayerController : MonoBehaviour
 
         _joystick = FindObjectOfType<VariableJoystick>();
 
-        _currentHorizontal = _joystick.Horizontal;
-        _currentVertical = _joystick.Vertical;
+        _currentJoystickValueHorizontal = _joystick.Horizontal;
+        _currentJoystickValueVertical = _joystick.Vertical;
 
-        _currentDirection = Vector3.right;
+        _currentDirectionOfVelocity = Vector3.right;
 
         StartCoroutineMove();
     }
@@ -46,29 +46,27 @@ public class PlayerController : MonoBehaviour
                 _rigidbody.velocity = new Vector3(_joystick.Horizontal * _playerSpeedSetter.CurrentSpeed, 0, _joystick.Vertical * _playerSpeedSetter.CurrentSpeed);
 
                 
-                _currentHorizontal = _joystick.Horizontal;
-                _currentVertical = _joystick.Vertical;
+                _currentJoystickValueHorizontal = _joystick.Horizontal;
+                _currentJoystickValueVertical = _joystick.Vertical;
 
                 if (_rigidbody.velocity != Vector3.zero)
                 {
-                    _currentDirection = _rigidbody.velocity;
+                    _currentDirectionOfVelocity = _rigidbody.velocity;
                 }
 
-                    transform.rotation = Quaternion.LookRotation(_currentDirection);
+                    transform.rotation = Quaternion.LookRotation(_currentDirectionOfVelocity);
             }
                 
             else
             {
                 _isJoystickTurn = false;
 
-                _rigidbody.velocity = new Vector3(_currentHorizontal * _playerSpeedSetter.CurrentSpeed, 0, _currentVertical * _playerSpeedSetter.CurrentSpeed);
+                _rigidbody.velocity = new Vector3(_currentJoystickValueHorizontal * _playerSpeedSetter.CurrentSpeed, 0, _currentJoystickValueVertical * _playerSpeedSetter.CurrentSpeed);
 
                 if (_rigidbody.velocity != Vector3.zero)
-                {
-                    _currentDirection = _rigidbody.velocity;
-                }
+                    _currentDirectionOfVelocity = _rigidbody.velocity;                
 
-                transform.rotation = Quaternion.LookRotation(_currentDirection);
+                transform.rotation = Quaternion.LookRotation(_currentDirectionOfVelocity);
             }
 
             yield return null;
