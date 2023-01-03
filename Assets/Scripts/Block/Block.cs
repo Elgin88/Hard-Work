@@ -19,7 +19,7 @@ public class Block : MonoBehaviour
     private Point _point;
 
     public Player Player => _player;
-    public Point Point => _point;
+    public Point PointOnPlayer => _point;
 
     private void Start()
     {
@@ -28,6 +28,8 @@ public class Block : MonoBehaviour
         _moverBlock = GetComponent<BlockMover>();
         _rigidbody = GetComponent<Rigidbody>();
         _collider = GetComponent<BoxCollider>();
+
+        _rigidbody.centerOfMass = new Vector3(0,0,0);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -37,24 +39,19 @@ public class Block : MonoBehaviour
             KinematicOff();
             GravityOn();
 
-            _point = _inventory.TryTakePoin();
-
-            if (_point == null)
-            {
-                Debug.Log("Нет точки" + Time.time);
-            }
-
+            _point = _inventory.TryTakePoint();
+            
             if (_point != null)
             {
                 KinematicOn();
                 ColliderOff();
                 GravityOff();
-
-                _moverBlock.StartCoroutineFlight(_point);
+                
+                _moverBlock.StartCoroutineFlight();
             }
         }
     }
-
+    
     public void GravityOn()
     {
         _rigidbody.useGravity = true;
@@ -77,7 +74,7 @@ public class Block : MonoBehaviour
 
     public void KinematicOn()
     {
-        _rigidbody.isKinematic = true;
+        _rigidbody.isKinematic = true;        
     }
 
     public void KinematicOff()

@@ -8,22 +8,19 @@ public class LineOfPoints : MonoBehaviour
     private Point[] _points;
     private bool _isFull = false;
 
-    private void Start()
+    private void OnEnable()
     {
         _points = GetComponentsInChildren<Point>();
     }
 
-    internal Point TryTakePoint()
+    internal Point TakePoint()
     {
-        if (CheckIsFull() == false & _points != null)
+        foreach (Point point in _points)
         {
-            foreach (Point point in _points)
+            if (point.CheckIsTaken() == false)
             {
-                if (point.CheckIsTaken() == false)
-                {
-                    point.Take();
-                    return point;
-                }
+                point.Take();
+                return point;
             }
         }
 
@@ -32,19 +29,18 @@ public class LineOfPoints : MonoBehaviour
 
     public bool CheckIsFull()
     {
-        if (_points !=null)
-        {
-            foreach (Point point in _points)
-            {
-                if (point.CheckIsTaken() == false)
-                {
-                    _isFull = false;
-                    return _isFull;
-                }
-            }
+        //_points = GetComponentsInChildren<Point>();
 
-            _isFull = true;
+        foreach (Point point in _points)
+        {
+            if (point.CheckIsTaken() == false)
+            {
+                _isFull = false;
+                return _isFull;
+            }
         }
+        
+        _isFull = true;
         
         return _isFull;
     }

@@ -24,6 +24,11 @@ public class Inventory : MonoBehaviour
         _lineOfPointsCreater = GetComponent<LineOfPointsCreater>();
     }
 
+    public void CreateLine()
+    {
+        _lineOfPointsCreater.CreateLine();
+    }
+
     public void AddLine(LineOfPoints line)
     {
         _lines.Add(line);
@@ -34,23 +39,23 @@ public class Inventory : MonoBehaviour
         return _lines.Count;
     }
 
-    public Point TryTakePoin()
+    public Point TryTakePoint()
     {
-        if (CheckIsFull() == true)        
+        if (CheckIsFull())
         {
-            if (_lines.Count < _lineOfPointsCreater.MaxNumberLines)
-            {
-                _lineOfPointsCreater.CreateLine();
-            }
+            CreateLine();
         }
 
-        foreach (LineOfPoints line in _lines)
+        if (CheckIsFull() == false)
         {
-            Point point = line.TryTakePoint();
-
-            if (point != null)
+            foreach (LineOfPoints line in _lines)
             {
-                return point;
+                Point point = line.TakePoint();
+
+                if (point != null)
+                {
+                    return point;
+                }
             }
         }
 

@@ -8,20 +8,19 @@ using UnityEngine;
 public class BlockMover : MonoBehaviour
 {
     [SerializeField] private float _flightSpeed = 10;
-    [SerializeField] private float _tossHeight = 3;    
+    [SerializeField] private float _tossHeight = 3;
 
     private BlockFixer _blockFixer;
+    private Rigidbody _rigidbody;
     private Coroutine _flightWork = null;
-    private Vector3 _topFlightPoint;
-    private Point _pointOnPlayer;
+    private Vector3 _topFlightPoint;    
     private Block _block;
-    private bool _isReachTopPoint = false;
-
-    public Point PointOnPlayer => _pointOnPlayer;
+    private bool _isReachTopPoint = false;    
 
     private void Start()
     {
         _blockFixer = GetComponent<BlockFixer>();
+        _rigidbody = GetComponent<Rigidbody>();
         _block = GetComponent<Block>();
 
         if (_flightSpeed == 0)
@@ -35,9 +34,11 @@ public class BlockMover : MonoBehaviour
     {
         while (true)
         {
+            _rigidbody.centerOfMass = new Vector3(0,0,0);
+
             if (_isReachTopPoint == false)
             {
-                _topFlightPoint = new Vector3((_pointOnPlayer.transform.position.x + transform.position.x) / 2, _pointOnPlayer.transform.position.y + _tossHeight, (_pointOnPlayer.transform.position.z + transform.position.z) / 2);
+                _topFlightPoint = new Vector3((_block.PointOnPlayer.transform.position.x + transform.position.x) / 2, _block.PointOnPlayer.transform.position.y + _tossHeight, (_block.PointOnPlayer.transform.position.z + transform.position.z) / 2);
 
                 transform.position = Vector3.MoveTowards(transform.position, _topFlightPoint, _flightSpeed * Time.deltaTime);
 
@@ -46,12 +47,12 @@ public class BlockMover : MonoBehaviour
             }
             else
             {
-                transform.position = Vector3.MoveTowards(transform.position, _pointOnPlayer.transform.position, _flightSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, _block.PointOnPlayer.transform.position, _flightSpeed * Time.deltaTime);
 
-                if (transform.position == _pointOnPlayer.transform.position)
+                if (transform.position == _block.PointOnPlayer.transform.position)
                 {
                     StopCoroutineMove();
-                    _blockFixer.StartCoroutineFixBlock(_block, _pointOnPlayer);
+                    _blockFixer.StartCoroutineFixBlock();
                 }
             }
 
@@ -64,10 +65,8 @@ public class BlockMover : MonoBehaviour
         return transform.position;
     }
 
-    public void StartCoroutineFlight(Point blockPoint)
+    public void StartCoroutineFlight()
     {
-        _pointOnPlayer = blockPoint;
-
         if (_flightWork == null)
         {
             _flightWork = StartCoroutine(Move());

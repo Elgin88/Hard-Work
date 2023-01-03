@@ -42,10 +42,9 @@ public class PlayerMover : MonoBehaviour
             if (_joystick.Horizontal != 0 || _joystick.Horizontal != 0)
             {
                 _isJoystickTurn = true;
-
                 _rigidbody.velocity = new Vector3(_joystick.Horizontal * _playerSpeedSetter.CurrentSpeed, 0, _joystick.Vertical * _playerSpeedSetter.CurrentSpeed);
 
-                
+
                 _currentJoystickValueHorizontal = _joystick.Horizontal;
                 _currentJoystickValueVertical = _joystick.Vertical;
 
@@ -54,17 +53,19 @@ public class PlayerMover : MonoBehaviour
                     _currentDirectionOfVelocity = _rigidbody.velocity;
                 }
 
-                    transform.rotation = Quaternion.LookRotation(_currentDirectionOfVelocity);
+                transform.rotation = Quaternion.LookRotation(_currentDirectionOfVelocity);
             }
-                
+
             else
             {
                 _isJoystickTurn = false;
 
                 _rigidbody.velocity = new Vector3(_currentJoystickValueHorizontal * _playerSpeedSetter.CurrentSpeed, 0, _currentJoystickValueVertical * _playerSpeedSetter.CurrentSpeed);
-
+                
                 if (_rigidbody.velocity != Vector3.zero)
-                    _currentDirectionOfVelocity = _rigidbody.velocity;                
+                {
+                    _currentDirectionOfVelocity = _rigidbody.velocity;  
+                }
 
                 transform.rotation = Quaternion.LookRotation(_currentDirectionOfVelocity);
             }

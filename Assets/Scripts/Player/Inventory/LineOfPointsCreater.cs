@@ -28,7 +28,9 @@ public class LineOfPointsCreater : MonoBehaviour
     public void CreateLine()
     {
         LineOfPoints line = Instantiate(_template, _inventory.transform);
+
         line.MoveUp(_deltaBetweenBlocks * _inventory.GetCountOfLines());
+
         _inventory.AddLine(line);
     }
 }
