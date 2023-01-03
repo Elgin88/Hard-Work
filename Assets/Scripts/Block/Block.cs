@@ -24,6 +24,7 @@ public class Block : MonoBehaviour
     private void Start()
     {
         _inventory = FindObjectOfType<Player>().GetComponentInChildren<Inventory>();
+
         _moverBlock = GetComponent<BlockMover>();
         _rigidbody = GetComponent<Rigidbody>();
         _collider = GetComponent<BoxCollider>();
