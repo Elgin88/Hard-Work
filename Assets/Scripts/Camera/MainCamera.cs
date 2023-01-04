@@ -34,18 +34,11 @@ public class MainCamera : MonoBehaviour
     {
         while (true)
         {
-            _currentCameraPositionX = Mathf.MoveTowards
-                (_currentCameraPositionX, _player.transform.position.x, _speedChangeX * Time.deltaTime);
+            _currentCameraPositionX = Mathf.MoveTowards(_currentCameraPositionX, _player.transform.position.x, _speedChangeX * Time.deltaTime);
+            _currentCameraPositionY = Mathf.MoveTowards(_currentCameraPositionY, _player.transform.position.y - _deltaY, _speedChangeY * Time.deltaTime);
+            _currentCameraPositionZ = Mathf.MoveTowards(_currentCameraPositionZ, _player.transform.position.z + _deltaZ, _speedChangeZ * Time.deltaTime);
 
-            _currentCameraPositionY = Mathf.MoveTowards
-                (_currentCameraPositionY, _player.transform.position.y - _deltaY, _speedChangeY * Time.deltaTime);
-
-            _currentCameraPositionZ = Mathf.MoveTowards
-                (_currentCameraPositionZ, _player.transform.position.z + _deltaZ, _speedChangeZ * Time.deltaTime);
-
-
-            transform.position = new Vector3
-                (_currentCameraPositionX, _currentCameraPositionY, _currentCameraPositionZ);
+            transform.position = new Vector3(_currentCameraPositionX, _currentCameraPositionY, _currentCameraPositionZ);
 
             yield return null;
         }

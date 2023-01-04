@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Player))]
 [RequireComponent(typeof(PlayerMover))]
 
 public class PlayerSpeedSetter : MonoBehaviour
@@ -11,10 +10,16 @@ public class PlayerSpeedSetter : MonoBehaviour
     [SerializeField] private float _minSpeed;
     [SerializeField] private float _deltaUpSpeed;
     [SerializeField] private float _deltaDownSpeed;
+    [SerializeField] private float _pushChangeSpeed;
+    [SerializeField] private float _delayPush;
 
+    private Player _player;
     private PlayerMover _playerController;
     private Coroutine _changeSpeedWork = null;
+
+    private float _timeAftetLastPush;
     private float _currentSpeed;
+    
 
     public float DeltaDownSpeed => _deltaDownSpeed;
     public float CurrentSpeed => _currentSpeed;
@@ -24,8 +29,21 @@ public class PlayerSpeedSetter : MonoBehaviour
 
     private void Start()
     {
+        _player = GetComponent<Player>();
         _playerController = GetComponent<PlayerMover>();
+
+        _player.IsPushed += IsPushedPlayer;
         StartCoroutineChangeSpeed();
+    }
+
+    private void Update()
+    {
+        _timeAftetLastPush += Time.deltaTime;
+    }
+
+    private void OnDisable()
+    {
+        _player.IsPushed -= IsPushedPlayer;
     }
 
     private IEnumerator ChangeSpeed()
@@ -39,10 +57,19 @@ public class PlayerSpeedSetter : MonoBehaviour
             else
             {
                 _currentSpeed = Mathf.MoveTowards(_currentSpeed, _minSpeed, _deltaDownSpeed * Time.deltaTime);
-            }
+            }            
 
             yield return null;
         }
+    }
+
+    private void IsPushedPlayer()
+    {
+        if (_delayPush < _timeAftetLastPush)
+        {
+            _currentSpeed -= _pushChangeSpeed;
+            _timeAftetLastPush = 0;
+        }        
     }
 
     private void StartCoroutineChangeSpeed()

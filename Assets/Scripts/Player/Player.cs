@@ -1,27 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-[RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(PlayerMover))]
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float _higth;
-
-    private Vector3 _currentDuraction;
     private PlayerMover _playerController;
     private float _startPositionY;
 
-    public Vector3 CurrentDuraction => _currentDuraction;
+    public event UnityAction IsPushed;
 
     private void Start()
     {
-        if (_higth == 0)        
-            Debug.Log("In Player no SerializeField");
-
         _playerController = GetComponent<PlayerMover>();
         _startPositionY = transform.position.y;
+    }
+
+    public void Push()
+    {
+        IsPushed.Invoke();
     }
 
     private void Update()
@@ -29,8 +28,8 @@ public class Player : MonoBehaviour
         transform.position = new Vector3(transform.position.x, _startPositionY, transform.position.z);
     }
 
-    public Vector3 GetCurrentDirection()
+    public Quaternion GetCurrentDirection()
     {
-        return _playerController.CurrentDirection;
+        return _playerController.CurrentPlayerDirection;
     }
 }

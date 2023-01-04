@@ -21,13 +21,7 @@ public class BlockMover : MonoBehaviour
     {
         _blockFixer = GetComponent<BlockFixer>();
         _rigidbody = GetComponent<Rigidbody>();
-        _block = GetComponent<Block>();
-
-        if (_flightSpeed == 0)
-            Debug.Log("In BlocMover no _flightSpeed");
-
-        if (_flightSpeed == 0)
-            Debug.Log("In BlocMover no _tossHeight");
+        _block = GetComponent<Block>();   
     }
 
     private IEnumerator Move()
@@ -43,7 +37,9 @@ public class BlockMover : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, _topFlightPoint, _flightSpeed * Time.deltaTime);
 
                 if (transform.position == _topFlightPoint)
+                {
                     _isReachTopPoint = true;
+                }
             }
             else
             {

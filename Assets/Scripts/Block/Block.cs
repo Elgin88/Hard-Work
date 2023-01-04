@@ -23,35 +23,36 @@ public class Block : MonoBehaviour
 
     private void Start()
     {
-        _inventory = FindObjectOfType<Player>().GetComponentInChildren<Inventory>();
-
         _moverBlock = GetComponent<BlockMover>();
+        _inventory = FindObjectOfType<Player>().GetComponentInChildren<Inventory>();
         _rigidbody = GetComponent<Rigidbody>();
         _collider = GetComponent<BoxCollider>();
+        _player = FindObjectOfType<Player>().GetComponent<Player>();
 
-        _rigidbody.centerOfMass = new Vector3(0,0,0);
+        _rigidbody.centerOfMass = new Vector3(0,0,0);        
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (collision.gameObject.TryGetComponent<Player>(out Player player))
+        if (collider.gameObject.TryGetComponent<Destroyer>(out Destroyer destroyer))
         {
             KinematicOff();
             GravityOn();
 
             _point = _inventory.TryTakePoint();
-            
+            _player.Push();
+
             if (_point != null)
             {
                 KinematicOn();
                 ColliderOff();
                 GravityOff();
-                
+
                 _moverBlock.StartCoroutineFlight();
             }
         }
     }
-    
+
     public void GravityOn()
     {
         _rigidbody.useGravity = true;
@@ -87,8 +88,8 @@ public class Block : MonoBehaviour
         transform.position = new Vector3 (x, y, z);
     }
 
-    public void SetQuaternion(Vector3 currentRotation)
+    public void SetQuaternion(Quaternion currentRotation)
     {
-        transform.rotation = Quaternion.LookRotation(currentRotation);
+        transform.rotation = currentRotation;
     }
 }
