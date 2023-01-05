@@ -8,6 +8,6 @@ public class LightOn : MonoBehaviour
 
     private void Start()
     {
-        _light.gameObject.SetActive(true);              
+        //_light.gameObject.SetActive(true);              
     }
 }
