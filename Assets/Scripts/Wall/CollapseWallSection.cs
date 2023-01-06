@@ -1,0 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(BoxCollider))]
+
+public class CollapseWallSection : MonoBehaviour
+{
+    [SerializeField] private Block[] _blocks;
+
+    private LineOfBlocks _lineOfBlocks;
+
+    private void Start()
+    {
+        _lineOfBlocks = GetComponentInChildren<LineOfBlocks>();
+    }
+    
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.TryGetComponent<Destroyer>(out Destroyer destroyer))
+        {
+            _lineOfBlocks.gameObject.SetActive(false);
+
+            foreach (Block block in _blocks)
+            {
+                block.gameObject.SetActive(true);
+            }          
+        }
+    }
+}
