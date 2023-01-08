@@ -41,7 +41,7 @@ public class Inventory : MonoBehaviour
 
     public Point TryTakePoint()
     {
-        if (CheckIsFull())
+        if (CheckIsFull() == true)
         {
             CreateLine();
         }

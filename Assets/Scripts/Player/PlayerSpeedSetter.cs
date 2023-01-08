@@ -68,6 +68,12 @@ public class PlayerSpeedSetter : MonoBehaviour
         if (_delayPush < _timeAftetLastPush)
         {
             _currentSpeed -= _pushChangeSpeed;
+
+            if (_currentSpeed < 0)
+            {
+                _currentSpeed = 0;
+            }
+            
             _timeAftetLastPush = 0;
         }        
     }
