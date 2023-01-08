@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(BoxCollider))]
 
-public class CollapseWallSection : MonoBehaviour
+public class CollapseSection : MonoBehaviour
 {
     [SerializeField] private Block[] _blocks;
 

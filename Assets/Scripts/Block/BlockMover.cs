@@ -1,9 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Block))]
 [RequireComponent(typeof(BlockFixer))]
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Block))]
 
 public class BlockMover : MonoBehaviour
 {
@@ -19,8 +19,8 @@ public class BlockMover : MonoBehaviour
 
     private void Start()
     {
-        _blockFixer = GetComponent<BlockFixer>();
-        _rigidbody = GetComponent<Rigidbody>();
+        _blockFixer = GetComponent<BlockFixer>();        
+        _rigidbody = GetComponent<Rigidbody>();        
         _block = GetComponent<Block>();   
     }
 

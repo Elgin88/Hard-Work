@@ -9,12 +9,16 @@ public class Player : MonoBehaviour
 {
     private PlayerMover _playerController;
     private float _startPositionY;
+    private Inventory _inventory;
+
+    public Inventory Inventory => _inventory;
 
     public event UnityAction IsPushed;
 
     private void Start()
     {
         _playerController = GetComponent<PlayerMover>();
+        _inventory = GetComponentInChildren<Inventory>();
         _startPositionY = transform.position.y;
     }
 

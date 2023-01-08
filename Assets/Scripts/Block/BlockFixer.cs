@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Block))]
+
 public class BlockFixer : MonoBehaviour
 {
     private Coroutine _fixBlock = null;
@@ -10,12 +12,13 @@ public class BlockFixer : MonoBehaviour
 
     private void Start()
     {
-        _player = FindObjectOfType<Player>().GetComponent<Player>();
-        _block = GetComponent<Block>();
+        _block = GetComponent<Block>();        
     }
 
     private IEnumerator FixBlock()
     {
+        _player = GetComponent<Block>().Player;
+
         while (true)
         {
             _block.SetPosition(_block.PointOnPlayer.transform.position.x , _block.PointOnPlayer.transform.position.y, _block.PointOnPlayer.transform.position.z);
@@ -24,7 +27,7 @@ public class BlockFixer : MonoBehaviour
             yield return null;
         }
     }
-
+    
     public void StartCoroutineFixBlock()
     {
         _block.KinematicOn();

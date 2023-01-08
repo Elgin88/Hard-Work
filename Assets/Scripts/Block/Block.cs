@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,37 +6,35 @@ using UnityEngine;
 [RequireComponent(typeof(BlockMover))]
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(BoxCollider))]
-[RequireComponent(typeof(BlockFixer))]
 
 public class Block : MonoBehaviour
 {
     [SerializeField] private float _delayForTaken = 8;
 
-    private BoxCollider _collider;
+    private BoxCollider _boxCollider;
     private BlockMover _moverBlock;
     private Inventory _inventory;
     private Rigidbody _rigidbody;
     private Player _player;
     private Point _point;
 
-    public Player Player => _player;
     public Point PointOnPlayer => _point;
+    public Player Player => _player;
 
     private void Start()
     {
-        _moverBlock = GetComponent<BlockMover>();
-        _inventory = FindObjectOfType<Player>().GetComponentInChildren<Inventory>();
-        _rigidbody = GetComponent<Rigidbody>();
-        _collider = GetComponent<BoxCollider>();
-        _player = FindObjectOfType<Player>().GetComponent<Player>();
-
-        _rigidbody.centerOfMass = new Vector3(0,0,0);        
+        _boxCollider = GetComponent<BoxCollider>();
+        _moverBlock = GetComponent<BlockMover>();        
+        _rigidbody = GetComponent<Rigidbody>();        
     }
-
+    
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.TryGetComponent<Destroyer>(out Destroyer destroyer))
         {
+            _player = destroyer.Player;
+            _inventory = _player.Inventory;
+
             KinematicOff();
             GravityOn();
 
@@ -65,12 +64,13 @@ public class Block : MonoBehaviour
 
     public void ColliderOn()
     {
-        _collider.enabled = true;
+        _boxCollider.enabled = true;
     }
 
     public void ColliderOff()
     {
-        _collider.enabled = false;
+        _boxCollider.enabled = false;
+        _boxCollider.enabled = false;
     }
 
     public void KinematicOn()
