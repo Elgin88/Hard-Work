@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Inventory))]
-
 public class LineOfPointsCreater : MonoBehaviour
 {
     [SerializeField] private LineOfPoints _template;
@@ -17,7 +15,7 @@ public class LineOfPointsCreater : MonoBehaviour
 
     private void Start()
     {
-        _inventory = GetComponent<Inventory>();
+        _inventory = GetComponentInParent<Inventory>();
     }
 
     public void CreateLine()
