@@ -14,11 +14,13 @@ public class CollapseSection : MonoBehaviour
     {
         _lineOfBlocks = GetComponentInChildren<LineOfBlocks>();
     }
-    
+
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.TryGetComponent<Destroyer>(out Destroyer destroyer))
         {
+            Debug.Log("1");
+
             _lineOfBlocks.gameObject.SetActive(false);
 
             foreach (Block block in _blocks)
