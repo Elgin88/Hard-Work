@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Block))]
 
-public class BlockMover : MonoBehaviour
+public class BlockMoverToPlayer : MonoBehaviour
 {
     [SerializeField] private float _flightSpeed = 10;
     [SerializeField] private float _tossHeight = 3;

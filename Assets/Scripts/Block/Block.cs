@@ -3,16 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BlockMover))]
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(BlockFixer))]
 [RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(BlockMoverToPlayer))]
+[RequireComponent(typeof(BlockMoverToCollector))]
 
 public class Block : MonoBehaviour
 {
     [SerializeField] private float _delayForTaken = 8;
 
     private BoxCollider _boxCollider;
-    private BlockMover _moverBlock;
+    private BlockMoverToPlayer _moverBlock;
     private Inventory _inventory;
     private Rigidbody _rigidbody;
     private Player _player;
@@ -24,7 +26,7 @@ public class Block : MonoBehaviour
     private void Start()
     {
         _boxCollider = GetComponent<BoxCollider>();
-        _moverBlock = GetComponent<BlockMover>();        
+        _moverBlock = GetComponent<BlockMoverToPlayer>();        
         _rigidbody = GetComponent<Rigidbody>();        
     }
     
