@@ -24,6 +24,14 @@ public class Inventory : MonoBehaviour
         _lineOfPointsCreater = GetComponent<LineOfPointsCreater>();
     }
 
+    public void UnloadBlocks()
+    {
+        for (int i = _lines.Count - 1; i == 0; i--)
+        {
+            _lines[i].UploadBlocks();
+        }
+    }
+
     public void CreateLine()
     {
         _lineOfPointsCreater.CreateLine();

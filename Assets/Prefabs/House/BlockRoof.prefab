@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5412658898042049708}
   - component: {fileID: 6498906169591235757}
   - component: {fileID: 1508551061893800528}
+  - component: {fileID: 8182292765421215494}
   m_Layer: 0
   m_Name: BlockRoof
   m_TagString: Untagged
@@ -154,3 +155,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 204752114b2014731884799267069717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8182292765421215494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7201244165791011374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b479697d751e1457abca5a8d6119aa0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 10
+  _deltaYToTopPoint: 3

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2348454779504575703}
   - component: {fileID: 3583179754079229142}
   - component: {fileID: 9179937514748703275}
+  - component: {fileID: 6633641699168549214}
   m_Layer: 0
   m_Name: BlockWall
   m_TagString: Untagged
@@ -154,3 +155,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 204752114b2014731884799267069717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6633641699168549214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604949995179000405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b479697d751e1457abca5a8d6119aa0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 10
+  _deltaYToTopPoint: 3

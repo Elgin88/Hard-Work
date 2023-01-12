@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class ParkingArea : MonoBehaviour
 {
-    private Player _player;
+    private Inventory _inventory;
 
     private void Start()
     {
-        _player = GetComponentInParent<Player>();
+        _inventory = FindObjectOfType<Player>().GetComponent<Inventory>();
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.TryGetComponent<Player>(out Player player))
+        {
+            _inventory.UnloadBlocks();
+        }        
     }
 }

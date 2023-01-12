@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4445225950722402612}
   - component: {fileID: 3215004292739758389}
   - component: {fileID: 7080308249214885832}
+  - component: {fileID: 6027536157401796495}
   m_Layer: 0
   m_Name: BlockFence
   m_TagString: Untagged
@@ -154,3 +155,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 204752114b2014731884799267069717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6027536157401796495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532007337313480630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b479697d751e1457abca5a8d6119aa0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 10
+  _deltaYToTopPoint: 3

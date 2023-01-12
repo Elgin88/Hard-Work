@@ -13,8 +13,8 @@ public class Block : MonoBehaviour
 {
     [SerializeField] private float _delayForTaken = 8;
 
-    private BoxCollider _boxCollider;
     private BlockMoverToPlayer _moverBlock;
+    private BoxCollider _boxCollider;
     private Inventory _inventory;
     private Rigidbody _rigidbody;
     private Player _player;
@@ -40,7 +40,7 @@ public class Block : MonoBehaviour
             KinematicOff();
             GravityOn();
 
-            _point = _inventory.TryTakePoint();
+            _point = _inventory.TryTakePoint();            
             _player.Push();
 
             if (_point != null)
@@ -48,6 +48,8 @@ public class Block : MonoBehaviour
                 KinematicOn();
                 ColliderOff();
                 GravityOff();
+
+                _point.SetBlock(this);
 
                 _moverBlock.StartCoroutineFlight();
             }

@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class Point : MonoBehaviour
 {
-    private bool _isTaken = false;    
+    private Block _block;
+    private bool _isTaken = false;
+    private BlockMoverToCollector _blockMoverToCollector;
 
     public void Take()
     {
         _isTaken = true;
+        _blockMoverToCollector = _block.gameObject.GetComponent<BlockMoverToCollector>();
     }
 
     public bool CheckIsTaken()
@@ -22,5 +25,15 @@ public class Point : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public void Upload()
+    {
+        _blockMoverToCollector.StartCoroutineMove();
+    }
+
+    public void SetBlock(Block block)
+    {
+        _block = block;
     }
 }

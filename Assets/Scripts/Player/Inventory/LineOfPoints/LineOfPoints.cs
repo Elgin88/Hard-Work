@@ -13,7 +13,7 @@ public class LineOfPoints : MonoBehaviour
         _points = GetComponentsInChildren<Point>();
     }
 
-    internal Point TakePoint()
+    public Point TakePoint()
     {
         foreach (Point point in _points)
         {
@@ -29,8 +29,6 @@ public class LineOfPoints : MonoBehaviour
 
     public bool CheckIsFull()
     {
-        //_points = GetComponentsInChildren<Point>();
-
         foreach (Point point in _points)
         {
             if (point.CheckIsTaken() == false)
@@ -43,6 +41,14 @@ public class LineOfPoints : MonoBehaviour
         _isFull = true;
         
         return _isFull;
+    }
+
+    public void UploadBlocks()
+    {
+        foreach (Point point in _points)
+        {
+            point.Upload();
+        }        
     }
 
     public void MoveUp(float deltaBetweenBlocks)
