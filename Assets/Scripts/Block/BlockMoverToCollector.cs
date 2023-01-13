@@ -19,7 +19,7 @@ public class BlockMoverToCollector : MonoBehaviour
         if (_speed == 0 || _deltaYToTopPoint == 0)
             Debug.Log("BlockMoverToCollector no SerializeField" + gameObject.name);
 
-        _collectionPoint = FindObjectOfType<CollectionPoint>().transform.position;
+        //_collectionPoint = FindObjectOfType<CollectionPoint>().transform.position;
         _player = GetComponent<Block>().Player;
         _startPosition = transform.position;
     }

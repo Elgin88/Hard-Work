@@ -12,7 +12,6 @@ public class Point : MonoBehaviour
     public void Take()
     {
         _isTaken = true;
-        _blockMoverToCollector = _block.gameObject.GetComponent<BlockMoverToCollector>();
     }
 
     public bool CheckIsTaken()
