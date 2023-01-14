@@ -7,7 +7,8 @@ public class Point : MonoBehaviour
 {
     private Block _block;
     private bool _isTaken = false;
-    private BlockMoverToCollector _blockMoverToCollector;
+
+    public Block Block => _block;
 
     public void Take()
     {
@@ -26,13 +27,16 @@ public class Point : MonoBehaviour
         }
     }
 
-    public void Upload()
-    {
-        _blockMoverToCollector.StartCoroutineMove();
-    }
-
-    public void SetBlock(Block block)
+    public void InitBlock(Block block)
     {
         _block = block;
+    }
+
+    public void TryUpload(Vector3 collectionPointPosition)
+    {
+        if (_block != null)
+        {
+            _block.BlockMoverToCollector.StartCoroutineMove(collectionPointPosition);
+        }
     }
 }

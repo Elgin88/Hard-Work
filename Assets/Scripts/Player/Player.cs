@@ -8,8 +8,8 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
     private PlayerMover _playerController;
-    private float _startPositionY;
     private Inventory _inventory;
+    private float _startPositionY;
 
     public Inventory Inventory => _inventory;
 
@@ -19,10 +19,11 @@ public class Player : MonoBehaviour
     {
         _playerController = GetComponent<PlayerMover>();
         _inventory = GetComponentInChildren<Inventory>();
+
         _startPositionY = transform.position.y;
     }
 
-    public void Push()
+    public void SlowDown()
     {
         IsPushed.Invoke();
     }

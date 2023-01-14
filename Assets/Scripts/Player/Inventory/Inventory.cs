@@ -7,7 +7,9 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    private Coroutine _unloadBlocksCoroutine;
     private bool _isFull = false;
+    private Vector3 _collectPoint;
 
     private List<LineOfPoints> _lines = new List<LineOfPoints>();
     private LineOfPointsCreater _lineOfPointsCreater;
@@ -24,11 +26,34 @@ public class Inventory : MonoBehaviour
         _lineOfPointsCreater = GetComponent<LineOfPointsCreater>();
     }
 
-    public void UnloadBlocks()
+    public IEnumerator UnloadBlocks()
     {
-        for (int i = _lines.Count - 1; i == 0; i--)
+        int i = 0;
+
+        while (i < _lines.Count)
         {
-            _lines[i].UploadBlocks();
+            _lines[_lines.Count - i - 1].UploadBlocks(_collectPoint);
+
+            i++;
+            yield return new WaitForSeconds(1);
+        }
+    }
+
+    public void StartCoroutineUnloadBlocks(Vector3 collectPoint)
+    {
+        _collectPoint = collectPoint;
+
+        if (_unloadBlocksCoroutine==null)
+        {
+            _unloadBlocksCoroutine = StartCoroutine(UnloadBlocks());
+        }
+    }
+
+    public void StopCoroutineUnloadBlocks()
+    {
+        if (_unloadBlocksCoroutine != null)
+        {
+            StopCoroutine(UnloadBlocks());
         }
     }
 

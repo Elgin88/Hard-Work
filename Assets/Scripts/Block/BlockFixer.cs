@@ -39,7 +39,7 @@ public class BlockFixer : MonoBehaviour
         }
     }
 
-    public void StopCoroutineSetBlock()
+    public void StopCoroutineFixBlock()
     {
         if (_fixBlock != null)
         {

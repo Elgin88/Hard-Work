@@ -43,11 +43,11 @@ public class LineOfPoints : MonoBehaviour
         return _isFull;
     }
 
-    public void UploadBlocks()
+    public void UploadBlocks(Vector3 collectionPointPoosition)
     {
         foreach (Point point in _points)
         {
-            point.Upload();
+            point.TryUpload(collectionPointPoosition);                       
         }        
     }
 

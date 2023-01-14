@@ -5,37 +5,48 @@ using UnityEngine;
 public class BlockMoverToCollector : MonoBehaviour
 {
     [SerializeField] private float _speed;
-    [SerializeField] private float _deltaYToTopPoint;
+    [SerializeField] private float _tossHight;
 
-    private Coroutine _moveCoroutine;
+    private BlockFixer _blockFixer;
+    private Coroutine _moveCoroutine = null;
+    private Player _player;
+
     private Vector3 _collectionPoint;
     private Vector3 _startPosition;
     private Vector3 _topPoint;
-    private Player _player;
-    private bool _isReached = false;
+
+    private bool _isReachedTopPoint = false;
 
     private void Start()
     {
-        if (_speed == 0 || _deltaYToTopPoint == 0)
+        if (_speed == 0 || _tossHight == 0)
             Debug.Log("BlockMoverToCollector no SerializeField" + gameObject.name);
 
-        //_collectionPoint = FindObjectOfType<CollectionPoint>().transform.position;
-        _player = GetComponent<Block>().Player;
+        _blockFixer = GetComponent<BlockFixer>();
+
         _startPosition = transform.position;
+    }
+
+    public void InitPlayer(Player player)
+    {
+        _player = player;
     }
 
     private IEnumerator MoveToCollector()
     {
+        _blockFixer.StopCoroutineFixBlock();
+        GetTopPointPosition();
+
         while (true)
         {
-            if (_isReached == false)
+            if (_isReachedTopPoint == false)
             {
-                GetTopPointPosition();
+
                 transform.position = Vector3.MoveTowards(transform.position, _topPoint, _speed * Time.deltaTime);
 
                 if (transform.position == _topPoint)
                 {
-                    _isReached = true;
+                    _isReachedTopPoint = true;
                 }
             }
             else
@@ -49,16 +60,17 @@ public class BlockMoverToCollector : MonoBehaviour
 
     private void GetTopPointPosition()
     {
-        _topPoint = new Vector3((_player.transform.position.x - _collectionPoint.x)/2 , _startPosition.y + _deltaYToTopPoint, (_player.transform.position.z - _collectionPoint.z) / 2);
+        _topPoint = new Vector3((_player.transform.position.x + _collectionPoint.x)/2 , _startPosition.y + _tossHight, (_player.transform.position.z + _collectionPoint.z) / 2);
     }
 
-    public void StartCoroutineMove()
+    public void StartCoroutineMove(Vector3 collectionPoint)
     {
+        _collectionPoint = collectionPoint;
+
         if (_moveCoroutine == null)
         {
             _moveCoroutine = StartCoroutine(MoveToCollector());
         }
-
     }
 
     public void StorCoroutine()

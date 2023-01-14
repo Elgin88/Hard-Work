@@ -13,35 +13,41 @@ public class Block : MonoBehaviour
 {
     [SerializeField] private float _delayForTaken = 8;
 
+    private Block _block;
     private BlockMoverToPlayer _moverBlock;
+    private BlockMoverToCollector _blockMoverToCollector;
     private BoxCollider _boxCollider;
     private Inventory _inventory;
     private Rigidbody _rigidbody;
     private Player _player;
     private Point _point;
 
+    public BlockMoverToCollector BlockMoverToCollector => _blockMoverToCollector;
     public Point PointOnPlayer => _point;
     public Player Player => _player;
 
     private void Start()
     {
+        _block = GetComponent<Block>();
+        _rigidbody = GetComponent<Rigidbody>();
         _boxCollider = GetComponent<BoxCollider>();
-        _moverBlock = GetComponent<BlockMoverToPlayer>();        
-        _rigidbody = GetComponent<Rigidbody>();        
+        _moverBlock = GetComponent<BlockMoverToPlayer>();
+        _blockMoverToCollector = GetComponent<BlockMoverToCollector>();
     }
     
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.TryGetComponent<Destroyer>(out Destroyer destroyer))
         {
-            _player = destroyer.Player;
-            _inventory = _player.Inventory;
-
             KinematicOff();
             GravityOn();
 
-            _point = _inventory.TryTakePoint();            
-            _player.Push();
+            _player = destroyer.Player;
+            _player.SlowDown();
+            _inventory = _player.Inventory;
+            _blockMoverToCollector.InitPlayer(_player);
+
+            _point = _inventory.TryTakePoint();
 
             if (_point != null)
             {
@@ -49,8 +55,7 @@ public class Block : MonoBehaviour
                 ColliderOff();
                 GravityOff();
 
-                _point.SetBlock(this);
-
+                _point.InitBlock(_block);
                 _moverBlock.StartCoroutineFlight();
             }
         }
