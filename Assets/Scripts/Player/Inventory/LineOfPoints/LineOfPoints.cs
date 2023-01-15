@@ -5,12 +5,19 @@ using UnityEngine;
 
 public class LineOfPoints : MonoBehaviour
 {
-    private Point[] _points;
+    private List<Point> _points;
     private bool _isFull = false;
 
     private void OnEnable()
     {
-        _points = GetComponentsInChildren<Point>();
+        _points = new List<Point>();
+
+        Point[] tempPoints = GetComponentsInChildren<Point>();
+
+        foreach (Point tempPoint in tempPoints)
+        {
+            _points.Add(tempPoint);
+        }
     }
 
     public Point TakePoint()
@@ -43,16 +50,30 @@ public class LineOfPoints : MonoBehaviour
         return _isFull;
     }
 
-    public void UploadBlocks(Vector3 collectionPointPoosition)
-    {
-        foreach (Point point in _points)
-        {
-            point.TryUpload(collectionPointPoosition);                       
-        }        
-    }
-
     public void MoveUp(float deltaBetweenBlocks)
     {
         transform.position = new Vector3(transform.position.x, transform.position.y + deltaBetweenBlocks, transform.position.z);
+    }
+
+    public Block GetLastBlock()
+    {
+        Debug.Log("Попытка получения блока в " + this.name);
+
+        int numberPoint = 0;
+
+        foreach (Point point in _points)
+        {
+            if (point.Block)
+            {
+                numberPoint++;
+            }
+        }
+
+        if (numberPoint == 0)
+        {
+            return null;
+        }
+
+        return _points[numberPoint - 1].GetBlock();
     }
 }

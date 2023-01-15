@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class ParkingArea : MonoBehaviour
 {
-    private Inventory _inventory;
     private CollectionPoint _collectionPoint;
+    private UnloaderBlocks _unloaderBlocks;
+    private Inventory _inventory;
+    private Player _player;
 
     private void Start()
     {
-        _inventory = FindObjectOfType<Player>().GetComponentInChildren<Inventory>();
+        _player = FindObjectOfType<Player>();
+        _inventory = _player.GetComponentInChildren<Inventory>();
+        _unloaderBlocks = _player.GetComponentInChildren<UnloaderBlocks>();
         _collectionPoint = GetComponentInParent<BlockCollector>().GetComponentInChildren<CollectionPoint>();
     }
 
@@ -17,7 +21,11 @@ public class ParkingArea : MonoBehaviour
     {
         if (collider.TryGetComponent<Player>(out Player player))
         {
-            _inventory.StartCoroutineUnloadBlocks(_collectionPoint.transform.position);
+            if (_inventory.GetLastBlock() != null)
+            {
+                Debug.Log("Запуск корутины на разгрузку блока в " + this.name);
+                _unloaderBlocks.StartCoroutineUploadBlocks(_collectionPoint.transform.position);
+            }           
         }        
     }
 }

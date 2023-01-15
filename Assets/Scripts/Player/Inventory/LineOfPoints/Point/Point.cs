@@ -32,11 +32,13 @@ public class Point : MonoBehaviour
         _block = block;
     }
 
-    public void TryUpload(Vector3 collectionPointPosition)
+    public Block GetBlock()
     {
-        if (_block != null)
-        {
-            _block.BlockMoverToCollector.StartCoroutineMove(collectionPointPosition);
-        }
+        return _block;
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 }

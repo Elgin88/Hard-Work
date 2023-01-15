@@ -13,13 +13,13 @@ public class Block : MonoBehaviour
 {
     [SerializeField] private float _delayForTaken = 8;
 
-    private Block _block;
-    private BlockMoverToPlayer _moverBlock;
     private BlockMoverToCollector _blockMoverToCollector;
+    private BlockMoverToPlayer _moverBlock;
     private BoxCollider _boxCollider;
     private Inventory _inventory;
     private Rigidbody _rigidbody;
     private Player _player;
+    private Block _block;
     private Point _point;
 
     public BlockMoverToCollector BlockMoverToCollector => _blockMoverToCollector;

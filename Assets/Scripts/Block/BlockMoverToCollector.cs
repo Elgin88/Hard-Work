@@ -54,6 +54,11 @@ public class BlockMoverToCollector : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, _collectionPoint, _speed * Time.deltaTime);
             }
 
+            if (transform.position == _collectionPoint)
+            {
+                StorCoroutineMove();
+            }
+
             yield return null;
         }
     }
@@ -73,7 +78,7 @@ public class BlockMoverToCollector : MonoBehaviour
         }
     }
 
-    public void StorCoroutine()
+    public void StorCoroutineMove()
     {
         if (_moveCoroutine != null)
         {

@@ -7,15 +7,18 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private Coroutine _unloadBlocksCoroutine;
     private bool _isFull = false;
-    private Vector3 _collectPoint;
 
-    private List<LineOfPoints> _lines = new List<LineOfPoints>();
     private LineOfPointsCreater _lineOfPointsCreater;
+    private List <LineOfPoints> _lines;
+    private Block _lastBlockInInventory;
+
+    public Block LastBlockInInventory => _lastBlockInInventory;
 
     private void Start()
     {
+        _lines = new List<LineOfPoints>();
+
         LineOfPoints[] tempLines = GetComponentsInChildren<LineOfPoints>();
 
         foreach (LineOfPoints tempLine in tempLines)
@@ -24,37 +27,6 @@ public class Inventory : MonoBehaviour
         }
 
         _lineOfPointsCreater = GetComponent<LineOfPointsCreater>();
-    }
-
-    public IEnumerator UnloadBlocks()
-    {
-        int i = 0;
-
-        while (i < _lines.Count)
-        {
-            _lines[_lines.Count - i - 1].UploadBlocks(_collectPoint);
-
-            i++;
-            yield return new WaitForSeconds(1);
-        }
-    }
-
-    public void StartCoroutineUnloadBlocks(Vector3 collectPoint)
-    {
-        _collectPoint = collectPoint;
-
-        if (_unloadBlocksCoroutine==null)
-        {
-            _unloadBlocksCoroutine = StartCoroutine(UnloadBlocks());
-        }
-    }
-
-    public void StopCoroutineUnloadBlocks()
-    {
-        if (_unloadBlocksCoroutine != null)
-        {
-            StopCoroutine(UnloadBlocks());
-        }
     }
 
     public void CreateLine()
@@ -108,5 +80,14 @@ public class Inventory : MonoBehaviour
 
         _isFull = true;
         return _isFull;
+    }
+
+    public Block GetLastBlock()
+    {
+        Debug.Log("Попытка получения блока в " + this.name);
+
+        _lastBlockInInventory = _lines[_lines.Count - 1].GetLastBlock();
+
+        return _lastBlockInInventory;
     }
 }
