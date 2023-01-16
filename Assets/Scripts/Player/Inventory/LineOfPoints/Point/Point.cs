@@ -10,9 +10,17 @@ public class Point : MonoBehaviour
 
     public Block Block => _block;
 
+    public bool IsTaken => _isTaken;
+
     public void Take()
     {
         _isTaken = true;
+    }
+
+    public void MadeBlockIsNull()
+    {
+        _isTaken = false;
+        _block = null;
     }
 
     public bool CheckIsTaken()

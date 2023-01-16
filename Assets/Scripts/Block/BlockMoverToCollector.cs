@@ -7,6 +7,7 @@ public class BlockMoverToCollector : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _tossHight;
 
+    private Block _block;
     private BlockFixer _blockFixer;
     private Coroutine _moveCoroutine = null;
     private Player _player;
@@ -23,6 +24,7 @@ public class BlockMoverToCollector : MonoBehaviour
             Debug.Log("BlockMoverToCollector no SerializeField" + gameObject.name);
 
         _blockFixer = GetComponent<BlockFixer>();
+        _block = GetComponent<Block>();
 
         _startPosition = transform.position;
     }
@@ -35,6 +37,7 @@ public class BlockMoverToCollector : MonoBehaviour
     private IEnumerator MoveToCollector()
     {
         _blockFixer.StopCoroutineFixBlock();
+        _block.MadePointIsNull();
         GetTopPointPosition();
 
         while (true)

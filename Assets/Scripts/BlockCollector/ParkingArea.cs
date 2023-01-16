@@ -21,9 +21,8 @@ public class ParkingArea : MonoBehaviour
     {
         if (collider.TryGetComponent<Player>(out Player player))
         {
-            if (_inventory.GetLastBlock() != null)
+            if (_inventory.GetLastAddBlock() != null)
             {
-                Debug.Log("Запуск корутины на разгрузку блока в " + this.name);
                 _unloaderBlocks.StartCoroutineUploadBlocks(_collectionPoint.transform.position);
             }           
         }        

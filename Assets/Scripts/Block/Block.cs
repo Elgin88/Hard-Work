@@ -45,9 +45,10 @@ public class Block : MonoBehaviour
             _player = destroyer.Player;
             _player.SlowDown();
             _inventory = _player.Inventory;
-            _blockMoverToCollector.InitPlayer(_player);
+            _blockMoverToCollector.InitPlayer(_player);            
 
             _point = _inventory.TryTakePoint();
+            _point.InitBlock(this);
 
             if (_point != null)
             {
@@ -59,6 +60,11 @@ public class Block : MonoBehaviour
                 _moverBlock.StartCoroutineFlight();
             }
         }
+    }
+
+    public Point GetPointOnPlayer()
+    {
+        return _point;
     }
 
     public void GravityOn()
@@ -100,5 +106,10 @@ public class Block : MonoBehaviour
     public void SetQuaternion(Quaternion currentRotation)
     {
         transform.rotation = currentRotation;
+    }
+
+    public void MadePointIsNull()
+    {
+        _point = null;
     }
 }

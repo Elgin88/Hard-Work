@@ -82,11 +82,14 @@ public class Inventory : MonoBehaviour
         return _isFull;
     }
 
-    public Block GetLastBlock()
+    public Block GetLastAddBlock()
     {
-        Debug.Log("Попытка получения блока в " + this.name);
-
         _lastBlockInInventory = _lines[_lines.Count - 1].GetLastBlock();
+
+        if (_lastBlockInInventory == null)
+        {
+            _lastBlockInInventory = null;
+        }
 
         return _lastBlockInInventory;
     }

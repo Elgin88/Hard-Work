@@ -57,8 +57,6 @@ public class LineOfPoints : MonoBehaviour
 
     public Block GetLastBlock()
     {
-        Debug.Log("Попытка получения блока в " + this.name);
-
         int numberPoint = 0;
 
         foreach (Point point in _points)
