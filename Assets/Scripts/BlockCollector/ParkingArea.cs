@@ -21,10 +21,7 @@ public class ParkingArea : MonoBehaviour
     {
         if (collider.TryGetComponent<Player>(out Player player))
         {
-            if (_inventory.GetLastAddBlock() != null)
-            {
-                _unloaderBlocks.StartCoroutineUploadBlocks(_collectionPoint.transform.position);
-            }           
+            _unloaderBlocks.StartCoroutineUploadBlocks(_collectionPoint.transform.position);                       
         }        
     }
 }

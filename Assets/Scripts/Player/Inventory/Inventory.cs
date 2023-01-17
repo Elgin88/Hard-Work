@@ -81,16 +81,4 @@ public class Inventory : MonoBehaviour
         _isFull = true;
         return _isFull;
     }
-
-    public Block GetLastAddBlock()
-    {
-        _lastBlockInInventory = _lines[_lines.Count - 1].GetLastBlock();
-
-        if (_lastBlockInInventory == null)
-        {
-            _lastBlockInInventory = null;
-        }
-
-        return _lastBlockInInventory;
-    }
 }

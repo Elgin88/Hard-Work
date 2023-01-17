@@ -16,14 +16,13 @@ public class Block : MonoBehaviour
     private BlockMoverToCollector _blockMoverToCollector;
     private BlockMoverToPlayer _moverBlock;
     private BoxCollider _boxCollider;
-    private Inventory _inventory;
     private Rigidbody _rigidbody;
     private Player _player;
     private Block _block;
     private Point _point;
 
     public BlockMoverToCollector BlockMoverToCollector => _blockMoverToCollector;
-    public Point PointOnPlayer => _point;
+    public Point Point => _point;
     public Player Player => _player;
 
     private void Start()
@@ -44,10 +43,9 @@ public class Block : MonoBehaviour
 
             _player = destroyer.Player;
             _player.SlowDown();
-            _inventory = _player.Inventory;
             _blockMoverToCollector.InitPlayer(_player);            
 
-            _point = _inventory.TryTakePoint();
+            _point = _player.Inventory.TryTakePoint();
             _point.InitBlock(this);
 
             if (_point != null)
@@ -60,11 +58,6 @@ public class Block : MonoBehaviour
                 _moverBlock.StartCoroutineFlight();
             }
         }
-    }
-
-    public Point GetPointOnPlayer()
-    {
-        return _point;
     }
 
     public void GravityOn()

@@ -32,7 +32,7 @@ public class BlockMoverToPlayer : MonoBehaviour
 
             if (_isReachTopPoint == false)
             {
-                _topFlightPoint = new Vector3((_block.PointOnPlayer.transform.position.x + transform.position.x) / 2, _block.PointOnPlayer.transform.position.y + _tossHeight, (_block.PointOnPlayer.transform.position.z + transform.position.z) / 2);
+                _topFlightPoint = new Vector3((_block.Point.transform.position.x + transform.position.x) / 2, _block.Point.transform.position.y + _tossHeight, (_block.Point.transform.position.z + transform.position.z) / 2);
 
                 transform.position = Vector3.MoveTowards(transform.position, _topFlightPoint, _flightSpeed * Time.deltaTime);
 
@@ -43,9 +43,9 @@ public class BlockMoverToPlayer : MonoBehaviour
             }
             else
             {
-                transform.position = Vector3.MoveTowards(transform.position, _block.PointOnPlayer.transform.position, _flightSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, _block.Point.transform.position, _flightSpeed * Time.deltaTime);
 
-                if (transform.position == _block.PointOnPlayer.transform.position)
+                if (transform.position == _block.Point.transform.position)
                 {
                     StopCoroutineMove();
                     _blockFixer.StartCoroutineFixBlock();
