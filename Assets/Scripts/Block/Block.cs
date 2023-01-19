@@ -11,8 +11,6 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    [SerializeField] private float _delayForTaken = 8;
-
     private BlockMoverToCollector _blockMoverToCollector;
     private BlockMoverToPlayer _moverBlock;
     private BoxCollider _boxCollider;
@@ -33,20 +31,27 @@ public class Block : MonoBehaviour
         _moverBlock = GetComponent<BlockMoverToPlayer>();
         _blockMoverToCollector = GetComponent<BlockMoverToCollector>();
     }
-    
-    private void OnTriggerEnter(Collider collider)
+
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collider.gameObject.TryGetComponent<Destroyer>(out Destroyer destroyer))
+        if (collision.gameObject.TryGetComponent<Destroyer>(out Destroyer destroyer))
         {
             KinematicOff();
             GravityOn();
 
+            if (_rigidbody.IsSleeping())
+            {
+                WakeUp();
+            }           
+
             _player = destroyer.Player;
             _player.SlowDown();
-            _blockMoverToCollector.InitPlayer(_player);            
+            _blockMoverToCollector.InitPlayer(_player);
 
-            _point = _player.Inventory.TryTakePoint();
-            _point.InitBlock(this);
+            if (_player.IsUploading == false & _player.IsUploading == false)
+            {
+                _point = _player.Inventory.TryTakePoint();
+            }
 
             if (_point != null)
             {
@@ -58,6 +63,11 @@ public class Block : MonoBehaviour
                 _moverBlock.StartCoroutineFlight();
             }
         }
+    }
+
+    public void WakeUp()
+    {
+        _rigidbody.WakeUp();
     }
 
     public void GravityOn()
@@ -101,8 +111,8 @@ public class Block : MonoBehaviour
         transform.rotation = currentRotation;
     }
 
-    public void MadePointIsNull()
+    internal Point GetPoint()
     {
-        _point = null;
+        return _point;
     }
 }

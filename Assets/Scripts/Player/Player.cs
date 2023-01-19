@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,11 @@ public class Player : MonoBehaviour
     private Inventory _inventory;
     private float _startPositionY;
 
+    private bool _isUpload = false;
+
     public Inventory Inventory => _inventory;
+
+    public bool IsUploading => _isUpload;
 
     public event UnityAction IsPushed;
 
@@ -36,5 +41,15 @@ public class Player : MonoBehaviour
     public Quaternion GetCurrentDirection()
     {
         return _playerController.CurrentPlayerDirection;
+    }
+
+    public void SetIsUploadingFalse()
+    {
+        _isUpload = false;
+    }
+
+    public void SetIsUploadingTrue()
+    {
+        _isUpload = true;
     }
 }

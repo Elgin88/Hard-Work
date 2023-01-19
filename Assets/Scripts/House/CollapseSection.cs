@@ -15,16 +15,16 @@ public class CollapseSection : MonoBehaviour
         _lineOfBlocks = GetComponentInChildren<LineOfBlocks>();
     }
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collider.gameObject.TryGetComponent<Destroyer>(out Destroyer destroyer))
+        if (collision.gameObject.TryGetComponent<Destroyer>(out Destroyer destroyer))
         {
             _lineOfBlocks.gameObject.SetActive(false);
 
             foreach (Block block in _blocks)
             {
                 block.gameObject.SetActive(true);
-            }          
+            }
         }
     }
 }

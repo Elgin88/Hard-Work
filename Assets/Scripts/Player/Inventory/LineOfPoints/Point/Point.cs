@@ -6,19 +6,12 @@ using UnityEngine;
 public class Point : MonoBehaviour
 {
     private Block _block;
-    private bool _isTaken = false;
 
     public Block Block => _block;
-    public bool IsTaken => _isTaken;
-
-    public void Take()
-    {
-        _isTaken = true;
-    }
 
     public bool CheckIsTaken()
     {
-        if (_isTaken == true)
+        if (_block == true)
         {
             return true;
         }
@@ -26,6 +19,11 @@ public class Point : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public Point Take()
+    {
+        return this;
     }
 
     public void InitBlock(Block block)
@@ -41,5 +39,10 @@ public class Point : MonoBehaviour
     public void Destroy()
     {
         Destroy(gameObject);
+    }
+
+    public void RemoveBlock()
+    {
+        _block = null;
     }
 }

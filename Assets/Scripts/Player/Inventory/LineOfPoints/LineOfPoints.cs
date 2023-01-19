@@ -38,7 +38,7 @@ public class LineOfPoints : MonoBehaviour
     {
         foreach (Point point in _points)
         {
-            if (point.CheckIsTaken() == false)
+            if (point.Block == false)
             {
                 _isFull = false;
                 return _isFull;
@@ -55,23 +55,38 @@ public class LineOfPoints : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y + deltaBetweenBlocks, transform.position.z);
     }
 
-    public Block GetLastBlock()
+    public Block GetLastAddBlock()
     {
-        int numberPoint = 0;
+        Block lastAddBlock = null;
 
         foreach (Point point in _points)
         {
             if (point.Block)
             {
-                numberPoint++;
+                lastAddBlock = point.Block;
             }
         }
 
-        if (numberPoint == 0)
+        return lastAddBlock;        
+    }
+
+    public void RemoveLine()
+    {
+        Destroy(gameObject);
+    }
+
+    public int GetNumberBlocks()
+    {
+        int numberOfBlocks = 0;
+
+        foreach (Point point in _points)
         {
-            return null;
+            if (point.Block != null)
+            {
+                numberOfBlocks++;
+            }
         }
 
-        return _points[numberPoint - 1].GetBlock();
+        return numberOfBlocks;
     }
 }

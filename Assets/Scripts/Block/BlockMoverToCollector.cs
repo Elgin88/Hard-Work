@@ -6,27 +6,26 @@ public class BlockMoverToCollector : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _tossHight;
+    [SerializeField] private float _deltaPointPosition;
+    [SerializeField] private float _deltaHight;
 
-    private Block _block;
     private BlockFixer _blockFixer;
     private Coroutine _moveCoroutine = null;
     private Player _player;
+    private Block _block;
 
     private Vector3 _collectionPoint;
-    private Vector3 _startPosition;
     private Vector3 _topPoint;
 
     private bool _isReachedTopPoint = false;
 
     private void Start()
     {
-        if (_speed == 0 || _tossHight == 0)
+        if (_speed == 0 || _tossHight == 0 || _deltaPointPosition == 0 || _deltaHight == 0)
             Debug.Log("BlockMoverToCollector no SerializeField" + gameObject.name);
 
         _blockFixer = GetComponent<BlockFixer>();
         _block = GetComponent<Block>();
-
-        _startPosition = transform.position;
     }
 
     public void InitPlayer(Player player)
@@ -37,7 +36,8 @@ public class BlockMoverToCollector : MonoBehaviour
     private IEnumerator MoveToCollector()
     {
         _blockFixer.StopCoroutineFixBlock();
-        _block.MadePointIsNull();
+        _collectionPoint = new Vector3(_collectionPoint.x + Random.Range(-1 * _deltaPointPosition, _deltaPointPosition), _collectionPoint.y, _collectionPoint.z + Random.Range(-1 * _deltaPointPosition, _deltaPointPosition));
+
         GetTopPointPosition();
 
         while (true)
@@ -57,9 +57,9 @@ public class BlockMoverToCollector : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, _collectionPoint, _speed * Time.deltaTime);
             }
 
-            if (transform.position == _collectionPoint)
+            if (transform.position.y - _collectionPoint.y < 0.1)
             {
-                StorCoroutineMove();
+                StopCoroutineMove();
             }
 
             yield return null;
@@ -68,7 +68,7 @@ public class BlockMoverToCollector : MonoBehaviour
 
     private void GetTopPointPosition()
     {
-        _topPoint = new Vector3((_player.transform.position.x + _collectionPoint.x)/2 , _startPosition.y + _tossHight, (_player.transform.position.z + _collectionPoint.z) / 2);
+        _topPoint = new Vector3((_player.transform.position.x + _collectionPoint.x)/2 , transform.position.y + _tossHight + Random.Range(-1* _deltaHight, _deltaHight), (_player.transform.position.z + _collectionPoint.z) / 2);
     }
 
     public void StartCoroutineMove(Vector3 collectionPoint)
@@ -81,7 +81,7 @@ public class BlockMoverToCollector : MonoBehaviour
         }
     }
 
-    public void StorCoroutineMove()
+    public void StopCoroutineMove()
     {
         if (_moveCoroutine != null)
         {

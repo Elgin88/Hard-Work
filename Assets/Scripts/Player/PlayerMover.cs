@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMover : MonoBehaviour
 {
     private PlayerSpeedSetter _playerSpeedSetter;
-    private VariableJoystick _joystick;
+    private FloatingJoystick _joystick;
     private Quaternion _currentPlayerDirection;
     private Coroutine _moveWork = null;
 
@@ -18,7 +18,7 @@ public class PlayerMover : MonoBehaviour
     private void Start()
     {
         _playerSpeedSetter = GetComponent<PlayerSpeedSetter>();
-        _joystick = FindObjectOfType<VariableJoystick>();
+        _joystick = FindObjectOfType<FloatingJoystick>();
 
         StartCoroutineMove();
     }
@@ -30,12 +30,11 @@ public class PlayerMover : MonoBehaviour
             if ((_joystick.Horizontal != 0) || (_joystick.Horizontal != 0))
             {
                 _isJoystickTurn = true;
-                _currentPlayerDirection = Quaternion.LookRotation(new Vector3(_joystick.Horizontal, 0, _joystick.Vertical));
 
-                transform.position = new Vector3(transform.position.x + _joystick.Horizontal * Time.deltaTime *  _playerSpeedSetter.CurrentSpeed,
-                    transform.position.y, transform.position.z + _joystick.Vertical * Time.deltaTime * _playerSpeedSetter.CurrentSpeed);
-              
+                _currentPlayerDirection = Quaternion.LookRotation(new Vector3(_joystick.Horizontal, 0, _joystick.Vertical));
                 transform.rotation = _currentPlayerDirection;
+
+                transform.position = new Vector3(transform.position.x + _joystick.Horizontal * Time.deltaTime *  _playerSpeedSetter.CurrentSpeed, transform.position.y, transform.position.z + _joystick.Vertical * Time.deltaTime * _playerSpeedSetter.CurrentSpeed);
             }
             else
             {

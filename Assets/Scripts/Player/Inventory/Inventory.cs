@@ -11,9 +11,6 @@ public class Inventory : MonoBehaviour
 
     private LineOfPointsCreater _lineOfPointsCreater;
     private List <LineOfPoints> _lines;
-    private Block _lastBlockInInventory;
-
-    public Block LastBlockInInventory => _lastBlockInInventory;
 
     private void Start()
     {
@@ -29,9 +26,9 @@ public class Inventory : MonoBehaviour
         _lineOfPointsCreater = GetComponent<LineOfPointsCreater>();
     }
 
-    public void CreateLine()
+    public void TryCreateLine()
     {
-        _lineOfPointsCreater.CreateLine();
+        _lineOfPointsCreater.TryCreateLine();
     }
 
     public void AddLine(LineOfPoints line)
@@ -48,7 +45,7 @@ public class Inventory : MonoBehaviour
     {
         if (CheckIsFull() == true)
         {
-            CreateLine();
+            TryCreateLine();
         }
 
         if (CheckIsFull() == false)
@@ -80,5 +77,23 @@ public class Inventory : MonoBehaviour
 
         _isFull = true;
         return _isFull;
+    }
+
+    public Block TryGetLastAddBlock()
+    {
+        return _lines[_lines.Count - 1].GetLastAddBlock();  
+    }
+
+    public void RemoveTopLine()
+    {
+        GameObject lineToDestroy = _lines[_lines.Count - 1].gameObject;
+
+        _lines.Remove(_lines[_lines.Count - 1]);
+        Destroy(lineToDestroy);
+    }
+
+    public int GetNumberBloksInTopLine()
+    {
+        return _lines[_lines.Count - 1].GetNumberBlocks();
     }
 }
