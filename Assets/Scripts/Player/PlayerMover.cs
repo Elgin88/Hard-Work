@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMover : MonoBehaviour
 {
     private PlayerSpeedSetter _playerSpeedSetter;
-    private FloatingJoystick _joystick;
+    private FixedJoystick _joystick;
     private Quaternion _currentPlayerDirection;
     private Coroutine _moveWork = null;
 
@@ -18,7 +18,7 @@ public class PlayerMover : MonoBehaviour
     private void Start()
     {
         _playerSpeedSetter = GetComponent<PlayerSpeedSetter>();
-        _joystick = FindObjectOfType<FloatingJoystick>();
+        _joystick = FindObjectOfType<FixedJoystick>();
 
         StartCoroutineMove();
     }
