@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -81,7 +79,7 @@ public class Inventory : MonoBehaviour
 
     public Block TryGetLastAddBlock()
     {
-        return _lines[_lines.Count - 1].GetLastAddBlock();  
+        return _lines[_lines.Count - 1].GetLastAddBlockInLine();  
     }
 
     public void RemoveTopLine()

@@ -55,7 +55,7 @@ public class LineOfPoints : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y + deltaBetweenBlocks, transform.position.z);
     }
 
-    public Block GetLastAddBlock()
+    public Block GetLastAddBlockInLine()
     {
         Block lastAddBlock = null;
 
