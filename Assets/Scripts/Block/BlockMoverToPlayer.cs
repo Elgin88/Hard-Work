@@ -26,11 +26,13 @@ public class BlockMoverToPlayer : MonoBehaviour
 
     private IEnumerator Move()
     {
+        _block.Player.SetIsUploadingTrue();
+
         while (true)
         {
             _rigidbody.centerOfMass = new Vector3(0,0,0);
 
-            if (_isReachTopPoint == false)
+            if (_isReachTopPoint == false & _block.Point != null)
             {
                 _topFlightPoint = new Vector3((_block.Point.transform.position.x + transform.position.x) / 2, _block.Point.transform.position.y + _tossHeight, (_block.Point.transform.position.z + transform.position.z) / 2);
 
@@ -41,7 +43,7 @@ public class BlockMoverToPlayer : MonoBehaviour
                     _isReachTopPoint = true;
                 }
             }
-            else
+            else if(_block.Point != null)
             {
                 transform.position = Vector3.MoveTowards(transform.position, _block.Point.transform.position, _flightSpeed * Time.deltaTime);
 
@@ -49,6 +51,7 @@ public class BlockMoverToPlayer : MonoBehaviour
                 {
                     StopCoroutineMove();
                     _blockFixer.StartCoroutineFixBlock();
+                    _block.Player.SetIsUploadingFalse();
                 }
             }
 

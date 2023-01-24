@@ -37,18 +37,13 @@ public class Block : MonoBehaviour
         if (collision.gameObject.TryGetComponent<Destroyer>(out Destroyer destroyer))
         {
             KinematicOff();
-            GravityOn();
-
-            if (_rigidbody.IsSleeping())
-            {
-                WakeUp();
-            }           
+            GravityOn();           
 
             _player = destroyer.Player;
             _player.SlowDown();
-            _blockMoverToCollector.InitPlayer(_player);
+            //_blockMoverToCollector.InitPlayer(_player);
 
-            if (_player.IsUploading == false & _player.IsUploading == false)
+            if (_player.IsUnloading == false)
             {
                 _point = _player.Inventory.TryTakePoint();
             }

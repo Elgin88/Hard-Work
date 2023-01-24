@@ -28,11 +28,6 @@ public class BlockMoverToCollector : MonoBehaviour
         _block = GetComponent<Block>();
     }
 
-    public void InitPlayer(Player player)
-    {
-        _player = player;
-    }
-
     private IEnumerator MoveToCollector()
     {
         _blockFixer.StopCoroutineFixBlock();
@@ -69,7 +64,7 @@ public class BlockMoverToCollector : MonoBehaviour
 
     private void GetTopPointPosition()
     {
-        _topPoint = new Vector3((_player.transform.position.x + _collectionPoint.x)/2 , transform.position.y + _tossHight + Random.Range(-1* _deltaHight, _deltaHight), (_player.transform.position.z + _collectionPoint.z) / 2);
+        _topPoint = new Vector3((_block.Player.transform.position.x + _collectionPoint.x)/2 , transform.position.y + _tossHight + Random.Range(-1* _deltaHight, _deltaHight), (_block.Player.transform.position.z + _collectionPoint.z) / 2);
     }
 
     public void StartCoroutineMoveToCollector(Vector3 collectionPoint)

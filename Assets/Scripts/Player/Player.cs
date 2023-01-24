@@ -12,11 +12,15 @@ public class Player : MonoBehaviour
     private Inventory _inventory;
     private float _startPositionY;
 
-    private bool _isUpload = false;
+    private bool _isUploading = false;
+    private bool _isUnloading = false;
+
+
 
     public Inventory Inventory => _inventory;
 
-    public bool IsUploading => _isUpload;
+    public bool IsUploading => _isUploading;
+    public bool IsUnloading => _isUnloading;
 
     public event UnityAction IsPushed;
 
@@ -43,13 +47,23 @@ public class Player : MonoBehaviour
         return _playerController.CurrentPlayerDirection;
     }
 
+    public void SetIsUnloadingFalse()
+    {
+        _isUnloading = false;
+    }
+
+    public void SetIsUnloadingTrue()
+    {
+        _isUnloading = true;
+    }
+
     public void SetIsUploadingFalse()
     {
-        _isUpload = false;
+        _isUploading = false;
     }
 
     public void SetIsUploadingTrue()
     {
-        _isUpload = true;
+        _isUploading = true;
     }
 }
