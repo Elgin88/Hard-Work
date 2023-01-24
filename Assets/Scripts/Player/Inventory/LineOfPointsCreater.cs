@@ -37,4 +37,9 @@ public class LineOfPointsCreater : MonoBehaviour
     {
         _maxNumberLines += _numberLinePerBuy;
     }
+
+    public void UpLevel(int numberNewLines)
+    {
+        _maxNumberLines += numberNewLines;
+    }
 }

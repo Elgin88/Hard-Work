@@ -21,8 +21,11 @@ public class BlockFixer : MonoBehaviour
 
         while (true)
         {
-            _block.SetPosition(_block.Point.transform.position.x , _block.Point.transform.position.y, _block.Point.transform.position.z);
-            _block.SetQuaternion(_player.GetCurrentDirection());
+            if (_block.Point != null)
+            {
+                _block.SetPosition(_block.Point.transform.position.x, _block.Point.transform.position.y, _block.Point.transform.position.z);
+                _block.SetQuaternion(_player.GetCurrentDirection());
+            }
 
             yield return null;
         }
