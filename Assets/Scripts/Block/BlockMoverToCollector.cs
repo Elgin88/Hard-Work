@@ -55,11 +55,17 @@ public class BlockMoverToCollector : MonoBehaviour
 
             if (transform.position.y - _collectionPoint.y < 0.1)
             {
+                _block.Player.AddMoney(_block.Cost);             
                 StopCoroutineMoveToCollector();
             }
 
             yield return null;
         }
+    }
+
+    public void Init (Player player)
+    {
+        _player = player;
     }
 
     private void GetTopPointPosition()

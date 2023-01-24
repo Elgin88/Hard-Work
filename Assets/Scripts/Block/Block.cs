@@ -11,6 +11,8 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+    [SerializeField] private int _cost;
+
     private BlockMoverToCollector _blockMoverToCollector;
     private BlockMoverToPlayer _moverBlock;
     private BoxCollider _boxCollider;
@@ -22,9 +24,13 @@ public class Block : MonoBehaviour
     public BlockMoverToCollector BlockMoverToCollector => _blockMoverToCollector;
     public Point Point => _point;
     public Player Player => _player;
+    public int Cost => _cost;
 
     private void Start()
     {
+        if (_cost == 0)
+            Debug.Log("No SerializeField in " + this.name);
+
         _block = GetComponent<Block>();
         _rigidbody = GetComponent<Rigidbody>();
         _boxCollider = GetComponent<BoxCollider>();
@@ -41,7 +47,6 @@ public class Block : MonoBehaviour
 
             _player = destroyer.Player;
             _player.SlowDown();
-            //_blockMoverToCollector.InitPlayer(_player);
 
             if (_player.IsUnloading == false)
             {

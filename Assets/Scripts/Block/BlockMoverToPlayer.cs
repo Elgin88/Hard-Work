@@ -52,7 +52,7 @@ public class BlockMoverToPlayer : MonoBehaviour
                     StopCoroutineMove();
                     _blockFixer.StartCoroutineFixBlock();
                     _block.Player.SetIsUploadingFalse();
-                }
+                }                               
             }
 
             yield return null;

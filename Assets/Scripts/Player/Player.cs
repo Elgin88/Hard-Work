@@ -11,16 +11,15 @@ public class Player : MonoBehaviour
     private PlayerMover _playerController;
     private Inventory _inventory;
     private float _startPositionY;
+    private int _money;
 
     private bool _isUploading = false;
-    private bool _isUnloading = false;
-
-
+    private bool _isUnloading = false;    
 
     public Inventory Inventory => _inventory;
-
     public bool IsUploading => _isUploading;
     public bool IsUnloading => _isUnloading;
+    public int Money => _money;
 
     public event UnityAction IsPushed;
 
@@ -65,5 +64,10 @@ public class Player : MonoBehaviour
     public void SetIsUploadingTrue()
     {
         _isUploading = true;
+    }
+
+    public void AddMoney(int blockPrice)
+    {
+        _money += blockPrice;
     }
 }

@@ -8,7 +8,6 @@ public class LineOfPointsCreater : MonoBehaviour
     [SerializeField] private LineOfPoints _template;
     [SerializeField] private float _deltaBetweenBlocks;
     [SerializeField] private int _maxNumberLines;
-    [SerializeField] private int _numberLinePerBuy;
 
     public int MaxNumberLines => _maxNumberLines;
 
@@ -16,7 +15,7 @@ public class LineOfPointsCreater : MonoBehaviour
 
     private void Start()
     {
-        if (_template == null || _deltaBetweenBlocks == 0 || _maxNumberLines == 0 || _numberLinePerBuy == 0)
+        if (_template == null || _deltaBetweenBlocks == 0 || _maxNumberLines == 0)
             Debug.Log("No SerializeField in " + this.name);
 
         _inventory = GetComponentInParent<Inventory>();
@@ -31,11 +30,6 @@ public class LineOfPointsCreater : MonoBehaviour
 
             _inventory.AddLine(line);
         }
-    }
-
-    public void AddLine()
-    {
-        _maxNumberLines += _numberLinePerBuy;
     }
 
     public void UpLevel(int numberNewLines)
