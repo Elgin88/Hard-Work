@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     public int Money => _money;
 
     public event UnityAction IsPushed;
+    public event UnityAction <int> IsMoneyChanged;
 
     private void Start()
     {
@@ -69,5 +70,6 @@ public class Player : MonoBehaviour
     public void AddMoney(int blockPrice)
     {
         _money += blockPrice;
+        IsMoneyChanged.Invoke(_money);
     }
 }
