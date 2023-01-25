@@ -10,9 +10,10 @@ public class BlockMoverToCollector : MonoBehaviour
     [SerializeField] private float _deltaHight;
 
     private BlockFixer _blockFixer;
-    private Coroutine _moveCoroutine = null;
+    private Coroutine _moveCoroutine;
     private Player _player;
     private Block _block;
+    private Unloader _unloader;
 
     private Vector3 _collectionPoint;
     private Vector3 _topPoint;
@@ -31,9 +32,10 @@ public class BlockMoverToCollector : MonoBehaviour
     private IEnumerator MoveToCollector()
     {
         _blockFixer.StopCoroutineFixBlock();
+
         _collectionPoint = new Vector3(_collectionPoint.x + Random.Range(-1 * _deltaPointPosition, _deltaPointPosition), _collectionPoint.y, _collectionPoint.z + Random.Range(-1 * _deltaPointPosition, _deltaPointPosition));
 
-        GetTopPointPosition();
+        SetTopPointPosition();
 
         _block.Point.RemoveBlock();
 
@@ -55,7 +57,9 @@ public class BlockMoverToCollector : MonoBehaviour
 
             if (transform.position.y - _collectionPoint.y < 0.1)
             {
-                _block.Player.AddMoney(_block.Cost);             
+                _block.Player.AddMoney(_block.Cost);
+                _block.Player.Unloader.ActiveEventBlockUnloded();
+
                 StopCoroutineMoveToCollector();
             }
 
@@ -68,7 +72,7 @@ public class BlockMoverToCollector : MonoBehaviour
         _player = player;
     }
 
-    private void GetTopPointPosition()
+    private void SetTopPointPosition()
     {
         _topPoint = new Vector3((_block.Player.transform.position.x + _collectionPoint.x)/2 , transform.position.y + _tossHight + Random.Range(-1* _deltaHight, _deltaHight), (_block.Player.transform.position.z + _collectionPoint.z) / 2);
     }

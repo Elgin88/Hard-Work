@@ -75,7 +75,7 @@ public class LineOfPoints : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public int GetNumberBlocks()
+    public int GetNumberOfBlocks()
     {
         int numberOfBlocks = 0;
 
@@ -88,5 +88,10 @@ public class LineOfPoints : MonoBehaviour
         }
 
         return numberOfBlocks;
+    }
+
+    public int GetNumberOfPoints()
+    {
+        return _points.Count;
     }
 }

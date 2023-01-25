@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(LineOfPointsCreater))]
 
@@ -10,6 +11,8 @@ public class Inventory : MonoBehaviour
 
     private LineOfPointsCreater _lineOfPointsCreater;
     private List <LineOfPoints> _lines;
+
+    public event UnityAction <int,int> IsAddedBlock;
 
     private void Start()
     {
@@ -93,6 +96,31 @@ public class Inventory : MonoBehaviour
 
     public int GetNumberBloksInTopLine()
     {
-        return _lines[_lines.Count - 1].GetNumberBlocks();
+        return _lines[_lines.Count - 1].GetNumberOfBlocks();
+    }
+
+    public int GetCurrentNumberOfBlocks()
+    {
+        int currentNumberOfBlocks = 0;
+
+        foreach (LineOfPoints line in _lines)
+        {
+            currentNumberOfBlocks += line.GetNumberOfBlocks();
+        }
+
+        return currentNumberOfBlocks;
+    }
+
+    public int GetMaxNumberOfBlocks()
+    {
+        int maxNumberOfBlocks = 0;
+        maxNumberOfBlocks = _lineOfPointsCreater.MaxNumberOfLines * _lines[0].GetNumberOfPoints();
+
+        return maxNumberOfBlocks;
+    }
+
+    public void InitEventBlockIsAdded()
+    {
+        IsAddedBlock?.Invoke(GetCurrentNumberOfBlocks(), GetMaxNumberOfBlocks());
     }
 }

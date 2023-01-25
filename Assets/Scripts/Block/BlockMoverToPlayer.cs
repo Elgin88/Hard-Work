@@ -24,7 +24,7 @@ public class BlockMoverToPlayer : MonoBehaviour
         _block = GetComponent<Block>();   
     }
 
-    private IEnumerator Move()
+    private IEnumerator Flight()
     {
         _block.Player.SetIsUploadingTrue();
 
@@ -52,6 +52,7 @@ public class BlockMoverToPlayer : MonoBehaviour
                     StopCoroutineMove();
                     _blockFixer.StartCoroutineFixBlock();
                     _block.Player.SetIsUploadingFalse();
+                    _block.Player.Inventory.InitEventBlockIsAdded();
                 }                               
             }
 
@@ -68,7 +69,7 @@ public class BlockMoverToPlayer : MonoBehaviour
     {
         if (_flightWork == null)
         {
-            _flightWork = StartCoroutine(Move());
+            _flightWork = StartCoroutine(Flight());
         }
     }
 

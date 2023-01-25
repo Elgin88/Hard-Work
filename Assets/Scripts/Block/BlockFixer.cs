@@ -35,7 +35,6 @@ public class BlockFixer : MonoBehaviour
     {
         _block.KinematicOn();
 
-
         if (_fixBlock == null)
         {
             _fixBlock = StartCoroutine(FixBlock());
