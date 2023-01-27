@@ -70,9 +70,15 @@ public class Player : MonoBehaviour
         _isUploading = true;
     }
 
-    public void AddMoney(int blockPrice)
+    public void AddMoney(int money)
     {
-        _money += blockPrice;
-        IsMoneyChanged.Invoke(_money);
+        _money += money;
+        IsMoneyChanged?.Invoke(_money);
+    }
+
+    public void RemoveMoney(int money)
+    {
+        _money -= money;
+        IsMoneyChanged?.Invoke(_money);
     }
 }
