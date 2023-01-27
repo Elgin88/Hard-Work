@@ -53,7 +53,7 @@ public class Block : MonoBehaviour
                 _point = _player.Inventory.TryTakePoint();
             }
 
-            if (_point != null)
+            if (_point != null & _player.IsUnloading == false)
             {
                 KinematicOn();
                 ColliderOff();

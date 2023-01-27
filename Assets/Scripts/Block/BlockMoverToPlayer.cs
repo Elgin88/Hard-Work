@@ -50,6 +50,7 @@ public class BlockMoverToPlayer : MonoBehaviour
                 if (transform.position == _block.Point.transform.position)
                 {
                     StopCoroutineMove();
+
                     _blockFixer.StartCoroutineFixBlock();
                     _block.Player.SetIsUploadingFalse();
                     _block.Player.Inventory.InitEventBlockIsAdded();
