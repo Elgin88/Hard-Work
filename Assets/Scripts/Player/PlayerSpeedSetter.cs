@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Player))]
 [RequireComponent(typeof(PlayerMover))]
+[RequireComponent(typeof(PlayerFuelController))]
 
 public class PlayerSpeedSetter : MonoBehaviour
 {
@@ -14,12 +16,12 @@ public class PlayerSpeedSetter : MonoBehaviour
     [SerializeField] private float _delayPush;
 
     private Player _player;
-    private PlayerMover _playerController;
+    private PlayerMover _playerMover;
     private Coroutine _changeSpeedWork = null;
+    private PlayerFuelController _playerFuelController;
 
     private float _timeAftetLastPush;
-    private float _currentSpeed;
-    
+    private float _currentSpeed;    
 
     public float DeltaDownSpeed => _deltaDownSpeed;
     public float CurrentSpeed => _currentSpeed;
@@ -30,9 +32,11 @@ public class PlayerSpeedSetter : MonoBehaviour
     private void Start()
     {
         _player = GetComponent<Player>();
-        _playerController = GetComponent<PlayerMover>();
+        _playerMover = GetComponent<PlayerMover>();
+        _playerFuelController = GetComponent<PlayerFuelController>();
 
         _player.IsPushed += IsPushedPlayer;
+
         StartCoroutineChangeSpeed();
     }
 
@@ -50,7 +54,7 @@ public class PlayerSpeedSetter : MonoBehaviour
     {
         while (true)
         {
-            if (_playerController.IsJoystickTurn == true)
+            if (_playerMover.IsJoystickTurn == true & _playerFuelController.IsFuelLoss == false)
             {
                 _currentSpeed = Mathf.MoveTowards(_currentSpeed, _maxSpeed, _deltaUpSpeed * Time.deltaTime);
             }
@@ -58,6 +62,15 @@ public class PlayerSpeedSetter : MonoBehaviour
             {
                 _currentSpeed = Mathf.MoveTowards(_currentSpeed, _minSpeed, _deltaDownSpeed * Time.deltaTime);
             }            
+
+            if (_playerFuelController.IsFuelLoss == true)
+            {
+                _playerMover.StopCoroutineMove();
+            }
+            else
+            {
+                _playerMover.StartCoroutineMove();
+            }
 
             yield return null;
         }
