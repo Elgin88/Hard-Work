@@ -114,7 +114,11 @@ public class Inventory : MonoBehaviour
     public int GetMaxNumberOfBlocks()
     {
         int maxNumberOfBlocks = 0;
-        maxNumberOfBlocks = _lineOfPointsCreater.MaxNumberOfLines * _lines[0].GetNumberOfPoints();
+
+        if (_lineOfPointsCreater != null)
+        {
+            maxNumberOfBlocks = _lineOfPointsCreater.MaxNumberOfLines * _lines[0].GetNumberOfPoints();
+        }        
 
         return maxNumberOfBlocks;
     }
