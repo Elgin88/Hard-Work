@@ -16,6 +16,8 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
+        _lineOfPointsCreater = GetComponent<LineOfPointsCreater>();
+
         _lines = new List<LineOfPoints>();
 
         LineOfPoints[] tempLines = GetComponentsInChildren<LineOfPoints>();
@@ -25,7 +27,7 @@ public class Inventory : MonoBehaviour
             _lines.Add(tempLine);
         }
 
-        _lineOfPointsCreater = GetComponent<LineOfPointsCreater>();
+        
     }
 
     public void TryCreateLine()

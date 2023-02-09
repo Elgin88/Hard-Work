@@ -190,4 +190,4 @@ MonoBehaviour:
   _fuel: 20
   _tank: 100
   _place: 300
-  _unloader: 1000
+  _unloader: 500

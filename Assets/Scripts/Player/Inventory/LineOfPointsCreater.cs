@@ -39,4 +39,6 @@ public class LineOfPointsCreater : MonoBehaviour
         _maxNumberOfLines += numberNewOfLines;
         IsChangedMaxNumberLines?.Invoke(_inventory.GetCurrentNumberOfBlocks(), _inventory.GetMaxNumberOfBlocks());
     }
+
+
 }
