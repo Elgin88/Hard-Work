@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(EndLevel))]
-[RequireComponent(typeof(ChooserMedal))]
-[RequireComponent(typeof(CalculatorAllBlocks))]
-[RequireComponent(typeof(SetterNextScene))]
+//[RequireComponent(typeof(EndLevel))]
+//[RequireComponent(typeof(ChooserMedal))]
+//[RequireComponent(typeof(CalculatorAllBlocks))]
+//[RequireComponent(typeof(SetterNextScene))]
 
 public class MainCamera : MonoBehaviour
 {

@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 {
     private PlayerMover _playerController;
     private Inventory _inventory;
-    private Unloader _unloader;
+    //private Unloader _unloader;
     private float _startPositionY;
     private int _money;
 
@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     public bool IsUploading => _isUploading;
     public bool IsUnloading => _isUnloading;
     public int Money => _money;
-    public Unloader Unloader => _unloader;
+    // public Unloader Unloader => _unloader;
 
     public event UnityAction IsPushed;
     public event UnityAction <int> IsMoneyChanged;
@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     {
         _playerController = GetComponent<PlayerMover>();
         _inventory = GetComponentInChildren<Inventory>();
-        _unloader = GetComponentInChildren<Unloader>();
+        // _unloader = GetComponentInChildren<Unloader>();
 
         _startPositionY = transform.position.y;
     }

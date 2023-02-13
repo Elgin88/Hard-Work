@@ -8,7 +8,6 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(BlockMoverToPlayer))]
 [RequireComponent(typeof(BlockMoverToCollector))]
-[RequireComponent(typeof(BlockDestroyer))]
 
 public class Block : MonoBehaviour
 {

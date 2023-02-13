@@ -2,10 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BlockFixer))]
-[RequireComponent(typeof(Block))]
-[RequireComponent(typeof(BlockDestroyer))]
-
 public class BlockMoverToCollector : MonoBehaviour
 {
     [SerializeField] private float _speed;
@@ -17,8 +13,7 @@ public class BlockMoverToCollector : MonoBehaviour
     private Coroutine _moveCoroutine;
     private Player _player;
     private Block _block;
-    private Unloader _unloader;
-    private BlockDestroyer _blockDestroyer;
+    //private Unloader _unloader;
 
     private Vector3 _collectionPoint;
     private Vector3 _topPoint;
@@ -32,7 +27,6 @@ public class BlockMoverToCollector : MonoBehaviour
 
         _blockFixer = GetComponent<BlockFixer>();
         _block = GetComponent<Block>();
-        _blockDestroyer = GetComponent<BlockDestroyer>();
     }
 
     private IEnumerator MoveToCollector()
@@ -64,11 +58,9 @@ public class BlockMoverToCollector : MonoBehaviour
             if (transform.position.y - _collectionPoint.y < 0.1)
             {
                 _block.Player.AddMoney(_block.Cost);
-                _block.Player.Unloader.ActiveEventBlockUnloded();
+                // _block.Player.Unloader.ActiveEventBlockUnloded();
 
                 StopCoroutineMoveToCollector();
-
-                _blockDestroyer.DestroyBlock();
             }
 
             yield return null;

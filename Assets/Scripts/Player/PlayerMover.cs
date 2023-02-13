@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerMover : MonoBehaviour
 {
-    [SerializeField] private FixedJoystick _joystick;   
+    //[SerializeField] private FixedJoystick _joystick;   
 
     private PlayerSpeedSetter _playerSpeedSetter;
     private Quaternion _currentPlayerDirection;
@@ -17,7 +17,7 @@ public class PlayerMover : MonoBehaviour
 
     private void Start()
     {
-        if (_joystick == null)
+        //if (_joystick == null)
         {
             Debug.Log("No SerializeField in " + this.name);
         }
@@ -31,14 +31,14 @@ public class PlayerMover : MonoBehaviour
     {
         while (true)
         {
-            if ((_joystick.Horizontal != 0) || (_joystick.Vertical != 0))
+            // if ((_joystick.Horizontal != 0) || (_joystick.Vertical != 0))
             {
                 _isJoystickTurn = true;
-                _currentPlayerDirection = Quaternion.LookRotation(new Vector3(_joystick.Horizontal, 0, _joystick.Vertical));
+                //_currentPlayerDirection = Quaternion.LookRotation(new Vector3(_joystick.Horizontal, 0, _joystick.Vertical));
                 transform.rotation = _currentPlayerDirection;
-                transform.position = new Vector3(transform.position.x + _joystick.Horizontal * Time.deltaTime * _playerSpeedSetter.CurrentSpeed, transform.position.y, transform.position.z + _joystick.Vertical * Time.deltaTime * _playerSpeedSetter.CurrentSpeed);
+                //transform.position = new Vector3(transform.position.x + _joystick.Horizontal * Time.deltaTime * _playerSpeedSetter.CurrentSpeed, transform.position.y, transform.position.z + _joystick.Vertical * Time.deltaTime * _playerSpeedSetter.CurrentSpeed);
             }
-            else
+            // else
             {
                 _isJoystickTurn = false;
             }

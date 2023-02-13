@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Player))]
 [RequireComponent(typeof(PlayerMover))]
-[RequireComponent(typeof(PlayerFuelController))]
+//[RequireComponent(typeof(PlayerFuelController))]
 
 public class PlayerSpeedSetter : MonoBehaviour
 {
@@ -18,7 +18,7 @@ public class PlayerSpeedSetter : MonoBehaviour
     private Player _player;
     private PlayerMover _playerMover;
     private Coroutine _changeSpeedWork = null;
-    private PlayerFuelController _playerFuelController;
+    //private PlayerFuelController _playerFuelController;
 
     private float _timeAftetLastPush;
     private float _currentSpeed;    
@@ -33,11 +33,11 @@ public class PlayerSpeedSetter : MonoBehaviour
     {
         _player = GetComponent<Player>();
         _playerMover = GetComponent<PlayerMover>();
-        _playerFuelController = GetComponent<PlayerFuelController>();
+        //_playerFuelController = GetComponent<PlayerFuelController>();
 
-        _player.IsPushed += IsPushedPlayer;
+        // _player.IsPushed += IsPushedPlayer;
 
-        StartCoroutineChangeSpeed();
+        //StartCoroutineChangeSpeed();
     }
 
     private void Update()
@@ -47,34 +47,34 @@ public class PlayerSpeedSetter : MonoBehaviour
 
     private void OnDisable()
     {
-        _player.IsPushed -= IsPushedPlayer;
+        //_player.IsPushed -= IsPushedPlayer;
     }
 
-    private IEnumerator ChangeSpeed()
-    {
-        while (true)
-        {
-            if (_playerMover.IsJoystickTurn == true & _playerFuelController.IsFuelLoss == false)
-            {
-                _currentSpeed = Mathf.MoveTowards(_currentSpeed, _maxSpeed, _deltaUpSpeed * Time.deltaTime);
-            }
-            else
-            {
-                _currentSpeed = Mathf.MoveTowards(_currentSpeed, _minSpeed, _deltaDownSpeed * Time.deltaTime);
-            }            
+    // private IEnumerator ChangeSpeed()
+    // {
+    //while (true)
+    //{
+    //    if (_playerMover.IsJoystickTurn == true & _playerFuelController.IsFuelLoss == false)
+    //    {
+    //        _currentSpeed = Mathf.MoveTowards(_currentSpeed, _maxSpeed, _deltaUpSpeed * Time.deltaTime);
+    //    }
+    //    else
+    //    {
+    //        _currentSpeed = Mathf.MoveTowards(_currentSpeed, _minSpeed, _deltaDownSpeed * Time.deltaTime);
+    //    }            
 
-            if (_playerFuelController.IsFuelLoss == true)
-            {
-                _playerMover.StopCoroutineMove();
-            }
-            else
-            {
-                _playerMover.StartCoroutineMove();
-            }
+    //    if (_playerFuelController.IsFuelLoss == true)
+    //    {
+    //        _playerMover.StopCoroutineMove();
+    //    }
+    //    else
+    //    {
+    //        _playerMover.StartCoroutineMove();
+    //    }
 
-            yield return null;
-        }
-    }
+    //    yield return null;
+    //}
+    //}
 
     private void IsPushedPlayer()
     {
@@ -95,7 +95,7 @@ public class PlayerSpeedSetter : MonoBehaviour
     {
         if (_changeSpeedWork == null)
         {
-            _changeSpeedWork = StartCoroutine(ChangeSpeed());
+            //_changeSpeedWork = StartCoroutine(ChangeSpeed());
         }
     }
 
