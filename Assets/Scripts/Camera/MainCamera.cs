@@ -2,14 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-<<<<<<< HEAD
-//[RequireComponent(typeof(EndLevel))]
-//[RequireComponent(typeof(ChooserMedal))]
-//[RequireComponent(typeof(CalculatorAllBlocks))]
-//[RequireComponent(typeof(SetterNextScene))]
-
-=======
->>>>>>> parent of 6330cfb (1)
 public class MainCamera : MonoBehaviour
 {
     [SerializeField] private float _deltaX;
