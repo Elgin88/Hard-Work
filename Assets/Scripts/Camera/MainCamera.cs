@@ -2,22 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+<<<<<<< HEAD
 //[RequireComponent(typeof(EndLevel))]
 //[RequireComponent(typeof(ChooserMedal))]
 //[RequireComponent(typeof(CalculatorAllBlocks))]
 //[RequireComponent(typeof(SetterNextScene))]
 
+=======
+>>>>>>> parent of 6330cfb (1)
 public class MainCamera : MonoBehaviour
 {
     [SerializeField] private float _deltaX;
     [SerializeField] private float _deltaY;
     [SerializeField] private float _deltaZ;
+
     [SerializeField] private float _speedChangeX;
     [SerializeField] private float _speedChangeY;
     [SerializeField] private float _speedChangeZ;
 
     private PlayerMover _player;
     private Coroutine _moveWork = null;
+
     private float _currentCameraPositionX;
     private float _currentCameraPositionY;
     private float _currentCameraPositionZ;

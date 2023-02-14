@@ -923,7 +923,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1523990344}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &69425712
 BoxCollider:
@@ -1288,10 +1288,6 @@ PrefabInstance:
       value: AddPlaceButton
       objectReference: {fileID: 0}
     - target: {fileID: 6881457980981463762, guid: 4c2cdd1c9ef0e41cca798fb50efb0a32, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6881457980981463762, guid: 4c2cdd1c9ef0e41cca798fb50efb0a32, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 663357258}
@@ -1400,10 +1396,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2074334882214455501, guid: fd1535bd180d344b78edaa2aa839912a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2074334882214455503, guid: fd1535bd180d344b78edaa2aa839912a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2074334882214455506, guid: fd1535bd180d344b78edaa2aa839912a, type: 3}
@@ -2015,6 +2007,7 @@ GameObject:
   - component: {fileID: 141811575}
   - component: {fileID: 141811578}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - component: {fileID: 141811581}
   - component: {fileID: 141811580}
   - component: {fileID: 141811579}
@@ -2022,6 +2015,8 @@ GameObject:
 =======
   - component: {fileID: 141811579}
 >>>>>>> parent of 1a227fc (1)
+=======
+>>>>>>> parent of 6330cfb (1)
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2092,8 +2087,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Father: {fileID: 1523990344}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 38.33, y: 0, z: 0}
 --- !u!114 &141811578
 MonoBehaviour:
@@ -2113,6 +2108,7 @@ MonoBehaviour:
   _speedChangeX: 3.5
   _speedChangeY: 3.5
   _speedChangeZ: 3.5
+<<<<<<< HEAD
 --- !u!114 &141811579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2172,6 +2168,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _light: {fileID: 573275412}
 >>>>>>> parent of 1a227fc (1)
+=======
+>>>>>>> parent of 6330cfb (1)
 --- !u!1001 &145550763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9282,7 +9280,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1523990344}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 62.655, y: -53.681, z: -26.303}
 --- !u!4 &574492623 stripped
 Transform:
@@ -10689,10 +10687,6 @@ PrefabInstance:
       value: AddTankButton
       objectReference: {fileID: 0}
     - target: {fileID: 6881457980981463762, guid: 4c2cdd1c9ef0e41cca798fb50efb0a32, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6881457980981463762, guid: 4c2cdd1c9ef0e41cca798fb50efb0a32, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -11652,12 +11646,16 @@ PrefabInstance:
     - target: {fileID: 5947677411666558267, guid: 9487bd56d3d394c30a3ca3f3634da7a8, type: 3}
       propertyPath: _chooserMedal
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1523990346}
     - target: {fileID: 5947677411666558267, guid: 9487bd56d3d394c30a3ca3f3634da7a8, type: 3}
       propertyPath: _calculatorAllBlocks
       value: 
 <<<<<<< HEAD
+<<<<<<< HEAD
       objectReference: {fileID: 0}
+=======
+      objectReference: {fileID: 1523990345}
+>>>>>>> parent of 6330cfb (1)
     - target: {fileID: 6731518697981252830, guid: 9487bd56d3d394c30a3ca3f3634da7a8, type: 3}
       propertyPath: _unloader
       value: 
@@ -13475,7 +13473,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &823253966 stripped
 Transform:
@@ -22751,7 +22749,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6881457980981463762, guid: 4c2cdd1c9ef0e41cca798fb50efb0a32, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6881457980981463762, guid: 4c2cdd1c9ef0e41cca798fb50efb0a32, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -24235,7 +24233,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6604913057564148005, guid: d00ef1aec2199477185c673f10169ff7, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6604913057564148005, guid: d00ef1aec2199477185c673f10169ff7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25528,10 +25526,16 @@ GameObject:
   m_Component:
   - component: {fileID: 1523990344}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   - component: {fileID: 1523990345}
   - component: {fileID: 1523990346}
 >>>>>>> parent of 1a227fc (1)
+=======
+  - component: {fileID: 1523990345}
+  - component: {fileID: 1523990346}
+  - component: {fileID: 1523990347}
+>>>>>>> parent of 6330cfb (1)
   m_Layer: 0
   m_Name: World
   m_TagString: Untagged
@@ -25552,13 +25556,17 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1585712151}
+  - {fileID: 141811577}
   - {fileID: 69425711}
   - {fileID: 573275414}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 6330cfb (1)
 --- !u!114 &1523990345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25586,7 +25594,22 @@ MonoBehaviour:
   _minProcent: 60
   _middleProcent: 80
   _maxProcent: 100
+<<<<<<< HEAD
 >>>>>>> parent of 1a227fc (1)
+=======
+--- !u!114 &1523990347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523990343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b000ca4962d7473dbcda6bec5b6d537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> parent of 6330cfb (1)
 --- !u!1001 &1528660074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27910,10 +27933,6 @@ PrefabInstance:
     m_Modifications:
 <<<<<<< HEAD
     - target: {fileID: 5733851963557308924, guid: 8c72e9f0ec19b48ab842e1bfc18a0992, type: 3}
-      propertyPath: _button
-      value: 
-      objectReference: {fileID: 1791108886}
-    - target: {fileID: 5733851963557308924, guid: 8c72e9f0ec19b48ab842e1bfc18a0992, type: 3}
       propertyPath: _endLevelPanel
       value: 
       objectReference: {fileID: 484364465}
@@ -28014,7 +28033,7 @@ PrefabInstance:
 <<<<<<< HEAD
     - target: {fileID: 8701049958507021615, guid: 8c72e9f0ec19b48ab842e1bfc18a0992, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8701049958507021615, guid: 8c72e9f0ec19b48ab842e1bfc18a0992, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -28241,7 +28260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 671650964686510731, guid: 221d6cf9711b048bd919ba01cee1ac71, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 671650964686510731, guid: 221d6cf9711b048bd919ba01cee1ac71, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29297,10 +29316,6 @@ PrefabInstance:
     - target: {fileID: 6881457980981463761, guid: 4c2cdd1c9ef0e41cca798fb50efb0a32, type: 3}
       propertyPath: m_Name
       value: AddFuelButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 6881457980981463762, guid: 4c2cdd1c9ef0e41cca798fb50efb0a32, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6881457980981463762, guid: 4c2cdd1c9ef0e41cca798fb50efb0a32, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -30512,7 +30527,7 @@ MonoBehaviour:
   _upgradeCost: {fileID: 110661734}
   _levelUpperUnloader: {fileID: 1490881365}
   _unloader: {fileID: 1490881366}
-  _button: {fileID: 1814065707}
+  _unloaderButton: {fileID: 1814065707}
   _cost: {fileID: 429009036}
   _label: {fileID: 956845597}
   _labelText: "\u0420\u0430\u0437\u0433\u0440\u0443\u0437\u0447\u0438\u043A"
@@ -33010,7 +33025,7 @@ RectTransform:
   - {fileID: 175292930}
   - {fileID: 2100116550}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -34092,25 +34107,25 @@ PrefabInstance:
 <<<<<<< HEAD
     - target: {fileID: 3967220133221581203, guid: 1ef6287722dc8431d9fa3525ca869d9f, type: 3}
       propertyPath: _fuel
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3967220133221581203, guid: 1ef6287722dc8431d9fa3525ca869d9f, type: 3}
       propertyPath: _tank
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3967220133221581203, guid: 1ef6287722dc8431d9fa3525ca869d9f, type: 3}
       propertyPath: _place
-      value: 3
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 3967220133221581203, guid: 1ef6287722dc8431d9fa3525ca869d9f, type: 3}
       propertyPath: _unloader
-      value: 5
+      value: 500
       objectReference: {fileID: 0}
 =======
 >>>>>>> parent of 1a227fc (1)
     - target: {fileID: 3967220133221581229, guid: 1ef6287722dc8431d9fa3525ca869d9f, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3967220133221581229, guid: 1ef6287722dc8431d9fa3525ca869d9f, type: 3}
       propertyPath: m_LocalPosition.x
