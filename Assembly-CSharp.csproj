@@ -60,9 +60,9 @@
     <Compile Include="Assets/Scripts/Player/Destroyer.cs" />
     <Compile Include="Assets/Scripts/Player/Inventory/LineOfPointsCreater.cs" />
     <Compile Include="Assets/Scripts/Player/Inventory/LineOfPoints/LineOfPoints.cs" />
-    <Compile Include="Assets/Scripts/World/LightOn.cs" />
     <Compile Include="Assets/Scripts/Block/BlockFixer.cs" />
     <Compile Include="Assets/Scripts/Player/PlayerMover.cs" />
+    <Compile Include="Assets/Scripts/Camera/LightOn.cs" />
     <Compile Include="Assets/Scripts/Player/PlayerSpeedSetter.cs" />
     <Compile Include="Assets/Scripts/Player/Inventory/Inventory.cs" />
     <Compile Include="Assets/Scripts/Player/Player.cs" />

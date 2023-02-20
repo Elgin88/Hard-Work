@@ -331,6 +331,7 @@
 "Assets/Scripts/Block/BlockFixer.cs"
 "Assets/Scripts/Block/BlockMoverToCollector.cs"
 "Assets/Scripts/Block/BlockMoverToPlayer.cs"
+"Assets/Scripts/Camera/LightOn.cs"
 "Assets/Scripts/Camera/MainCamera.cs"
 "Assets/Scripts/Player/Destroyer.cs"
 "Assets/Scripts/Player/Inventory/Inventory.cs"
@@ -340,7 +341,6 @@
 "Assets/Scripts/Player/Player.cs"
 "Assets/Scripts/Player/PlayerMover.cs"
 "Assets/Scripts/Player/PlayerSpeedSetter.cs"
-"Assets/Scripts/World/LightOn.cs"
 -langversion:9.0
 
 /deterministic
