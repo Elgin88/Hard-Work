@@ -329,7 +329,6 @@
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/Block/Block.cs"
 "Assets/Scripts/Block/BlockFixer.cs"
-"Assets/Scripts/Block/BlockMoverToCollector.cs"
 "Assets/Scripts/Block/BlockMoverToPlayer.cs"
 "Assets/Scripts/Camera/LightOn.cs"
 "Assets/Scripts/Camera/MainCamera.cs"
@@ -338,9 +337,6 @@
 "Assets/Scripts/Player/Inventory/LineOfPoints/LineOfPoints.cs"
 "Assets/Scripts/Player/Inventory/LineOfPoints/Point/Point.cs"
 "Assets/Scripts/Player/Inventory/LineOfPointsCreater.cs"
-"Assets/Scripts/Player/Player.cs"
-"Assets/Scripts/Player/PlayerMover.cs"
-"Assets/Scripts/Player/PlayerSpeedSetter.cs"
 -langversion:9.0
 
 /deterministic
