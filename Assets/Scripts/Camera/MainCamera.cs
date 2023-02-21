@@ -12,6 +12,8 @@ public class MainCamera : MonoBehaviour
     [SerializeField] private float _speedChangeY;
     [SerializeField] private float _speedChangeZ;
 
+    [SerializeField] private string _nextLevelName;
+
     private PlayerMover _player;
     private Coroutine _moveWork = null;
 
@@ -21,6 +23,11 @@ public class MainCamera : MonoBehaviour
 
     private void Start()
     {
+        if (_deltaX == 0 || _deltaY == 0 || _deltaZ == 0 || _speedChangeX == 0 || _speedChangeY == 0 || _speedChangeZ == 0 || _nextLevelName == "")
+        {
+            Debug.Log("No SerializeField in " + gameObject.name);
+        }
+
         _player = FindObjectOfType<PlayerMover>();
 
         _currentCameraPositionX = _player.transform.position.x;
