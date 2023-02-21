@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class BlockMoverToCollector : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [SerializeField] private float _flightSpeed;
     [SerializeField] private float _tossHight;
     [SerializeField] private float _deltaPointPosition;
     [SerializeField] private float _deltaHight;
@@ -27,7 +27,7 @@ public class BlockMoverToCollector : MonoBehaviour
 
     private void Start()
     {
-        if (_speed == 0 || _tossHight == 0 || _deltaPointPosition == 0 || _deltaHight == 0)
+        if (_flightSpeed == 0 || _tossHight == 0 || _deltaPointPosition == 0 || _deltaHight == 0)
             Debug.Log("No SerializeField in " + this.name);
 
         _blockFixer = GetComponent<BlockFixer>();
@@ -49,7 +49,7 @@ public class BlockMoverToCollector : MonoBehaviour
         {
             if (_isReachedTopPoint == false)
             {
-                transform.position = Vector3.MoveTowards(transform.position, _topPoint, _speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, _topPoint, _flightSpeed * Time.deltaTime);
 
                 if (transform.position == _topPoint)
                 {
@@ -58,7 +58,7 @@ public class BlockMoverToCollector : MonoBehaviour
             }
             else
             {
-                transform.position = Vector3.MoveTowards(transform.position, _collectionPoint, _speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, _collectionPoint, _flightSpeed * Time.deltaTime);
             }
 
             if (transform.position.y - _collectionPoint.y < 0.1)

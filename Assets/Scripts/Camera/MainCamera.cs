@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CalculatorBlocks))]
+
 public class MainCamera : MonoBehaviour
 {
     [SerializeField] private float _deltaX;

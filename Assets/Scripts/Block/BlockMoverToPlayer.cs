@@ -7,18 +7,24 @@ using UnityEngine;
 
 public class BlockMoverToPlayer : MonoBehaviour
 {
-    [SerializeField] private float _flightSpeed = 10;
-    [SerializeField] private float _tossHeight = 3;
+    [SerializeField] private float _flightSpeed;
+    [SerializeField] private float _tossHeight;
 
     private BlockFixer _blockFixer;
     private Rigidbody _rigidbody;
-    private Coroutine _flightWork = null;
-    private Vector3 _topFlightPoint;    
+    private Coroutine _flightWork;
+    private Vector3 _topPointPosition;
+    private Vector3 _startBlockPosition;
     private Block _block;
-    private bool _isReachTopPoint = false;    
+    private bool _isReachTop;    
 
     private void Start()
     {
+        if (_flightSpeed == 0 || _tossHeight == 0)
+        {
+            Debug.Log("No SerializeField in " + gameObject.name);
+        }
+
         _blockFixer = GetComponent<BlockFixer>();        
         _rigidbody = GetComponent<Rigidbody>();        
         _block = GetComponent<Block>();   
@@ -27,21 +33,21 @@ public class BlockMoverToPlayer : MonoBehaviour
     private IEnumerator Flight()
     {
         _block.Player.SetIsUploadingTrue();
+        _isReachTop = false;
+        _startBlockPosition = transform.position;
 
         while (true)
         {
-            _rigidbody.centerOfMass = new Vector3(0,0,0);
+            _topPointPosition = new Vector3((_block.Point.transform.position.x + _startBlockPosition.x) / 2, _block.Point.transform.position.y + _tossHeight, (_block.Point.transform.position.z + _startBlockPosition.z) / 2);
 
-            if (_isReachTopPoint == false & _block.Point != null)
+            if (transform.position == _topPointPosition)
             {
-                _topFlightPoint = new Vector3((_block.Point.transform.position.x + transform.position.x) / 2, _block.Point.transform.position.y + _tossHeight, (_block.Point.transform.position.z + transform.position.z) / 2);
+                _isReachTop = true;
+            }
 
-                transform.position = Vector3.MoveTowards(transform.position, _topFlightPoint, _flightSpeed * Time.deltaTime);
-
-                if (transform.position == _topFlightPoint)
-                {
-                    _isReachTopPoint = true;
-                }
+            if (_isReachTop == false & _block.Point != null)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, _topPointPosition, _flightSpeed * Time.deltaTime);
             }
             else if(_block.Point != null)
             {
