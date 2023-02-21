@@ -54,23 +54,23 @@ public class PlayerSpeedSetter : MonoBehaviour
     {
         while (true)
         {
-            if (_playerMover.IsJoystickTurn == true & _playerFuelController.IsFuelLoss == false)
-            {
-                _currentSpeed = Mathf.MoveTowards(_currentSpeed, _maxSpeed, _deltaUpSpeed * Time.deltaTime);
-            }
-            else
-            {
-                _currentSpeed = Mathf.MoveTowards(_currentSpeed, _minSpeed, _deltaDownSpeed * Time.deltaTime);
-            }            
+            //if (_playerMover.IsJoystickTurn == true & _playerFuelController.IsFuelLoss == false)
+            //{
+            //    _currentSpeed = Mathf.MoveTowards(_currentSpeed, _maxSpeed, _deltaUpSpeed * Time.deltaTime);
+            //}
+            //else
+            //{
+            //    _currentSpeed = Mathf.MoveTowards(_currentSpeed, _minSpeed, _deltaDownSpeed * Time.deltaTime);
+            //}            
 
-            if (_playerFuelController.IsFuelLoss == true)
-            {
-                _playerMover.StopCoroutineMove();
-            }
-            else
-            {
-                _playerMover.StartCoroutineMove();
-            }
+            //if (_playerFuelController.IsFuelLoss == true)
+            //{
+            //    _playerMover.StopCoroutineMove();
+            //}
+            //else
+            //{
+            //    _playerMover.StartCoroutineMove();
+            //}
 
             yield return null;
         }

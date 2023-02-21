@@ -63,12 +63,12 @@ public class BlockMoverToCollector : MonoBehaviour
 
             if (transform.position.y - _collectionPoint.y < 0.1)
             {
-                _block.Player.AddMoney(_block.Cost);
-                _block.Player.Unloader.ActiveEventBlockUnloded();
+                //_block.Player.AddMoney(_block.Cost);
+                //_block.Player.Unloader.ActiveEventBlockUnloded();
 
-                StopCoroutineMoveToCollector();
+                //StopCoroutineMoveToCollector();
 
-                _blockDestroyer.DestroyBlock();
+                //_blockDestroyer.DestroyBlock();
             }
 
             yield return null;
