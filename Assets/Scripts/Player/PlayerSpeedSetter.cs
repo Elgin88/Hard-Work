@@ -17,7 +17,7 @@ public class PlayerSpeedSetter : MonoBehaviour
 
     private Player _player;
     private PlayerMover _playerMover;
-    private Coroutine _changeSpeedWork = null;
+    private Coroutine _changeSpeedWork;
     private PlayerFuelController _playerFuelController;
 
     private float _timeAftetLastPush;
@@ -31,6 +31,11 @@ public class PlayerSpeedSetter : MonoBehaviour
 
     private void Start()
     {
+        if (_maxSpeed == 0 || _minSpeed == 0 || _deltaUpSpeed == 0 || _deltaDownSpeed == 0 || _pushChangeSpeed == 0 || _delayPush == 0 )
+        {
+            Debug.Log("No SerializeField in " + gameObject.name);
+        }
+
         _player = GetComponent<Player>();
         _playerMover = GetComponent<PlayerMover>();
         _playerFuelController = GetComponent<PlayerFuelController>();
