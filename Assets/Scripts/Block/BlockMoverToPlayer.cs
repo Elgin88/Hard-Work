@@ -40,14 +40,14 @@ public class BlockMoverToPlayer : MonoBehaviour
         {
             _topPointPosition = new Vector3((_block.Point.transform.position.x + _startBlockPosition.x) / 2, _block.Point.transform.position.y + _tossHeight, (_block.Point.transform.position.z + _startBlockPosition.z) / 2);
 
-            if (transform.position == _topPointPosition)
-            {
-                _isReachTop = true;
-            }
-
             if (_isReachTop == false & _block.Point != null)
             {
                 transform.position = Vector3.MoveTowards(transform.position, _topPointPosition, _flightSpeed * Time.deltaTime);
+
+                if (transform.position == _topPointPosition)
+                {
+                    _isReachTop = true;
+                }
             }
             else if(_block.Point != null)
             {
