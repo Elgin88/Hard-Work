@@ -6,9 +6,12 @@ using UnityEngine;
 
 public class Unloader : MonoBehaviour
 {
+    [SerializeField] private float _speedUnload;
+
     private Coroutine _unload;
     private CollectionPoint _point;
     private Inventory _inventory;
+    private WaitForSeconds _speedUnloadWFS;
 
     private bool _isUnload;
 
@@ -16,10 +19,16 @@ public class Unloader : MonoBehaviour
 
     private void Start()
     {
+        if (_speedUnload == 0)
+        {
+            Debug.Log("No SerializeField in" + gameObject.name);
+        }
+
         _point = FindObjectOfType<CollectionPoint>();
         _inventory = GetComponent<Inventory>();
 
         _isUnload = false;
+        _speedUnloadWFS = new WaitForSeconds(_speedUnload);
     }
 
     private IEnumerator Unload()
@@ -47,11 +56,12 @@ public class Unloader : MonoBehaviour
                 }
             }
 
-            yield return null;
+            yield return _speedUnloadWFS;
+            ;
         }
     }
 
-    private void StartUnload()
+    public void StartUnload()
     {
         if (_unload == null)
         {
@@ -59,7 +69,7 @@ public class Unloader : MonoBehaviour
         }
     }
 
-    private void StopUnload()
+    public void StopUnload()
     {
         if (_unload != null)
         {

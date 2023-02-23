@@ -116,4 +116,9 @@ public class Block : MonoBehaviour
     {
         return _point;
     }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
 }

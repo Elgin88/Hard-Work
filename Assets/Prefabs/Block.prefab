@@ -172,8 +172,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _flightSpeed: 10
   _tossHight: 3
-  _deltaPointPosition: 1
-  _deltaHight: 1
+  _deltaPointPosition: 0.2
+  _deltaHight: 0.2
 --- !u!114 &6337753571733761264
 MonoBehaviour:
   m_ObjectHideFlags: 0

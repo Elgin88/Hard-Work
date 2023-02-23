@@ -8343,6 +8343,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1523990344}
     m_Modifications:
+    - target: {fileID: -9008612476488763490, guid: 1ce685be815594ca6a54fff4d91477e3, type: 3}
+      propertyPath: _deltaHight
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -9008612476488763490, guid: 1ce685be815594ca6a54fff4d91477e3, type: 3}
+      propertyPath: _deltaPointPosition
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: -1479776214818538402, guid: 1ce685be815594ca6a54fff4d91477e3, type: 3}
       propertyPath: _cost
       value: 1
@@ -8902,6 +8910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ac806113bea4ab1bd701bcc1c0a446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speedUnload: 0.08
 --- !u!23 &1036109610792274012
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10437,6 +10446,7 @@ GameObject:
   - component: {fileID: 6604913056553321212}
   - component: {fileID: 6604913056553321203}
   - component: {fileID: 6604913056553321208}
+  - component: {fileID: 6604913056553321215}
   m_Layer: 0
   m_Name: CollectorParkingArea
   m_TagString: Untagged
@@ -10538,6 +10548,18 @@ Transform:
   m_Father: {fileID: 6604913057073521199}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6604913056553321215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6604913056553321202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc4c854c17544393ac73ab70c53247d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6604913057073521197
 GameObject:
   m_ObjectHideFlags: 0
@@ -10547,6 +10569,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6604913057073521199}
+  - component: {fileID: 6604913057073521200}
   m_Layer: 0
   m_Name: Collector
   m_TagString: Untagged
@@ -10571,6 +10594,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6604913057073521200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6604913057073521197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d4397b878f90482396557e8e3d61121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6604913057166183473
 GameObject:
   m_ObjectHideFlags: 0
