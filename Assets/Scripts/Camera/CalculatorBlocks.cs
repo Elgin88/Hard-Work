@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class CalculatorBlocks : MonoBehaviour
 {
-    private int _numberBlocks;
+    private int _allBlocks;
+    private int _unloadBlocks;
 
-    public int NumberBlocks => _numberBlocks;
+    public int NumberAllBlocks => _allBlocks;
 
     private void Start()
     {
-        _numberBlocks = FindObjectsOfType<Block>().Length;
+        _allBlocks = FindObjectsOfType<Block>().Length;
+
+        _unloadBlocks = 0;
+    }
+
+    private void AddNumberUnloadBloks()
+    {
+        _unloadBlocks++;
     }
 }

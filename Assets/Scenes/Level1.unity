@@ -7224,17 +7224,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
   m_PrefabInstance: {fileID: 1408505522}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1807707760 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
-  m_PrefabInstance: {fileID: 1408505522}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1815564277 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5607360971679849291, guid: 1ce685be815594ca6a54fff4d91477e3, type: 3}
@@ -8798,7 +8787,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec5128783ee5d4d5f9598de3d4a9870a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _joystick: {fileID: 1807707760}
 --- !u!1 &671650963043882641
 GameObject:
   m_ObjectHideFlags: 0
@@ -8894,6 +8882,7 @@ GameObject:
   - component: {fileID: 671650964955372346}
   - component: {fileID: 671650964955372345}
   - component: {fileID: 671650964955372344}
+  - component: {fileID: 671650964955372350}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -8901,6 +8890,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &671650964955372350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671650964955372349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50ac806113bea4ab1bd701bcc1c0a446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &1036109610792274012
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10579,6 +10580,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6604913057166183474}
+  - component: {fileID: 6604913057166183475}
   m_Layer: 0
   m_Name: CollectionPoint
   m_TagString: Untagged
@@ -10601,6 +10603,18 @@ Transform:
   m_Father: {fileID: 6604913057073521199}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6604913057166183475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6604913057166183473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2642152c4a0c400f9f1d6a6fce8d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6881457979246602740
 MonoBehaviour:
   m_ObjectHideFlags: 0

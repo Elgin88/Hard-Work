@@ -26,8 +26,6 @@ public class Inventory : MonoBehaviour
         {
             _lines.Add(tempLine);
         }
-
-        
     }
 
     public void TryCreateLine()
