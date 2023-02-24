@@ -16,7 +16,7 @@ public class CalculatorBlocks : MonoBehaviour
         _unloadBlocks = 0;
     }
 
-    private void AddNumberUnloadBloks()
+    public void AddUnloadBloks()
     {
         _unloadBlocks++;
     }

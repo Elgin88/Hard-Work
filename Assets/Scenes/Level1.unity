@@ -4244,6 +4244,7 @@ GameObject:
   - component: {fileID: 915641205}
   - component: {fileID: 915641207}
   - component: {fileID: 915641206}
+  - component: {fileID: 915641208}
   m_Layer: 5
   m_Name: Count
   m_TagString: Untagged
@@ -4370,6 +4371,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915641204}
   m_CullTransparentMesh: 1
+--- !u!114 &915641208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915641204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a985426f98564559ac672bead2262f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &931959992
 GameObject:
   m_ObjectHideFlags: 0
@@ -8584,6 +8597,7 @@ GameObject:
   - component: {fileID: 2146793028}
   - component: {fileID: 2146793027}
   - component: {fileID: 2146793026}
+  - component: {fileID: 2146793029}
   m_Layer: 5
   m_Name: MoneyBar
   m_TagString: Untagged
@@ -8672,6 +8686,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146793023}
   m_CullTransparentMesh: 1
+--- !u!114 &2146793029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146793023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ece6a1b82618420082a51631b51b40b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &259677106139871789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8730,7 +8756,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671650963043882641}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -11.67, y: 0.50005245, z: -6.86}
+  m_LocalPosition: {x: -9.74, y: 0.50005245, z: -6.86}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8910,7 +8936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ac806113bea4ab1bd701bcc1c0a446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedUnload: 0.08
+  _speedUnload: 0.03
 --- !u!23 &1036109610792274012
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -19,6 +19,7 @@ public class BlockMoverToCollector : MonoBehaviour
     private Block _block;
     private Unloader _unloader;
     private BlockDestroyer _blockDestroyer;
+    private CalculatorBlocks _calculatorBlocks;
 
     private Vector3 _collectionPoint;
     private Vector3 _topPoint;
@@ -30,6 +31,7 @@ public class BlockMoverToCollector : MonoBehaviour
         if (_flightSpeed == 0 || _tossHight == 0 || _deltaPointPosition == 0 || _deltaHight == 0)
             Debug.Log("No SerializeField in " + this.name);
 
+        _calculatorBlocks = FindObjectOfType<CalculatorBlocks>();
         _blockFixer = GetComponent<BlockFixer>();
         _block = GetComponent<Block>();
         _blockDestroyer = GetComponent<BlockDestroyer>();
@@ -64,6 +66,7 @@ public class BlockMoverToCollector : MonoBehaviour
             if (transform.position.y - _collectionPoint.y < 0.1)
             {
                 _block.Player.AddMoney(_block.Cost);
+                _calculatorBlocks.AddUnloadBloks();
                 //_block.Player.Unloader.ActiveEventBlockUnloded();
 
                 StopCoroutineMoveToCollector();
