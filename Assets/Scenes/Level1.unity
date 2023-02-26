@@ -9506,6 +9506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12b8450fed524730a43736ab339f613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speedOfChange: 0.7
 --- !u!222 &3352684427059832561
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9799,7 +9800,7 @@ GameObject:
   - component: {fileID: 3352684427621390245}
   - component: {fileID: 3352684427621390246}
   - component: {fileID: 3352684427621390248}
-  - component: {fileID: 3352684427621390247}
+  - component: {fileID: 3352684427621390249}
   m_Layer: 5
   m_Name: Max
   m_TagString: Untagged
@@ -9904,18 +9905,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &3352684427621390247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3352684427621390233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f12b8450fed524730a43736ab339f613, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3352684427621390248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9967,6 +9956,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3352684427621390249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3352684427621390233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36339c34abb46457abbeafc3bf47636a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &3352684427826729922
 CanvasRenderer:
   m_ObjectHideFlags: 0

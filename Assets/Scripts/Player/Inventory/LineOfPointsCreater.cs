@@ -13,7 +13,7 @@ public class LineOfPointsCreater : MonoBehaviour
     private Inventory _inventory;
 
     public int MaxNumberOfLines => _maxNumberOfLines;
-    public event UnityAction <int, int> IsChangedMaxNumberLines;
+    public event UnityAction <int, int> IsChangedMaxNumberBlocks;
 
     private void Start()
     {
@@ -37,7 +37,7 @@ public class LineOfPointsCreater : MonoBehaviour
     public void LevelUo(int numberNewOfLines)
     {
         _maxNumberOfLines += numberNewOfLines;
-        IsChangedMaxNumberLines?.Invoke(_inventory.GetCurrentNumberOfBlocks(), _inventory.GetMaxNumberOfBlocks());
+        IsChangedMaxNumberBlocks?.Invoke(_inventory.GetCurrentNumberOfBlocks(), _inventory.GetMaxNumberOfBlocks());
     }
 
 
