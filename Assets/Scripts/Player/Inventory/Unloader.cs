@@ -57,7 +57,7 @@ public class Unloader : MonoBehaviour
             }
 
             yield return _speedUnloadWFS;
-            ;
+
         }
     }
 

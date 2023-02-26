@@ -14,7 +14,7 @@ public class BlockMoverToCollector : MonoBehaviour
     [SerializeField] private float _deltaHight;
 
     private BlockFixer _blockFixer;
-    private Coroutine _moveCoroutine;
+    private Coroutine _move;
     private Player _player;
     private Block _block;
     private Unloader _unloader;
@@ -67,7 +67,7 @@ public class BlockMoverToCollector : MonoBehaviour
             {
                 _block.Player.AddMoney(_block.Cost);
                 _calculatorBlocks.AddUnloadBloks();
-                //_block.Player.Unloader.ActiveEventBlockUnloded();
+                _block.Player.Inventory.InitEventBlockIsChanged();
 
                 StopCoroutineMoveToCollector();
 
@@ -92,17 +92,17 @@ public class BlockMoverToCollector : MonoBehaviour
     {
         _collectionPoint = collectionPoint;
 
-        if (_moveCoroutine == null)
+        if (_move == null)
         {
-            _moveCoroutine = StartCoroutine(MoveToCollector());
+            _move = StartCoroutine(MoveToCollector());
         }
     }
 
     public void StopCoroutineMoveToCollector()
     {
-        if (_moveCoroutine != null)
+        if (_move != null)
         {
-            StopCoroutine(_moveCoroutine);
+            StopCoroutine(_move);
         }
     }
 }

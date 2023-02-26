@@ -42,13 +42,13 @@ public class InventoryBar : MonoBehaviour
             _lineOfPointsCreater = FindObjectOfType<LineOfPointsCreater>();
         }
 
-        _inventory.IsAddedBlock += OnChangedNumberBlocks;
+        _inventory.IsChangedNumberBlocks += OnChangedNumberBlocks;
         _lineOfPointsCreater.IsChangedMaxNumberBlocks += OnChangedMaxNumberBlocks;
     }
 
     private void OnDisable()
     {
-        _inventory.IsAddedBlock -= OnChangedNumberBlocks;
+        _inventory.IsChangedNumberBlocks -= OnChangedNumberBlocks;
         _lineOfPointsCreater.IsChangedMaxNumberBlocks -= OnChangedMaxNumberBlocks;
     }
 

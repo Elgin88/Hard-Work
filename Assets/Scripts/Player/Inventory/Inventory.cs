@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
     private LineOfPointsCreater _lineOfPointsCreater;
     private List <LineOfPoints> _lines;
 
-    public event UnityAction <int,int> IsAddedBlock;
+    public event UnityAction <int,int> IsChangedNumberBlocks;
 
     private void Start()
     {
@@ -123,8 +123,8 @@ public class Inventory : MonoBehaviour
         return maxNumberOfBlocks;
     }
 
-    public void InitEventBlockIsAdded()
+    public void InitEventBlockIsChanged()
     {
-        IsAddedBlock?.Invoke(GetCurrentNumberOfBlocks(), GetMaxNumberOfBlocks());
+        IsChangedNumberBlocks?.Invoke(GetCurrentNumberOfBlocks(), GetMaxNumberOfBlocks());
     }
 }

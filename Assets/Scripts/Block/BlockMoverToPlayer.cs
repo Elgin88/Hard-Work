@@ -59,7 +59,7 @@ public class BlockMoverToPlayer : MonoBehaviour
 
                     _blockFixer.StartCoroutineFixBlock();
                     _block.Player.SetIsUploadingFalse();
-                    _block.Player.Inventory.InitEventBlockIsAdded();
+                    _block.Player.Inventory.InitEventBlockIsChanged();
                 }                               
             }
 
