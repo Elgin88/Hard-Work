@@ -72,6 +72,9 @@ public class BlockMoverToCollector : MonoBehaviour
                 StopCoroutineMoveToCollector();
 
                 _block.Destroy();
+
+                _block.Player.SetStatusUnload(false);
+                _block.Player.SetStatusUpload(false);
             }
 
             yield return null;

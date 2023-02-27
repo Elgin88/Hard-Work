@@ -13,16 +13,14 @@ public class Player : MonoBehaviour
     private Unloader _unloader;
     private float _startPositionY;
     private int _money;
-
-    private bool _isUploading = false;
-    private bool _isUnloading = false;    
+    private bool _isUpload;
+    private bool _isUnload;    
 
     public Inventory Inventory => _inventory;
-    public bool IsUploading => _isUploading;
-    public bool IsUnloading => _isUnloading;
-    public int Money => _money;
     public Unloader Unloader => _unloader;
-
+    public int Money => _money;
+    public bool IsUpload => _isUpload;
+    public bool IsUnload => _isUnload;
     public event UnityAction IsPushed;
     public event UnityAction <int> IsMoneyChanged;
 
@@ -50,26 +48,6 @@ public class Player : MonoBehaviour
         return _playerController.CurrentPlayerDirection;
     }
 
-    public void SetIsUnloadingFalse()
-    {
-        _isUnloading = false;
-    }
-
-    public void SetIsUnloadingTrue()
-    {
-        _isUnloading = true;
-    }
-
-    public void SetIsUploadingFalse()
-    {
-        _isUploading = false;
-    }
-
-    public void SetIsUploadingTrue()
-    {
-        _isUploading = true;
-    }
-
     public void AddMoney(int money)
     {
         _money += money;
@@ -80,5 +58,15 @@ public class Player : MonoBehaviour
     {
         _money -= money;
         IsMoneyChanged?.Invoke(_money);
+    }
+
+    public void SetStatusUpload(bool status)
+    {
+        _isUpload = status;
+    }
+
+    public void SetStatusUnload(bool status)
+    {
+        _isUnload = status;
     }
 }

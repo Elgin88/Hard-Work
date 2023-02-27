@@ -13,10 +13,6 @@ public class Unloader : MonoBehaviour
     private Inventory _inventory;
     private WaitForSeconds _speedUnloadWFS;
 
-    private bool _isUnload;
-
-    private bool IsUnload => _isUnload;
-
     private void Start()
     {
         if (_speedUnload == 0)
@@ -27,14 +23,11 @@ public class Unloader : MonoBehaviour
         _point = FindObjectOfType<CollectionPoint>();
         _inventory = GetComponent<Inventory>();
 
-        _isUnload = false;
         _speedUnloadWFS = new WaitForSeconds(_speedUnload);
     }
 
     private IEnumerator Unload()
     {
-        _isUnload = true;
-
         while (true)
         {
             Block lastAddBlock = _inventory.TryGetLastAddBlock();
@@ -51,7 +44,6 @@ public class Unloader : MonoBehaviour
 
                 if (_inventory.GetCurrentNumberOfBlocks () == 0)
                 {
-                    _isUnload = false;
                     StopUnload();
                 }
             }

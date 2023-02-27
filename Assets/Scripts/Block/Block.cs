@@ -49,19 +49,22 @@ public class Block : MonoBehaviour
             _player = destroyer.Player;
             _player.SlowDown();
 
-            if (_player.IsUnloading == false)
+            if (_player.IsUnload == false)
             {
                 _point = _player.Inventory.TryTakePoint();
             }
 
-            if (_point != null & _player.IsUnloading == false)
+            if (_point != null & _player.IsUnload == false)
             {
+
                 KinematicOn();
                 ColliderOff();
                 GravityOff();
 
                 _point.InitBlock(_block);
-                _moverBlock.StartCoroutineFlight();
+                _player.SetStatusUpload(true);
+                _player.SetStatusUnload(false);
+                _moverBlock.StartFlight();                
             }
         }
     }

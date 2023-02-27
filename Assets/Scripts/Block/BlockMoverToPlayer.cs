@@ -32,7 +32,6 @@ public class BlockMoverToPlayer : MonoBehaviour
 
     private IEnumerator Flight()
     {
-        _block.Player.SetIsUploadingTrue();
         _isReachTop = false;
         _startBlockPosition = transform.position;
 
@@ -57,9 +56,10 @@ public class BlockMoverToPlayer : MonoBehaviour
                 {
                     StopCoroutineMove();
 
-                    _blockFixer.StartCoroutineFixBlock();
-                    _block.Player.SetIsUploadingFalse();
+                    _blockFixer.StartCoroutineFixBlock();                    
                     _block.Player.Inventory.InitEventBlockIsChanged();
+                    _block.Player.SetStatusUpload(false);
+                    _block.Player.SetStatusUnload(false);                    
                 }                               
             }
 
@@ -72,7 +72,7 @@ public class BlockMoverToPlayer : MonoBehaviour
         return transform.position;
     }
 
-    public void StartCoroutineFlight()
+    public void StartFlight()
     {
         if (_flightWork == null)
         {
@@ -85,7 +85,7 @@ public class BlockMoverToPlayer : MonoBehaviour
         if (_flightWork != null)
         {
             StopCoroutine(_flightWork);
-            _flightWork = null;
+            _flightWork = null;            
         }
     }
 }
