@@ -52,19 +52,18 @@ public class Block : MonoBehaviour
             if (_player.IsUnload == false)
             {
                 _point = _player.Inventory.TryTakePoint();
-            }
 
-            if (_point != null & _player.IsUnload == false)
-            {
+                if (_point != null)
+                {
+                    KinematicOn();
+                    ColliderOff();
+                    GravityOff();
 
-                KinematicOn();
-                ColliderOff();
-                GravityOff();
-
-                _point.InitBlock(_block);
-                _player.SetStatusUpload(true);
-                _player.SetStatusUnload(false);
-                _moverBlock.StartFlight();                
+                    _player.SetStatusUpload(true);
+                    _player.SetStatusUnload(false);
+                    _point.InitBlock(_block);
+                    _moverBlock.StartFlight();
+                }
             }
         }
     }
