@@ -37,7 +37,10 @@ public class BlockMoverToPlayer : MonoBehaviour
 
         while (true)
         {
-            _topPointPosition = new Vector3((_block.Point.transform.position.x + _startBlockPosition.x) / 2, _block.Point.transform.position.y + _tossHeight, (_block.Point.transform.position.z + _startBlockPosition.z) / 2);
+            if (_topPointPosition != null)
+            {
+                _topPointPosition = new Vector3((_block.Point.transform.position.x + _startBlockPosition.x) / 2, _block.Point.transform.position.y + _tossHeight, (_block.Point.transform.position.z + _startBlockPosition.z) / 2);
+            }
 
             if (_isReachTop == false & _block.Point != null)
             {

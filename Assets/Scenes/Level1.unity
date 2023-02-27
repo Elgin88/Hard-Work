@@ -8783,7 +8783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxFuel: 100
-  _deltaFuel: 2
+  _deltaFuel: 3
 --- !u!114 &671650963043882632
 MonoBehaviour:
   m_ObjectHideFlags: 0
