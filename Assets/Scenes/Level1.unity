@@ -1005,6 +1005,7 @@ MonoBehaviour:
   _minProcent: 60
   _reloadButton: {fileID: 727181013}
   _endLevelButton: {fileID: 1579285253}
+  _endLevelPanel: {fileID: 1216967234}
 --- !u!4 &151389381 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5607360971679849291, guid: 1ce685be815594ca6a54fff4d91477e3, type: 3}
@@ -5532,6 +5533,7 @@ GameObject:
   - component: {fileID: 1216967231}
   - component: {fileID: 1216967233}
   - component: {fileID: 1216967232}
+  - component: {fileID: 1216967234}
   m_Layer: 5
   m_Name: EndLevelPanel
   m_TagString: Untagged
@@ -5601,6 +5603,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216967230}
   m_CullTransparentMesh: 1
+--- !u!114 &1216967234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216967230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82fe92237d7d64eeeb481bc2754eb151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1243643785
 GameObject:
   m_ObjectHideFlags: 0
@@ -6427,6 +6441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956346fc4122c407caba592173170f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _endLevelPanel: {fileID: 1216967234}
 --- !u!4 &1580210119 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5607360971679849291, guid: 1ce685be815594ca6a54fff4d91477e3, type: 3}

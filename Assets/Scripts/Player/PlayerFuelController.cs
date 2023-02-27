@@ -10,7 +10,7 @@ public class PlayerFuelController : MonoBehaviour
 
     private float _currentFuel;
     private bool _isFuelLoss;
-    private Coroutine _removeFuel;
+    private Coroutine _burnFuel;
     private PlayerSpeedSetter _speedSetter;
 
     public bool IsFuelLoss => _isFuelLoss;
@@ -31,7 +31,7 @@ public class PlayerFuelController : MonoBehaviour
 
         _currentFuel = _maxFuel;
 
-        StartLessFuel();        
+        StartBurnFuel();        
     }
 
     private IEnumerator LessFuel()
@@ -44,27 +44,27 @@ public class PlayerFuelController : MonoBehaviour
             if (_currentFuel < 0)
             {
                 _isFuelLoss = true;
-                StopLessFuel();
+                StopBurnFuel();
             }
 
             yield return null;
         }
     }
 
-    private void StartLessFuel()
+    private void StartBurnFuel()
     {
-        if (_removeFuel == null)
+        if (_burnFuel == null)
         {
-            _removeFuel = StartCoroutine(LessFuel());
+            _burnFuel = StartCoroutine(LessFuel());
         }
     }
 
-    private void StopLessFuel()
+    private void StopBurnFuel()
     {
-        if (_removeFuel != null)
+        if (_burnFuel != null)
         {
-            StopCoroutine(_removeFuel);
-            _removeFuel = null;
+            StopCoroutine(_burnFuel);
+            _burnFuel = null;
         }
     }
 }

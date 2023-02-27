@@ -9,6 +9,7 @@ public class EnderLevel : MonoBehaviour
     [SerializeField] private int _minProcent;
     [SerializeField] private ReloadButton _reloadButton;
     [SerializeField] private EndLevelButton _endLevelButton;
+    [SerializeField] private EndLevelPanel _endLevelPanel;
 
     private CalculatorBlocks _calculatorBlocks;
     private int _maxNumberBlocks;
@@ -31,5 +32,22 @@ public class EnderLevel : MonoBehaviour
         _maxNumberBlocks = _calculatorBlocks.NumberAllBlocks;
         _middleNumberBlocks = _calculatorBlocks.NumberAllBlocks * _middleProcent / 100;
         _minNumberBlocks = _calculatorBlocks.NumberAllBlocks * _minProcent / 100;
+
+        _calculatorBlocks.IsChangedUnloadBlocks += OnChangedNumberUnloadBlocks;
+    }
+
+    private void OnChangedNumberUnloadBlocks(int unloadBlocks, int allBlocks)
+    {
+        if (unloadBlocks >= _minNumberBlocks)
+        {
+            _reloadButton.gameObject.SetActive(false);
+            _endLevelButton.gameObject.SetActive(true);
+
+            if (unloadBlocks == allBlocks)
+            {
+                _endLevelPanel.gameObject.SetActive(true);
+
+            }
+        }
     }
 }
