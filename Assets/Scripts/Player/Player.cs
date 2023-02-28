@@ -60,12 +60,12 @@ public class Player : MonoBehaviour
         IsMoneyChanged?.Invoke(_money);
     }
 
-    public void SetStatusUpload(bool status)
+    public void IsMoveToPlayer(bool status)
     {
         _isUpload = status;
     }
 
-    public void SetStatusUnload(bool status)
+    public void IsMoveToCollector(bool status)
     {
         _isUnload = status;
     }

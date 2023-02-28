@@ -13,6 +13,7 @@ public class EnderLevel : MonoBehaviour
     [SerializeField] private string _nextScene;
 
     private CalculatorBlocks _calculatorBlocks;
+    private ChooserMedals _chooserMedals;
     private int _maxNumberBlocks;
     private int _middleNumberBlocks;
     private int _minNumberBlocks;
@@ -30,12 +31,13 @@ public class EnderLevel : MonoBehaviour
         }
 
         _calculatorBlocks = FindObjectOfType<CalculatorBlocks>();
+        _chooserMedals = FindObjectOfType<ChooserMedals>();
 
-        _maxNumberBlocks = _calculatorBlocks.NumberAllBlocks;
-        _middleNumberBlocks = _calculatorBlocks.NumberAllBlocks * _middleProcent / 100;
-        _minNumberBlocks = _calculatorBlocks.NumberAllBlocks * _minProcent / 100;
+        _maxNumberBlocks = _calculatorBlocks.AllBlocks;
+        _middleNumberBlocks = _calculatorBlocks.AllBlocks * _middleProcent / 100;
+        _minNumberBlocks = _calculatorBlocks.AllBlocks * _minProcent / 100;
 
-        _calculatorBlocks.IsChangedUnloadBlocks += OnChangedNumberUnloadBlocks;
+        _calculatorBlocks.IsChangedUnload += OnChangedNumberUnloadBlocks;
     }
 
     private void OnChangedNumberUnloadBlocks(int unloadBlocks, int allBlocks)
@@ -44,11 +46,11 @@ public class EnderLevel : MonoBehaviour
         {
             _reloadButton.gameObject.SetActive(false);
             _endLevelButton.gameObject.SetActive(true);
+            _chooserMedals.ChooseMedals();
 
             if (unloadBlocks == allBlocks)
             {
                 _endLevelPanel.gameObject.SetActive(true);
-
             }
         }
     }

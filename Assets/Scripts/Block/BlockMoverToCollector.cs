@@ -15,15 +15,12 @@ public class BlockMoverToCollector : MonoBehaviour
 
     private BlockFixer _blockFixer;
     private Coroutine _move;
-    private Player _player;
     private Block _block;
     private Unloader _unloader;
     private BlockDestroyer _blockDestroyer;
     private CalculatorBlocks _calculatorBlocks;
-
     private Vector3 _collectionPoint;
     private Vector3 _topPoint;
-
     private bool _isReachedTopPoint = false;
 
     private void Start()
@@ -63,6 +60,8 @@ public class BlockMoverToCollector : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, _collectionPoint, _flightSpeed * Time.deltaTime);
             }
 
+            _block.Player.IsMoveToCollector(true);
+
             if (transform.position.y - _collectionPoint.y < 0.1)
             {
                 _block.Player.AddMoney(_block.Cost);
@@ -70,20 +69,13 @@ public class BlockMoverToCollector : MonoBehaviour
                 _block.Player.Inventory.InitEventBlockIsChanged();
 
                 StopCoroutineMoveToCollector();
+                _block.Player.IsMoveToCollector(false);
 
                 _block.Destroy();
-
-                _block.Player.SetStatusUnload(false);
-                _block.Player.SetStatusUpload(false);
             }
 
             yield return null;
         }
-    }
-
-    public void Init (Player player)
-    {
-        _player = player;
     }
 
     private void SetTopPointPosition()
@@ -106,6 +98,7 @@ public class BlockMoverToCollector : MonoBehaviour
         if (_move != null)
         {
             StopCoroutine(_move);
+            _move = null;
         }
     }
 }

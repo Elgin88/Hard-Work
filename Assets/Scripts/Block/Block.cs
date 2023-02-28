@@ -14,11 +14,12 @@ public class Block : MonoBehaviour
 {
     [SerializeField] private int _cost;
 
+    private Player _player;
+
     private BlockMoverToCollector _blockMoverToCollector;
     private BlockMoverToPlayer _moverBlock;
     private BoxCollider _boxCollider;
-    private Rigidbody _rigidbody;
-    private Player _player;
+    private Rigidbody _rigidbody;    
     private Block _block;
     private Point _point;
 
@@ -59,8 +60,8 @@ public class Block : MonoBehaviour
                     ColliderOff();
                     GravityOff();
 
-                    _player.SetStatusUpload(true);
-                    _player.SetStatusUnload(false);
+                    _player.IsMoveToPlayer(true);
+                    _player.IsMoveToCollector(false);
                     _point.InitBlock(_block);
                     _moverBlock.StartFlight();
                 }

@@ -42,12 +42,12 @@ public class ProgressBar : MonoBehaviour
 
         _slider.value = 0;
 
-        _calculatorBlocks.IsChangedUnloadBlocks += OnChangedNumberBlocks;
+        _calculatorBlocks.IsChangedUnload += OnChangedNumberBlocks;
     }
 
     private void OnDisable()
     {
-        _calculatorBlocks.IsChangedUnloadBlocks -= OnChangedNumberBlocks;
+        _calculatorBlocks.IsChangedUnload -= OnChangedNumberBlocks;
     }
 
     private void OnChangedNumberBlocks(int unloadBlocks, int maxBlocks)

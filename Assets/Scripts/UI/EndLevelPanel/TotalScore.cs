@@ -18,6 +18,6 @@ public class TotalScore : MonoBehaviour
 
     private void OnEnable()
     {
-        _label.text = _calculatorBlocks.NumberAllBlocks.ToString();
+        _label.text = _calculatorBlocks.Unload.ToString();
     }
 }

@@ -5,23 +5,25 @@ using UnityEngine.Events;
 
 public class CalculatorBlocks : MonoBehaviour
 {
-    private int _allBlocks;
-    private int _unloadBlocks;
+    private int _all;
+    private int _unload;
 
-    public int NumberAllBlocks => _allBlocks;
+    public int AllBlocks => _all;
+    public int Unload => _unload;
 
-    public event UnityAction <int, int> IsChangedUnloadBlocks;
+
+    public event UnityAction <int, int> IsChangedUnload;
 
     private void Start()
     {
-        _allBlocks = FindObjectsOfType<Block>().Length;
+        _all = FindObjectsOfType<Block>().Length;
 
-        _unloadBlocks = 0;
+        _unload = 0;
     }
 
     public void AddUnloadBloks()
     {
-        _unloadBlocks++;
-        IsChangedUnloadBlocks?.Invoke(_unloadBlocks, _allBlocks);
+        _unload++;
+        IsChangedUnload?.Invoke(_unload, _all);
     }
 }

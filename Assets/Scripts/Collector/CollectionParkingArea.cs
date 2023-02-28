@@ -20,8 +20,8 @@ public class CollectionParkingArea : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Destroyer>(out Destroyer destroyer) & _player.IsUpload == false & _player.IsUnload == false)
         {
-            _player.SetStatusUnload(true);
-            _player.SetStatusUpload(false);
+            _player.IsMoveToCollector(true);
+            _player.IsMoveToPlayer(false);
             _unloader.StartUnload();
         }        
     }
