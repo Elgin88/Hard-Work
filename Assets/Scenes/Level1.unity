@@ -293,6 +293,7 @@ GameObject:
   - component: {fileID: 34174150}
   - component: {fileID: 34174153}
   - component: {fileID: 34174152}
+  - component: {fileID: 34174154}
   m_Layer: 5
   m_Name: GaragePanel
   m_TagString: Untagged
@@ -360,6 +361,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 34174149}
   m_CullTransparentMesh: 1
+--- !u!114 &34174154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34174149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d54f3b5ba173b479e8a7d8a77bd7474f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &38269644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7580,6 +7593,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1834676444}
+  - component: {fileID: 1834676445}
   m_Layer: 5
   m_Name: GarageUI
   m_TagString: Untagged
@@ -7608,6 +7622,18 @@ RectTransform:
   m_AnchoredPosition: {x: 19, y: 642}
   m_SizeDelta: {x: 799, y: 804}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1834676445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834676442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d5beb933086403cb11d15739de0ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1855244002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10820,6 +10846,7 @@ GameObject:
   - component: {fileID: 3967220134181374464}
   - component: {fileID: 3967220134181374465}
   - component: {fileID: 3967220134181374466}
+  - component: {fileID: 3967220134181374478}
   m_Layer: 0
   m_Name: GarageParkingArea
   m_TagString: Untagged
@@ -10827,6 +10854,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3967220134181374478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3967220134181374477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c97f7f54dee62407292d1ce107785579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _garageUI: {fileID: 1834676445}
 --- !u!4 &3967220134700526660
 Transform:
   m_ObjectHideFlags: 0
@@ -10852,6 +10892,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3967220134700526660}
+  - component: {fileID: 3967220134700526663}
   m_Layer: 0
   m_Name: Garage
   m_TagString: Untagged
@@ -10859,6 +10900,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3967220134700526663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3967220134700526662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e08bdc0605d04885ac6455f624b2253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5101080184414344687
 RectTransform:
   m_ObjectHideFlags: 0
