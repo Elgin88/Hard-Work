@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class BlockFixer : MonoBehaviour
 {
-    private Coroutine _fixBlock = null;
+    private Coroutine _fixBlock;
     private Player _player;
     private Block _block;
 

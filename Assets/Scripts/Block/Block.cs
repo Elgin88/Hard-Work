@@ -12,10 +12,9 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    [SerializeField] private int _cost;
+    private int _cost = 1;
 
     private Player _player;
-
     private BlockMoverToCollector _blockMoverToCollector;
     private BlockMoverToPlayer _moverBlock;
     private BoxCollider _boxCollider;

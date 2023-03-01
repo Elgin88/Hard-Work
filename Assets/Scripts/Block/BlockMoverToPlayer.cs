@@ -7,8 +7,8 @@ using UnityEngine;
 
 public class BlockMoverToPlayer : MonoBehaviour
 {
-    [SerializeField] private float _flightSpeed;
-    [SerializeField] private float _tossHeight;
+    private float _flightSpeed = 10;
+    private float _tossHeight = 3;
 
     private BlockFixer _blockFixer;
     private Rigidbody _rigidbody;

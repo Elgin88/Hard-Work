@@ -8,10 +8,10 @@ using UnityEngine;
 
 public class BlockMoverToCollector : MonoBehaviour
 {
-    [SerializeField] private float _flightSpeed;
-    [SerializeField] private float _tossHight;
-    [SerializeField] private float _deltaPointPosition;
-    [SerializeField] private float _deltaHight;
+    private float _flightSpeed = 10;
+    private float _tossHight = 3;
+    private float _deltaPointPosition = 0.2f;
+    private float _deltaHight = 0.2f;
 
     private BlockFixer _blockFixer;
     private Coroutine _move;
