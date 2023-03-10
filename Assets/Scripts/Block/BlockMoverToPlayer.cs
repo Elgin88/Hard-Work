@@ -18,7 +18,7 @@ public class BlockMoverToPlayer : MonoBehaviour
     private Block _block;
     private bool _isReachTop;    
 
-    private void Start()
+    private void OnEnable()
     {
         if (_flightSpeed == 0 || _tossHeight == 0)
         {

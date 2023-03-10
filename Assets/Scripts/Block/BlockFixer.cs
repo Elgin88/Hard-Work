@@ -10,7 +10,7 @@ public class BlockFixer : MonoBehaviour
     private Player _player;
     private Block _block;
 
-    private void Start()
+    private void OnEnable()
     {
         _block = GetComponent<Block>();        
     }

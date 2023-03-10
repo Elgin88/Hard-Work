@@ -4,7 +4,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(BlockFixer))]
 [RequireComponent(typeof(Block))]
-[RequireComponent(typeof(BlockDestroyer))]
 
 public class BlockMoverToCollector : MonoBehaviour
 {
@@ -17,7 +16,6 @@ public class BlockMoverToCollector : MonoBehaviour
     private Coroutine _move;
     private Block _block;
     private Unloader _unloader;
-    private BlockDestroyer _blockDestroyer;
     private CalculatorBlocks _calculatorBlocks;
     private Vector3 _collectionPoint;
     private Vector3 _topPoint;
@@ -36,7 +34,6 @@ public class BlockMoverToCollector : MonoBehaviour
             _calculatorBlocks = FindObjectOfType<CalculatorBlocks>();
             _blockFixer = GetComponent<BlockFixer>();
             _block = GetComponent<Block>();
-            _blockDestroyer = GetComponent<BlockDestroyer>();
         }
 
         _blockFixer.StopCoroutineFixBlock();

@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 3144467196439260771}
   - component: {fileID: 4348606862850132254}
   - component: {fileID: -9008612476488763490}
-  - component: {fileID: 6337753571733761264}
   m_Layer: 0
   m_Name: Block
   m_TagString: Untagged
@@ -131,7 +130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 859f45043ed1d4398aaa7daddafde734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cost: 1
 --- !u!114 &3144467196439260771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,8 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a9ae0c700684a069d74d97a06b8b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flightSpeed: 10
-  _tossHeight: 5
 --- !u!114 &4348606862850132254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,21 +164,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b479697d751e1457abca5a8d6119aa0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _flightSpeed: 10
-  _tossHight: 3
-  _deltaPointPosition: 0.2
-  _deltaHight: 0.2
---- !u!114 &6337753571733761264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5087530138056098289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49b4a87244d1c43cfba23f39c0855492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

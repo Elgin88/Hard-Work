@@ -8,7 +8,6 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(BlockMoverToPlayer))]
 [RequireComponent(typeof(BlockMoverToCollector))]
-[RequireComponent(typeof(BlockDestroyer))]
 
 public class Block : MonoBehaviour
 {
@@ -18,8 +17,7 @@ public class Block : MonoBehaviour
     private BlockMoverToCollector _blockMoverToCollector;
     private BlockMoverToPlayer _moverBlock;
     private BoxCollider _boxCollider;
-    private Rigidbody _rigidbody;    
-    private Block _block;
+    private Rigidbody _rigidbody;
     private Point _point;
 
     public BlockMoverToCollector BlockMoverToCollector => _blockMoverToCollector;
@@ -27,12 +25,11 @@ public class Block : MonoBehaviour
     public Player Player => _player;
     public int Cost => _cost;
 
-    private void Start()
+    private void OnEnable()
     {
         if (_cost == 0)
             Debug.Log("No SerializeField in " + this.name);
 
-        _block = GetComponent<Block>();
         _rigidbody = GetComponent<Rigidbody>();
         _boxCollider = GetComponent<BoxCollider>();
         _moverBlock = GetComponent<BlockMoverToPlayer>();
@@ -61,7 +58,7 @@ public class Block : MonoBehaviour
 
                     _player.IsMoveToPlayer(true);
                     _player.IsMoveToCollector(false);
-                    _point.InitBlock(_block);
+                    _point.InitBlock(this);
                     _moverBlock.StartFlight();
                 }
             }
