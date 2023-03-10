@@ -27,15 +27,18 @@ public class BlockMoverToCollector : MonoBehaviour
     {
         if (_flightSpeed == 0 || _tossHight == 0 || _deltaPointPosition == 0 || _deltaHight == 0)
             Debug.Log("No SerializeField in " + this.name);
-
-        _calculatorBlocks = FindObjectOfType<CalculatorBlocks>();
-        _blockFixer = GetComponent<BlockFixer>();
-        _block = GetComponent<Block>();
-        _blockDestroyer = GetComponent<BlockDestroyer>();
     }
 
     private IEnumerator MoveToCollector()
     {
+        if (_calculatorBlocks == null)
+        {
+            _calculatorBlocks = FindObjectOfType<CalculatorBlocks>();
+            _blockFixer = GetComponent<BlockFixer>();
+            _block = GetComponent<Block>();
+            _blockDestroyer = GetComponent<BlockDestroyer>();
+        }
+
         _blockFixer.StopCoroutineFixBlock();
 
         _collectionPoint = new Vector3(_collectionPoint.x + Random.Range(-1 * _deltaPointPosition, _deltaPointPosition), _collectionPoint.y, _collectionPoint.z + Random.Range(-1 * _deltaPointPosition, _deltaPointPosition));
