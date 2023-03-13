@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Garage : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private string _fuelLabel;
+    [SerializeField] private int _fuelCost;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string FuelLabel => _fuelLabel;
+    public int FuelCoust => _fuelCost;
+
+
 }

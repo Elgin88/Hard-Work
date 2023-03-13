@@ -4,5 +4,9 @@ using UnityEngine;
 
 public class EndLevelPanel : MonoBehaviour
 {
-    
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
+
 }

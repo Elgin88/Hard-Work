@@ -9,10 +9,14 @@ public class SectionOfBlocks : MonoBehaviour
     [SerializeField] private Block [] _blocks;
 
     private Rigidbody _rigidbody;
+    private int _numberOfBlocks;
+
+    public int NumberOfBlocks => _numberOfBlocks;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _numberOfBlocks = _blocks.Length;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -26,5 +30,10 @@ public class SectionOfBlocks : MonoBehaviour
 
             gameObject.SetActive(false);
         }
+    }
+
+    public int GetCountBlocks()
+    {
+        return _blocks.Length;
     }
 }
