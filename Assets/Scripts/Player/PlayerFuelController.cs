@@ -80,9 +80,19 @@ public class PlayerFuelController : MonoBehaviour
     {
         if (_player.Money > _garage.FuelCoust)
         {
-            _currentFuel += _maxFuel;
+            _currentFuel = _maxFuel;
             IsFuelChanged?.Invoke(_currentFuel, _maxFuel);
             _player.RemoveMoney(_garage.FuelCoust);           
+        }
+    }
+
+    internal void TryBuyTank(int addVolumeTank)
+    {
+        if (_player.Money > _garage.TankCost)
+        {
+            _maxFuel += addVolumeTank;
+            IsFuelChanged?.Invoke(_currentFuel, _maxFuel);
+            _player.RemoveMoney(_garage.FuelCoust);
         }
     }
 }

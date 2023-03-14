@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,5 +26,10 @@ public class PlayerUpgrade : MonoBehaviour
     public void TryBuyFuel()
     {
         _fuelController.TryBuyFuel();
+    }
+
+    internal void AddTank()
+    {
+        _fuelController.TryBuyTank(deltaMaxFuel);
     }
 }
