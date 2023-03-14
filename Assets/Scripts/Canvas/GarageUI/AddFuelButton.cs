@@ -29,7 +29,9 @@ public class AddFuelButton : MonoBehaviour
         _player.IsMoneyChanged += OnPlayerMoneyChanded;
 
         _label.text = _garage.FuelLabel;
-        _cost.text = _garage.FuelCoust.ToString();        
+        _cost.text = _garage.FuelCoust.ToString();
+
+        CheckStatusButton();
     }
 
     private void OnDisable()
@@ -44,6 +46,11 @@ public class AddFuelButton : MonoBehaviour
     }
 
     private void OnPlayerMoneyChanded(int money)
+    {
+        CheckStatusButton();
+    }
+
+    private void CheckStatusButton()
     {
         if (_player.Money > _garage.FuelCoust)
         {

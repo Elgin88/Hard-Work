@@ -7,18 +7,20 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class CollectionParkingArea : MonoBehaviour
 {
-    private Unloader _unloader;
-    private Player _player;
+    [SerializeField] private Unloader _unloader;
+    [SerializeField] private Player _player;
 
-    private void Start()
+    private void OnEnable()
     {
-        _unloader = FindObjectOfType<Unloader>();
-        _player = FindObjectOfType<Player>();
+        if (_unloader == null || _player ==null)
+        {
+            Debug.Log("No SerialzieField in " + gameObject.name);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.TryGetComponent<Destroyer>(out Destroyer destroyer) & _player.IsUpload == false & _player.IsUnload == false)
+        if (collision.gameObject.TryGetComponent<Destroyer>(out Destroyer destroyer))
         {
             _player.IsMoveToCollector(true);
             _player.IsMoveToPlayer(false);

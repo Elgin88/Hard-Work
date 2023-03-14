@@ -19,6 +19,7 @@ public class Block : MonoBehaviour
     private BoxCollider _boxCollider;
     private Rigidbody _rigidbody;
     private Point _point;
+    private bool _playerIsUnload;
 
     public BlockMoverToCollector BlockMoverToCollector => _blockMoverToCollector;
     public Point Point => _point;
@@ -33,7 +34,12 @@ public class Block : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _boxCollider = GetComponent<BoxCollider>();
         _moverBlock = GetComponent<BlockMoverToPlayer>();
-        _blockMoverToCollector = GetComponent<BlockMoverToCollector>();
+        _blockMoverToCollector = GetComponent<BlockMoverToCollector>();        
+    }
+
+    private void BlocksUnloaded(bool isUnload)
+    {
+        _playerIsUnload = isUnload;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -46,7 +52,7 @@ public class Block : MonoBehaviour
             _player = destroyer.Player;
             _player.SlowDown();
 
-            if (_player.IsUnload == false)
+            if (_playerIsUnload != true)
             {
                 _point = _player.Inventory.TryTakePoint();
 

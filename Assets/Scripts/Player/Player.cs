@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     private float _startPositionY;
     private int _money;
     private bool _isUpload;
-    private bool _isUnload;    
+    private bool _isUnload;
 
     public Inventory Inventory => _inventory;
     public Unloader Unloader => _unloader;

@@ -52,7 +52,10 @@ public class PlayerFuelController : MonoBehaviour
             if (_currentFuel < 0)
             {
                 _isFuelLoss = true;
-                StopBurnFuel();
+            }
+            else
+            {
+                _isFuelLoss = false;
             }
 
             yield return null;
