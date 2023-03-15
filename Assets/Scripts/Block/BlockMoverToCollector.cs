@@ -24,7 +24,7 @@ public class BlockMoverToCollector : MonoBehaviour
     private void Start()
     {
         if (_flightSpeed == 0 || _tossHight == 0 || _deltaPointPosition == 0 || _deltaHight == 0)
-            Debug.Log("No SerializeField in " + this.name);
+            Debug.Log("No SerializeField in " + gameObject.name);
     }
 
     private IEnumerator MoveToCollector()
@@ -46,6 +46,8 @@ public class BlockMoverToCollector : MonoBehaviour
 
         while (true)
         {
+            _block.Player.LoadController.SetUploadStatus(true);
+
             if (_isReachedTopPoint == false)
             {
                 transform.position = Vector3.MoveTowards(transform.position, _topPoint, _flightSpeed * Time.deltaTime);
@@ -60,16 +62,13 @@ public class BlockMoverToCollector : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, _collectionPoint, _flightSpeed * Time.deltaTime);
             }
 
-            _block.Player.IsMoveToCollector(true);
-
             if (transform.position.y - _collectionPoint.y < 0.1)
             {
                 _block.Player.AddMoney(_block.Cost);
                 _calculatorBlocks.AddUnloadBloks();
                 _block.Player.Inventory.InitEventBlockIsChanged();
 
-                StopCoroutineMoveToCollector();
-                _block.Player.IsMoveToCollector(false);
+                StopMoveToCollector();
 
                 _block.Destroy();
             }
@@ -83,7 +82,7 @@ public class BlockMoverToCollector : MonoBehaviour
         _topPoint = new Vector3((_block.Player.transform.position.x + _collectionPoint.x)/2 , transform.position.y + _tossHight + Random.Range(-1* _deltaHight, _deltaHight), (_block.Player.transform.position.z + _collectionPoint.z) / 2);
     }
 
-    public void StartCoroutineMoveToCollector(Vector3 collectionPoint)
+    public void StartMoveToCollector(Vector3 collectionPoint)
     {
         _collectionPoint = collectionPoint;
 
@@ -93,12 +92,14 @@ public class BlockMoverToCollector : MonoBehaviour
         }
     }
 
-    public void StopCoroutineMoveToCollector()
+    public void StopMoveToCollector()
     {
         if (_move != null)
         {
             StopCoroutine(_move);
             _move = null;
         }
+
+        _block.Player.LoadController.SetUploadStatus(false);
     }
 }

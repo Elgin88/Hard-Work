@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 [RequireComponent(typeof(Rigidbody))]
 
@@ -20,10 +19,8 @@ public class CollectionParkingArea : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.TryGetComponent<Destroyer>(out Destroyer destroyer))
+        if (collision.gameObject.TryGetComponent<Destroyer>(out Destroyer destroyer) & _player.LoadController.IsUpload == false)
         {
-            _player.IsMoveToCollector(true);
-            _player.IsMoveToPlayer(false);
             _unloader.StartUnload();
         }        
     }

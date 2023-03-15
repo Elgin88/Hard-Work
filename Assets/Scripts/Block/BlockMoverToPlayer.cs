@@ -37,6 +37,8 @@ public class BlockMoverToPlayer : MonoBehaviour
 
         while (true)
         {
+            _block.Player.LoadController.SetUploadStatus(true);
+
             if (_block.Point != null)
             {
                 _topPointPosition = new Vector3((_block.Point.transform.position.x + _startBlockPosition.x) / 2, _block.Point.transform.position.y + _tossHeight, (_block.Point.transform.position.z + _startBlockPosition.z) / 2);
@@ -50,8 +52,6 @@ public class BlockMoverToPlayer : MonoBehaviour
                 {
                     _isReachTop = true;
                 }
-
-                _block.Player.IsMoveToPlayer(true);
             }
             else if(_block.Point != null)
             {
@@ -63,7 +63,6 @@ public class BlockMoverToPlayer : MonoBehaviour
 
                     _blockFixer.StartCoroutineFixBlock();                    
                     _block.Player.Inventory.InitEventBlockIsChanged();
-                    _block.Player.IsMoveToPlayer(false);                    
                 }                               
             }
 
@@ -92,5 +91,7 @@ public class BlockMoverToPlayer : MonoBehaviour
 
             _flightWork = null;
         }
+
+        _block.Player.LoadController.SetUploadStatus(false);
     }
 }

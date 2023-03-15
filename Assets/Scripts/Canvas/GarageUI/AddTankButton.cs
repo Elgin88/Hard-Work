@@ -11,7 +11,7 @@ public class AddTankButton : MonoBehaviour
     [SerializeField] private TMP_Text _cost;
     [SerializeField] private Garage _garage;
     [SerializeField] private Button _addTankButton;
-    [SerializeField] private PlayerUpgrade _playerUpgrade;
+    [SerializeField] private PlayerUpgrader _playerUpgrade;
     [SerializeField] private Player _player;
 
     private void Start()
@@ -40,7 +40,7 @@ public class AddTankButton : MonoBehaviour
 
     private void OnAddTankButton()
     {
-        _playerUpgrade.AddTank();
+        _playerUpgrade.TryBuyTank();
     }
 
     private void OnPlayerMoneyChanded(int money)

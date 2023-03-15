@@ -52,7 +52,7 @@ public class Block : MonoBehaviour
             _player = destroyer.Player;
             _player.SlowDown();
 
-            if (_playerIsUnload != true)
+            if (_playerIsUnload != true & _player.LoadController.IsUnload == false)
             {
                 _point = _player.Inventory.TryTakePoint();
 
@@ -62,8 +62,6 @@ public class Block : MonoBehaviour
                     ColliderOff();
                     GravityOff();
 
-                    _player.IsMoveToPlayer(true);
-                    _player.IsMoveToCollector(false);
                     _point.InitBlock(this);
                     _moverBlock.StartFlight();
                 }

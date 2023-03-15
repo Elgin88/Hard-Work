@@ -11,7 +11,7 @@ public class AddFuelButton : MonoBehaviour
     [SerializeField] private TMP_Text _cost;
     [SerializeField] private Garage _garage;
     [SerializeField] private Player _player;
-    [SerializeField] private PlayerUpgrade _playerUpgrade;
+    [SerializeField] private PlayerUpgrader _playerUpgrade;
 
     private Coroutine _setStatusButton;
 
