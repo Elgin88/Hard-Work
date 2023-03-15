@@ -11,8 +11,11 @@ public class LineOfPointsCreater : MonoBehaviour
     [SerializeField] private int _maxNumberOfLines;
 
     private Inventory _inventory;
+    private Player _player;
+    private Garage _garage;
 
     public int MaxNumberOfLines => _maxNumberOfLines;
+
     public event UnityAction <int, int> IsChangedMaxNumberBlocks;
 
     private void Start()
@@ -21,6 +24,8 @@ public class LineOfPointsCreater : MonoBehaviour
             Debug.Log("No SerializeField in " + this.name);
 
         _inventory = GetComponentInParent<Inventory>();
+        _player = FindObjectOfType<Player>();
+        _garage = FindObjectOfType<Garage>();
     }
 
     public void TryCreateLine()
@@ -34,11 +39,15 @@ public class LineOfPointsCreater : MonoBehaviour
         }
     }
 
-    public void LevelUo(int numberNewOfLines)
+    public void TryAddPlace(int numberLines)
     {
-        _maxNumberOfLines += numberNewOfLines;
-        IsChangedMaxNumberBlocks?.Invoke(_inventory.GetCurrentNumberOfBlocks(), _inventory.GetMaxNumberOfBlocks());
+        if (_player.Money > _garage.PlaceCost)
+        {
+            _maxNumberOfLines += numberLines;
+
+            _player.RemoveMoney(_garage.PlaceCost);
+
+            IsChangedMaxNumberBlocks?.Invoke(_inventory.GetCurrentNumberOfBlocks(), _inventory.GetMaxNumberOfBlocks());
+        }
     }
-
-
 }

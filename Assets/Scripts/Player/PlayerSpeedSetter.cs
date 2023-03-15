@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -110,6 +111,16 @@ public class PlayerSpeedSetter : MonoBehaviour
         {
             StopCoroutine(_changeSpeedWork);
             _changeSpeedWork = null;
+        }
+    }
+
+    public void ChangeDeltaPushSpeed(float deltaPush)
+    {
+        _pushChangeSpeed -= deltaPush;
+
+        if (_pushChangeSpeed <= 0)
+        {
+            _pushChangeSpeed = 0;
         }
     }
 }
