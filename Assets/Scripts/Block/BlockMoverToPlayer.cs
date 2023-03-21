@@ -64,11 +64,11 @@ public class BlockMoverToPlayer : MonoBehaviour
                 }                               
             }
 
-            //if (_block.Point == null)
-            //{
-            //    StopCoroutineMove();
-            //    _blockMoverToCollector.StartMoveToCollector(_block.Player.TransformCollectorPoint);
-            //}
+            if (_block.Point == null)
+            {
+                StopCoroutineMove();
+                _blockMoverToCollector.StartMoveToCollector(_block.Player.TransformCollectorPoint);
+            }
 
             yield return null;
         }
