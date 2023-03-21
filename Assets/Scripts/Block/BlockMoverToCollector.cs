@@ -8,14 +8,13 @@ using UnityEngine;
 public class BlockMoverToCollector : MonoBehaviour
 {
     private float _flightSpeed = 10;
-    private float _tossHight = 3;
-    private float _deltaPointPosition = 0.2f;
-    private float _deltaHight = 0.2f;
+    private float _tossHight = 0.005f;
+    private float _deltaPointPosition = 0.001f;
+    private float _deltaHight = 0.005f;
 
     private BlockFixer _blockFixer;
     private Coroutine _move;
     private Block _block;
-    private Unloader _unloader;
     private CalculatorBlocks _calculatorBlocks;
     private Vector3 _collectionPoint;
     private Vector3 _topPoint;
@@ -62,7 +61,7 @@ public class BlockMoverToCollector : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, _collectionPoint, _flightSpeed * Time.deltaTime);
             }
 
-            if (transform.position.y - _collectionPoint.y < 0.1)
+            if (transform.position.y - _collectionPoint.y == 0)
             {
                 _block.Player.AddMoney(_block.Cost);
                 _calculatorBlocks.AddUnloadBloks();
@@ -79,7 +78,7 @@ public class BlockMoverToCollector : MonoBehaviour
 
     private void SetTopPointPosition()
     {
-        _topPoint = new Vector3((_block.Player.transform.position.x + _collectionPoint.x)/2 , transform.position.y + _tossHight + Random.Range(-1* _deltaHight, _deltaHight), (_block.Player.transform.position.z + _collectionPoint.z) / 2);
+        _topPoint = new Vector3((_block.Player.transform.position.x + _collectionPoint.x)/2 , _collectionPoint.y + transform.position.y + _tossHight + Random.Range(-1* _deltaHight, _deltaHight), (_block.Player.transform.position.z + _collectionPoint.z) / 2);
     }
 
     public void StartMoveToCollector(Vector3 collectionPoint)
