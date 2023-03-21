@@ -4,57 +4,50 @@ using UnityEngine;
 
 public class GarageUI : MonoBehaviour
 {
-    [SerializeField] private float _distanceToDisablePanel;
+    [SerializeField] private float _distandeToOffGarage;
+    [SerializeField] private DestroyerPoint _destroyerPoint;
     [SerializeField] private GarageParkingArea _garageParkingArea;
-    [SerializeField] private Destroyer _destroyer;
+    [SerializeField] private GarageUI _garageUI;
 
-    private Coroutine _controlDistance;
-
-    private void Start()
-    {
-        if (_distanceToDisablePanel == 0|| _garageParkingArea==null)
-        {
-            Debug.Log("No SerializeField in " + gameObject.name);
-        }
-    }
+    private Coroutine _checkDistance;
 
     private void OnEnable()
     {
-        StartControlDistance();        
+        StartCheckDistance();
     }
 
     private void OnDisable()
     {
-        StopControlDistance();
+        StopCheckDistance();
     }
 
-    private IEnumerator ControlDistance()
+    private IEnumerator CheckDistance()
     {
         while (true)
         {
-            if (Vector3.Distance(_destroyer.transform.position, _garageParkingArea.transform.position) > _distanceToDisablePanel)
+            if (Vector3.Distance(_destroyerPoint.transform.position, _garageParkingArea.transform.position) > _distandeToOffGarage)
             {
-                gameObject.SetActive(false);
+                _garageUI.gameObject.SetActive(false);
             }
 
             yield return null;
         }
     }
 
-    public void StartControlDistance()
+    private void StartCheckDistance()
     {
-        if (_controlDistance == null)
+        if (_checkDistance == null)
         {
-            _controlDistance = StartCoroutine(ControlDistance());
+            _checkDistance = StartCoroutine(CheckDistance());
         }
     }
 
-    public void StopControlDistance()
+    private void StopCheckDistance()
     {
-        if (_controlDistance != null)
+        if (_checkDistance != null)
         {
-            StopCoroutine(_controlDistance);
-            _controlDistance = null;
+            StopCoroutine(_checkDistance);
+            _checkDistance = null;
         }
     }
 }

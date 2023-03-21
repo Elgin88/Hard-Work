@@ -1,8 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerSpeedSetter))]
-
 public class PlayerMover : MonoBehaviour
 {
     private FixedJoystick _joystick;
@@ -10,13 +8,16 @@ public class PlayerMover : MonoBehaviour
     private Quaternion _currentPlayerDirection;
     private Coroutine _moveWork;
     private bool _isJoystickTurn;
+    
 
     public bool IsJoystickTurn => _isJoystickTurn;
     public Quaternion CurrentPlayerDirection => _currentPlayerDirection;
 
+
+
     private void Start()
     {
-        _joystick = FindObjectOfType<FixedJoystick>();
+        _joystick = FindObjectOfType<FixedJoystick>();        
         _playerSpeedSetter = GetComponent<PlayerSpeedSetter>();
         _isJoystickTurn = false;
 

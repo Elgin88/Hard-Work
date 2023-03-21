@@ -9,7 +9,7 @@ using UnityEngine.Events;
 public class PlayerUpgrader : MonoBehaviour
 {
     [SerializeField] private int _deltaMaxFuel;
-    [SerializeField] private int _deltaMaxPlace;
+    [SerializeField] private int _deltaMaxLines;
     [SerializeField] private float _deltaPower;
 
     private PlayerPowerController _powerController;
@@ -19,7 +19,7 @@ public class PlayerUpgrader : MonoBehaviour
 
     private void Start()
     {
-        if (_deltaMaxFuel == 0|| _deltaMaxPlace == 0 || _deltaPower == 0)
+        if (_deltaMaxFuel == 0|| _deltaMaxLines == 0 || _deltaPower == 0)
         {
             Debug.Log("No SerializeField in " + gameObject.name);
         }
@@ -42,7 +42,7 @@ public class PlayerUpgrader : MonoBehaviour
 
     public void TryAddPlace()
     {
-        _lineOfPointsCreater.TryAddPlace(_deltaMaxPlace);
+        _lineOfPointsCreater.TryAddPlace(_deltaMaxLines);
     }
 
     public void TryAddPower()

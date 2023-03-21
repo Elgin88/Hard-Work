@@ -19,7 +19,7 @@ public class CollectionParkingArea : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.TryGetComponent<Destroyer>(out Destroyer destroyer) & _player.LoadController.IsUpload == false)
+        if (collision.gameObject.TryGetComponent<Destroyer>(out Destroyer destroyer))
         {
             _unloader.StartUnload();
         }        

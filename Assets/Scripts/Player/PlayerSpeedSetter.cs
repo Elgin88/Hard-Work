@@ -3,9 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Player))]
-[RequireComponent(typeof(PlayerMover))]
-[RequireComponent(typeof(PlayerFuelController))]
 
 public class PlayerSpeedSetter : MonoBehaviour
 {

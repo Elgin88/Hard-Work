@@ -5,7 +5,12 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(PlayerMover))]
+[RequireComponent(typeof(PlayerFuelController))]
 [RequireComponent(typeof(PlayerLoadController))]
+[RequireComponent(typeof(PlayerMover))]
+[RequireComponent(typeof(PlayerPowerController))]
+[RequireComponent(typeof(PlayerSpeedSetter))]
+[RequireComponent(typeof(PlayerUpgrader))]
 
 public class Player : MonoBehaviour
 {
@@ -16,7 +21,9 @@ public class Player : MonoBehaviour
     private float _startPositionY;
     private int _money;
     private bool _isUpload;
-    private bool _isUnload;    
+    private bool _isUnload;
+    private Vector3 _transformCollectorPoint;    
+    
 
     public Inventory Inventory => _inventory;
     public Unloader Unloader => _unloader;
@@ -24,6 +31,7 @@ public class Player : MonoBehaviour
     public int Money => _money;
     public bool IsUpload => _isUpload;
     public bool IsUnload => _isUnload;
+    public Vector3 TransformCollectorPoint => _transformCollectorPoint;
 
     public event UnityAction IsPushed;
     public event UnityAction <int> IsMoneyChanged;    
@@ -32,6 +40,7 @@ public class Player : MonoBehaviour
     {
         _mover = GetComponent<PlayerMover>();
         _loadController = GetComponent<PlayerLoadController>();
+        _transformCollectorPoint = FindObjectOfType<CollectionPoint>().transform.position;
 
         _inventory = GetComponentInChildren<Inventory>();
         _unloader = GetComponentInChildren<Unloader>();

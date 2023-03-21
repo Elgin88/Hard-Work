@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(LineOfPointsCreater))]
+[RequireComponent(typeof(Unloader))]
 
 public class Inventory : MonoBehaviour
 {

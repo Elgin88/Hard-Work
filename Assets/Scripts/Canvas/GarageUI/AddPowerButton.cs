@@ -26,6 +26,8 @@ public class AddPowerButton : MonoBehaviour
 
         _label.text = _garage.PowerLabel;
         _cost.text = _garage.PowerCost.ToString();
+
+        CheckButton();
     }
 
     private void OnDisable()

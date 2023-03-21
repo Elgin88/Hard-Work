@@ -4,12 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Player))]
 
 public class PlayerFuelController : MonoBehaviour
 {
-    [SerializeField] private float _maxFuel;
-    [SerializeField] private float _deltaFuel;
+    [SerializeField] private float _maxFuel = 100;
+    [SerializeField] private float _deltaFuel = 3;
     [SerializeField] private Garage _garage;
 
     private float _currentFuel;

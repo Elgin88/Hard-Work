@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(BlockFixer))]
+[RequireComponent(typeof(BlockMoverToCollector))]
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Block))]
 
@@ -16,18 +17,15 @@ public class BlockMoverToPlayer : MonoBehaviour
     private Vector3 _topPointPosition;
     private Vector3 _startBlockPosition;
     private Block _block;
-    private bool _isReachTop;    
+    private bool _isReachTop;
+    private BlockMoverToCollector _blockMoverToCollector;
 
     private void OnEnable()
     {
-        if (_flightSpeed == 0 || _tossHeight == 0)
-        {
-            Debug.Log("No SerializeField in " + gameObject.name);
-        }
-
         _blockFixer = GetComponent<BlockFixer>();        
         _rigidbody = GetComponent<Rigidbody>();        
-        _block = GetComponent<Block>();   
+        _block = GetComponent<Block>();
+        _blockMoverToCollector = GetComponent<BlockMoverToCollector>();
     }
 
     private IEnumerator Flight()
@@ -64,6 +62,12 @@ public class BlockMoverToPlayer : MonoBehaviour
                     _blockFixer.StartCoroutineFixBlock();                    
                     _block.Player.Inventory.InitEventBlockIsChanged();
                 }                               
+            }
+
+            if (_block.Point == null)
+            {
+                StopCoroutineMove();
+                _blockMoverToCollector.StartMoveToCollector(_block.Player.TransformCollectorPoint);
             }
 
             yield return null;
