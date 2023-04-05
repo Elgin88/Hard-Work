@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 4852941954891051340}
   - component: {fileID: 2257143530485067015}
   m_Layer: 0
-  m_Name: LineOfPoints
+  m_Name: '!!!LineOfPoints'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

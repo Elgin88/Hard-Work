@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 6304065228093501081}
   - component: {fileID: 6304065228093501078}
   m_Layer: 5
-  m_Name: GarageButton
+  m_Name: '!!!GarageButton'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
