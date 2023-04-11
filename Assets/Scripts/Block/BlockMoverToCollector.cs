@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BlockFixer))]
-[RequireComponent(typeof(Block))]
 
 public class BlockMoverToCollector : MonoBehaviour
 {

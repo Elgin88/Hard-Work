@@ -1,11 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(BlockFixer))]
-[RequireComponent(typeof(BlockMoverToCollector))]
-[RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(Block))]
-
 public class BlockMoverToPlayer : MonoBehaviour
 {
     private float _flightSpeed = 10;
