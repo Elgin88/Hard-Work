@@ -25,11 +25,6 @@ public class EnderLevel : MonoBehaviour
 
     private void Start()
     {
-        if (_maxProcent == 0 || _middleProcent == 0 || _minProcent == 0 || _reloadButton == null || _endLevelButton == null || _nextScene == "")
-        {
-            Debug.Log("No SerializeField in" + gameObject.name);
-        }
-
         _calculatorBlocks = FindObjectOfType<CalculatorBlocks>();
         _chooserMedals = FindObjectOfType<ChooserMedals>();
 

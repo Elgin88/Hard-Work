@@ -2,10 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CalculatorBlocks))]
-[RequireComponent(typeof(EnderLevel))]
-[RequireComponent(typeof(ChooserMedals))]
-
 public class MainCamera : MonoBehaviour
 {
     [SerializeField] private float _deltaX;
@@ -23,11 +19,6 @@ public class MainCamera : MonoBehaviour
 
     private void Start()
     {
-        if (_deltaX == 0 || _deltaY == 0 || _deltaZ == 0 || _speedChangeX == 0 || _speedChangeY == 0 || _speedChangeZ == 0)
-        {
-            Debug.Log("No SerializeField in " + gameObject.name);
-        }
-
         _player = FindObjectOfType<PlayerMover>();
         _currentCameraPositionX = _player.transform.position.x;
         _currentCameraPositionY = _player.transform.position.y - _deltaY;

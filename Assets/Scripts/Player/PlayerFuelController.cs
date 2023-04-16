@@ -9,7 +9,8 @@ public class PlayerFuelController : MonoBehaviour
 {
     [SerializeField] private float _maxFuel = 100;
     [SerializeField] private float _deltaFuel = 3;
-    [SerializeField] private Garage _garage;
+
+    private Garage _garage;
 
     private float _currentFuel;
     private bool _isFuelLoss;
@@ -24,10 +25,7 @@ public class PlayerFuelController : MonoBehaviour
 
     private void Start()
     {
-        if (_maxFuel == 0|| _deltaFuel == 0 || _garage == null )
-        {
-            Debug.Log("No SerializeField in " + gameObject.name);
-        }
+        _garage = FindObjectOfType<Garage>();
 
         if (_speedSetter == null)
         {

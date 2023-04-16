@@ -4,21 +4,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Button))]
+
 public class NextLevelButton : MonoBehaviour
 {
-    [SerializeField] private Button _nextLevelButton;
-    [SerializeField] private EnderLevel _enderLevel;
-
-    private void Start()
-    {
-        if (_nextLevelButton == null|| _enderLevel == null)
-        {
-            Debug.Log("No SerializeField in " + gameObject.name);
-        }       
-    }
+    private Button _nextLevelButton;
+    private EnderLevel _enderLevel;
+    private GameRequireComponents _gameRequireComponents;
 
     private void OnEnable()
     {
+        _gameRequireComponents = FindObjectOfType<GameRequireComponents>();
+        _gameRequireComponents = _gameRequireComponents.EnderLevel;
+
+        _nextLevelButton = GetComponent<Button>();
         _nextLevelButton.onClick.AddListener(OnButtonClick);
     }
 

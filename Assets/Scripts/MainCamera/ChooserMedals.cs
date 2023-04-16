@@ -7,8 +7,15 @@ public class ChooserMedals : MonoBehaviour
     [SerializeField] private MaxMedal _maxMedal;
     [SerializeField] private MiddleMedal _middleMedal;
     [SerializeField] private MinMedal _minMedal;
-    [SerializeField] private EnderLevel _enderLevel;
-    [SerializeField] private CalculatorBlocks _calculatorBlocks;
+
+    private EnderLevel _enderLevel;
+    private CalculatorBlocks _calculatorBlocks;
+
+    private void OnEnable()
+    {
+        _enderLevel = FindObjectOfType<GameController>().GetComponent<EnderLevel>();
+        _calculatorBlocks = FindObjectOfType<GameController>().GetComponent<CalculatorBlocks>();
+    }
 
     private void Start()
     {

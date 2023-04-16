@@ -7,19 +7,14 @@ using UnityEngine.UI;
 
 public class EndLevelButton : MonoBehaviour
 {
-    [SerializeField] private EndLevelPanel _endLevelPanel;
-    [SerializeField] private Button _button;
-
-    private void Start()
-    {
-        if (_endLevelPanel == null)
-        {
-            Debug.Log("No SerilizeField in" + gameObject.name);
-        }
-    }
+    private EndLevelPanel _endLevelPanel;
+    private Button _button;
 
     private void OnEnable()
     {
+        _endLevelPanel = FindObjectOfType<GameController>().GetComponent<GameRequireComponents>().EndLevelPanel;
+        _button = GetComponent<Button>();
+
         _button.onClick.AddListener(OnButtonClick);
         _endLevelPanel.gameObject.SetActive(true);
     }
