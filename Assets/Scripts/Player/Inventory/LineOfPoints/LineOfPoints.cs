@@ -5,20 +5,9 @@ using UnityEngine;
 
 public class LineOfPoints : MonoBehaviour
 {
-    private List<Point> _points;
+    [SerializeField] private List<Point> _points;
+
     private bool _isFull = false;
-
-    private void OnEnable()
-    {
-        _points = new List<Point>();
-
-        Point[] tempPoints = GetComponentsInChildren<Point>();
-
-        foreach (Point tempPoint in tempPoints)
-        {
-            _points.Add(tempPoint);
-        }
-    }
 
     public Point TakePoint()
     {
