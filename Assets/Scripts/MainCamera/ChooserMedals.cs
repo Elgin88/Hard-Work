@@ -4,25 +4,22 @@ using UnityEngine;
 
 public class ChooserMedals : MonoBehaviour
 {
-    [SerializeField] private MaxMedal _maxMedal;
-    [SerializeField] private MiddleMedal _middleMedal;
-    [SerializeField] private MinMedal _minMedal;
-
+    private MaxMedal _maxMedal;
+    private MiddleMedal _middleMedal;
+    private MinMedal _minMedal;
     private EnderLevel _enderLevel;
     private CalculatorBlocks _calculatorBlocks;
+    private GameRequireComponents _gameRequireComponents;
 
     private void OnEnable()
     {
-        _enderLevel = FindObjectOfType<GameController>().GetComponent<EnderLevel>();
-        _calculatorBlocks = FindObjectOfType<GameController>().GetComponent<CalculatorBlocks>();
-    }
+        _gameRequireComponents = FindObjectOfType<GameRequireComponents>();
+        _enderLevel = FindObjectOfType<EnderLevel>();
+        _calculatorBlocks = FindObjectOfType<CalculatorBlocks>();
 
-    private void Start()
-    {
-        if (_maxMedal == null || _middleMedal == null || _minMedal == null || _calculatorBlocks == null)
-        {
-            Debug.Log("No SerializeField in " + gameObject.name);
-        }
+        _maxMedal = _gameRequireComponents.MaxMedal;
+        _middleMedal = _gameRequireComponents.MiddleMedal;
+        _minMedal = _gameRequireComponents.MinMedal;
     }
 
     public void ChooseMedals()

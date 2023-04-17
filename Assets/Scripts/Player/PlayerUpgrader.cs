@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(PlayerFuelController))]
+[RequireComponent(typeof(PlayerPowerController))]
 
 public class PlayerUpgrader : MonoBehaviour
 {
@@ -19,11 +20,6 @@ public class PlayerUpgrader : MonoBehaviour
 
     private void Start()
     {
-        if (_deltaMaxFuel == 0|| _deltaMaxLines == 0 || _deltaPower == 0)
-        {
-            Debug.Log("No SerializeField in " + gameObject.name);
-        }
-
         _fuelController = GetComponent<PlayerFuelController>();
         _powerController = GetComponent<PlayerPowerController>();
 

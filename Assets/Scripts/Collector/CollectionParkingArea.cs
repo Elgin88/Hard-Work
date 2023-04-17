@@ -6,15 +6,16 @@ using UnityEngine;
 
 public class CollectionParkingArea : MonoBehaviour
 {
-    [SerializeField] private Unloader _unloader;
-    [SerializeField] private Player _player;
+    private Unloader _unloader;
+    private Player _player;
+    private GameRequireComponents _gameRequireComponents;
 
     private void OnEnable()
     {
-        if (_unloader == null || _player ==null)
-        {
-            Debug.Log("No SerialzieField in " + gameObject.name);
-        }
+        _gameRequireComponents = FindObjectOfType<GameRequireComponents>();
+
+        _player = _gameRequireComponents.Player;
+        _unloader = _gameRequireComponents.Unloader;
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -8,8 +8,8 @@ using UnityEngine;
 [RequireComponent(typeof(ChooserMedals))]
 [RequireComponent(typeof(GameRequireComponents))]
 
-public class GameControllerRequireComponents : MonoBehaviour
+
+public class GameConrtollerRequireComponents : MonoBehaviour
 {
-
-
+    
 }

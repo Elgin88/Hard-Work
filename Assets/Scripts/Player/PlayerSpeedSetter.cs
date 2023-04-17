@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Player))]
+[RequireComponent(typeof(PlayerMover))]
+[RequireComponent(typeof(PlayerFuelController))]
 
 public class PlayerSpeedSetter : MonoBehaviour
 {
@@ -29,11 +32,6 @@ public class PlayerSpeedSetter : MonoBehaviour
 
     private void Start()
     {
-        if (_maxSpeed == 0 || _minSpeed == 0 || _deltaUpSpeed == 0 || _deltaDownSpeed == 0 || _pushChangeSpeed == 0 || _delayPush == 0 )
-        {
-            Debug.Log("No SerializeField in " + gameObject.name);
-        }
-
         _player = GetComponent<Player>();
         _playerMover = GetComponent<PlayerMover>();
         _playerFuelController = GetComponent<PlayerFuelController>();

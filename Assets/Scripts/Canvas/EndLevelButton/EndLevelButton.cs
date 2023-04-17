@@ -12,7 +12,7 @@ public class EndLevelButton : MonoBehaviour
 
     private void OnEnable()
     {
-        _endLevelPanel = FindObjectOfType<GameController>().GetComponent<GameRequireComponents>().EndLevelPanel;
+        _endLevelPanel = FindObjectOfType<GameRequireComponents>().EndLevelPanel;
         _button = GetComponent<Button>();
 
         _button.onClick.AddListener(OnButtonClick);

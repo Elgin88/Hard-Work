@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-
 public class PlayerFuelController : MonoBehaviour
 {
     [SerializeField] private float _maxFuel = 100;

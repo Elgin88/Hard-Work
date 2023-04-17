@@ -16,7 +16,7 @@ public class CalculatorBlocks : MonoBehaviour
 
     public event UnityAction <int, int> IsChangedUnload;
 
-    private void Start()
+    private void OnEnable()
     {
         _allSectionsBlocks = FindObjectsOfType<SectionOfBlocks>();
         allBlocks = FindObjectsOfType<Block>();

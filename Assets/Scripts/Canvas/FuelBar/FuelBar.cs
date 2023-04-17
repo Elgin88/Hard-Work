@@ -9,9 +9,9 @@ using UnityEngine.UI;
 public class FuelBar : MonoBehaviour
 {
     [SerializeField] private float _speedOfChange;
-    [SerializeField] private TMP_Text _max;
-    [SerializeField] private TMP_Text _middle;
-    [SerializeField] private TMP_Text _min;
+    private TMP_Text _max;
+    private TMP_Text _middle;
+    private TMP_Text _min;
 
     private Slider _slider;
     private PlayerFuelController _fuelController;
@@ -19,16 +19,18 @@ public class FuelBar : MonoBehaviour
     private float _currentValue;
     private float _targetFuel;
     private float _maxFuel;
+    private GameRequireComponents _gameRequireComponents;
 
     private void OnEnable()
     {
-        if (_speedOfChange == 0|| _max == null || _middle == null || _min == null  )
-        {
-            Debug.Log("No SerilizeField in " + gameObject.name);
-        }
-
-        _slider = GetComponent<Slider>();
+        _gameRequireComponents = FindObjectOfType<GameRequireComponents>();
         _fuelController = FindObjectOfType<PlayerFuelController>();
+
+        _max = _gameRequireComponents.MaxFuelBar.GetComponent<TMP_Text>();
+        _middle = _gameRequireComponents.MiddleFuelBar.GetComponent<TMP_Text>();
+        _min = _gameRequireComponents.MinFuelBar.GetComponent<TMP_Text>();
+        
+        _slider = GetComponent<Slider>();
 
         _slider.value = 0;
         _fuelController.IsFuelChanged += OnFuelChanged;

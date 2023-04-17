@@ -5,33 +5,30 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(PlayerMover))]
-[RequireComponent(typeof(PlayerFuelController))]
 [RequireComponent(typeof(PlayerLoadController))]
-[RequireComponent(typeof(PlayerMover))]
-[RequireComponent(typeof(PlayerPowerController))]
-[RequireComponent(typeof(PlayerSpeedSetter))]
-[RequireComponent(typeof(PlayerUpgrader))]
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private float _rangeBetweenBlocks;
+    [SerializeField] private int _maxHightOfInventory;
+    [SerializeField] private float _deltaTimeBetweeUnloadBlocks;
+
     private PlayerMover _mover;
     private Inventory _inventory;
     private Unloader _unloader;
     private PlayerLoadController _loadController;
     private float _startPositionY;
     private int _money;
-    private bool _isUpload;
-    private bool _isUnload;
     private Vector3 _transformCollectorPoint;    
-    
 
     public Inventory Inventory => _inventory;
     public Unloader Unloader => _unloader;
     public PlayerLoadController LoadController => _loadController;
     public int Money => _money;
-    public bool IsUpload => _isUpload;
-    public bool IsUnload => _isUnload;
     public Vector3 TransformCollectorPoint => _transformCollectorPoint;
+    public float RangeBetweenBlocks => _rangeBetweenBlocks;
+    public int MaxHightOfInventory => _maxHightOfInventory;
+    public float DeltaBetweenUnloadBlocks => _deltaTimeBetweeUnloadBlocks;
 
     public event UnityAction IsPushed;
     public event UnityAction <int> IsMoneyChanged;    

@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class GarageParkingArea : MonoBehaviour
 {
-    [SerializeField] private GarageUI _garageUI;
+    private GarageUI _garageUI;
+
+    private void OnEnable()
+    {
+        _garageUI = FindObjectOfType<GameRequireComponents>().GarageUI;
+    }
 
     private void OnCollisionEnter(Collision collision)
     {

@@ -7,10 +7,12 @@ public class EnderLevel : MonoBehaviour
     [SerializeField] private int _maxProcent;
     [SerializeField] private int _middleProcent;
     [SerializeField] private int _minProcent;
-    [SerializeField] private ReloadButton _reloadButton;
-    [SerializeField] private EndLevelButton _endLevelButton;
-    [SerializeField] private EndLevelPanel _endLevelPanel;
     [SerializeField] private string _nextScene;
+
+    private GameRequireComponents _gameRequireComponents;
+    private ReloadButton _reloadButton;
+    private EndLevelButton _endLevelButton;
+    private EndLevelPanel _endLevelPanel;
 
     private CalculatorBlocks _calculatorBlocks;
     private ChooserMedals _chooserMedals;
@@ -27,6 +29,11 @@ public class EnderLevel : MonoBehaviour
     {
         _calculatorBlocks = FindObjectOfType<CalculatorBlocks>();
         _chooserMedals = FindObjectOfType<ChooserMedals>();
+        _gameRequireComponents = FindObjectOfType<GameRequireComponents>();
+
+        _reloadButton = _gameRequireComponents.ReloadButton;
+        _endLevelButton = _gameRequireComponents.EndLevelButton;
+        _endLevelPanel = _gameRequireComponents.EndLevelPanel;
 
         _maxNumberBlocks = _calculatorBlocks.AllBlocks;
         _middleNumberBlocks = _calculatorBlocks.AllBlocks * _middleProcent / 100;

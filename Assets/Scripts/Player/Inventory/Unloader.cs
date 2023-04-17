@@ -5,24 +5,22 @@ using UnityEngine;
 
 public class Unloader : MonoBehaviour
 {
-    [SerializeField] private float _speedUnload;
 
+    private float _deltaBetweenUnloadBlocks;
     private Coroutine _unload;
     private CollectionPoint _point;
     private Inventory _inventory;
-    private WaitForSeconds _speedUnloadWFS;
+    private WaitForSeconds _deltaBetweenUnloadBlocksWFS;
 
     private void Start()
     {
-        if (_speedUnload == 0)
-        {
-            Debug.Log("No SerializeField in" + gameObject.name);
-        }
-
         _point = FindObjectOfType<CollectionPoint>();
-        _inventory = GetComponent<Inventory>();
+        _deltaBetweenUnloadBlocks = FindObjectOfType<Player>().DeltaBetweenUnloadBlocks;
 
-        _speedUnloadWFS = new WaitForSeconds(_speedUnload);
+        _inventory = GetComponent<Inventory>();
+        
+
+        _deltaBetweenUnloadBlocksWFS = new WaitForSeconds(_deltaBetweenUnloadBlocks);
     }
 
     private IEnumerator Unload()
@@ -47,7 +45,7 @@ public class Unloader : MonoBehaviour
                 }
             }
 
-            yield return _speedUnloadWFS;
+            yield return _deltaBetweenUnloadBlocksWFS;
 
         }
     }

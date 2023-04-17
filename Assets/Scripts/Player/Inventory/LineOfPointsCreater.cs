@@ -6,9 +6,10 @@ using UnityEngine.Events;
 
 public class LineOfPointsCreater : MonoBehaviour
 {
-    [SerializeField] private LineOfPoints _template;
-    [SerializeField] private float _deltaBetweenBlocks;
-    [SerializeField] private int _maxNumberOfLines;
+    private LineOfPoints _lineOfPoints;
+
+    private float _rangeBetweenBlocks;
+    private int _maxNumberOfLines;
 
     private Inventory _inventory;
     private Player _player;
@@ -20,20 +21,21 @@ public class LineOfPointsCreater : MonoBehaviour
 
     private void Start()
     {
-        if (_template == null || _deltaBetweenBlocks == 0 || _maxNumberOfLines == 0)
-            Debug.Log("No SerializeField in " + this.name);
-
         _inventory = GetComponentInParent<Inventory>();
         _player = FindObjectOfType<Player>();
         _garage = FindObjectOfType<Garage>();
+        _lineOfPoints = FindObjectOfType<GameRequireComponents>().LineOfPoints;
+
+        _rangeBetweenBlocks = _player.RangeBetweenBlocks;
+        _maxNumberOfLines = _player.MaxHightOfInventory;
     }
 
     public void TryCreateLine()
     {
         if (_inventory.GetCountOfLines() <= _maxNumberOfLines)
         {
-            LineOfPoints line = Instantiate(_template, _inventory.transform);
-            line.MoveUp(_deltaBetweenBlocks * _inventory.GetCountOfLines());
+            LineOfPoints line = Instantiate(_lineOfPoints, _inventory.transform);
+            line.MoveUp(_rangeBetweenBlocks * _inventory.GetCountOfLines());
 
             _inventory.AddLine(line);
         }

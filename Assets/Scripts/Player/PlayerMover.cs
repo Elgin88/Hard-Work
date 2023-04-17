@@ -7,12 +7,10 @@ public class PlayerMover : MonoBehaviour
     private PlayerSpeedSetter _playerSpeedSetter;
     private Quaternion _currentPlayerDirection;
     private Coroutine _moveWork;
-    private bool _isJoystickTurn;
-    
+    private bool _isJoystickTurn;   
 
     public bool IsJoystickTurn => _isJoystickTurn;
     public Quaternion CurrentPlayerDirection => _currentPlayerDirection;
-
 
 
     private void Start()
