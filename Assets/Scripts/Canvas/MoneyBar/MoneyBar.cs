@@ -8,15 +8,15 @@ public class MoneyBar : MonoBehaviour
     private MoneyBarCount _moneyBarCount;
     private TMP_Text _textMoney;
     private Player _player;
+    private GameRequireComponents _gameRequireComponents;
 
     private void OnEnable()
     {
-        if (_moneyBarCount == null || _textMoney == null || _player == null)
-        {
-            _moneyBarCount = GetComponentInChildren<MoneyBarCount>();
-            _textMoney = _moneyBarCount.GetComponent<TMP_Text>();
-            _player = FindObjectOfType<Player>();
-        }
+        _gameRequireComponents = FindObjectOfType<GameRequireComponents>();
+
+        _moneyBarCount = _gameRequireComponents.MoneyBarCount;
+        _textMoney = _moneyBarCount.GetComponent<TMP_Text>();
+        _player = _gameRequireComponents.Player;
 
         _player.IsMoneyChanged += OnMoneyChanged;
     }

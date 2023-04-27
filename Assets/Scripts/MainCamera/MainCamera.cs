@@ -4,25 +4,29 @@ using UnityEngine;
 
 public class MainCamera : MonoBehaviour
 {
-    [SerializeField] private float _deltaX;
-    [SerializeField] private float _deltaY;
-    [SerializeField] private float _deltaZ;
-    [SerializeField] private float _speedChangeX;
-    [SerializeField] private float _speedChangeY;
-    [SerializeField] private float _speedChangeZ;
+    [SerializeField] private float _deltaY = 10;
+    [SerializeField] private float _deltaZ = -9;
+    [SerializeField] private float _speedChangeX = 3.5f;
+    [SerializeField] private float _speedChangeZ = 3.5f;
+    [SerializeField] private float _deltaRotationX = 0.3f;
+
 
     private PlayerMover _player;
     private Coroutine _moveWork = null;
     private float _currentCameraPositionX;
     private float _currentCameraPositionY;
     private float _currentCameraPositionZ;
+    private float _currentCameraRotationX;
 
     private void Start()
     {
         _player = FindObjectOfType<PlayerMover>();
         _currentCameraPositionX = _player.transform.position.x;
-        _currentCameraPositionY = _player.transform.position.y - _deltaY;
+        _currentCameraPositionY = _player.transform.position.y + _deltaY;
         _currentCameraPositionZ = _player.transform.position.z + _deltaZ;
+
+        transform.rotation = new Quaternion(transform.rotation.x + _deltaRotationX, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+
         StartCoroutineMove();
     }
 
@@ -31,10 +35,10 @@ public class MainCamera : MonoBehaviour
         while (true)
         {
             _currentCameraPositionX = Mathf.MoveTowards(_currentCameraPositionX, _player.transform.position.x, _speedChangeX * Time.deltaTime);
-            _currentCameraPositionY = Mathf.MoveTowards(_currentCameraPositionY, _player.transform.position.y - _deltaY, _speedChangeY * Time.deltaTime);
+
             _currentCameraPositionZ = Mathf.MoveTowards(_currentCameraPositionZ, _player.transform.position.z + _deltaZ, _speedChangeZ * Time.deltaTime);
 
-            transform.position = new Vector3(_currentCameraPositionX, _currentCameraPositionY, _currentCameraPositionZ);
+            transform.position = new Vector3(_currentCameraPositionX, _currentCameraPositionY, _currentCameraPositionZ);     
 
             yield return null;
         }

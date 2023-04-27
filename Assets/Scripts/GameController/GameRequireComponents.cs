@@ -23,6 +23,7 @@ public class GameRequireComponents : MonoBehaviour
     [SerializeField] private MaxMedal _maxMedal;
     [SerializeField] private MiddleMedal _middleMedal;
     [SerializeField] private MinMedal _minMedal;
+    [SerializeField] private MoneyBarCount _moneyBarCount;
 
     public EndLevelPanel EndLevelPanel => _endLevelPanel;
     public DestroyerPoint DestroyerPoint => _destroyerPoint;
@@ -42,4 +43,5 @@ public class GameRequireComponents : MonoBehaviour
     public MaxMedal MaxMedal => _maxMedal;
     public MiddleMedal MiddleMedal => _middleMedal;
     public MinMedal MinMedal => _minMedal;
+    public MoneyBarCount MoneyBarCount => _moneyBarCount;
 }
