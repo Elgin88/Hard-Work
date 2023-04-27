@@ -9,7 +9,7 @@ using UnityEngine;
 [RequireComponent(typeof(GameRequireComponents))]
 
 
-public class GameConrtollerRequireComponents : MonoBehaviour
+public class GameControllerRequireComponents : MonoBehaviour
 {
     
 }

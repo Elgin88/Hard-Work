@@ -11,7 +11,7 @@ public class ProgressBar : MonoBehaviour
     [SerializeField] private string _labelMax;
     [SerializeField] private string _labelMiddle;
     [SerializeField] private string _labelMin;
-    [SerializeField] private float _speed;
+    [SerializeField] private float _speedOfChange;
 
     private Slider _slider;
     private TMP_Text _max;
@@ -25,11 +25,6 @@ public class ProgressBar : MonoBehaviour
 
     private void OnEnable()
     {
-        if (_labelMax == null|| _labelMiddle == null || _labelMin == null || _speed == 0)
-        {
-            Debug.Log("No SerializeField in " + gameObject.name);
-        }
-
         _max = GetComponentInChildren<ProgressBarMax>().GetComponent<TMP_Text>();
         _middle = GetComponentInChildren<ProgressBarMiddle>().GetComponent<TMP_Text>();
         _min = GetComponentInChildren<ProgressBarMin>().GetComponent<TMP_Text>();
@@ -63,7 +58,7 @@ public class ProgressBar : MonoBehaviour
         while (true)
         {
             _currentValue = _slider.value;
-            _slider.value = Mathf.MoveTowards(_currentValue, (float)_unloadBlocks / _maxBlocks, _speed * Time.deltaTime);
+            _slider.value = Mathf.MoveTowards(_currentValue, (float)_unloadBlocks / _maxBlocks, _speedOfChange * Time.deltaTime);
 
             yield return null;
         }

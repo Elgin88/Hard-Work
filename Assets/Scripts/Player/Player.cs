@@ -9,8 +9,8 @@ using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float _rangeBetweenBlocks;
-    [SerializeField] private int _maxHightOfInventory;
+    [SerializeField] private float _deltaBetweenBlocks;
+    [SerializeField] private int _hightOfInventory;
     [SerializeField] private float _deltaTimeBetweeUnloadBlocks;
 
     private PlayerMover _mover;
@@ -26,8 +26,8 @@ public class Player : MonoBehaviour
     public PlayerLoadController LoadController => _loadController;
     public int Money => _money;
     public Vector3 TransformCollectorPoint => _transformCollectorPoint;
-    public float RangeBetweenBlocks => _rangeBetweenBlocks;
-    public int MaxHightOfInventory => _maxHightOfInventory;
+    public float RangeBetweenBlocks => _deltaBetweenBlocks;
+    public int MaxHightOfInventory => _hightOfInventory;
     public float DeltaBetweenUnloadBlocks => _deltaTimeBetweeUnloadBlocks;
 
     public event UnityAction IsPushed;
