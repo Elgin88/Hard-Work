@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class MainCamera : MonoBehaviour
 {
-    [SerializeField] private float _deltaY = 10;
-    [SerializeField] private float _deltaZ = -9;
-    [SerializeField] private float _speedChangeX = 3.5f;
-    [SerializeField] private float _speedChangeZ = 3.5f;
-    [SerializeField] private float _deltaRotationX = 0.3f;
-
-
+    private float _deltaY = 10;
+    private float _deltaZ = -9;
+    private float _speedChangeX = 4f;
+    private float _speedChangeZ = 4f;
+    private float _deltaRotationX = 0.4f;
     private PlayerMover _player;
     private Coroutine _moveWork = null;
     private float _currentCameraPositionX;
@@ -21,6 +19,7 @@ public class MainCamera : MonoBehaviour
     private void Start()
     {
         _player = FindObjectOfType<PlayerMover>();
+
         _currentCameraPositionX = _player.transform.position.x;
         _currentCameraPositionY = _player.transform.position.y + _deltaY;
         _currentCameraPositionZ = _player.transform.position.z + _deltaZ;
