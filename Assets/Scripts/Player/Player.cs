@@ -19,13 +19,13 @@ public class Player : MonoBehaviour
     private PlayerLoadController _loadController;
     private float _startPositionY;
     private int _money;
-    private Vector3 _transformCollectorPoint;    
+    private Vector3 _collectionPointPosition;    
 
     public Inventory Inventory => _inventory;
     public Unloader Unloader => _unloader;
     public PlayerLoadController LoadController => _loadController;
     public int Money => _money;
-    public Vector3 TransformCollectorPoint => _transformCollectorPoint;
+    public Vector3 CollectionPOintPosition => _collectionPointPosition;
     public float RangeBetweenBlocks => _deltaBetweenBlocks;
     public int MaxHightOfInventory => _hightOfInventory;
     public float DeltaBetweenUnloadBlocks => _deltaTimeBetweeUnloadBlocks;
@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
     {
         _mover = GetComponent<PlayerMover>();
         _loadController = GetComponent<PlayerLoadController>();
-        _transformCollectorPoint = FindObjectOfType<CollectionPoint>().transform.position;
+        _collectionPointPosition = FindObjectOfType<CollectionPoint>().transform.position;
 
         _inventory = GetComponentInChildren<Inventory>();
         _unloader = GetComponentInChildren<Unloader>();

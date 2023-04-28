@@ -6,23 +6,25 @@ using UnityEngine.UI;
 
 public class AddPowerButton : MonoBehaviour
 {
-    [SerializeField] private Button _addPowerButton;
-    [SerializeField] private Player _player;
-    [SerializeField] private PlayerUpgrader _upgrader;
-    [SerializeField] private Garage _garage;
+    [SerializeField] private Button _button;
     [SerializeField] private TMP_Text _label;
     [SerializeField] private TMP_Text _cost;
 
+    private Player _player;
+    private PlayerUpgrader _playerUpgrader;
+    private Garage _garage;
+
     private void OnEnable()
     {
-        if (_addPowerButton == null || _player == null || _upgrader == null || _garage == null || _label == null || _cost == null)
+        if (_player == null)
         {
-            Debug.Log("No SerializeField in " + gameObject.name);
+            _player = FindObjectOfType<Player>();
+            _playerUpgrader = _player.GetComponent<PlayerUpgrader>();
+            _garage = FindObjectOfType<Garage>();
         }
 
-        _addPowerButton.onClick.AddListener(OnButtonClick);
+        _button.onClick.AddListener(OnButtonClick);
         _player.IsMoneyChanged += OnMoneyChanged;
-
 
         _label.text = _garage.PowerLabel;
         _cost.text = _garage.PowerCost.ToString();
@@ -32,13 +34,13 @@ public class AddPowerButton : MonoBehaviour
 
     private void OnDisable()
     {
-        _addPowerButton.onClick.RemoveListener(OnButtonClick);
+        _button.onClick.RemoveListener(OnButtonClick);
         _player.IsMoneyChanged -= OnMoneyChanged;
     }
 
     private void OnButtonClick()
     {
-        _upgrader.TryAddPower();
+        _playerUpgrader.TryAddPower();
     }
 
     private void OnMoneyChanged(int money)
@@ -50,11 +52,11 @@ public class AddPowerButton : MonoBehaviour
     {
         if (_player.Money > _garage.PowerCost)
         {
-            _addPowerButton.interactable = true;
+            _button.interactable = true;
         }
         else
         {
-            _addPowerButton.interactable = false;
+            _button.interactable = false;
         }
     }
 }

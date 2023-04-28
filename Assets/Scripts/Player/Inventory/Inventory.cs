@@ -8,25 +8,20 @@ using UnityEngine.Events;
 
 public class Inventory : MonoBehaviour
 {
-    private bool _isFull = false;
+    [SerializeField] private List<LineOfPoints> _lines;
 
+    private GameRequireComponents _gameReqireComponents;
+
+    private bool _isFull = false;
     private LineOfPointsCreater _lineOfPointsCreater;
-    private List <LineOfPoints> _lines;
+
+    public int GetNumberLines => _lines.Count;
 
     public event UnityAction <int,int> IsChangedNumberBlocks;
 
-    private void Start()
+    private void OnEnable()
     {
         _lineOfPointsCreater = GetComponent<LineOfPointsCreater>();
-
-        _lines = new List<LineOfPoints>();
-
-        LineOfPoints[] tempLines = GetComponentsInChildren<LineOfPoints>();
-
-        foreach (LineOfPoints tempLine in tempLines)
-        {
-            _lines.Add(tempLine);
-        }
     }
 
     public void TryCreateLine()
@@ -114,14 +109,7 @@ public class Inventory : MonoBehaviour
 
     public int GetMaxNumberOfBlocks()
     {
-        int maxNumberOfBlocks = 0;
-
-        if (_lineOfPointsCreater != null)
-        {
-            maxNumberOfBlocks = _lineOfPointsCreater.MaxNumberOfLines * _lines[0].GetNumberOfPoints();
-        }        
-
-        return maxNumberOfBlocks;
+        return _lineOfPointsCreater.MaxNumberOfLines * _lines[0].GetNumberOfPoints();
     }
 
     public void InitEventBlockIsChanged()

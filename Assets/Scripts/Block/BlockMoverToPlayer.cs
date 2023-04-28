@@ -62,7 +62,7 @@ public class BlockMoverToPlayer : MonoBehaviour
             if (_block.Point == null)
             {
                 StopCoroutineMove();
-                _blockMoverToCollector.StartMoveToCollector(_block.Player.TransformCollectorPoint);
+                _blockMoverToCollector.StartMoveToCollector(_block.Player.CollectionPOintPosition);
             }
 
             yield return null;

@@ -46,9 +46,9 @@ public class FuelBar : MonoBehaviour
         _targetFuel = target;
         _maxFuel = max;
 
-        _max.text = max.ToString() + " -";
-        _middle.text = (max/2).ToString() + " -";
-        _min.text = "0" + " -";
+        _max.text = max.ToString();
+        _middle.text = (max/2).ToString();
+        _min.text = "0";
 
         StartChangeSliderValue();
     }

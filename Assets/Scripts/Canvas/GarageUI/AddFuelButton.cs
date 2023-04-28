@@ -8,28 +8,24 @@ using UnityEngine.UI;
 
 public class AddFuelButton : MonoBehaviour
 {
-    private Button _addFuelButton;
-    private TMP_Text _label;
-    private TMP_Text _cost;
+    [SerializeField] private Button _button;
+    [SerializeField] private TMP_Text _label;
+    [SerializeField] private TMP_Text _cost;
+
     private Garage _garage;
     private Player _player;
     private PlayerUpgrader _playerUpgrade;
-    private GameRequireComponents _gameRequireComponents;
-
-    private Coroutine _setStatusButton;
 
     private void OnEnable()
     {
-        _gameRequireComponents = FindObjectOfType<GameRequireComponents>();
-        _garage = _gameRequireComponents.Garage;
-        _player = _gameRequireComponents.Player;
-        _playerUpgrade = _gameRequireComponents.PlayerUpgrade;
+        if (_player == null)
+        {
+            _player = FindObjectOfType<Player>();
+            _playerUpgrade = _player.GetComponent<PlayerUpgrader>();
+            _garage = FindObjectOfType<Garage>();
+        }
 
-        _addFuelButton = GetComponent<Button>();
-        _label = GetComponentInChildren<AddFuelButtonLabel>().GetComponent<TMP_Text>();
-        _cost = GetComponentInChildren<AddFuelButtonCost>().GetComponent<TMP_Text>();
-
-        _addFuelButton.onClick.AddListener(OnAddFuelButtonClick);
+        _button.onClick.AddListener(OnAddFuelButtonClick);
         _player.IsMoneyChanged += OnPlayerMoneyChanded;
 
         _label.text = _garage.FuelLabel;
@@ -40,7 +36,7 @@ public class AddFuelButton : MonoBehaviour
 
     private void OnDisable()
     {
-        _addFuelButton.onClick.RemoveListener(OnAddFuelButtonClick);
+        _button.onClick.RemoveListener(OnAddFuelButtonClick);
         _player.IsMoneyChanged -= OnPlayerMoneyChanded;
     }
 
@@ -58,11 +54,11 @@ public class AddFuelButton : MonoBehaviour
     {
         if (_player.Money > _garage.FuelCoust)
         {
-            _addFuelButton.interactable = true;
+            _button.interactable = true;
         }
         else
         {
-            _addFuelButton.interactable = false;
+            _button.interactable = false;
         }
     }
 }

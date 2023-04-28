@@ -8,7 +8,7 @@ public class MainCamera : MonoBehaviour
     private float _deltaZ = -9;
     private float _speedChangeX = 4f;
     private float _speedChangeZ = 4f;
-    private float _deltaRotationX = 0.4f;
+    private float _deltaRotationX = 0.3f;
     private PlayerMover _player;
     private Coroutine _moveWork = null;
     private float _currentCameraPositionX;
@@ -24,7 +24,7 @@ public class MainCamera : MonoBehaviour
         _currentCameraPositionY = _player.transform.position.y + _deltaY;
         _currentCameraPositionZ = _player.transform.position.z + _deltaZ;
 
-        transform.rotation = new Quaternion(transform.rotation.x + _deltaRotationX, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+        transform.rotation = new Quaternion(_deltaRotationX, transform.rotation.y, transform.rotation.z, transform.rotation.w);
 
         StartCoroutineMove();
     }

@@ -4,26 +4,27 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class AddPlaceButton : MonoBehaviour
 {
-    [SerializeField] private Button _addPlaceButton;
+    [SerializeField] private Button _button;
     [SerializeField] private TMP_Text _label;
     [SerializeField] private TMP_Text _cost;
-    [SerializeField] private Player _player;
-    [SerializeField] private PlayerUpgrader _upgrader;
-    [SerializeField] private Garage _garage;
 
-    private void Start()
-    {
-        if (_addPlaceButton==null|| _label == null || _cost == null || _player == null || _upgrader == null || _garage == null)
-        {
-            Debug.Log("No SerializeField in " + gameObject.name);
-        }
-    }
+    private Player _player;
+    private PlayerUpgrader _playerUpgrader;
+    private Garage _garage;
 
     private void OnEnable()
     {
-        _addPlaceButton.onClick.AddListener(OnAddPlaceButtonClick);
+        if (_player == null)
+        {
+            _player = FindObjectOfType<Player>();
+            _playerUpgrader = _player.GetComponent<PlayerUpgrader>();
+            _garage = FindObjectOfType<Garage>();
+        }
+
+        _button.onClick.AddListener(OnAddPlaceButtonClick);
         _player.IsMoneyChanged += OnMoneyChanged;
 
         _label.text = _garage.PlaceLabel;
@@ -34,13 +35,13 @@ public class AddPlaceButton : MonoBehaviour
 
     private void OnDisable()
     {
-        _addPlaceButton.onClick.RemoveListener(OnAddPlaceButtonClick);
+        _button.onClick.RemoveListener(OnAddPlaceButtonClick);
         _player.IsMoneyChanged -= OnMoneyChanged;
     }
 
     private void OnAddPlaceButtonClick()
     {
-        _upgrader.TryAddPlace();
+        _playerUpgrader.TryAddPlace();
     }
 
     private void OnMoneyChanged(int money)
@@ -52,11 +53,11 @@ public class AddPlaceButton : MonoBehaviour
     {
         if (_player.Money > _garage.PlaceCost)
         {
-            _addPlaceButton.interactable = true;
+            _button.interactable = true;
         }
         else
         {
-            _addPlaceButton.interactable = false;
+            _button.interactable = false;
         }
     }
 }

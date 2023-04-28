@@ -24,6 +24,14 @@ public class GameRequireComponents : MonoBehaviour
     [SerializeField] private MiddleMedal _middleMedal;
     [SerializeField] private MinMedal _minMedal;
     [SerializeField] private MoneyBarCount _moneyBarCount;
+    [SerializeField] private AddFuelButtonCost _addFuelButtonCost;
+    [SerializeField] private AddFuelButtonLabel _addFuelButtonLabel;
+    [SerializeField] private AddPlaceButtonCost _addPlaceButtonCost;
+    [SerializeField] private AddPlaceButtonLabel _addPlaceBtuuonLabel;
+    [SerializeField] private AddPowerButtonCost _addPowerButtonCost;
+    [SerializeField] private AddPowerButtonLabel _addPowerButtonLabel;
+    [SerializeField] private AddTankButtonCost _addTankButtonCost;
+    [SerializeField] private AddTankButtonLabel _addTankButtonLabel;
 
     public EndLevelPanel EndLevelPanel => _endLevelPanel;
     public DestroyerPoint DestroyerPoint => _destroyerPoint;
@@ -44,4 +52,13 @@ public class GameRequireComponents : MonoBehaviour
     public MiddleMedal MiddleMedal => _middleMedal;
     public MinMedal MinMedal => _minMedal;
     public MoneyBarCount MoneyBarCount => _moneyBarCount;
+    public AddFuelButtonCost AddFuelButtonCost => _addFuelButtonCost;
+    public AddFuelButtonLabel AddFuelButtonLabel => _addFuelButtonLabel;
+    public AddPlaceButtonCost AddPlaceButtonCost => _addPlaceButtonCost;
+    public AddPlaceButtonLabel AddPlaceButtonLabel => _addPlaceBtuuonLabel;
+    public AddPowerButtonCost AddPowerButtonCost => _addPowerButtonCost;
+    public AddPowerButtonLabel AddPowerButtonLabel => _addPowerButtonLabel;
+    public AddTankButtonCost AddTankButtonCost => _addTankButtonCost;
+    public AddTankButtonLabel AddTankButtonLabel => _addTankButtonLabel; 
+
 }

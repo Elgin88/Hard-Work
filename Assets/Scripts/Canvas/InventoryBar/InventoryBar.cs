@@ -12,37 +12,40 @@ public class InventoryBar : MonoBehaviour
     [SerializeField] private float _speedOfChange;
 
     private Slider _slider;
-    private TMP_Text _max;
-    private TMP_Text _middle;
-    private TMP_Text _min;
+    private TMP_Text _maxText;
+    private TMP_Text _middleText;
+    private TMP_Text _minText;
     private Inventory _inventory;
     private Coroutine _changeValue;
     private LineOfPointsCreater _lineOfPointsCreater;
-
+    private LineOfPoints _lineOfPoints;
     private float _currentSliderValue;
     private float _targetSliderValue;
+    private Player _player;
 
     private void Start()
     {
-        _slider.value = 0;
-        _max.text = _inventory.GetMaxNumberOfBlocks().ToString() + " -";
-        _middle.text = (_inventory.GetMaxNumberOfBlocks()/2).ToString() + " -";
+        _player = FindObjectOfType<Player>();
+        _lineOfPoints = FindObjectOfType<LineOfPoints>();
 
-        _min.text = "0" + " -";
+        int maxNumberBlocks = _player.MaxHightOfInventory * _lineOfPoints.NumberPoints;
+
+        _maxText.text = maxNumberBlocks.ToString();
+        _middleText.text = (maxNumberBlocks / 2).ToString();
+        _minText.text = "0";
     }
 
     private void OnEnable()
     {
-        if (_slider == null || _max == null || _middle == null || _min == null || _inventory == null || _lineOfPointsCreater == null)
-        {
-            _slider = GetComponent<Slider>();
-            _max = GetComponentInChildren<InventoryBarMax>().GetComponent<TMP_Text>();
-            _middle = GetComponentInChildren<InventoryBarMiddle>().GetComponent<TMP_Text>();
-            _min = GetComponentInChildren<InventoryBarMin>().GetComponent<TMP_Text>();
-            _inventory = FindObjectOfType<Inventory>();
-            _lineOfPointsCreater = FindObjectOfType<LineOfPointsCreater>();
-        }
+        _lineOfPointsCreater = FindObjectOfType<LineOfPointsCreater>();
+        _inventory = FindObjectOfType<Inventory>();
 
+        _slider = GetComponent<Slider>();
+        _maxText = GetComponentInChildren<InventoryBarMax>().GetComponent<TMP_Text>();
+        _middleText = GetComponentInChildren<InventoryBarMiddle>().GetComponent<TMP_Text>();
+        _minText = GetComponentInChildren<InventoryBarMin>().GetComponent<TMP_Text>();        
+
+        _slider.value = 0;
         _inventory.IsChangedNumberBlocks += OnChangedNumberBlocks;
         _lineOfPointsCreater.IsChangedMaxNumberBlocks += OnChangedMaxNumberBlocks;
     }
@@ -79,8 +82,8 @@ public class InventoryBar : MonoBehaviour
 
     private void OnChangedMaxNumberBlocks(int current, int max)
     {
-        _max.text = max.ToString() + " -";
-        _middle.text = (max / 2).ToString() + " -";
+        _maxText.text = max.ToString();
+        _middleText.text = (max / 2).ToString();
     }
 
     public void StartChangeValue()

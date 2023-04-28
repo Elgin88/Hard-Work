@@ -6,34 +6,35 @@ using UnityEngine.UI;
 
 public class AddTankButton : MonoBehaviour
 {
+    [SerializeField] private Button _button;
     [SerializeField] private TMP_Text _label;
-    [SerializeField] private TMP_Text _cost;
-    [SerializeField] private Garage _garage;
-    [SerializeField] private Button _addTankButton;
-    [SerializeField] private PlayerUpgrader _playerUpgrade;
-    [SerializeField] private Player _player;
+    [SerializeField] private TMP_Text _cost;   
 
-    private void Start()
-    {
-        if (_label == null || _cost == null || _garage == null || _addTankButton == null || _playerUpgrade == null || _player == null)
-        {
-            Debug.Log("No SerializeField in " + gameObject.name);
-        }
-    }
+    private Player _player;
+    private PlayerUpgrader _playerUpgrade;
+    private Garage _garage;
 
     private void OnEnable()
     {
+        if (_player == null)
+        {
+            _player = FindObjectOfType<Player>();
+            _playerUpgrade = _player.GetComponent<PlayerUpgrader>();
+            _garage = FindObjectOfType<Garage>();
+        }
+
         _label.text = _garage.TankLabel;
         _cost.text = _garage.TankCost.ToString();
-        _addTankButton.onClick.AddListener(OnAddTankButton);
+        _button.onClick.AddListener(OnAddTankButton);
 
         _player.IsMoneyChanged += OnPlayerMoneyChanded;
+
         CheckStatusButton();
     }
 
     private void OnDisable()
     {
-        _addTankButton.onClick.RemoveListener(OnAddTankButton);
+        _button.onClick.RemoveListener(OnAddTankButton);
         _player.IsMoneyChanged -= OnPlayerMoneyChanded;
     }
 
@@ -51,11 +52,11 @@ public class AddTankButton : MonoBehaviour
     {
         if (_player.Money > _garage.TankCost)
         {
-            _addTankButton.interactable = true;
+            _button.interactable = true;
         }
         else
         {
-            _addTankButton.interactable = false;
+            _button.interactable = false;
         }
     }
 }

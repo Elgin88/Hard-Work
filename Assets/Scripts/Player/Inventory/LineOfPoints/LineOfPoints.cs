@@ -9,6 +9,8 @@ public class LineOfPoints : MonoBehaviour
 
     private bool _isFull = false;
 
+    public int NumberPoints => _points.Count;
+
     public Point TakePoint()
     {
         foreach (Point point in _points)
