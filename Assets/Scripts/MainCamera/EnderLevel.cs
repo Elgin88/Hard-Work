@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CalculatorBlocks))]
+[RequireComponent(typeof(ChooserMedals))]
+[RequireComponent(typeof(GameRequireComponents))]
+
 public class EnderLevel : MonoBehaviour
 {
     [SerializeField] private int _maxProcent;
@@ -9,10 +13,10 @@ public class EnderLevel : MonoBehaviour
     [SerializeField] private int _minProcent;
     [SerializeField] private string _nextScene;
 
-    private GameRequireComponents _gameRequireComponents;
     private ReloadButton _reloadButton;
     private EndLevelButton _endLevelButton;
     private EndLevelPanel _endLevelPanel;
+    private GameRequireComponents _gameRequireComponents;
 
     private CalculatorBlocks _calculatorBlocks;
     private ChooserMedals _chooserMedals;
@@ -24,18 +28,22 @@ public class EnderLevel : MonoBehaviour
     public int MiddleNumberBlocks => _middleNumberBlocks;
     public int MinNumberBlocks => _minNumberBlocks;
     public string NextScene => _nextScene;
+    public int MaxProcent => _maxProcent;
+    public int MiddleProcent => _middleProcent;
+    public int MinProcent => _minProcent;
 
-    private void Start()
+
+    private void OnEnable()
     {
-        _calculatorBlocks = FindObjectOfType<CalculatorBlocks>();
-        _chooserMedals = FindObjectOfType<ChooserMedals>();
-        _gameRequireComponents = FindObjectOfType<GameRequireComponents>();
+        _reloadButton = FindObjectOfType<ReloadButton>();
 
-        _reloadButton = _gameRequireComponents.ReloadButton;
+        _gameRequireComponents = GetComponent<GameRequireComponents>();
+        _calculatorBlocks = GetComponent<CalculatorBlocks>();
+        _chooserMedals = GetComponent<ChooserMedals>();
+        
         _endLevelButton = _gameRequireComponents.EndLevelButton;
         _endLevelPanel = _gameRequireComponents.EndLevelPanel;
-
-        _maxNumberBlocks = _calculatorBlocks.AllBlocks;
+        
         _middleNumberBlocks = _calculatorBlocks.AllBlocks * _middleProcent / 100;
         _minNumberBlocks = _calculatorBlocks.AllBlocks * _minProcent / 100;
 
@@ -48,11 +56,11 @@ public class EnderLevel : MonoBehaviour
         {
             _reloadButton.gameObject.SetActive(false);
             _endLevelButton.gameObject.SetActive(true);
-            _chooserMedals.ChooseMedals();
+            _maxNumberBlocks = allBlocks;
 
             if (unloadBlocks == allBlocks)
             {
-                _endLevelPanel.gameObject.SetActive(true);
+                _endLevelPanel.gameObject.SetActive(true);                
             }
         }
     }

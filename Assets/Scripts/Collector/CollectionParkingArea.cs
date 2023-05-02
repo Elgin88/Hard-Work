@@ -8,14 +8,11 @@ public class CollectionParkingArea : MonoBehaviour
 {
     private Unloader _unloader;
     private Player _player;
-    private GameRequireComponents _gameRequireComponents;
 
     private void OnEnable()
     {
-        _gameRequireComponents = FindObjectOfType<GameRequireComponents>();
-
-        _player = _gameRequireComponents.Player;
-        _unloader = _gameRequireComponents.Unloader;
+        _player = FindObjectOfType<Player>();
+        _unloader = FindObjectOfType<Unloader>();
     }
 
     private void OnCollisionEnter(Collision collision)

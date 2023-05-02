@@ -24,7 +24,7 @@ public class LineOfPointsCreater : MonoBehaviour
         _inventory = GetComponentInParent<Inventory>();
         _player = FindObjectOfType<Player>();
         _garage = FindObjectOfType<Garage>();
-        _lineOfPoints = FindObjectOfType<GameRequireComponents>().LineOfPoints;
+        _lineOfPoints = FindObjectOfType<LineOfPoints>();
 
         _rangeBetweenBlocks = _player.RangeBetweenBlocks;
         _maxNumberOfLines = _player.MaxHightOfInventory;

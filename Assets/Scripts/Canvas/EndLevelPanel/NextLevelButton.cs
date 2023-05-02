@@ -10,12 +10,10 @@ public class NextLevelButton : MonoBehaviour
 {
     private Button _nextLevelButton;
     private EnderLevel _enderLevel;
-    private GameRequireComponents _gameRequireComponents;
 
     private void OnEnable()
     {
-        _gameRequireComponents = FindObjectOfType<GameRequireComponents>();
-        _enderLevel = _gameRequireComponents.EnderLevel;
+        _enderLevel = FindObjectOfType<EnderLevel>();
 
         _nextLevelButton = GetComponent<Button>();
         _nextLevelButton.onClick.AddListener(OnButtonClick);

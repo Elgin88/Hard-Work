@@ -8,7 +8,7 @@ public class GarageParkingArea : MonoBehaviour
 
     private void OnEnable()
     {
-        _garageUI = FindObjectOfType<GameRequireComponents>().GarageUI;
+        _garageUI = FindObjectOfType<GarageUI>();
     }
 
     private void OnCollisionEnter(Collision collision)

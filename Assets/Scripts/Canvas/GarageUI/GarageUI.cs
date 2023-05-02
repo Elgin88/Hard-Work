@@ -9,16 +9,16 @@ public class GarageUI : MonoBehaviour
     private DestroyerPoint _destroyerPoint;
     private GarageParkingArea _garageParkingArea;
     private GarageUI _garageUI;
-
     private Coroutine _checkDistance;
-    private GameRequireComponents _requireComponentsOfGame;
 
     private void OnEnable()
     {
-        _requireComponentsOfGame = FindObjectOfType<GameRequireComponents>();
-        _destroyerPoint = _requireComponentsOfGame.DestroyerPoint;
-        _garageParkingArea = _requireComponentsOfGame.GarageParkingArea;
-        _garageUI = _requireComponentsOfGame.GarageUI;
+        if (_destroyerPoint == null)
+        {
+            _destroyerPoint = FindObjectOfType<DestroyerPoint>();
+            _garageParkingArea = FindObjectOfType<GarageParkingArea>();
+            _garageUI = FindObjectOfType<GarageUI>();                
+        }
 
         StartCheckDistance();
     }

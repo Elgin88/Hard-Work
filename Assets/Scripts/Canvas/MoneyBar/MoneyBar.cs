@@ -2,22 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class MoneyBar : MonoBehaviour
 {
-    private MoneyBarCount _moneyBarCount;
-    private TMP_Text _textMoney;
+    [SerializeField] private TMP_Text _moneyCount;
+
     private Player _player;
-    private GameRequireComponents _gameRequireComponents;
 
     private void OnEnable()
     {
-        _gameRequireComponents = FindObjectOfType<GameRequireComponents>();
-
-        _moneyBarCount = _gameRequireComponents.MoneyBarCount;
-        _textMoney = _moneyBarCount.GetComponent<TMP_Text>();
-        _player = _gameRequireComponents.Player;
-
+        _player = FindObjectOfType<Player>();
         _player.IsMoneyChanged += OnMoneyChanged;
     }
 
@@ -28,6 +23,6 @@ public class MoneyBar : MonoBehaviour
 
     private void OnMoneyChanged(int money)
     {
-        _textMoney.text = money.ToString();
+        _moneyCount.text = money.ToString();
     }
 }

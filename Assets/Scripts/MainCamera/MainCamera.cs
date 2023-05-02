@@ -25,6 +25,7 @@ public class MainCamera : MonoBehaviour
         _currentCameraPositionZ = _player.transform.position.z + _deltaZ;
 
         transform.rotation = new Quaternion(_deltaRotationX, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+        transform.position = new Vector3(_currentCameraPositionX, _currentCameraPositionY, _currentCameraPositionZ);
 
         StartCoroutineMove();
     }

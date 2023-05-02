@@ -7,16 +7,17 @@ using UnityEngine.UI;
 
 public class EndLevelButton : MonoBehaviour
 {
+    private GameRequireComponents _gameRequireComponents;
     private EndLevelPanel _endLevelPanel;
     private Button _button;
 
     private void OnEnable()
     {
-        _endLevelPanel = FindObjectOfType<GameRequireComponents>().EndLevelPanel;
+        _gameRequireComponents = FindObjectOfType<GameRequireComponents>();
+        _endLevelPanel = _gameRequireComponents.EndLevelPanel;
         _button = GetComponent<Button>();
 
         _button.onClick.AddListener(OnButtonClick);
-        _endLevelPanel.gameObject.SetActive(true);
     }
 
     private void OnDisable()

@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     private float _startPositionY;
     private int _money;
     private Vector3 _collectionPointPosition;    
+    private GameRequireComponents _gameRequireComponents;
 
     public Inventory Inventory => _inventory;
     public Unloader Unloader => _unloader;
@@ -29,16 +30,18 @@ public class Player : MonoBehaviour
     public float RangeBetweenBlocks => _deltaBetweenBlocks;
     public int MaxHightOfInventory => _hightOfInventory;
     public float DeltaBetweenUnloadBlocks => _deltaTimeBetweeUnloadBlocks;
+    public GameRequireComponents GameRequireComponents => _gameRequireComponents;
 
     public event UnityAction IsPushed;
     public event UnityAction <int> IsMoneyChanged;    
 
     private void Start()
     {
-        _mover = GetComponent<PlayerMover>();
-        _loadController = GetComponent<PlayerLoadController>();
+        _gameRequireComponents = FindObjectOfType<GameRequireComponents>();
         _collectionPointPosition = FindObjectOfType<CollectionPoint>().transform.position;
 
+        _mover = GetComponent<PlayerMover>();
+        _loadController = GetComponent<PlayerLoadController>();
         _inventory = GetComponentInChildren<Inventory>();
         _unloader = GetComponentInChildren<Unloader>();
     }

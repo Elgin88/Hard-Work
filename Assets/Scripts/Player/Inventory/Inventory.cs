@@ -10,8 +10,6 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] private List<LineOfPoints> _lines;
 
-    private GameRequireComponents _gameReqireComponents;
-
     private bool _isFull = false;
     private LineOfPointsCreater _lineOfPointsCreater;
 

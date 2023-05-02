@@ -18,12 +18,6 @@ public class BlockMoverToCollector : MonoBehaviour
     private Vector3 _topPoint;
     private bool _isReachedTopPoint = false;
 
-    private void Start()
-    {
-        if (_flightSpeed == 0 || _tossHight == 0 || _deltaPointPosition == 0 || _deltaHight == 0)
-            Debug.Log("No SerializeField in " + gameObject.name);
-    }
-
     private IEnumerator MoveToCollector()
     {
         if (_calculatorBlocks == null)
@@ -64,6 +58,7 @@ public class BlockMoverToCollector : MonoBehaviour
                 _block.Player.AddMoney(_block.Cost);
                 _calculatorBlocks.AddUnloadBloks();
                 _block.Player.Inventory.InitEventBlockIsChanged();
+                _block.Player.GameRequireComponents.ChooserMedals.ChooseMedals();
 
                 StopMoveToCollector();
 
