@@ -14,6 +14,7 @@ public class EndLevelPanel : MonoBehaviour
     {
         _chooserMedal = FindObjectOfType<ChooserMedals>();
 
+        OpenPanels(_chooserMedal.IsMinMedal, _chooserMedal.IsMiddleMedal, _chooserMedal.IsMaxMedal);
         _chooserMedal.IsMedalsChoosen += OnMedalsChoosen;
     }
 
@@ -23,6 +24,11 @@ public class EndLevelPanel : MonoBehaviour
     }
 
     private void OnMedalsChoosen(bool isMin, bool isMiddle, bool isMax)
+    {
+        OpenPanels(isMin, isMiddle, isMax);
+    }
+
+    private void OpenPanels(bool isMin, bool isMiddle, bool isMax)
     {
         bool isMinEnabled = false;
         bool isMiddleEnabled = false;
