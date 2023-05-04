@@ -56,7 +56,7 @@ public class BlockMoverToCollector : MonoBehaviour
             if (transform.position.y - _collectionPoint.y == 0)
             {
                 _block.Player.AddMoney(_block.Cost);
-                _calculatorBlocks.AddUnloadBloks();
+                _calculatorBlocks.CalculateUnloadBloks();
                 _block.Player.Inventory.InitEventBlockIsChanged();
                 _block.Player.GameRequireComponents.ChooserMedals.ChooseMedals();
 

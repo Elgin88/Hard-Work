@@ -13,6 +13,9 @@ public class AddPowerButton : MonoBehaviour
     private Player _player;
     private PlayerUpgrader _playerUpgrader;
     private Garage _garage;
+    private PlayerPowerController _powerController;
+    private bool _isMaxLevelEngine;
+    private EngineBarIconFlash _flash;
 
     private void OnEnable()
     {
@@ -21,10 +24,13 @@ public class AddPowerButton : MonoBehaviour
             _player = FindObjectOfType<Player>();
             _playerUpgrader = _player.GetComponent<PlayerUpgrader>();
             _garage = FindObjectOfType<Garage>();
+            _powerController = FindObjectOfType<PlayerPowerController>();
+            _flash = FindObjectOfType<EngineBarIconFlash>();
         }
 
         _button.onClick.AddListener(OnButtonClick);
         _player.IsMoneyChanged += OnMoneyChanged;
+        _powerController.IsEngineUpgrade += OnEngineLevelChanged;
 
         _label.text = _garage.PowerLabel;
         _cost.text = _garage.PowerCost.ToString();
@@ -36,6 +42,7 @@ public class AddPowerButton : MonoBehaviour
     {
         _button.onClick.RemoveListener(OnButtonClick);
         _player.IsMoneyChanged -= OnMoneyChanged;
+        _powerController.IsEngineUpgrade -= OnEngineLevelChanged;
     }
 
     private void OnButtonClick()
@@ -48,9 +55,15 @@ public class AddPowerButton : MonoBehaviour
         CheckButton();
     }
 
+    private void OnEngineLevelChanged(int level, bool isMaxLevel)
+    {
+        _isMaxLevelEngine = isMaxLevel;
+        CheckButton();
+    }
+
     private void CheckButton()
     {
-        if (_player.Money > _garage.PowerCost)
+        if (_player.Money > _garage.PowerCost & _isMaxLevelEngine == false)
         {
             _button.interactable = true;
         }

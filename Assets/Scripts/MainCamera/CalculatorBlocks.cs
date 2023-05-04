@@ -5,34 +5,32 @@ using UnityEngine.Events;
 
 public class CalculatorBlocks : MonoBehaviour
 {
+    private SectionOfBlocks[] _allSections;
+    private Block[] _freeBlocks;
+    private int _allBlocksInSections;
+    private int _numberUnloadBlocks;
     private int _allBlocks;
-    private int _allBloksInSection;
-    private int _unload;
-    private SectionOfBlocks[] _allSectionsBlocks;
-    private Block [] allBlocks;
 
+    public event UnityAction <int> IsChangedNumberUnloadBlocks;
     public int AllBlocks => _allBlocks;
-    public int Unload => _unload;
+    public int Unload => _numberUnloadBlocks;
 
-    public event UnityAction <int, int> IsChangedUnload;
-
-    private void OnEnable()
+    private void Start()
     {
-        _allSectionsBlocks = FindObjectsOfType<SectionOfBlocks>();
-        allBlocks = FindObjectsOfType<Block>();
+        _allSections = FindObjectsOfType<SectionOfBlocks>();
+        _freeBlocks = FindObjectsOfType<Block>();
 
-        foreach (SectionOfBlocks sectionOfBlocks in _allSectionsBlocks)
+        foreach (SectionOfBlocks section in _allSections)
         {
-            _allBloksInSection += sectionOfBlocks.GetCountBlocks();
+            _allBlocksInSections += section.NumberOfBlocks;
         }
 
-        _allBlocks = _allBloksInSection + allBlocks.Length;
-        _unload = 0;
+        _allBlocks = _allBlocksInSections + _freeBlocks.Length;
     }
 
-    public void AddUnloadBloks()
+    public void CalculateUnloadBloks()
     {
-        _unload++;
-        IsChangedUnload?.Invoke(_unload, _allBlocks);
+        _numberUnloadBlocks++;
+        IsChangedNumberUnloadBlocks?.Invoke(_numberUnloadBlocks);
     }
 }

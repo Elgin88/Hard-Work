@@ -18,6 +18,8 @@ public class PlayerUpgrader : MonoBehaviour
     private LineOfPointsCreater _lineOfPointsCreater;
     private Garage _fuelCost;
 
+  
+
     private void Start()
     {
         _fuelController = GetComponent<PlayerFuelController>();

@@ -15,7 +15,7 @@ public class ProgressBar : MonoBehaviour
     private Coroutine _changeValue;
     private CalculatorBlocks _calculatorBlocks;
     private int _unloadBlocks;
-    private int _maxBlocks;
+    private int _allBlocks;
     private float _currentValue;
     private EnderLevel _endelLevel;
 
@@ -27,20 +27,26 @@ public class ProgressBar : MonoBehaviour
         _calculatorBlocks = FindObjectOfType<CalculatorBlocks>();
         _endelLevel = FindObjectOfType<EnderLevel>();
 
+        
+
         _slider.value = 0;
 
-        _calculatorBlocks.IsChangedUnload += OnChangedNumberBlocks;
+        _calculatorBlocks.IsChangedNumberUnloadBlocks += OnChangedNumberBlocks;
     }
 
     private void OnDisable()
     {
-        _calculatorBlocks.IsChangedUnload -= OnChangedNumberBlocks;
+        _calculatorBlocks.IsChangedNumberUnloadBlocks -= OnChangedNumberBlocks;
     }
 
-    private void OnChangedNumberBlocks(int unloadBlocks, int maxBlocks)
+    private void OnChangedNumberBlocks(int unloadBlocks)
     {
+        if (_allBlocks == 0)
+        {
+            _allBlocks = _calculatorBlocks.AllBlocks;
+        }        
+
         _unloadBlocks = unloadBlocks;
-        _maxBlocks = maxBlocks;
 
         StartChangeValue();
     }
@@ -50,7 +56,7 @@ public class ProgressBar : MonoBehaviour
         while (true)
         {
             _currentValue = _slider.value;
-            _slider.value = Mathf.MoveTowards(_currentValue, (float)_unloadBlocks / _maxBlocks, _speedOfChange * Time.deltaTime);
+            _slider.value = Mathf.MoveTowards(_currentValue, (float)_unloadBlocks / _allBlocks, _speedOfChange * Time.deltaTime);
 
             if (_slider.value > (float) _endelLevel.MinProcent / 100 & _slider.value < (float)_endelLevel.MiddleProcent / 100)
             {

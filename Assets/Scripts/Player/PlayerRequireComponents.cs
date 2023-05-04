@@ -9,6 +9,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerPowerController))]
 [RequireComponent(typeof(PlayerSpeedSetter))]
 [RequireComponent(typeof(PlayerUpgrader))]
+[RequireComponent(typeof(PlayerSoundController))]
 
 public class PlayerRequireComponents : MonoBehaviour
 {

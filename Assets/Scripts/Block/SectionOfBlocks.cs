@@ -11,12 +11,11 @@ public class SectionOfBlocks : MonoBehaviour
     private Rigidbody _rigidbody;
     private int _numberOfBlocks;
 
-    public int NumberOfBlocks => _numberOfBlocks;
+    public int NumberOfBlocks => _blocks.Length;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _numberOfBlocks = _blocks.Length;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -32,8 +31,4 @@ public class SectionOfBlocks : MonoBehaviour
         }
     }
 
-    public int GetCountBlocks()
-    {
-        return _blocks.Length;
-    }
 }
