@@ -10,6 +10,8 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerSpeedSetter))]
 [RequireComponent(typeof(PlayerUpgrader))]
 [RequireComponent(typeof(PlayerSoundController))]
+[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(AudioSource))]
 
 public class PlayerRequireComponents : MonoBehaviour
 {

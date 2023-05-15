@@ -11,6 +11,7 @@ public class PlayerMover : MonoBehaviour
 
     public bool IsJoystickTurn => _isJoystickTurn;
     public Quaternion CurrentPlayerDirection => _currentPlayerDirection;
+    public FixedJoystick Joystick => _joystick;
 
 
     private void Start()

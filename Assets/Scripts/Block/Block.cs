@@ -13,24 +13,21 @@ public class Block : MonoBehaviour
 {
     private int _cost = 1;
 
-    private Player _player;
     private BlockMoverToCollector _blockMoverToCollector;
     private BlockMoverToPlayer _moverBlock;
     private BoxCollider _boxCollider;
     private Rigidbody _rigidbody;
+    private Player _player;
     private Point _point;
     private bool _playerIsUnload;
 
     public BlockMoverToCollector BlockMoverToCollector => _blockMoverToCollector;
-    public Point Point => _point;
     public Player Player => _player;
+    public Point Point => _point;
     public int Cost => _cost;
 
     private void OnEnable()
     {
-        if (_cost == 0)
-            Debug.Log("No SerializeField in " + this.name);
-
         _rigidbody = GetComponent<Rigidbody>();
         _boxCollider = GetComponent<BoxCollider>();
         _moverBlock = GetComponent<BlockMoverToPlayer>();
@@ -92,7 +89,6 @@ public class Block : MonoBehaviour
     public void ColliderOff()
     {
         _boxCollider.enabled = false;
-        _boxCollider.enabled = false;
     }
 
     public void KinematicOn()
@@ -113,11 +109,6 @@ public class Block : MonoBehaviour
     public void SetQuaternion(Quaternion currentRotation)
     {
         transform.rotation = currentRotation;
-    }
-
-    internal Point GetPoint()
-    {
-        return _point;
     }
 
     public void Destroy()
