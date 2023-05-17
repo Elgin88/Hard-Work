@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c32197d52b0341389be4c7d8df0989d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetColor: {r: 1, g: 0, b: 0, a: 0}
+  _targetColor: {r: 0.03529412, g: 0.62352943, b: 0.007843138, a: 0}
   _duration: 0.75
 --- !u!114 &8242116863154236292
 MonoBehaviour:
@@ -553,7 +553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c32197d52b0341389be4c7d8df0989d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetColor: {r: 1, g: 0, b: 0, a: 0}
+  _targetColor: {r: 0.03529412, g: 0.62352943, b: 0.007843138, a: 0}
   _duration: 0.75
 --- !u!114 &7435210750926771100
 MonoBehaviour:
@@ -3117,6 +3117,7 @@ GameObject:
   - component: {fileID: 1758577150193827664}
   - component: {fileID: 1758577150193827666}
   - component: {fileID: 1758577150193827667}
+  - component: {fileID: 8958979867156060905}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -3134,7 +3135,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1758577149722923435}
   m_RootOrder: 2
@@ -3182,6 +3183,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8958979867156060905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758577150193827665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10062e49fabe4f67af97017f23a825f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minLevelForIndicate: 0.8
+  _duration: 2
+  _deltaScale: 0.25
 --- !u!1 &1758577150199437435
 GameObject:
   m_ObjectHideFlags: 0
@@ -6793,7 +6809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c32197d52b0341389be4c7d8df0989d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetColor: {r: 1, g: 0, b: 0, a: 0}
+  _targetColor: {r: 0.03395466, g: 0.6226415, b: 0.008810949, a: 0}
   _duration: 0.75
 --- !u!114 &5965418285051728837
 MonoBehaviour:
