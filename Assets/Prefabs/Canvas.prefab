@@ -3195,9 +3195,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a10062e49fabe4f67af97017f23a825f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minLevelForIndicate: 0.8
+  _minLevelForIndicate: 0.2
   _duration: 2
   _deltaScale: 0.25
+  _targetColor: {r: 1, g: 1, b: 0, a: 0}
 --- !u!1 &1758577150199437435
 GameObject:
   m_ObjectHideFlags: 0
