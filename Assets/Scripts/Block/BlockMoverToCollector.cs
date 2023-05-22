@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class BlockMoverToCollector : MonoBehaviour
 {
     private float _flightSpeed = 10;
@@ -10,12 +9,12 @@ public class BlockMoverToCollector : MonoBehaviour
     private float _deltaPointPosition = 0.001f;
     private float _deltaHight = 0.005f;
 
+    private CalculatorBlocks _calculatorBlocks;
     private BlockFixer _blockFixer;
     private Coroutine _move;
-    private Block _block;
-    private CalculatorBlocks _calculatorBlocks;
     private Vector3 _collectionPoint;
     private Vector3 _topPoint;
+    private Block _block;
     private bool _isReachedTopPoint = false;
 
     private IEnumerator MoveToCollector()
@@ -34,6 +33,7 @@ public class BlockMoverToCollector : MonoBehaviour
         SetTopPointPosition();
 
         _block.Point.RemoveBlock();
+        _block.Player.Inventory.InitEventBlockIsChanged();
 
         while (true)
         {
@@ -56,9 +56,8 @@ public class BlockMoverToCollector : MonoBehaviour
             if (transform.position.y - _collectionPoint.y == 0)
             {
                 _block.Player.AddMoney(_block.Cost);
-                _calculatorBlocks.CalculateUnloadBloks();
-                _block.Player.Inventory.InitEventBlockIsChanged();
-                _block.Player.GameRequireComponents.ChooserMedals.ChooseMedals();
+                _calculatorBlocks.CalculateUnloadBloks();                
+                _block.Player.GameRequireComponents.ChooserMedals.ChooseMedals();                
 
                 StopMoveToCollector();
 
@@ -76,7 +75,7 @@ public class BlockMoverToCollector : MonoBehaviour
 
     public void StartMoveToCollector(Vector3 collectionPoint)
     {
-        _collectionPoint = collectionPoint;
+        _collectionPoint = collectionPoint;        
 
         if (_move == null)
         {

@@ -39,7 +39,7 @@ public class Unloader : MonoBehaviour
                     _inventory.RemoveTopLine();
                 }
 
-                if (_inventory.GetCurrentNumberOfBlocks () == 0)
+                if (_inventory.GetCurrentCountOfBlocks () == 0)
                 {
                     StopUnload();
                 }

@@ -3198,7 +3198,7 @@ MonoBehaviour:
   _minLevelForIndicate: 0.2
   _duration: 1.5
   _deltaScale: 0.25
-  _targetColor: {r: 1, g: 1, b: 0, a: 0}
+  _targetColor: {r: 1, g: 0.64708, b: 0, a: 0}
 --- !u!1 &1758577150199437435
 GameObject:
   m_ObjectHideFlags: 0
@@ -5801,7 +5801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _deltaScale: 0.25
   _duration: 1.5
-  _targetColor: {r: 1, g: 1, b: 0, a: 0}
+  _targetColor: {r: 1, g: 0.64705884, b: 0, a: 0}
 --- !u!1 &3954327739202157235
 GameObject:
   m_ObjectHideFlags: 0

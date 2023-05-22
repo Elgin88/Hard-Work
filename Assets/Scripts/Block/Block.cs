@@ -60,7 +60,7 @@ public class Block : MonoBehaviour
                     GravityOff();
 
                     _point.InitBlock(this);
-                    _moverBlock.StartFlight();
+                    _moverBlock.StartMove();
                 }
             }
         }

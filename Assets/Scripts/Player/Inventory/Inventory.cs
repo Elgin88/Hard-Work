@@ -93,25 +93,25 @@ public class Inventory : MonoBehaviour
         return _lines[_lines.Count - 1].GetNumberOfBlocks();
     }
 
-    public int GetCurrentNumberOfBlocks()
+    public int GetCurrentCountOfBlocks()
     {
-        int currentNumberOfBlocks = 0;
+        int currentCountOfBlocks = 0;
 
         foreach (LineOfPoints line in _lines)
         {
-            currentNumberOfBlocks += line.GetNumberOfBlocks();
+            currentCountOfBlocks += line.GetNumberOfBlocks();
         }
 
-        return currentNumberOfBlocks;
+        return currentCountOfBlocks;
     }
 
-    public int GetMaxNumberOfBlocks()
+    public int GetMaxCountOfBlocks()
     {
         return _lineOfPointsCreater.MaxNumberOfLines * _lines[0].GetNumberOfPoints();
     }
 
     public void InitEventBlockIsChanged()
     {
-        IsChangedNumberBlocks?.Invoke(GetCurrentNumberOfBlocks(), GetMaxNumberOfBlocks());
+        IsChangedNumberBlocks?.Invoke(GetCurrentCountOfBlocks(), GetMaxCountOfBlocks());
     }
 }

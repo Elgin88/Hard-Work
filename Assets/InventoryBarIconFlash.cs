@@ -22,6 +22,9 @@ public class InventoryBarIconFlash : MonoBehaviour
     private Image _image;
     private float _deltaScaleCalculated;
 
+    private int _currentCountOfBlocks;
+    private int _maxCountOfBlocks;
+
     private void OnEnable()
     {
         _inventory = FindObjectOfType<Inventory>();
@@ -34,7 +37,7 @@ public class InventoryBarIconFlash : MonoBehaviour
         _currentScale = _startScale;
         _targetScale = new Vector3(_startScale.x + _deltaScale, _startScale.y + _deltaScale, _startScale.z);
 
-        _deltaScaleCalculated = _deltaScale / _duration / 2 / Time.deltaTime;
+        _deltaScaleCalculated = _deltaScale / (_duration / 2 / Time.deltaTime);
 
         _inventory.IsChangedNumberBlocks += OnChangedNumberBlocksInInventory;
     }
@@ -46,6 +49,9 @@ public class InventoryBarIconFlash : MonoBehaviour
 
     private void OnChangedNumberBlocksInInventory(int current, int max)
     {
+        _currentCountOfBlocks = current;
+        _maxCountOfBlocks = max;
+
         if (current == max)
         {
             StartFlash();
@@ -58,40 +64,48 @@ public class InventoryBarIconFlash : MonoBehaviour
 
         while (true)
         {
-            Debug.Log(_startScale);
-            Debug.Log(_currentScale);
-            Debug.Log(_targetScale);
-            Debug.Log(isBack);
-            Debug.Log("===============");
+            if (_currentScale.x == _targetScale.x & isBack == false)
+                isBack = true;
+
+            if (_currentScale.x == _startScale.x & isBack == true)
+                isBack = false;
 
             if (_currentScale.x < _targetScale.x & isBack == false)
             {
-                _image.CrossFadeColor(_targetColor, _duration / 2, false, false);
-
-                _currentScale.x = Mathf.MoveTowards(_currentScale.x, _targetScale.x, _deltaScaleCalculated);
-                _currentScale.y = Mathf.MoveTowards(_currentScale.y, _targetScale.y, _deltaScaleCalculated);
-                _currentScale.z = Mathf.MoveTowards(_currentScale.z, _targetScale.z, _deltaScaleCalculated);
-            }
-            else if(_currentScale.x == _targetScale.x & isBack == false)
-            {
-                isBack = true;
+                SetColor(_targetColor);
+                SetScale(_targetScale);
             }
 
             if (_currentScale.x > _startScale.x & isBack == true)
             {
-                _image.CrossFadeColor(_startColor, _duration / 2, false, false);
-
-                _currentScale.x = Mathf.MoveTowards(_currentScale.x, _startScale.x, _deltaScaleCalculated);
-                _currentScale.y = Mathf.MoveTowards(_currentScale.y, _startScale.y, _deltaScaleCalculated);
-                _currentScale.z = Mathf.MoveTowards(_currentScale.z, _startScale.z, _deltaScaleCalculated);
+                SetColor(_startColor);
+                SetScale(_startScale);
             }
-            else if(_currentScale.x == _startScale.x & isBack == true)
+
+            if (_currentCountOfBlocks != _maxCountOfBlocks & isBack == true)
             {
-                StopCoroutine();
-            }            
+                SetColor(_startColor);
+                SetScale(_startScale);
+
+                StopFlash();
+            }
+
+            _rectTransform.localScale = _currentScale;
 
             yield return null;
         }
+    }
+
+    private void SetColor(Color color)
+    {
+        _image.CrossFadeColor(color, _duration / 2, false, false);
+    }
+
+    private void SetScale(Vector3 target)
+    {
+        _currentScale.x = Mathf.MoveTowards(_currentScale.x, target.x, _deltaScaleCalculated);
+        _currentScale.y = Mathf.MoveTowards(_currentScale.y, target.y, _deltaScaleCalculated);
+        _currentScale.z = Mathf.MoveTowards(_currentScale.z, target.z, _deltaScaleCalculated);
     }
 
     private void StartFlash()
@@ -102,7 +116,7 @@ public class InventoryBarIconFlash : MonoBehaviour
         }
     }
 
-    private void StopCoroutine()
+    private void StopFlash()
     {
         if (_flash!=null)
         {

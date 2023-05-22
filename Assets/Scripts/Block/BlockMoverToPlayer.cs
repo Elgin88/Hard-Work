@@ -74,7 +74,7 @@ public class BlockMoverToPlayer : MonoBehaviour
         return transform.position;
     }
 
-    public void StartFlight()
+    public void StartMove()
     {
         if (_flightWork == null)
         {

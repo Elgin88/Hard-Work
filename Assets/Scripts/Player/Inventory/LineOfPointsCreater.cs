@@ -32,7 +32,7 @@ public class LineOfPointsCreater : MonoBehaviour
 
     public void TryCreateLine()
     {
-        if (_inventory.GetCountOfLines() <= _maxNumberOfLines)
+        if (_inventory.GetCountOfLines() <  _maxNumberOfLines)
         {
             LineOfPoints line = Instantiate(_lineOfPoints, _inventory.transform);
             line.MoveUp(_rangeBetweenBlocks * _inventory.GetCountOfLines());
@@ -49,7 +49,7 @@ public class LineOfPointsCreater : MonoBehaviour
 
             _player.RemoveMoney(_garage.PlaceCost);
 
-            IsChangedMaxNumberBlocks?.Invoke(_inventory.GetCurrentNumberOfBlocks(), _inventory.GetMaxNumberOfBlocks());
+            IsChangedMaxNumberBlocks?.Invoke(_inventory.GetCurrentCountOfBlocks(), _inventory.GetMaxCountOfBlocks());
         }
     }
 }
