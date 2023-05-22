@@ -10,56 +10,22 @@ using static UnityEngine.ParticleSystem;
 public class PlayerDestroyerTakeDamagePoint : MonoBehaviour
 {
     private ParticleSystem _particle;
-    private SphereCollider _collider;
     private WaitForSeconds _pauseWFS;
     private Coroutine _pause;
 
-    private void Start()
+    private void OnEnable()
     {
         _particle = GetComponentInChildren<ParticleSystem>();
-        _collider = GetComponent<SphereCollider>();
 
-        _pauseWFS = new WaitForSeconds(_particle.main.duration * 0.98f);
-
-        _particle.Pause();
+        _particle.gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.TryGetComponent<Block>(out Block block))
+        if (collision.gameObject.TryGetComponent<Block>(out Block block) || collision.gameObject.TryGetComponent<SectionOfBlocks>(out SectionOfBlocks section))
         {
+            _particle.gameObject.SetActive(true);
             _particle.Play();
-
-            StartSetPause();
         }
-    }
-
-    private IEnumerator SetPause()
-    {
-        while (true)
-        {
-            yield return _pauseWFS;
-
-            _particle.Pause();
-
-            StopSetPause();
-        }
-    }
-
-    private void StartSetPause()
-    {
-        if (_pause == null)
-        {
-            _pause = StartCoroutine(SetPause());
-        }
-    }
-
-    private void StopSetPause()
-    {
-        if (_pause != null)
-        {
-            StopCoroutine(_pause);
-            _pause = null;
-        }
-    }
+    }    
 }

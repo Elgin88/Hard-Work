@@ -70,11 +70,8 @@ public class FuelBarIndicateFuelLess : MonoBehaviour
         {
             if (_currentScale.x < _targetScale.x & isBack == false)
             {
-                _currentScale.x = Mathf.MoveTowards(_currentScale.x, _targetScale.x, _deltaScaleCalculated);
-                _currentScale.y = Mathf.MoveTowards(_currentScale.y, _targetScale.y, _deltaScaleCalculated);
-                _currentScale.z = Mathf.MoveTowards(_currentScale.z, _targetScale.z, _deltaScaleCalculated);
-
-                _image.CrossFadeColor(_targetColor, _duration / 2, false, false);
+                SetScale(_targetScale);
+                SetColor(_targetColor);
             }
             else
             {
@@ -83,11 +80,8 @@ public class FuelBarIndicateFuelLess : MonoBehaviour
 
             if (_currentScale.x > _startStale.x & isBack == true)
             {
-                _currentScale.x = Mathf.MoveTowards(_currentScale.x, _startStale.x, _deltaScaleCalculated);
-                _currentScale.y = Mathf.MoveTowards(_currentScale.y, _startStale.y, _deltaScaleCalculated);
-                _currentScale.z = Mathf.MoveTowards(_currentScale.z, _startStale.z, _deltaScaleCalculated);
-
-                _image.CrossFadeColor(_startColor, _duration / 2, false, false);
+                SetScale(_startStale);
+                SetColor(_startColor);
             }
             else
             {
@@ -96,8 +90,8 @@ public class FuelBarIndicateFuelLess : MonoBehaviour
 
             if (_currentFuel/_maxFuel > _minLevelForIndicate)
             {
-                _image.color = _startColor;
-                _currentScale = _startStale;
+                SetScale(_startStale);
+                SetColor(_startColor);
 
                 StopCoroutine(_flash);
             }
@@ -107,6 +101,19 @@ public class FuelBarIndicateFuelLess : MonoBehaviour
             yield return null;
         }
     }
+
+    private void SetScale(Vector3 scale)
+    {
+        _currentScale.x = Mathf.MoveTowards(_currentScale.x, scale.x, _deltaScaleCalculated);
+        _currentScale.y = Mathf.MoveTowards(_currentScale.y, scale.y, _deltaScaleCalculated);
+        _currentScale.z = Mathf.MoveTowards(_currentScale.z, scale.z, _deltaScaleCalculated);
+    }
+
+    private void SetColor(Color color)
+    {
+        _image.CrossFadeColor(color, _duration / 2, false, false);
+    }
+
 
     private void StartFlash()
     {
