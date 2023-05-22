@@ -44,12 +44,6 @@ public class FuelBarIndicateFuelLess : MonoBehaviour
         _deltaScaleCalculated = _deltaScale / (_duration / 2 / Time.deltaTime);
 
         _fuelController.IsFuelChanged += OnFuelChanged;
-
-
-        
-
-
-
     } 
 
     private void OnDisable()
@@ -80,7 +74,7 @@ public class FuelBarIndicateFuelLess : MonoBehaviour
                 _currentScale.y = Mathf.MoveTowards(_currentScale.y, _targetScale.y, _deltaScaleCalculated);
                 _currentScale.z = Mathf.MoveTowards(_currentScale.z, _targetScale.z, _deltaScaleCalculated);
 
-                _image.CrossFadeColor(_targetColor, _duration / 2, true, false);
+                _image.CrossFadeColor(_targetColor, _duration / 2, false, false);
             }
             else
             {
@@ -93,7 +87,7 @@ public class FuelBarIndicateFuelLess : MonoBehaviour
                 _currentScale.y = Mathf.MoveTowards(_currentScale.y, _startStale.y, _deltaScaleCalculated);
                 _currentScale.z = Mathf.MoveTowards(_currentScale.z, _startStale.z, _deltaScaleCalculated);
 
-                _image.CrossFadeColor(_startColor, _duration / 2, true, false);
+                _image.CrossFadeColor(_startColor, _duration / 2, false, false);
             }
             else
             {

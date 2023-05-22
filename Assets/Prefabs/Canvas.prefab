@@ -3196,7 +3196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _minLevelForIndicate: 0.2
-  _duration: 2
+  _duration: 1.5
   _deltaScale: 0.25
   _targetColor: {r: 1, g: 1, b: 0, a: 0}
 --- !u!1 &1758577150199437435
@@ -5721,6 +5721,7 @@ GameObject:
   - component: {fileID: 3954327739112490334}
   - component: {fileID: 3954327739112490332}
   - component: {fileID: 3954327739112490335}
+  - component: {fileID: 6165922154446005057}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -5786,6 +5787,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6165922154446005057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3954327739112490329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b79edc917444754b3c1549b24a5f7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _deltaScale: 0.25
+  _duration: 1.5
+  _targetColor: {r: 1, g: 1, b: 0, a: 0}
 --- !u!1 &3954327739202157235
 GameObject:
   m_ObjectHideFlags: 0
