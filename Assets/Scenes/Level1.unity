@@ -22211,6 +22211,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3104848041511164420, guid: 9eaaded09bf5d4e61933ce28d75722f1, type: 3}
+      propertyPath: _tankLabel
+      value: "\u041E\u0431\u044A\u0451\u043C \u0431\u0430\u043A\u0430"
+      objectReference: {fileID: 0}
     - target: {fileID: 3467493456101965272, guid: 9eaaded09bf5d4e61933ce28d75722f1, type: 3}
       propertyPath: m_Name
       value: Garage
@@ -22259,7 +22263,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8627433617586446578, guid: 9eaaded09bf5d4e61933ce28d75722f1, type: 3}
+    - {fileID: 3467493456101965273, guid: 9eaaded09bf5d4e61933ce28d75722f1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9eaaded09bf5d4e61933ce28d75722f1, type: 3}
 --- !u!1 &1568035989
 GameObject:
@@ -26931,7 +26937,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2072109399816168181, guid: 5ae604ac24b2745a8bdf8b6fc2f40833, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 3eed93023cd1c4f1c9d0514b857ad889, type: 3}
+  m_audioClip: {fileID: 8300000, guid: bf17d3a88e3294185953a4c2aa69b03d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

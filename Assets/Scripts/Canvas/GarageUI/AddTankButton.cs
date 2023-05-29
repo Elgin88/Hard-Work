@@ -6,21 +6,25 @@ using UnityEngine.UI;
 
 public class AddTankButton : MonoBehaviour
 {
-    [SerializeField] private Button _button;
+    private Button _button;
     [SerializeField] private TMP_Text _label;
     [SerializeField] private TMP_Text _cost;   
 
     private Player _player;
     private PlayerUpgrader _playerUpgrade;
     private Garage _garage;
+    private CanvasSoundController _soundController;
 
     private void OnEnable()
     {
+        _button = GetComponent<Button>();
+
         if (_player == null)
         {
             _player = FindObjectOfType<Player>();
             _playerUpgrade = _player.GetComponent<PlayerUpgrader>();
             _garage = FindObjectOfType<Garage>();
+            _soundController = FindObjectOfType<CanvasSoundController>();
         }
 
         _label.text = _garage.TankLabel;
@@ -41,6 +45,7 @@ public class AddTankButton : MonoBehaviour
     private void OnAddTankButton()
     {
         _playerUpgrade.TryBuyTank();
+        _soundController.PlayBuySound();
     }
 
     private void OnPlayerMoneyChanded(int money)

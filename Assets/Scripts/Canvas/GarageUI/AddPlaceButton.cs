@@ -7,21 +7,25 @@ using UnityEngine.UI;
 
 public class AddPlaceButton : MonoBehaviour
 {
-    [SerializeField] private Button _button;
+    private Button _button;
     [SerializeField] private TMP_Text _label;
     [SerializeField] private TMP_Text _cost;
 
     private Player _player;
     private PlayerUpgrader _playerUpgrader;
     private Garage _garage;
+    private CanvasSoundController _soundController;
 
     private void OnEnable()
     {
+        _button = GetComponent<Button>();
+
         if (_player == null)
         {
             _player = FindObjectOfType<Player>();
             _playerUpgrader = _player.GetComponent<PlayerUpgrader>();
             _garage = FindObjectOfType<Garage>();
+            _soundController = FindObjectOfType<CanvasSoundController>(); 
         }
 
         _button.onClick.AddListener(OnAddPlaceButtonClick);
@@ -42,6 +46,7 @@ public class AddPlaceButton : MonoBehaviour
     private void OnAddPlaceButtonClick()
     {
         _playerUpgrader.TryAddPlace();
+        _soundController.PlayBuySound();
     }
 
     private void OnMoneyChanged(int money)

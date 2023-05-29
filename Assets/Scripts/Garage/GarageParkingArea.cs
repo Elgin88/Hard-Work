@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class GarageParkingArea : MonoBehaviour
 {
-    private GameRequireComponents _components;
+    private GameRequireComponents _gameRequirecomponents;
     private GarageUI _garageUI;
 
     private void OnEnable()
     {
-        _components = FindObjectOfType<GameRequireComponents>();
-        _garageUI = _components.GarageUI;
+        _gameRequirecomponents = FindObjectOfType<GameRequireComponents>();
+        _garageUI = _gameRequirecomponents.GarageUI;
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -43,9 +43,15 @@ public class PlayerFuelController : MonoBehaviour
         while (true)
         {
             _currentFuel -= _speedSetter.CurrentSpeed * _deltaFuel * Time.deltaTime;
+
+            if (_currentFuel < 0 )
+            {
+                _currentFuel = 0;
+            }
+
             IsFuelChanged.Invoke(_currentFuel, _maxFuel);
 
-            if (_currentFuel < 0)
+            if (_currentFuel <= 0)
             {
                 _isFuelLoss = true;
             }

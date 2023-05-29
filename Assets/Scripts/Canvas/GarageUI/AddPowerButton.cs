@@ -6,19 +6,22 @@ using UnityEngine.UI;
 
 public class AddPowerButton : MonoBehaviour
 {
-    [SerializeField] private Button _button;
     [SerializeField] private TMP_Text _label;
     [SerializeField] private TMP_Text _cost;
 
+    private Button _button;
     private Player _player;
     private PlayerUpgrader _playerUpgrader;
     private Garage _garage;
     private PlayerPowerController _powerController;
     private bool _isMaxLevelEngine;
     private EngineBarIconFlash _flash;
+    private CanvasSoundController _soundController;
 
     private void OnEnable()
     {
+        _button = GetComponent<Button>();
+
         if (_player == null)
         {
             _player = FindObjectOfType<Player>();
@@ -26,6 +29,7 @@ public class AddPowerButton : MonoBehaviour
             _garage = FindObjectOfType<Garage>();
             _powerController = FindObjectOfType<PlayerPowerController>();
             _flash = FindObjectOfType<EngineBarIconFlash>();
+            _soundController = FindObjectOfType<CanvasSoundController>();
         }
 
         _button.onClick.AddListener(OnButtonClick);
@@ -48,6 +52,7 @@ public class AddPowerButton : MonoBehaviour
     private void OnButtonClick()
     {
         _playerUpgrader.TryAddPower();
+        _soundController.PlayBuySound();
     }
 
     private void OnMoneyChanged(int money)

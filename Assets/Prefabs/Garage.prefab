@@ -523,7 +523,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3467493456101965274}
-  - component: {fileID: 3467493456101965273}
+  - component: {fileID: 738672760701132400}
+  - component: {fileID: 3104848041511164420}
   m_Layer: 0
   m_Name: Garage
   m_TagString: Untagged
@@ -549,7 +550,103 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3467493456101965273
+--- !u!82 &738672760701132400
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3467493456101965272}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 8211736129582003351, guid: 5ae604ac24b2745a8bdf8b6fc2f40833, type: 2}
+  m_audioClip: {fileID: 8300000, guid: b9703806690cb49a58ab182032cad276, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &3104848041511164420
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -563,12 +660,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fuelLabel: "\u0422\u043E\u043F\u043B\u0438\u0432\u043E"
   _tankLabel: "\u0411\u0430\u043A"
-  _placeLabel: "\u041C\u0435\u0441\u0442\u043E"
+  _placeLabel: "\u0418\u043D\u0432\u0435\u043D\u0442\u0430\u0440\u044C"
   _powerLabel: "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043B\u044C"
-  _fuelCost: 2
-  _tankCost: 25
-  _placeCost: 25
-  _powerCost: 25
+  _fuelCost: 5
+  _tankCost: 5
+  _placeCost: 5
+  _powerCost: 5
 --- !u!1 &3574298654782820173
 GameObject:
   m_ObjectHideFlags: 0

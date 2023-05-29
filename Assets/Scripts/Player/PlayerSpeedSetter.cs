@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Player))]
 [RequireComponent(typeof(PlayerMover))]
 [RequireComponent(typeof(PlayerFuelController))]
+[RequireComponent(typeof(PlayerSoundController))]
 
 public class PlayerSpeedSetter : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerSpeedSetter : MonoBehaviour
     [SerializeField] private float _pushChangeSpeed;
     [SerializeField] private float _delayPush;
 
+    private PlayerSoundController _soundController;
     private Player _player;
     private PlayerMover _playerMover;
     private Coroutine _changeSpeedWork;
@@ -35,6 +37,7 @@ public class PlayerSpeedSetter : MonoBehaviour
         _player = GetComponent<Player>();
         _playerMover = GetComponent<PlayerMover>();
         _playerFuelController = GetComponent<PlayerFuelController>();
+        _soundController = GetComponent<PlayerSoundController>();
 
         _player.IsPushed += IsPushedPlayer;
 
@@ -67,6 +70,8 @@ public class PlayerSpeedSetter : MonoBehaviour
             if (_playerFuelController.IsFuelLoss == true)
             {
                 _playerMover.StopCoroutineMove();
+                _soundController.StopMinEngineSound();
+                _soundController.StopMaxEngineSound();
             }
             else
             {
