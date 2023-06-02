@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BlockSoundController))]
+[RequireComponent(typeof(Block))]
+[RequireComponent(typeof(BlockFixer))]
+
 public class BlockMoverToCollector : MonoBehaviour
 {
     private float _flightSpeed = 10;
@@ -9,6 +13,7 @@ public class BlockMoverToCollector : MonoBehaviour
     private float _deltaPointPosition = 0.001f;
     private float _deltaHight = 0.005f;
 
+    private BlockSoundController _soundController;
     private CalculatorBlocks _calculatorBlocks;
     private BlockFixer _blockFixer;
     private Coroutine _move;
@@ -19,11 +24,12 @@ public class BlockMoverToCollector : MonoBehaviour
 
     private IEnumerator MoveToCollector()
     {
-        if (_calculatorBlocks == null)
+        if (_blockFixer == null)
         {
             _calculatorBlocks = FindObjectOfType<CalculatorBlocks>();
             _blockFixer = GetComponent<BlockFixer>();
             _block = GetComponent<Block>();
+            _soundController = GetComponent<BlockSoundController>();
         }
 
         _blockFixer.StopCoroutineFixBlock();
@@ -34,6 +40,8 @@ public class BlockMoverToCollector : MonoBehaviour
 
         _block.Point.RemoveBlock();
         _block.Player.Inventory.InitEventBlockIsChanged();
+
+        _soundController.PlayFlyOnCarSFX();
 
         while (true)
         {

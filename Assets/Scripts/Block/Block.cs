@@ -8,11 +8,13 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(BlockMoverToPlayer))]
 [RequireComponent(typeof(BlockMoverToCollector))]
+[RequireComponent(typeof(BlockSoundController))]
 
 public class Block : MonoBehaviour
 {
     private int _cost = 1;
 
+    private BlockSoundController _soundController;
     private BlockMoverToCollector _blockMoverToCollector;
     private BlockMoverToPlayer _moverBlock;
     private BoxCollider _boxCollider;
@@ -31,7 +33,8 @@ public class Block : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _boxCollider = GetComponent<BoxCollider>();
         _moverBlock = GetComponent<BlockMoverToPlayer>();
-        _blockMoverToCollector = GetComponent<BlockMoverToCollector>();        
+        _blockMoverToCollector = GetComponent<BlockMoverToCollector>();
+        _soundController = GetComponent<BlockSoundController>();
     }
 
     private void BlocksUnloaded(bool isUnload)
@@ -47,6 +50,7 @@ public class Block : MonoBehaviour
             GravityOn();           
 
             _player = destroyer.Player;
+            _soundController.Init(_player);
             _player.SlowDown();
 
             if (_playerIsUnload != true & _player.LoadController.IsUnload == false)

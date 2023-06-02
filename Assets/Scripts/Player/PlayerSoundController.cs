@@ -8,6 +8,11 @@ public class PlayerSoundController : MonoBehaviour
 {
     [SerializeField] private AudioSource _engineMinSound;
     [SerializeField] private AudioSource _engineMaxSound;
+    [SerializeField] private AudioSource _blockFly;
+    [SerializeField] private AudioSource _blockSetPlace;
+
+    public AudioSource BlockFly => _blockFly;
+    public AudioSource BlockSetPlace => _blockSetPlace;
 
     public void PlayMinEngineSound()
     {

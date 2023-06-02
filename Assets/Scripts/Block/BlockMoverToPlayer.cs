@@ -1,6 +1,12 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(BlockFixer))]
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Block))]
+[RequireComponent(typeof(BlockMoverToCollector))]
+[RequireComponent(typeof(BlockSoundController))]
+
 public class BlockMoverToPlayer : MonoBehaviour
 {
     private float _flightSpeed = 10;
@@ -14,6 +20,7 @@ public class BlockMoverToPlayer : MonoBehaviour
     private Block _block;
     private bool _isReachTop;
     private BlockMoverToCollector _blockMoverToCollector;
+    private BlockSoundController _soundController;
 
     private void OnEnable()
     {
@@ -21,12 +28,15 @@ public class BlockMoverToPlayer : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();        
         _block = GetComponent<Block>();
         _blockMoverToCollector = GetComponent<BlockMoverToCollector>();
+        _soundController = GetComponent<BlockSoundController>();
     }
 
     private IEnumerator Flight()
     {
         _isReachTop = false;
         _startBlockPosition = transform.position;
+
+        _soundController.PlayFlyOnCarSFX();
 
         while (true)
         {

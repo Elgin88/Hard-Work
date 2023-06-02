@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     private int _money;
     private Vector3 _collectionPointPosition;    
     private GameRequireComponents _gameRequireComponents;
+    private PlayerSoundController _soundController;
 
     public Inventory Inventory => _inventory;
     public Unloader Unloader => _unloader;
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour
     public int MaxHightOfInventory => _hightOfInventory;
     public float DeltaBetweenUnloadBlocks => _deltaTimeBetweeUnloadBlocks;
     public GameRequireComponents GameRequireComponents => _gameRequireComponents;
+    public PlayerSoundController SoundController => _soundController;
 
     public event UnityAction IsPushed;
     public event UnityAction <int> IsMoneyChanged;    
@@ -44,6 +46,7 @@ public class Player : MonoBehaviour
         _loadController = GetComponent<PlayerLoadController>();
         _inventory = GetComponentInChildren<Inventory>();
         _unloader = GetComponentInChildren<Unloader>();
+        _soundController = GetComponent<PlayerSoundController>();
     }
 
     public void SlowDown()
