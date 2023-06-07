@@ -4503,7 +4503,7 @@ GameObject:
   - component: {fileID: 1758577150933686447}
   - component: {fileID: 1758577150933686444}
   - component: {fileID: 1758577150933686440}
-  - component: {fileID: 1487011295367073475}
+  - component: {fileID: 2138925347120677345}
   m_Layer: 5
   m_Name: EndLevelButton
   m_TagString: Untagged
@@ -4625,26 +4625,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956346fc4122c407caba592173170f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &1487011295367073475
-Animator:
-  serializedVersion: 5
+--- !u!114 &2138925347120677345
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758577150933686445}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 76e6cf5b47bae4e509cfeae585108020, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c1f34d378b874d86b4b8eb2c4e5b0e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _deltaScale: 0.1
+  _speedOfFlash: 0.2
 --- !u!1 &2246327941631204277
 GameObject:
   m_ObjectHideFlags: 0
@@ -7183,7 +7177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855815d88833c47a0b727350b4550539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 5122951277019515478}
   _label: {fileID: 5122951277228047930}
   _cost: {fileID: 687222406478704323}
 --- !u!1 &5122951277228047928
@@ -8244,7 +8237,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aacc240b63e9745078ec5d4e867090a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 5700204133601088343}
   _label: {fileID: 5700204132320667451}
   _cost: {fileID: 111131339884492738}
 --- !u!1 &5700204133962779330
@@ -8384,7 +8376,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23a3c639d9c64cb5b3395671ca1e882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 5700204133962779329}
   _label: {fileID: 5700204132162272941}
   _cost: {fileID: 111131340328103508}
 --- !u!1 &5700204134028293366
@@ -8524,7 +8515,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5def84f21e39b41699adb0f1b7123910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 5700204134028293365}
   _label: {fileID: 5700204132205740185}
   _cost: {fileID: 111131340270981216}
 --- !u!1 &6533289347556649745
