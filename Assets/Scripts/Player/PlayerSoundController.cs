@@ -10,9 +10,13 @@ public class PlayerSoundController : MonoBehaviour
     [SerializeField] private AudioSource _engineMaxSound;
     [SerializeField] private AudioSource _blockFly;
     [SerializeField] private AudioSource _blockSetPlace;
-
+    [SerializeField] private AudioSource _blockFlyToCollector;
+    [SerializeField] private AudioSource _blockPlaceInCollector;
+ 
     public AudioSource BlockFly => _blockFly;
-    public AudioSource BlockSetPlace => _blockSetPlace;
+    public AudioSource BlockSetOnCar => _blockSetPlace;
+    public AudioSource BlockFlyToCollerctor => _blockFlyToCollector;
+    public AudioSource BlockPlaceInCollector => _blockPlaceInCollector;
 
     public void PlayMinEngineSound()
     {
@@ -43,67 +47,4 @@ public class PlayerSoundController : MonoBehaviour
     {
         _engineMaxSound.Stop();
     }
-
-
-
-    //private Coroutine _playEngineMinSound;
-    //private Coroutine _playEngineMaxSound;
-
-
-
-
-    //private IEnumerator PlayEngineMinSound()
-    //{
-    //    while (true)
-    //    {
-    //        _engineMinSound.Play();
-
-    //        yield return null;
-    //    }        
-    //}
-
-    //private IEnumerator PlayMinEngineMaxSound()
-    //{
-    //    while (true)
-    //    {
-    //        _engineMaxSound.Play();
-
-    //        yield return null;
-    //    }        
-    //}
-
-    //public void StartPlayEngineMinSound()
-    //{
-    //    if (_playEngineMinSound == null)
-    //    {
-    //        _playEngineMinSound = StartCoroutine(PlayEngineMinSound());
-    //    }
-    //}
-
-    //public void StopPlayEngineMinSound()
-    //{
-    //    if (_playEngineMinSound != null)
-    //    {
-    //        StopCoroutine(_playEngineMinSound);
-    //        _playEngineMinSound = null;
-    //    }
-    //}
-
-    //public void StartPlayEngineMaxSound()
-    //{
-    //    if (_playEngineMaxSound == null)
-    //    {
-    //        _playEngineMaxSound = StartCoroutine(PlayMinEngineMaxSound());
-    //    }
-
-    //}
-
-    //public void StopPlayEngineMaxSound()
-    //{
-    //    if (_playEngineMaxSound != null)
-    //    {
-    //        StopCoroutine(_playEngineMaxSound);
-    //        _playEngineMaxSound = null;
-    //    }
-    //}
 }

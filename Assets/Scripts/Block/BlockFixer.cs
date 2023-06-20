@@ -18,6 +18,7 @@ public class BlockFixer : MonoBehaviour
     private IEnumerator FixBlock()
     {
         _player = GetComponent<Block>().Player;
+        _block.SoundController.PlayPlaceOnCarSFX();
 
         while (true)
         {

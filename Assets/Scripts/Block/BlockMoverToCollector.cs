@@ -41,7 +41,7 @@ public class BlockMoverToCollector : MonoBehaviour
         _block.Point.RemoveBlock();
         _block.Player.Inventory.InitEventBlockIsChanged();
 
-        _soundController.PlayFlyOnCarSFX();
+        _soundController.PlayFlyOnCollectorSFX();
 
         while (true)
         {
@@ -65,7 +65,8 @@ public class BlockMoverToCollector : MonoBehaviour
             {
                 _block.Player.AddMoney(_block.Cost);
                 _calculatorBlocks.CalculateUnloadBloks();                
-                _block.Player.GameRequireComponents.ChooserMedals.ChooseMedals();                
+                _block.Player.GameRequireComponents.ChooserMedals.ChooseMedals();
+                _soundController.PlayBlockPlaceInCollector();
 
                 StopMoveToCollector();
 

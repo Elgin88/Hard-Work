@@ -7,6 +7,8 @@ using UnityEngine;
 [RequireComponent(typeof(EnderLevel))]
 [RequireComponent(typeof(ChooserMedals))]
 [RequireComponent(typeof(GameRequireComponents))]
+[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(AudioSource))]
 
 public class GameControllerRequireComponents : MonoBehaviour
 {

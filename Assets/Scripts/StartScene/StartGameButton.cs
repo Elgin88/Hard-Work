@@ -8,6 +8,10 @@ public class StartGameButton : MonoBehaviour
 {
     [SerializeField] private string _nextLevel;
     [SerializeField] private Button _button;
+    [SerializeField] private AudioSource _audio;
+
+    private WaitForSeconds _delay = new WaitForSeconds(0.5f);
+    private Coroutine _loadScene;
 
     private void OnEnable()
     {
@@ -17,10 +21,21 @@ public class StartGameButton : MonoBehaviour
     private void OnDisable()
     {
         _button.onClick.RemoveListener(OnButtonClick);
+        StopCoroutine(_loadScene);
     }
 
     private void OnButtonClick()
     {
-        SceneManager.LoadScene(_nextLevel);
+        _audio.Play();
+        _loadScene = StartCoroutine(LoadScene());          
+    }
+
+    private IEnumerator LoadScene()
+    {
+        while (true)
+        {
+            yield return _delay;
+            SceneManager.LoadScene(_nextLevel);
+        }
     }
 }

@@ -21,12 +21,15 @@ public class Block : MonoBehaviour
     private Rigidbody _rigidbody;
     private Player _player;
     private Point _point;
+    private BlockSoundController _blockSoundController;
     private bool _playerIsUnload;
 
     public BlockMoverToCollector BlockMoverToCollector => _blockMoverToCollector;
     public Player Player => _player;
     public Point Point => _point;
     public int Cost => _cost;
+    public BlockSoundController SoundController => _soundController;
+
 
     private void OnEnable()
     {
@@ -50,7 +53,7 @@ public class Block : MonoBehaviour
             GravityOn();           
 
             _player = destroyer.Player;
-            _soundController.Init(_player);
+            _soundController.InitSoundController(_player);
             _player.SlowDown();
 
             if (_playerIsUnload != true & _player.LoadController.IsUnload == false)
