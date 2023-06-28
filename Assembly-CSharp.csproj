@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\</OutputPath>
-    <DefineConstants>UNITY_2021_3_16;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_OSX;UNITY_STANDALONE_OSX;UNITY_STANDALONE;ENABLE_GAMECENTER;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_SPATIALTRACKING;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_2021_3_16;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_MANAGED_UNITYTLS;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_WEBGL;TEXTCORE_1_0_OR_NEWER;UNITY_WEBGL;UNITY_WEBGL_API;UNITY_DISABLE_WEB_VERIFICATION;UNITY_GFX_USE_PLATFORM_VSYNC;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_SPATIALTRACKING;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -49,45 +49,174 @@
     <UnityProjectGenerator>Package</UnityProjectGenerator>
     <UnityProjectGeneratorVersion>2.0.17</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
-    <UnityBuildTarget>StandaloneOSX:2</UnityBuildTarget>
+    <UnityBuildTarget>WebGL:20</UnityBuildTarget>
     <UnityVersion>2021.3.16f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="/Applications/Visual Studio.app/Contents/MonoBundle/Addins/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/EndLevelButtonFlash.cs" />
+    <Compile Include="Assets/Assets/Joystick Pack/Scripts/Joysticks/DynamicJoystick.cs" />
+    <Compile Include="Assets/Scripts/Canvas/GarageUI/AddFuelButtonIcon.cs" />
+    <Compile Include="Assets/Scripts/Canvas/GarageUI/AddPowerButtonLabel.cs" />
+    <Compile Include="Assets/PlayerExhaustController.cs" />
+    <Compile Include="Assets/Scripts/StartScene/StartGameButton.cs" />
     <Compile Include="Assets/Scripts/Block/BlockMoverToPlayer.cs" />
-    <Compile Include="Assets/Scripts/Player/Destroyer.cs" />
+    <Compile Include="Assets/Scripts/Block/BlockSoundController.cs" />
+    <Compile Include="Assets/Scripts/Player/Destroyer/Destroyer.cs" />
+    <Compile Include="Assets/Scripts/Canvas/GarageUI/GarageUI.cs" />
+    <Compile Include="Assets/Scripts/Canvas/GarageUI/AddPlaceButton.cs" />
+    <Compile Include="Assets/Scripts/Canvas/FuelBar/MaxFuelBar.cs" />
+    <Compile Include="Assets/Scripts/Canvas/InventoryBar/InventoryBarMax.cs" />
+    <Compile Include="Assets/Scripts/MainCamera/ChooserMedals.cs" />
+    <Compile Include="Assets/Assets/Conifers/Render Pipeline Support/Built-in RP/CTI Runtime Components/Scripts/CTI_CustomWind.cs" />
     <Compile Include="Assets/Scripts/Player/Inventory/LineOfPointsCreater.cs" />
+    <Compile Include="Assets/Scripts/Canvas/EndLevelButton/EndLevelButton.cs" />
+    <Compile Include="Assets/Assets/Joystick Pack/Scripts/Base/Joystick.cs" />
+    <Compile Include="Assets/Scripts/Canvas/ProgresBar/ProgressBar.cs" />
+    <Compile Include="Assets/Assets/JMO Assets Effects/Cartoon FX (legacy)/Demo/Assets/CFX_Demo_RotateCamera.cs" />
+    <Compile Include="Assets/Assets/JMO Assets Effects/Cartoon FX (legacy)/Demo/Assets/CFX_Demo_RandomDir.cs" />
+    <Compile Include="Assets/Scripts/Garage/EngineBarIconColorSetter.cs" />
+    <Compile Include="Assets/Scripts/Player/PlayerDestroyerTakeDamagePoint.cs" />
+    <Compile Include="Assets/Scripts/GameController/GameControllerRequireComponents.cs" />
+    <Compile Include="Assets/Assets/JMO Assets Effects/Cartoon FX (legacy)/Scripts/CFX_LightIntensityFade.cs" />
+    <Compile Include="Assets/Scripts/Player/InventoryBarIconFlash.cs" />
+    <Compile Include="Assets/Scripts/Canvas/GarageUI/AddPlaceButtonIcon.cs" />
     <Compile Include="Assets/Scripts/Player/Inventory/LineOfPoints/LineOfPoints.cs" />
+    <Compile Include="Assets/Scripts/Canvas/ProgresBar/ProgressBarShowerMedals.cs" />
+    <Compile Include="Assets/Scripts/MainCamera/CalculatorBlocks.cs" />
+    <Compile Include="Assets/Scripts/Canvas/GarageUI/AddPlaceButtonLabel.cs" />
+    <Compile Include="Assets/Assets/Stylized Textures/Scripts/GameBuffsInitializer.cs" />
+    <Compile Include="Assets/Scripts/Canvas/GarageUI/AddTankButtonLabel.cs" />
     <Compile Include="Assets/Scripts/Block/BlockFixer.cs" />
-    <Compile Include="Assets/Scripts/Camera/LightOn.cs" />
+    <Compile Include="Assets/Scripts/Canvas/CanvasSoundController.cs" />
+    <Compile Include="Assets/Assets/Joystick Pack/Scripts/Joysticks/FloatingJoystick.cs" />
+    <Compile Include="Assets/Scripts/Player/PlayerSoundController.cs" />
+    <Compile Include="Assets/Scripts/Canvas/ProgresBar/ProgressBarMiddle.cs" />
+    <Compile Include="Assets/Assets/Joystick Pack/Scripts/Joysticks/FixedJoystick.cs" />
+    <Compile Include="Assets/Assets/JMO Assets Effects/Cartoon FX (legacy)/Demo/Assets/CFX_Demo_Translate.cs" />
+    <Compile Include="Assets/Scripts/Canvas/ReloadButton/ReloadButton.cs" />
+    <Compile Include="Assets/Scripts/Player/Destroyer/DestroyerPoint/DestroyerPoint.cs" />
+    <Compile Include="Assets/Assets/Joystick Pack/Scripts/Joysticks/VariableJoystick.cs" />
+    <Compile Include="Assets/Scripts/Canvas/EndLevelPanel/MinMedal.cs" />
+    <Compile Include="Assets/Scripts/Player/PlayerUpgrader.cs" />
+    <Compile Include="Assets/Scripts/Player/PlayerLoadController.cs" />
+    <Compile Include="Assets/Scripts/Player/PlayerMover.cs" />
+    <Compile Include="Assets/Scripts/Collector/Collector.cs" />
+    <Compile Include="Assets/Scripts/Canvas/GarageUI/AddTankButtonIcon.cs" />
+    <Compile Include="Assets/Scripts/Player/PlayerFuelController.cs" />
+    <Compile Include="Assets/Scripts/Canvas/InventoryBar/InventoryBarMiddle.cs" />
+    <Compile Include="Assets/Scripts/Canvas/GarageUI/AddFuelButtonCost.cs" />
+    <Compile Include="Assets/Scripts/Canvas/MoneyBar/MoneyBarCount.cs" />
+    <Compile Include="Assets/Scripts/Collector/CollectionPoint.cs" />
+    <Compile Include="Assets/Scripts/Canvas/GarageUI/AddTankButtonCost.cs" />
+    <Compile Include="Assets/Scripts/Block/SectionOfBlocks.cs" />
+    <Compile Include="Assets/Scripts/Canvas/EndLevelPanel/EndLevelPanel.cs" />
+    <Compile Include="Assets/Scripts/Garage/GarageParkingArea.cs" />
+    <Compile Include="Assets/Scripts/Canvas/ProgresBar/ProgressBarMin.cs" />
+    <Compile Include="Assets/Assets/JMO Assets Effects/Cartoon FX (legacy)/Scripts/CFX_AutoRotate.cs" />
+    <Compile Include="Assets/Scripts/Canvas/EndLevelPanel/TotalScore.cs" />
+    <Compile Include="Assets/Scripts/Player/PlayerSpeedSetter.cs" />
     <Compile Include="Assets/Scripts/Player/Inventory/Inventory.cs" />
+    <Compile Include="Assets/Scripts/Canvas/EndLevelPanel/MaxMedal.cs" />
+    <Compile Include="Assets/Scripts/Player/PlayerPowerController.cs" />
+    <Compile Include="Assets/Scripts/Canvas/GarageUI/AddPowerButtonCost.cs" />
+    <Compile Include="Assets/Scripts/Canvas/ProgresBar/MiddleMedalUI.cs" />
+    <Compile Include="Assets/Scripts/Collector/CollectionParkingArea.cs" />
+    <Compile Include="Assets/Scripts/Canvas/ProgresBar/MaxMedalUI.cs" />
+    <Compile Include="Assets/Assets/Joystick Pack/Examples/JoystickPlayerExample.cs" />
+    <Compile Include="Assets/Scripts/Canvas/FuelBar/FuelBarIndicateFuelLess.cs" />
+    <Compile Include="Assets/Scripts/Garage/EngineBarIconController.cs" />
+    <Compile Include="Assets/Scripts/Canvas/EndLevelPanel/MiddleMedal.cs" />
+    <Compile Include="Assets/Assets/JMO Assets Effects/Cartoon FX (legacy)/Demo/Assets/CFX_Demo_New.cs" />
+    <Compile Include="Assets/Scripts/Garage/Garage.cs" />
+    <Compile Include="Assets/Scripts/Canvas/GarageUI/AddPowerButtonIcon.cs" />
+    <Compile Include="Assets/Scripts/MainCamera/EnderLevel.cs" />
+    <Compile Include="Assets/Scripts/Player/Player.cs" />
+    <Compile Include="Assets/Assets/Conifers/Render Pipeline Support/Built-in RP/CTI Runtime Components/Scripts/CTI_Utils.cs" />
+    <Compile Include="Assets/Scripts/Canvas/EndLevelPanel/NextLevelButton.cs" />
+    <Compile Include="Assets/Scripts/Canvas/GarageUI/AddPowerButton.cs" />
+    <Compile Include="Assets/Scripts/Canvas/FuelBar/FuelBar.cs" />
+    <Compile Include="Assets/Scripts/Canvas/GarageUI/GaragePanel.cs" />
+    <Compile Include="Assets/Assets/JMO Assets Effects/Cartoon FX (legacy)/Scripts/CFX_LightFlicker.cs" />
+    <Compile Include="Assets/Scripts/Canvas/FuelBar/MiddleFuelBar.cs" />
+    <Compile Include="Assets/Assets/JMO Assets Effects/Cartoon FX (legacy)/Scripts/CFX_AutoDestructShuriken.cs" />
+    <Compile Include="Assets/Scripts/Canvas/ProgresBar/MinMedalUI.cs" />
+    <Compile Include="Assets/Scripts/Block/BlockMoverToCollector.cs" />
+    <Compile Include="Assets/Scripts/Canvas/MoneyBar/MoneyBar.cs" />
+    <Compile Include="Assets/Assets/JMO Assets Effects/Cartoon FX (legacy)/Demo/Assets/CFX_AutoStopLoopedEffect.cs" />
+    <Compile Include="Assets/Assets/Joystick Pack/Examples/JoystickSetterExample.cs" />
+    <Compile Include="Assets/Scripts/Canvas/InventoryBar/InventoryBar.cs" />
     <Compile Include="Assets/Scripts/Player/Inventory/LineOfPoints/Point/Point.cs" />
-    <Compile Include="Assets/Scripts/Camera/MainCamera.cs" />
+    <Compile Include="Assets/Scripts/GameController/GameRequireComponents.cs" />
+    <Compile Include="Assets/Scripts/Canvas/ProgresBar/ProgressBarMax.cs" />
+    <Compile Include="Assets/Scripts/Garage/EngineBarIconFlash.cs" />
+    <Compile Include="Assets/Scripts/MainCamera/MainCamera.cs" />
+    <Compile Include="Assets/Scripts/Canvas/GarageUI/AddPlaceButtonCost.cs" />
+    <Compile Include="Assets/Scripts/Player/PlayerRequireComponents.cs" />
+    <Compile Include="Assets/Scripts/Canvas/GarageUI/AddFuelButton.cs" />
+    <Compile Include="Assets/Scripts/Canvas/GarageUI/AddFuelButtonLabel.cs" />
     <Compile Include="Assets/Scripts/Block/Block.cs" />
+    <Compile Include="Assets/Scripts/Canvas/EndLevelButton/EndLevelButtonFlasher.cs" />
+    <Compile Include="Assets/Scripts/GameController/GameController.cs" />
+    <Compile Include="Assets/Scripts/Player/Inventory/Unloader.cs" />
+    <Compile Include="Assets/Assets/JMO Assets Effects/Cartoon FX (legacy)/Demo/Assets/CFX_Demo_RandomDirectionTranslate.cs" />
+    <Compile Include="Assets/Scripts/Canvas/GarageUI/AddTankButton.cs" />
+    <Compile Include="Assets/Scripts/Canvas/TempNextLevelButton/TempNextLevel.cs" />
+    <Compile Include="Assets/Scripts/Canvas/InventoryBar/InventoryBarMin.cs" />
+    <Compile Include="Assets/Scripts/Canvas/FuelBar/MinFuelBar.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets/Assets/Conifers/Render Pipeline Support/Built-in RP/CTI Runtime Components/Shaders/CTI_LOD_Bark_Array_301.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets/Assets/JMO Assets Effects/Cartoon FX (legacy)/Shaders/CFX3 Multiply Color.shader" />
+    <None Include="Assets/Assets/Conifers/Render Pipeline Support/Built-in RP/CTI Runtime Components/Shaders/CTI_LOD_Billboard_301.shader" />
+    <None Include="Assets/Assets/JMO Assets Effects/Cartoon FX Remaster/CFXR Assets/Shaders/CFXR Particle Glow.shader" />
+    <None Include="Assets/Assets/JMO Assets Effects/Cartoon FX Remaster/CFXR Assets/Shaders/CFXR Particle Ubershader.shader" />
+    <None Include="Assets/Assets/Conifers/Render Pipeline Support/Built-in RP/CTI Runtime Components/Resources/CTI_Camera-DepthNormalTexture_301.shader" />
+    <None Include="Assets/Assets/JMO Assets Effects/Cartoon FX Remaster/CFXR Assets/Shaders/CFXR_SETTINGS.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
+    <None Include="Assets/Assets/JMO Assets Effects/Cartoon FX (legacy)/CartoonFX Free.txt" />
+    <None Include="Assets/Assets/JMO Assets Effects/Cartoon FX Remaster/CFXR Assets/Shaders/CFXR.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
+    <None Include="Assets/Assets/Baker House/Readme.txt" />
+    <None Include="Assets/Assets/Conifers/Conifers [BOTD] URP Readme.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
+    <None Include="Assets/Assets/Conifers/Render Pipeline Support/Built-in RP/CTI Runtime Components/Resources/CTI_Internal-DeferredShading.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets/Assets/Conifers/Getting started.txt" />
+    <None Include="Assets/!Sounds Music Pack/WELCOME_CGMUSIC.txt" />
+    <None Include="Assets/Assets/Conifers/Render Pipeline Support/Built-in RP/CTI Runtime Components/Shaders/Includes/CTI_BillboardVertex_301.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
     <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets/Assets/JMO Assets Effects/Cartoon FX Remaster/Readme Cartoon FX Remaster FREE.txt" />
+    <None Include="Assets/Assets/Stylized Textures/README.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
+    <None Include="Assets/Assets/Conifers/Render Pipeline Support/Built-in RP/CTI Runtime Components/Shaders/Includes/CTI_TranslucentLighting_301.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
+    <None Include="Assets/Assets/Conifers/Render Pipeline Support/Built-in RP/CTI Runtime Components/Shaders/CTI_LOD_Bark_301.shader" />
+    <None Include="Assets/Assets/Conifers/Render Pipeline Support/Built-in RP/CTI Runtime Components/Resources/CTI_Internal-DeferredReflections.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
+    <None Include="Assets/Assets/JMO Assets Effects/Cartoon FX Remaster/CFXR Prefabs/Texts/_Make your own text effect.txt" />
+    <None Include="Assets/Assets/Conifers/Render Pipeline Support/Built-in RP/CTI Runtime Components/Shaders/Includes/CTI_indirect.cginc" />
+    <None Include="Assets/Assets/JMO Assets Effects/Cartoon FX Remaster/CFXR Assets/Shaders/CFXR_PASSES.cginc" />
+    <None Include="Assets/Assets/Conifers/Render Pipeline Support/Built-in RP/CTI Runtime Components/Shaders/CTI_LOD_Leaves_301.shader" />
     <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
+    <None Include="Assets/Assets/JMO Assets Effects/Cartoon FX (legacy)/Shaders/CFXM_MobileParticleAdd_Alpha8.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets/Assets/JMO Assets Effects/Cartoon FX Remaster/CFXR Assets/Shaders/CFXR Particle Procedural Ring.shader" />
+    <None Include="Assets/Assets/Conifers/Render Pipeline Support/Built-in RP/CTI Runtime Components/Shaders/Includes/CTI_Builtin4xTreeLibraryTumbling_301.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets/Assets/JMO Assets Effects/Cartoon FX Remaster/CFXR Assets/Shaders/CFXR_URP.cginc" />
     <None Include="Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" />
+    <None Include="Assets/Assets/JMO Assets Effects/Cartoon FX Remaster/CFXR Assets/Shaders/CFXR Particle Distortion.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
@@ -96,9 +225,6 @@
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Hub/Editor/2021.3.16f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ARModule">
-      <HintPath>/Applications/Unity/Hub/Editor/2021.3.16f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.ARModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AccessibilityModule">
       <HintPath>/Applications/Unity/Hub/Editor/2021.3.16f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AccessibilityModule.dll</HintPath>
@@ -117,12 +243,6 @@
     </Reference>
     <Reference Include="UnityEngine.ClothModule">
       <HintPath>/Applications/Unity/Hub/Editor/2021.3.16f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.ClothModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ClusterInputModule">
-      <HintPath>/Applications/Unity/Hub/Editor/2021.3.16f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.ClusterInputModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ClusterRendererModule">
-      <HintPath>/Applications/Unity/Hub/Editor/2021.3.16f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>/Applications/Unity/Hub/Editor/2021.3.16f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
@@ -283,8 +403,8 @@
     <Reference Include="UnityEngine.VideoModule">
       <HintPath>/Applications/Unity/Hub/Editor/2021.3.16f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.VideoModule.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.VirtualTexturingModule">
-      <HintPath>/Applications/Unity/Hub/Editor/2021.3.16f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.VirtualTexturingModule.dll</HintPath>
+    <Reference Include="UnityEngine.WebGLModule">
+      <HintPath>/Applications/Unity/Hub/Editor/2021.3.16f1/PlaybackEngines/WebGLSupport/Managed/UnityEngine.WebGLModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.WindModule">
       <HintPath>/Applications/Unity/Hub/Editor/2021.3.16f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
@@ -729,6 +849,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="ToonyColorsPro.Demo.Editor.csproj">
+      <Project>{CB2DFEFB-BAAA-B3FF-4609-494E40A1313A}</Project>
+      <Name>ToonyColorsPro.Demo.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="KinoBloom.Runtime.csproj">
+      <Project>{B3026EB7-7CC8-80F0-5657-3882577B8C6B}</Project>
+      <Name>KinoBloom.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="CFXREditor.csproj">
+      <Project>{33D15CFF-65EC-AE51-5AE6-87A40E34E4F2}</Project>
+      <Name>CFXREditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="CFXR.WelcomeScreen.csproj">
+      <Project>{21BF1B32-D703-4FE5-7A74-E6D9CCC111C0}</Project>
+      <Name>CFXR.WelcomeScreen</Name>
+    </ProjectReference>
+    <ProjectReference Include="CFXRDemo.csproj">
+      <Project>{38B9CE8F-9587-2A8F-A036-41FF7782E7F2}</Project>
+      <Name>CFXRDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="CFXRRuntime.csproj">
+      <Project>{AEAFFBBE-1CE1-1DBA-562A-761D53A59B85}</Project>
+      <Name>CFXRRuntime</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
