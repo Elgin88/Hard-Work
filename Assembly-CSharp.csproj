@@ -187,7 +187,7 @@
     <None Include="Assets/Assets/Conifers/Render Pipeline Support/Built-in RP/CTI Runtime Components/Resources/CTI_Internal-DeferredShading.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets/Assets/Conifers/Getting started.txt" />
-    <None Include="Assets/!Sounds Music Pack/WELCOME_CGMUSIC.txt" />
+    <None Include="Assets/Assets/!Sounds Music Pack/WELCOME_CGMUSIC.txt" />
     <None Include="Assets/Assets/Conifers/Render Pipeline Support/Built-in RP/CTI Runtime Components/Shaders/Includes/CTI_BillboardVertex_301.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
     <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
