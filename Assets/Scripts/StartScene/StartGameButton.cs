@@ -18,12 +18,6 @@ public class StartGameButton : MonoBehaviour
         _button.onClick.AddListener(OnButtonClick);
     }
 
-    private void OnDisable()
-    {
-        _button.onClick.RemoveListener(OnButtonClick);
-        StopCoroutine(_loadScene);
-    }
-
     private void OnButtonClick()
     {
         _audio.Play();

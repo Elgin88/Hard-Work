@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Unloader : MonoBehaviour
 {
-
     private float _deltaBetweenUnloadBlocks;
     private Coroutine _unload;
     private CollectionPoint _point;
@@ -17,8 +16,7 @@ public class Unloader : MonoBehaviour
         _point = FindObjectOfType<CollectionPoint>();
         _deltaBetweenUnloadBlocks = FindObjectOfType<Player>().DeltaBetweenUnloadBlocks;
 
-        _inventory = GetComponent<Inventory>();
-        
+        _inventory = GetComponent<Inventory>();        
 
         _deltaBetweenUnloadBlocksWFS = new WaitForSeconds(_deltaBetweenUnloadBlocks);
     }

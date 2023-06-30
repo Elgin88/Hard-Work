@@ -56,11 +56,11 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/MonoBundle/Addins/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/EndLevelButtonFlash.cs" />
+    <Compile Include="Assets/Scripts/EndLevelButtonFlash.cs" />
     <Compile Include="Assets/Assets/Joystick Pack/Scripts/Joysticks/DynamicJoystick.cs" />
     <Compile Include="Assets/Scripts/Canvas/GarageUI/AddFuelButtonIcon.cs" />
     <Compile Include="Assets/Scripts/Canvas/GarageUI/AddPowerButtonLabel.cs" />
-    <Compile Include="Assets/PlayerExhaustController.cs" />
+    <Compile Include="Assets/Scripts/PlayerExhaustController.cs" />
     <Compile Include="Assets/Scripts/StartScene/StartGameButton.cs" />
     <Compile Include="Assets/Scripts/Block/BlockMoverToPlayer.cs" />
     <Compile Include="Assets/Scripts/Block/BlockSoundController.cs" />
@@ -104,6 +104,7 @@
     <Compile Include="Assets/Scripts/Player/PlayerLoadController.cs" />
     <Compile Include="Assets/Scripts/Player/PlayerMover.cs" />
     <Compile Include="Assets/Scripts/Collector/Collector.cs" />
+    <Compile Include="Assets/Scripts/SoundControllerLevel0.cs" />
     <Compile Include="Assets/Scripts/Canvas/GarageUI/AddTankButtonIcon.cs" />
     <Compile Include="Assets/Scripts/Player/PlayerFuelController.cs" />
     <Compile Include="Assets/Scripts/Canvas/InventoryBar/InventoryBarMiddle.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Assets/Scripts/Garage/GarageParkingArea.cs" />
     <Compile Include="Assets/Scripts/Canvas/ProgresBar/ProgressBarMin.cs" />
     <Compile Include="Assets/Assets/JMO Assets Effects/Cartoon FX (legacy)/Scripts/CFX_AutoRotate.cs" />
+    <Compile Include="Assets/Scripts/TempFPSIndicator.cs" />
     <Compile Include="Assets/Scripts/Canvas/EndLevelPanel/TotalScore.cs" />
     <Compile Include="Assets/Scripts/Player/PlayerSpeedSetter.cs" />
     <Compile Include="Assets/Scripts/Player/Inventory/Inventory.cs" />
@@ -187,7 +189,7 @@
     <None Include="Assets/Assets/Conifers/Render Pipeline Support/Built-in RP/CTI Runtime Components/Resources/CTI_Internal-DeferredShading.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets/Assets/Conifers/Getting started.txt" />
-    <None Include="Assets/Assets/!Sounds Music Pack/WELCOME_CGMUSIC.txt" />
+    <None Include="Assets/Assets/Sounds Music Pack/WELCOME_CGMUSIC.txt" />
     <None Include="Assets/Assets/Conifers/Render Pipeline Support/Built-in RP/CTI Runtime Components/Shaders/Includes/CTI_BillboardVertex_301.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
     <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
