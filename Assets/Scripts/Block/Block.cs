@@ -50,9 +50,8 @@ public class Block : MonoBehaviour
         if (collision.gameObject.TryGetComponent<Destroyer>(out Destroyer destroyer))
         {
             KinematicOff();
-            GravityOn();           
+            GravityOn();
 
-            _player = destroyer.Player;
             _soundController.InitSoundController(_player);
             _player.SlowDown();
 
@@ -121,5 +120,10 @@ public class Block : MonoBehaviour
     public void Destroy()
     {
         Destroy(gameObject);
+    }
+
+    internal void Init(Player player)
+    {
+        _player = player;
     }
 }
