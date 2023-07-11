@@ -18,6 +18,8 @@ public class PlayerSoundController : MonoBehaviour
     public AudioSource BlockFlyToCollerctor => _blockFlyToCollector;
     public AudioSource BlockPlaceInCollector => _blockPlaceInCollector;
 
+    
+
     public void PlayMinEngineSound()
     {
         if (_engineMinSound.isPlaying == false)
