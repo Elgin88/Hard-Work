@@ -866,7 +866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 6495789832684871067}
-  _timeShowFPS: 0.3
+  _timeShowFPS: 0.2
 --- !u!1 &1591621659093201964
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,16 +7,22 @@ public class SoundControllerLevel0 : MonoBehaviour
 {
     private AudioSource _audio;
 
-    private void Start()
+    private IEnumerator Start()
     {
         _audio = GetComponent<AudioSource>();
-    }
 
-    private void FixedUpdate()
-    {
-        if (_audio.isPlaying == false)
+        while (true)
         {
-            _audio.Play();
+            if (_audio.isPlaying == false)
+            {
+                _audio.Play();
+            }
+            else
+            {
+                break;
+            }
         }
+
+        yield return null;
     }
 }
