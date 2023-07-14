@@ -8,7 +8,6 @@ using UnityEngine.UI;
 
 public class AddFuelButton : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _label;
     [SerializeField] private TMP_Text _cost;
 
     private Button _button;
@@ -31,7 +30,6 @@ public class AddFuelButton : MonoBehaviour
         _button.onClick.AddListener(OnAddFuelButtonClick);
         _player.IsMoneyChanged += OnPlayerMoneyChanded;
 
-        _label.text = _garage.FuelLabel;
         _cost.text = _garage.FuelCoust.ToString();
 
         CheckStatusButton();

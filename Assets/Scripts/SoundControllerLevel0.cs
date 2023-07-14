@@ -1,28 +1,19 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 [RequireComponent(typeof(AudioSource))]
 
 public class SoundControllerLevel0 : MonoBehaviour
 {
-    private AudioSource _audio;
+    [SerializeField] private AudioSource _audio;
 
-    private IEnumerator Start()
+    private void OnEnable()
     {
-        _audio = GetComponent<AudioSource>();
+        _audio.Play();
+    }
 
-        while (true)
-        {
-            if (_audio.isPlaying == false)
-            {
-                _audio.Play();
-            }
-            else
-            {
-                break;
-            }
-        }
-
-        yield return null;
+    private void OnDisable()
+    {
+        _audio.Stop();
     }
 }

@@ -7,10 +7,12 @@ using UnityEngine.UI;
 
 public class AddPlaceButton : MonoBehaviour
 {
-    private Button _button;
-    [SerializeField] private TMP_Text _label;
     [SerializeField] private TMP_Text _cost;
+    [SerializeField] private Flasher _maxTextFlasher;
+    [SerializeField] private Flasher _middleTextFlasher;
+    [SerializeField] private Flasher _minTextFlasher;
 
+    private Button _button;
     private Player _player;
     private PlayerUpgrader _playerUpgrader;
     private Garage _garage;
@@ -31,7 +33,6 @@ public class AddPlaceButton : MonoBehaviour
         _button.onClick.AddListener(OnAddPlaceButtonClick);
         _player.IsMoneyChanged += OnMoneyChanged;
 
-        _label.text = _garage.PlaceLabel;
         _cost.text = _garage.PlaceCost.ToString();
 
         SetStatusButton();        
@@ -47,6 +48,10 @@ public class AddPlaceButton : MonoBehaviour
     {
         _playerUpgrader.TryAddPlace();
         _soundController.PlayBuySound();
+
+        _maxTextFlasher.StartFlash();
+        _middleTextFlasher.StartFlash();
+        _minTextFlasher.StartFlash();
     }
 
     private void OnMoneyChanged(int money)

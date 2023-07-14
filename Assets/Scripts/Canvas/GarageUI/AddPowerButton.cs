@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class AddPowerButton : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _label;
+
     [SerializeField] private TMP_Text _cost;
 
     private Button _button;
@@ -36,7 +36,6 @@ public class AddPowerButton : MonoBehaviour
         _player.IsMoneyChanged += OnMoneyChanged;
         _powerController.IsEngineUpgrade += OnEngineLevelChanged;
 
-        _label.text = _garage.PowerLabel;
         _cost.text = _garage.PowerCost.ToString();
 
         CheckButton();
