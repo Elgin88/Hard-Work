@@ -13,8 +13,11 @@ public class PlayerDestroyerTakeDamagePoint : MonoBehaviour
     private WaitForSeconds _pauseWFS;
     private Coroutine _pause;
 
+    private Player _player;
+
     private void OnEnable()
     {
+        _player = FindObjectOfType<Player>();
         _particle = GetComponentInChildren<ParticleSystem>();
 
         _particle.gameObject.SetActive(false);
@@ -26,6 +29,7 @@ public class PlayerDestroyerTakeDamagePoint : MonoBehaviour
         {
             _particle.gameObject.SetActive(true);
             _particle.Play();
+            _player.SoundController.PlayBlockHitBumberSound();
         }
     }    
 }

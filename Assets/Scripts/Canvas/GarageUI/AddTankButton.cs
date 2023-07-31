@@ -15,6 +15,7 @@ public class AddTankButton : MonoBehaviour
     private Player _player;
     private PlayerUpgrader _playerUpgrade;
     private Garage _garage;
+    private GarageSoundController _garageSoundController;
     private CanvasSoundController _soundController;
 
     private void OnEnable()
@@ -27,6 +28,7 @@ public class AddTankButton : MonoBehaviour
             _playerUpgrade = _player.GetComponent<PlayerUpgrader>();
             _garage = FindObjectOfType<Garage>();
             _soundController = FindObjectOfType<CanvasSoundController>();
+            _garageSoundController = FindObjectOfType<GarageSoundController>();
         }
 
         _cost.text = _garage.TankCost.ToString();
@@ -50,6 +52,7 @@ public class AddTankButton : MonoBehaviour
         _maxTextFlasher.StartFlash();
         _middleTextFlasher.StartFlash();
         _minTextFlasher.StartFlash();
+        _garageSoundController.StartPlaySoundFinEngine();
     }
 
     private void OnPlayerMoneyChanded(int money)

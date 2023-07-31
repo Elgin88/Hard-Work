@@ -12,6 +12,7 @@ public class AddFuelButton : MonoBehaviour
 
     private Button _button;
     private Garage _garage;
+    private GarageSoundController _garageSoundController;
     private Player _player;
     private PlayerUpgrader _playerUpgrade;
     private CanvasSoundController _sound;
@@ -25,6 +26,7 @@ public class AddFuelButton : MonoBehaviour
             _garage = FindObjectOfType<Garage>();
             _sound = FindObjectOfType<CanvasSoundController>();
             _button = GetComponent<Button>();
+            _garageSoundController = FindObjectOfType<GarageSoundController>();
         }
 
         _button.onClick.AddListener(OnAddFuelButtonClick);
@@ -45,6 +47,8 @@ public class AddFuelButton : MonoBehaviour
     {
         _playerUpgrade.TryBuyFuel();
         _sound.PlayBuySound();
+
+        _garageSoundController.PlayFuelSound();
     }
 
     private void OnPlayerMoneyChanded(int money)

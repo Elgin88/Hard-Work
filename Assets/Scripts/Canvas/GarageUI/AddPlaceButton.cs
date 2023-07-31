@@ -16,6 +16,7 @@ public class AddPlaceButton : MonoBehaviour
     private Player _player;
     private PlayerUpgrader _playerUpgrader;
     private Garage _garage;
+    private GarageSoundController _garageSoundController;
     private CanvasSoundController _soundController;
 
     private void OnEnable()
@@ -27,7 +28,8 @@ public class AddPlaceButton : MonoBehaviour
             _player = FindObjectOfType<Player>();
             _playerUpgrader = _player.GetComponent<PlayerUpgrader>();
             _garage = FindObjectOfType<Garage>();
-            _soundController = FindObjectOfType<CanvasSoundController>(); 
+            _soundController = FindObjectOfType<CanvasSoundController>();
+            _garageSoundController = FindObjectOfType<GarageSoundController>();
         }
 
         _button.onClick.AddListener(OnAddPlaceButtonClick);
@@ -52,6 +54,8 @@ public class AddPlaceButton : MonoBehaviour
         _maxTextFlasher.StartFlash();
         _middleTextFlasher.StartFlash();
         _minTextFlasher.StartFlash();
+
+        _garageSoundController.StartPlaySoundFinEngine();
     }
 
     private void OnMoneyChanged(int money)

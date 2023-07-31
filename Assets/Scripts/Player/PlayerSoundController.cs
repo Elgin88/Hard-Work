@@ -12,13 +12,24 @@ public class PlayerSoundController : MonoBehaviour
     [SerializeField] private AudioSource _blockSetPlace;
     [SerializeField] private AudioSource _blockFlyToCollector;
     [SerializeField] private AudioSource _blockPlaceInCollector;
- 
+    [SerializeField] private AudioSource _sectionDestractionSound;
+    [SerializeField] private AudioSource _blockHitBamperSound;
+
     public AudioSource BlockFly => _blockFly;
     public AudioSource BlockSetOnCar => _blockSetPlace;
     public AudioSource BlockFlyToCollerctor => _blockFlyToCollector;
     public AudioSource BlockPlaceInCollector => _blockPlaceInCollector;
+    public AudioSource SectionDestractionSound => _sectionDestractionSound;
+    public AudioSource BlockHitBamperSound => _blockHitBamperSound;
 
-    
+    public void PlayBlockHitBumberSound()
+    {
+        if (_blockHitBamperSound.isPlaying == false)
+        {
+            _blockHitBamperSound.Play();
+        }
+    }
+
 
     public void PlayMinEngineSound()
     {
@@ -38,6 +49,14 @@ public class PlayerSoundController : MonoBehaviour
         }
 
         StopMinEngineSound();
+    }
+
+    public void PlayObjectDestractionSound()
+    {
+        if (_sectionDestractionSound.isPlaying == false)
+        {
+            _sectionDestractionSound.Play();
+        }
     }
 
     public void StopMinEngineSound()

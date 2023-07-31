@@ -13,6 +13,7 @@ public class AddPowerButton : MonoBehaviour
     private Player _player;
     private PlayerUpgrader _playerUpgrader;
     private Garage _garage;
+    private GarageSoundController _garageSoundController;
     private PlayerPowerController _powerController;
     private bool _isMaxLevelEngine;
     private EngineBarIconFlash _flash;
@@ -30,6 +31,7 @@ public class AddPowerButton : MonoBehaviour
             _powerController = FindObjectOfType<PlayerPowerController>();
             _flash = FindObjectOfType<EngineBarIconFlash>();
             _soundController = FindObjectOfType<CanvasSoundController>();
+            _garageSoundController = FindObjectOfType<GarageSoundController>();
         }
 
         _button.onClick.AddListener(OnButtonClick);
@@ -52,6 +54,7 @@ public class AddPowerButton : MonoBehaviour
     {
         _playerUpgrader.TryAddPower();
         _soundController.PlayBuySound();
+        _garageSoundController.StartPlaySoundFinEngine();
     }
 
     private void OnMoneyChanged(int money)
