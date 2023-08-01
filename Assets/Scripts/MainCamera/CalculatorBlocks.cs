@@ -17,15 +17,23 @@ public class CalculatorBlocks : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(CalculateBlocks());
+    }
+
+    private IEnumerator CalculateBlocks()
+    {
         _allSections = FindObjectsOfType<SectionOfBlocks>();
-        _freeBlocks = FindObjectsOfType<Block>();
 
         foreach (SectionOfBlocks section in _allSections)
         {
             _allBlocksInSections += section.NumberOfBlocks;
         }
 
-        _allBlocks = _allBlocksInSections + _freeBlocks.Length;
+        _allBlocks = _allBlocksInSections;
+
+        StopCoroutine(CalculateBlocks());
+
+        yield return null;
     }
 
     public void CalculateUnloadBloks()

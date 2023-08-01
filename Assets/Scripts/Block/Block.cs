@@ -25,19 +25,20 @@ public class Block : MonoBehaviour
     private bool _playerIsUnload;
 
     public BlockMoverToCollector BlockMoverToCollector => _blockMoverToCollector;
+    public BlockSoundController SoundController => _soundController;
     public Player Player => _player;
     public Point Point => _point;
     public int Cost => _cost;
-    public BlockSoundController SoundController => _soundController;
 
-
-    private void OnEnable()
+    private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _boxCollider = GetComponent<BoxCollider>();
         _moverBlock = GetComponent<BlockMoverToPlayer>();
         _blockMoverToCollector = GetComponent<BlockMoverToCollector>();
         _soundController = GetComponent<BlockSoundController>();
+
+        gameObject.SetActive(false);
     }
 
     private void BlocksUnloaded(bool isUnload)

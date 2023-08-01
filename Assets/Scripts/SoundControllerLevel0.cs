@@ -7,13 +7,11 @@ public class SoundControllerLevel0 : MonoBehaviour
 {
     [SerializeField] private AudioSource _audio;
 
-    private void OnEnable()
+    private void Update()
     {
-        _audio.Play();
-    }
-
-    private void OnDisable()
-    {
-        _audio.Stop();
+        if (_audio.isPlaying == false)
+        {
+            _audio.Play();
+        }        
     }
 }

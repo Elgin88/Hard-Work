@@ -7,12 +7,13 @@ public class EndLevelPanel : MonoBehaviour
     [SerializeField] private MinMedal _minMedal;
     [SerializeField] private MiddleMedal _middleMedal;
     [SerializeField] private MaxMedal _maxMedal;
+    [SerializeField] private CanvasUI _canvasUI;
 
     private ChooserMedals _chooserMedal;
 
     private void OnEnable()
     {
-        _chooserMedal = FindObjectOfType<ChooserMedals>();
+        _chooserMedal = _canvasUI.GameRequireComponents.ChooserMedals;
 
         OpenPanels(_chooserMedal.IsMinMedal, _chooserMedal.IsMiddleMedal, _chooserMedal.IsMaxMedal);
         _chooserMedal.IsMedalsChoosen += OnMedalsChoosen;

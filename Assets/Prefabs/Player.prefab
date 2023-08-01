@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deltaBetweenBlocks: 0.2
-  _hightOfInventory: 10
+  _hightOfInventory: 100
   _deltaTimeBetweeUnloadBlocks: 0.0001
 --- !u!114 &943398948989556030
 MonoBehaviour:
@@ -559,7 +559,7 @@ MonoBehaviour:
   _minSpeed: 0.5
   _deltaUpSpeed: 5
   _deltaDownSpeed: 5
-  _pushChangeSpeed: 1
+  _pushChangeSpeed: 0
   _delayPush: 0.1
 --- !u!114 &943398948989556034
 MonoBehaviour:
@@ -1290,7 +1290,7 @@ AudioSource:
   m_GameObject: {fileID: 3974565282749870195}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2406940173234653598, guid: 5ae604ac24b2745a8bdf8b6fc2f40833, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7d07da6b9a92b455ebd1a1513110bcbb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1

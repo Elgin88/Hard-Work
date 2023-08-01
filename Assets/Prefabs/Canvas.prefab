@@ -1155,7 +1155,7 @@ GameObject:
   - component: {fileID: 1758577148977956223}
   - component: {fileID: 1758577148977956216}
   m_Layer: 5
-  m_Name: ReloadButton
+  m_Name: ReloadLevelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1835,6 +1835,7 @@ GameObject:
   - component: {fileID: 1758577149519813644}
   - component: {fileID: 4571318203383891565}
   - component: {fileID: 1791244643987670448}
+  - component: {fileID: 6390884785094593398}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2045,6 +2046,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6390884785094593398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758577149519813682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e2c83d11dea54dacbc1a6673f4cb162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1758577149562654717
 GameObject:
   m_ObjectHideFlags: 0
@@ -2484,7 +2497,7 @@ GameObject:
   - component: {fileID: 1758577149722923428}
   - component: {fileID: 1758577149722923431}
   m_Layer: 5
-  m_Name: FuelBar
+  m_Name: FuelIndicatorBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2996,7 +3009,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1758577150085976945
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3794,6 +3807,7 @@ MonoBehaviour:
   _minMedal: {fileID: 1758577150684204515}
   _middleMedal: {fileID: 1758577149493868375}
   _maxMedal: {fileID: 1758577150428786783}
+  _canvasUI: {fileID: 6390884785094593398}
 --- !u!1 &1758577150598110244
 GameObject:
   m_ObjectHideFlags: 0
@@ -4325,7 +4339,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1758577150933686441
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4440,6 +4454,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956346fc4122c407caba592173170f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _endLevelButton: {fileID: 1758577150933686444}
+  _endLevelPanel: {fileID: 1758577150558851567}
 --- !u!114 &2138925347120677345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7385,7 +7401,7 @@ GameObject:
   - component: {fileID: 7632826844082703085}
   - component: {fileID: 6860350651139600363}
   m_Layer: 5
-  m_Name: EngineBar
+  m_Name: EnginelevelBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

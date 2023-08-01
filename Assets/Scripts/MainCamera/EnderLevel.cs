@@ -4,7 +4,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(CalculatorBlocks))]
 [RequireComponent(typeof(ChooserMedals))]
-[RequireComponent(typeof(GameRequireComponents))]
 
 public class EnderLevel : MonoBehaviour
 {
@@ -12,11 +11,9 @@ public class EnderLevel : MonoBehaviour
     [SerializeField] private int _middleProcent;
     [SerializeField] private int _minProcent;
     [SerializeField] private string _nextScene;
-
-    private ReloadButton _reloadButton;
-    private EndLevelButton _endLevelButton;
-    private EndLevelPanel _endLevelPanel;
-    private GameRequireComponents _gameRequireComponents;
+    [SerializeField] private EndLevelButton _endLevelButton;
+    [SerializeField] private ReloadButton _reloadButton;
+    [SerializeField] private EndLevelPanel _endLevelPanel;
 
     private CalculatorBlocks _calculatorBlocks;
     private ChooserMedals _chooserMedals;
@@ -30,20 +27,14 @@ public class EnderLevel : MonoBehaviour
     public string NextScene => _nextScene;
     public int MaxProcent => _maxProcent;
     public int MiddleProcent => _middleProcent;
-    public int MinProcent => _minProcent;
-
-   
+    public int MinProcent => _minProcent;   
 
     private void OnEnable()
     {
         _reloadButton = FindObjectOfType<ReloadButton>();
 
-        _gameRequireComponents = GetComponent<GameRequireComponents>();
         _calculatorBlocks = GetComponent<CalculatorBlocks>();
         _chooserMedals = GetComponent<ChooserMedals>();
-
-        _endLevelButton = _gameRequireComponents.EndLevelButton;
-        _endLevelPanel = _gameRequireComponents.EndLevelPanel;
 
         _calculatorBlocks.IsChangedNumberUnloadBlocks += OnChangedNumberUnloadBlocks;
     }
