@@ -858,9 +858,9 @@ MonoBehaviour:
   _placeLabel: "\u0418\u043D\u0432\u0435\u043D\u0442\u0430\u0440\u044C"
   _powerLabel: "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043B\u044C"
   _fuelCost: 5
-  _tankCost: 5
-  _placeCost: 5
-  _powerCost: 5
+  _tankCost: 200
+  _placeCost: 300
+  _powerCost: 500
 --- !u!114 &8466611396032591842
 MonoBehaviour:
   m_ObjectHideFlags: 0

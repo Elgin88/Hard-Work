@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deltaBetweenBlocks: 0.2
-  _hightOfInventory: 100
+  _hightOfInventory: 10
   _deltaTimeBetweeUnloadBlocks: 0.0001
 --- !u!114 &943398948989556030
 MonoBehaviour:
@@ -559,7 +559,7 @@ MonoBehaviour:
   _minSpeed: 0.5
   _deltaUpSpeed: 5
   _deltaDownSpeed: 5
-  _pushChangeSpeed: 0
+  _pushChangeSpeed: 0.9
   _delayPush: 0.1
 --- !u!114 &943398948989556034
 MonoBehaviour:

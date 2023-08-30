@@ -13,9 +13,13 @@ public class EndLevelPanel : MonoBehaviour
 
     private void OnEnable()
     {
-        _chooserMedal = _canvasUI.GameRequireComponents.ChooserMedals;
+        if (_chooserMedal==null)
+        {
+            _chooserMedal = _canvasUI.GameRequireComponents.ChooserMedals;
+        }
 
         OpenPanels(_chooserMedal.IsMinMedal, _chooserMedal.IsMiddleMedal, _chooserMedal.IsMaxMedal);
+
         _chooserMedal.IsMedalsChoosen += OnMedalsChoosen;
     }
 
