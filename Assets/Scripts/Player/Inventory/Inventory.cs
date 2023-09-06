@@ -14,7 +14,6 @@ public class Inventory : MonoBehaviour
     private LineOfPointsCreater _lineOfPointsCreater;
 
     public int GetNumberLines => _lines.Count;
-
     public event UnityAction <int,int> IsChangedNumberBlocks;
 
     private void OnEnable()

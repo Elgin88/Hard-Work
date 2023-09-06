@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class GarageParkingArea : MonoBehaviour
 {
+    private CanvasUI _canvasUI;
     private GarageUI _garageUI;
-    private GameRequireComponents _gameRequireComponents;
+    private Garage _garage;
 
     private void Start()
     {
-        _garageUI = FindObjectOfType<GameRequireComponents>().GarageUI;
+        _canvasUI = FindObjectOfType<CanvasUI>();
+        _garageUI = _canvasUI.GarageUI;
+        _garage = FindObjectOfType<Garage>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -17,6 +20,14 @@ public class GarageParkingArea : MonoBehaviour
         if (collision.gameObject.TryGetComponent<Destroyer>(out Destroyer destroyer))
         {
             _garageUI.gameObject.SetActive(true);
+
+            if (destroyer.Player.Money >= _garage.FuelCoust)
+            {
+                foreach (var indicator in _canvasUI.AddFuelIndicators)
+                {
+                    indicator.gameObject.SetActive(true);
+                }
+            }            
         }
     }
 }

@@ -53,7 +53,7 @@ public class BlockMoverToPlayer : MonoBehaviour
 
                 if (transform.position == _topPointPosition)
                 {
-                    _isReachTop = true;
+                    _isReachTop = true;                    
                 }
             }
             else if(_block.Point != null)

@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
@@ -10,6 +9,9 @@ public class AddFuelButton : MonoBehaviour
 {
     [SerializeField] private TMP_Text _cost;
 
+    private string _levelName = "Level1";
+    private AddFuelIndicatorEducation[] _addFuelIndicatorEducation;
+    private JoystickIndicatorEducation[] _joystickIndicatorEducaton;
     private Button _button;
     private Garage _garage;
     private GarageSoundController _garageSoundController;
@@ -19,6 +21,12 @@ public class AddFuelButton : MonoBehaviour
 
     private void OnEnable()
     {
+        if (SceneManager.GetActiveScene().name == _levelName)
+        {
+            _addFuelIndicatorEducation = FindObjectsOfType<AddFuelIndicatorEducation>();
+            _joystickIndicatorEducaton = FindObjectsOfType<JoystickIndicatorEducation>();
+        }        
+
         if (_player == null)
         {
             _player = FindObjectOfType<Player>();
@@ -49,6 +57,24 @@ public class AddFuelButton : MonoBehaviour
         _sound.PlayBuySound();
 
         _garageSoundController.PlayFuelSound();
+
+        if (_addFuelIndicatorEducation != null)
+        {
+            foreach (var indicator in _addFuelIndicatorEducation)
+            {
+                indicator.gameObject.SetActive(false);
+            }
+        }
+
+        if (_joystickIndicatorEducaton != null)
+        {
+            foreach (var indicator in _joystickIndicatorEducaton)
+            {
+                Debug.Log(Time.deltaTime);
+
+                indicator.gameObject.SetActive(true);
+            }
+        }
     }
 
     private void OnPlayerMoneyChanded(int money)

@@ -19,7 +19,7 @@ public class EnderLevel : MonoBehaviour
     private ChooserMedals _chooserMedals;
     private int _allBlocks;
     private int _middleNumberBlocks;
-    private int _minNumberBlocks;
+    private int _minNumberBlocks => _allBlocks * _minProcent / 100;
 
     public int MaxNumberBlocks => _allBlocks;
     public int MiddleNumberBlocks => _middleNumberBlocks;
@@ -50,7 +50,6 @@ public class EnderLevel : MonoBehaviour
         {
             _allBlocks = _calculatorBlocks.AllBlocks;
             _middleNumberBlocks = _allBlocks * _middleProcent / 100;
-            _minNumberBlocks = _allBlocks * _minProcent / 100;
         }
 
         if (unloadBlocks >= _minNumberBlocks)

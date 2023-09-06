@@ -10,6 +10,7 @@ public class CalculatorBlocks : MonoBehaviour
     private int _allBlocksInSections;
     private int _numberUnloadBlocks;
     private int _allBlocks;
+    private int _numberBlocksOnCar;
 
     public event UnityAction <int> IsChangedNumberUnloadBlocks;
     public int AllBlocks => _allBlocks;

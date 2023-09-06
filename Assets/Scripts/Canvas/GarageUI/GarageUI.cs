@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GarageUI : MonoBehaviour
 {
     [SerializeField] private float _rangeToClosePanel;
+    [SerializeField] private GarageUI _garageUI;
+
+    private string _sceneName = "Level1";
 
     private DestroyerPoint _destroyerPoint;
     private GarageParkingArea _garageParkingArea;
-    private GarageUI _garageUI;
+    
     private Coroutine _checkDistance;
 
     private void OnEnable()
@@ -17,7 +21,6 @@ public class GarageUI : MonoBehaviour
         {
             _destroyerPoint = FindObjectOfType<DestroyerPoint>();
             _garageParkingArea = FindObjectOfType<GarageParkingArea>();
-            _garageUI = FindObjectOfType<GarageUI>();                
         }
 
         StartCheckDistance();
