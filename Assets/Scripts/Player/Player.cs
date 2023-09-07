@@ -21,8 +21,8 @@ public class Player : MonoBehaviour
     private PlayerLoadController _loadController;
     private float _startPositionY;
     private int _money;
-    private Vector3 _collectionPointPosition;    
-    private GameRequireComponents _gameRequireComponents;
+    private Vector3 _collectionPointPosition;
+
     private PlayerSoundController _soundController;
 
     public Inventory Inventory => _inventory;
@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     public float RangeBetweenBlocks => _deltaBetweenBlocks;
     public int MaxHightOfInventory => _hightOfInventory;
     public float DeltaBetweenUnloadBlocks => _deltaTimeBetweeUnloadBlocks;
-    public GameRequireComponents GameRequireComponents => _gameRequireComponents;
+
     public PlayerSoundController SoundController => _soundController;
 
     public event UnityAction IsPushed;
@@ -41,7 +41,6 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        _gameRequireComponents = FindObjectOfType<GameRequireComponents>();
         _collectionPointPosition = FindObjectOfType<CollectionPoint>().transform.position;
 
         _mover = GetComponent<PlayerMover>();

@@ -15,7 +15,7 @@ public class EndLevelPanel : MonoBehaviour
     {
         if (_chooserMedal==null)
         {
-            _chooserMedal = _canvasUI.GameRequireComponents.ChooserMedals;
+            _chooserMedal = FindObjectOfType<ChooserMedals>();
         }
 
         OpenPanels(_chooserMedal.IsMinMedal, _chooserMedal.IsMiddleMedal, _chooserMedal.IsMaxMedal);

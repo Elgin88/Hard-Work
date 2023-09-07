@@ -14,8 +14,10 @@ public class JoystickIndicatorEducation : MonoBehaviour
     private CollectorIndicatorEducation[] _collectorIndicators;
     private GarageIndicatorEducation[] _garageIndicators;
     private JoystickIndicatorEducation[] _joystickIndicators;
+    private EndLevelButtonIndicatorEducation[] _endLevelButtonIndicatorEducation;
     private FixedJoystick _fixedJoystick;
     private PlayerSpeedSetter _playerSpeedSetter;
+    private CanvasUI _canvasUI;
 
     private string _levelName = "Level1";
     private float _deltaRangeInProcent = 30;
@@ -30,10 +32,11 @@ public class JoystickIndicatorEducation : MonoBehaviour
     private Vector3 _startScale;
     private Vector3 _currentScale;
     private Vector3 _targetScale;
+    private bool _isNeedBarrelsIndicators = true;
 
     private float _deltaSclale => (_targetScale.x - _startScale.x) / (_timeOfFlashInSeconds / Time.deltaTime);
 
-    private void Start()
+    private void OnEnable()
     {
         _currentScene = SceneManager.GetActiveScene();
 
@@ -43,11 +46,15 @@ public class JoystickIndicatorEducation : MonoBehaviour
             return;
         }
 
-        _addFuelIndicators = FindObjectsOfType<AddFuelIndicatorEducation>();
-        _collectorIndicators = FindObjectsOfType<CollectorIndicatorEducation>();
-        _garageIndicators = FindObjectsOfType<GarageIndicatorEducation>();
-        _joystickIndicators = FindObjectOfType<CanvasUI>().JoystickIndicators;
-        _playerSpeedSetter = FindObjectOfType<PlayerSpeedSetter>();
+        if (_addFuelIndicators == null)
+        {
+            _addFuelIndicators = FindObjectsOfType<AddFuelIndicatorEducation>();
+            _collectorIndicators = FindObjectsOfType<CollectorIndicatorEducation>();
+            _garageIndicators = FindObjectsOfType<GarageIndicatorEducation>();
+            _joystickIndicators = FindObjectOfType<CanvasUI>().JoystickIndicators;
+            _playerSpeedSetter = FindObjectOfType<PlayerSpeedSetter>();
+            _canvasUI = FindObjectOfType<CanvasUI>();
+        }
 
         _rectTransform = GetComponent<RectTransform>();
 
@@ -56,6 +63,11 @@ public class JoystickIndicatorEducation : MonoBehaviour
         _targetScale = _startScale + _startScale * _deltaRangeInProcent/100;
 
         StartFlash();
+    }
+
+    private void OnDisable()
+    {
+        StopFlash();
     }
 
     private IEnumerator Flash()
@@ -91,10 +103,19 @@ public class JoystickIndicatorEducation : MonoBehaviour
 
             CalculatePressingTimeOfJoystick();
 
-            if (_currentPressTime >_timeToOffIndicatorByPress)
+            if (_currentPressTime >_timeToOffIndicatorByPress && _isNeedBarrelsIndicators)
             {
                 EnableBarrelIndicators();
-                gameObject.SetActive(false);                
+                _isNeedBarrelsIndicators = false;
+                gameObject.SetActive(false);
+                _currentPressTime = 0;
+            }
+
+            if (_currentPressTime > _timeToOffIndicatorByPress && _isNeedBarrelsIndicators == false)
+            {
+                EnableEndLevelButtonIndicatorsEducaton();
+                _currentPressTime = 0;
+                gameObject.SetActive(false);
             }
 
             yield return null;
@@ -107,14 +128,23 @@ public class JoystickIndicatorEducation : MonoBehaviour
         {
             foreach (var indicator in _barrelIndicators)
             {
-                if (indicator != null)
-                {
-                    indicator.gameObject.SetActive(true);
-                    indicator.StartFlash();
-                }
+                indicator.gameObject.SetActive(true);
+                indicator.StartFlash();
             }
         }      
     }
+
+    private void EnableEndLevelButtonIndicatorsEducaton()
+    {
+        if (_canvasUI.AddFuelIndicators!=null)
+        {
+            foreach (var indicator in _canvasUI.EndLevelButtonIndicatorEducation)
+            {
+                indicator.gameObject.SetActive(true);
+            }
+        }
+    }
+
 
     public void StartFlash()
     {
@@ -126,17 +156,11 @@ public class JoystickIndicatorEducation : MonoBehaviour
 
     public void StopFlash()
     {
-        StopCoroutine(_flash);
-    }
-
-    public void EnableObject()
-    {
-        gameObject.SetActive(true);
-    }
-
-    public void DisableObject()
-    {
-        gameObject.SetActive(false);
+        if (_flash != null)
+        {
+            StopCoroutine(_flash);
+            _flash = null;
+        }
     }
 
     private void CalculatePressingTimeOfJoystick()

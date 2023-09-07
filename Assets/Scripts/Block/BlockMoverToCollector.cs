@@ -22,11 +22,14 @@ public class BlockMoverToCollector : MonoBehaviour
     private Block _block;
     private bool _isReachedTopPoint = false;
 
+    private ChooserMedals _chooserMedals;
+
     private IEnumerator MoveToCollector()
     {
         if (_blockFixer == null)
         {
             _calculatorBlocks = FindObjectOfType<CalculatorBlocks>();
+            _chooserMedals = FindObjectOfType<ChooserMedals>();
             _blockFixer = GetComponent<BlockFixer>();
             _block = GetComponent<Block>();
             _soundController = GetComponent<BlockSoundController>();
@@ -64,8 +67,8 @@ public class BlockMoverToCollector : MonoBehaviour
             if (transform.position.y - _collectionPoint.y == 0)
             {
                 _block.Player.AddMoney(_block.Cost);
-                _calculatorBlocks.CalculateUnloadBloks();                
-                _block.Player.GameRequireComponents.ChooserMedals.ChooseMedals();
+                _calculatorBlocks.CalculateUnloadBloks();
+                _chooserMedals.ChooseMedals();
                 _soundController.PlayBlockPlaceInCollector();
 
                 StopMoveToCollector();

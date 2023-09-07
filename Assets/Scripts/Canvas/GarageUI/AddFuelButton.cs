@@ -11,13 +11,14 @@ public class AddFuelButton : MonoBehaviour
 
     private string _levelName = "Level1";
     private AddFuelIndicatorEducation[] _addFuelIndicatorEducation;
-    private JoystickIndicatorEducation[] _joystickIndicatorEducaton;
+    private JoystickIndicatorEducation[] _joystickIndicatorEducaton;    
     private Button _button;
     private Garage _garage;
     private GarageSoundController _garageSoundController;
     private Player _player;
     private PlayerUpgrader _playerUpgrade;
     private CanvasSoundController _sound;
+    private CanvasUI _canvasUI;
 
     private void OnEnable()
     {
@@ -25,6 +26,8 @@ public class AddFuelButton : MonoBehaviour
         {
             _addFuelIndicatorEducation = FindObjectsOfType<AddFuelIndicatorEducation>();
             _joystickIndicatorEducaton = FindObjectsOfType<JoystickIndicatorEducation>();
+            _canvasUI = FindObjectOfType<CanvasUI>();
+            _joystickIndicatorEducaton = _canvasUI.JoystickIndicators;
         }        
 
         if (_player == null)
@@ -70,9 +73,8 @@ public class AddFuelButton : MonoBehaviour
         {
             foreach (var indicator in _joystickIndicatorEducaton)
             {
-                Debug.Log(Time.deltaTime);
-
                 indicator.gameObject.SetActive(true);
+                indicator.StartFlash();
             }
         }
     }

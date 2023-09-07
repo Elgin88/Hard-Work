@@ -6371,6 +6371,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4439489644135593301, guid: 842d8c8e16b474496b77c9bb32a371c2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7656873045806514693, guid: 842d8c8e16b474496b77c9bb32a371c2, type: 3}
       propertyPath: _barrelIndicators.Array.size
       value: 3
@@ -15094,17 +15098,6 @@ Transform:
   m_Father: {fileID: 1523990344}
   m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: -129.3, y: -30.05, z: 0}
---- !u!114 &1187092897 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1758577150085976944, guid: 842d8c8e16b474496b77c9bb32a371c2, type: 3}
-  m_PrefabInstance: {fileID: 614405881}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95d5beb933086403cb11d15739de0ab9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1198165811
 GameObject:
   m_ObjectHideFlags: 0
@@ -23552,7 +23545,6 @@ GameObject:
   - component: {fileID: 1852628427}
   - component: {fileID: 1852628426}
   - component: {fileID: 1852628433}
-  - component: {fileID: 1852628434}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -23738,20 +23730,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1852628434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1852628423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49299065076314b0cba22ec511c19300, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _garageUI: {fileID: 1187092897}
-  _chooserMedals: {fileID: 1852628426}
 --- !u!1 &1863736410
 GameObject:
   m_ObjectHideFlags: 0
