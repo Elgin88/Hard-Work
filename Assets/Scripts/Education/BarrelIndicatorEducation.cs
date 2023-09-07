@@ -33,10 +33,13 @@ public class BarrelIndicatorEducation : MonoBehaviour
 
     private void OnEnable()
     {
-        _chooserMedals = FindObjectOfType<ChooserMedals>();
-        _enderLevel = FindObjectOfType<EnderLevel>();
-        _inventory = FindObjectOfType<Inventory>();
-        _calculatorBlocks = FindObjectOfType<CalculatorBlocks>();
+        if (_chooserMedals == null)
+        {
+            _chooserMedals = FindObjectOfType<ChooserMedals>();
+            _enderLevel = FindObjectOfType<EnderLevel>();
+            _inventory = FindObjectOfType<Inventory>();
+            _calculatorBlocks = FindObjectOfType<CalculatorBlocks>();
+        }
 
         _transform = GetComponent<Transform>();
 

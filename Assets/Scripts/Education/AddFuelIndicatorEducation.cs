@@ -19,17 +19,17 @@ public class AddFuelIndicatorEducation : MonoBehaviour
 
     private void OnEnable()
     {
-        _garageIndicatorsEducation = FindObjectsOfType<GarageIndicatorEducation>();
-
-        StartFlash();
-
-        if (_garageIndicatorsEducation!= null)
+        if (_garageIndicatorsEducation == null)
         {
+            _garageIndicatorsEducation = FindObjectsOfType<GarageIndicatorEducation>();
+
             foreach (var indicator in _garageIndicatorsEducation)
             {
                 indicator.gameObject.SetActive(false);
             }
         }
+
+        StartFlash();
     }
 
     private void OnDisable()
