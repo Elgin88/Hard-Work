@@ -48,6 +48,8 @@ public class Player : MonoBehaviour
         _inventory = GetComponentInChildren<Inventory>();
         _unloader = GetComponentInChildren<Unloader>();
         _soundController = GetComponent<PlayerSoundController>();
+
+        _money = DataForNextScene.Money;
     }
 
     public void SlowDown()

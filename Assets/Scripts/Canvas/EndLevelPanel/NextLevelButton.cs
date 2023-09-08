@@ -9,10 +9,12 @@ public class NextLevelButton : MonoBehaviour
 {
     private Button _nextLevelButton;
     private EnderLevel _enderLevel;
+    private Player _player;
 
     private void OnEnable()
     {
         _enderLevel = FindObjectOfType<EnderLevel>();
+        _player = FindObjectOfType<Player>();
 
         _nextLevelButton = GetComponent<Button>();
         _nextLevelButton.onClick.AddListener(OnButtonClick);
@@ -25,6 +27,7 @@ public class NextLevelButton : MonoBehaviour
 
     private void OnButtonClick()
     {
+        DataForNextScene.SetMoney(_player.Money);
         SceneManager.LoadScene(_enderLevel.NextScene);
     }
 }
