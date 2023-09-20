@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Agava.YandexGames;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -21,7 +22,15 @@ public class StartGameButton : MonoBehaviour
     private void OnButtonClick()
     {
         _audio.Play();
-        _loadScene = StartCoroutine(LoadScene());          
+        _loadScene = StartCoroutine(LoadScene());
+
+#if UNITY_EDITOR
+        return;
+#endif
+
+#if UNITY_WEBGL
+        Agava.YandexGames.PlayerPrefs.Load();
+#endif
     }
 
     private IEnumerator LoadScene()

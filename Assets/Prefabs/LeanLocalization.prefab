@@ -98,9 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: Russian
-  detectLanguage: 1
-  defaultLanguage: 
+  currentLanguage: English
+  detectLanguage: 0
+  defaultLanguage: English
   saveLoad: 1
   prefabs:
   - Root: {fileID: 765358623864573794, guid: 971ef8207f535194faf411d40b27fb77, type: 3}

@@ -28,6 +28,20 @@ public class NextLevelButton : MonoBehaviour
     private void OnButtonClick()
     {
         DataForNextScene.SetMoney(_player.Money);
-        SceneManager.LoadScene(_enderLevel.NextScene);
+        SceneManager.LoadScene(_enderLevel.NextScene);        
+
+        ShowVideo();
+    }
+
+    private void ShowVideo()
+    {
+#if UNITY_EDITOR
+        return;
+#endif
+
+#if UNITY_WEBGL
+        Agava.YandexGames.PlayerPrefs.Save();
+        VideoAd.Show();
+#endif
     }
 }

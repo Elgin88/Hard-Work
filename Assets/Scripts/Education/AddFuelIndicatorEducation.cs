@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AddFuelIndicatorEducation : MonoBehaviour
 {
     private GarageIndicatorEducation[] _garageIndicatorsEducation;
 
+    private string _level1Name = "Level1";
     private float _deltaScaleInPercentages = 30;
     private float _timeOfFlashInSeconds = 0.3f;
 
@@ -29,7 +31,15 @@ public class AddFuelIndicatorEducation : MonoBehaviour
             }
         }
 
-        StartFlash();
+        if (SceneManager.GetActiveScene().name == _level1Name)
+        {
+            StartFlash();
+        }
+        else
+        {
+            StopFlash();
+            gameObject.SetActive(false);
+        }        
     }
 
     private void OnDisable()

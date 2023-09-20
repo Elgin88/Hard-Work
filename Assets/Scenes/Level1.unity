@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311915, g: 0.3807396, b: 0.35872662, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4722,7 +4722,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &467734998
 Light:
   m_ObjectHideFlags: 0
@@ -6347,6 +6347,10 @@ PrefabInstance:
       propertyPath: _endLevelButton
       value: 
       objectReference: {fileID: 1448545800}
+    - target: {fileID: 3150542998156191357, guid: 842d8c8e16b474496b77c9bb32a371c2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 104.43359
+      objectReference: {fileID: 0}
     - target: {fileID: 3420367340164064637, guid: 842d8c8e16b474496b77c9bb32a371c2, type: 3}
       propertyPath: _barrelIndicators.Array.size
       value: 0
@@ -23545,6 +23549,7 @@ GameObject:
   - component: {fileID: 1852628427}
   - component: {fileID: 1852628426}
   - component: {fileID: 1852628433}
+  - component: {fileID: 1852628434}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -23648,7 +23653,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -23730,6 +23735,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1852628434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852628423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ba5906e924544adaef327963449012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1863736410
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,10 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Agava.YandexGames;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(PlayerMover))]
 [RequireComponent(typeof(PlayerLoadController))]

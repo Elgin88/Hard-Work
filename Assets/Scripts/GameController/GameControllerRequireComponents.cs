@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(CalculatorBlocks))]
 [RequireComponent(typeof(EnderLevel))]
 [RequireComponent(typeof(ChooserMedals))]
+[RequireComponent(typeof(GameControllerTranslator))]
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(AudioSource))]
 
