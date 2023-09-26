@@ -10,37 +10,45 @@ public class NextLevelButton : MonoBehaviour
     private Button _nextLevelButton;
     private EnderLevel _enderLevel;
     private Player _player;
+    private Saver _saver;
+
+    private string _currentLevelName;
 
     private void OnEnable()
     {
-        _enderLevel = FindObjectOfType<EnderLevel>();
-        _player = FindObjectOfType<Player>();
+        if (_player == null)
+        {
+            _enderLevel = FindObjectOfType<EnderLevel>();
+            _player = FindObjectOfType<Player>();
+            _saver = FindObjectOfType<Saver>();
+        }
+
+        _currentLevelName = SceneManager.GetActiveScene().name;
 
         _nextLevelButton = GetComponent<Button>();
-        _nextLevelButton.onClick.AddListener(OnButtonClick);
+        _nextLevelButton.onClick.AddListener(OnNextLevelButtonClick);
     }
 
     private void OnDisable()
     {
-        _nextLevelButton.onClick.RemoveListener(OnButtonClick);
+        _nextLevelButton.onClick.RemoveListener(OnNextLevelButtonClick);
     }
 
-    private void OnButtonClick()
+    private void OnNextLevelButtonClick()
     {
-        DataForNextScene.SetMoney(_player.Money);
-        SceneManager.LoadScene(_enderLevel.NextScene);        
+        _saver.SaveData();
+        _saver.SaveDataInCloud();
 
-        ShowVideo();
+        SceneManager.LoadScene(_enderLevel.NextSceneName);        
     }
 
-    private void ShowVideo()
+    private void ShowVideoInBrauser()
     {
 #if UNITY_EDITOR
         return;
 #endif
 
 #if UNITY_WEBGL
-        Agava.YandexGames.PlayerPrefs.Save();
         VideoAd.Show();
 #endif
     }

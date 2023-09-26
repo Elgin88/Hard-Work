@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Agava.WebUtility;
 using Agava.YandexGames;
 using UnityEngine;
 
@@ -13,7 +14,6 @@ public class StarterSDK : MonoBehaviour
 
 #if UNITY_WEBGL
         yield return YandexGamesSdk.Initialize();
-
 #endif
     }
 }

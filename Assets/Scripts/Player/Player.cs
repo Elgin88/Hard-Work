@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     private Vector3 _collectionPointPosition;
 
     private PlayerSoundController _soundController;
+    private Loader _loader;
 
     public Inventory Inventory => _inventory;
     public Unloader Unloader => _unloader;
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _collectionPointPosition = FindObjectOfType<CollectionPoint>().transform.position;
+        _loader = FindObjectOfType<Loader>();
 
         _mover = GetComponent<PlayerMover>();
         _loadController = GetComponent<PlayerLoadController>();
@@ -44,7 +46,7 @@ public class Player : MonoBehaviour
         _unloader = GetComponentInChildren<Unloader>();
         _soundController = GetComponent<PlayerSoundController>();
 
-        _money = DataForNextScene.Money;
+        SetMoney(_loader.GetSavedDataCurrentPlayerMoney());
     }
 
     public void SlowDown()
@@ -60,6 +62,12 @@ public class Player : MonoBehaviour
     public void AddMoney(int money)
     {
         _money += money;
+        IsMoneyChanged?.Invoke(_money);
+    }
+
+    public void SetMoney(int money)
+    {
+        _money = money;
         IsMoneyChanged?.Invoke(_money);
     }
 

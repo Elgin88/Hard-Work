@@ -24,6 +24,6 @@ public class TempNextLevel : MonoBehaviour
 
     private void OnButtonClick()
     {
-        SceneManager.LoadScene(_enderLevel.NextScene);
+        SceneManager.LoadScene(_enderLevel.NextSceneName);
     }
 }

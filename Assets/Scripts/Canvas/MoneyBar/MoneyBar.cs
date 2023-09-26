@@ -12,7 +12,6 @@ public class MoneyBar : MonoBehaviour
     private void OnEnable()
     {
         _player = FindObjectOfType<Player>();
-        _moneyCount.text = DataForNextScene.Money.ToString();
         _player.IsMoneyChanged += OnMoneyChanged;
     }
 
