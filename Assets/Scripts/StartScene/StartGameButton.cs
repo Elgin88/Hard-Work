@@ -3,8 +3,11 @@ using System.Collections;
 using TMPro;
 =======
 using System.Collections.Generic;
+<<<<<<< HEAD
 using Agava.YandexGames;
 >>>>>>> parent of 81826e37 (1)
+=======
+>>>>>>> parent of 096c8651 (Версия до запекания света)
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -80,15 +83,7 @@ public class StartGameButton : MonoBehaviour
 }
 =======
         _audio.Play();
-        _loadScene = StartCoroutine(LoadScene());
-
-#if UNITY_EDITOR
-        return;
-#endif
-
-#if UNITY_WEBGL
-        Agava.YandexGames.PlayerPrefs.Load();
-#endif
+        _loadScene = StartCoroutine(LoadScene());          
     }
 
     private IEnumerator LoadScene()

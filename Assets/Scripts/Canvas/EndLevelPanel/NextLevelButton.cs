@@ -46,6 +46,7 @@ public class NextLevelButton : MonoBehaviour
         SceneManager.LoadScene(_enderLevel.NextSceneName);
 =======
         DataForNextScene.SetMoney(_player.Money);
+<<<<<<< HEAD
         SceneManager.LoadScene(_enderLevel.NextScene);        
 
         ShowVideo();
@@ -62,5 +63,8 @@ public class NextLevelButton : MonoBehaviour
         Agava.YandexGames.PlayerPrefs.Save();
         VideoAd.Show();
 #endif
+=======
+        SceneManager.LoadScene(_enderLevel.NextScene);
+>>>>>>> parent of 096c8651 (Версия до запекания света)
     }
 }

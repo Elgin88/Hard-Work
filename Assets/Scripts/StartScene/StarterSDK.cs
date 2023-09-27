@@ -13,7 +13,6 @@ public class StarterSDK : MonoBehaviour
 
 #if UNITY_WEBGL
         yield return YandexGamesSdk.Initialize();
-
 #endif
     }
 }

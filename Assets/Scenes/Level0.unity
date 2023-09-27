@@ -416,6 +416,7 @@ Canvas:
   m_SortingOrder: 0
   m_TargetDisplay: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &314000453
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,6 +611,8 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
 >>>>>>> parent of 81826e37 (1)
+=======
+>>>>>>> parent of 096c8651 (Версия до запекания света)
 --- !u!1 &583407466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,7 +1519,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Hard-Work
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1643,6 +1646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -1728,3 +1732,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004771306}
   m_CullTransparentMesh: 1
+=======
+  _audio: {fileID: 2055445584}
+--- !u!1001 &6186553526459369131
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6186553526550903122, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186553526550903122, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186553526550903122, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186553526550903122, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186553526550903122, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186553526550903122, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186553526550903122, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186553526550903122, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186553526550903122, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186553526550903122, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186553526550903122, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186553526550903132, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_Name
+      value: LeanLocalization
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+>>>>>>> parent of 096c8651 (Версия до запекания света)

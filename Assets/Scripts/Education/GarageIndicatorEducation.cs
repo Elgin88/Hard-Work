@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GarageIndicatorEducation : MonoBehaviour
 {
     private CanvasUI _canvasUI;
 
-    private string _level1Name = "Level1";
     private float _deltaScaleInPercentages = 30;
     private float _timeOfFlashInSeconds = 0.3f;
 
@@ -36,14 +34,7 @@ public class GarageIndicatorEducation : MonoBehaviour
         _startScale = transform.localScale;
         _currentScale = _startScale;
 
-        if (SceneManager.GetActiveScene().name == _level1Name)
-        {
-            StartFlash();
-        }
-        else
-        {
-            StopFlash();
-        }
+        StartFlash();
     }
 
     private void OnDisable()
