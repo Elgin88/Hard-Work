@@ -43,6 +43,11 @@ public class Player : MonoBehaviour
         _inventory = GetComponentInChildren<Inventory>();
         _unloader = GetComponentInChildren<Unloader>();
         _soundController = GetComponent<PlayerSoundController>();
+<<<<<<< HEAD
+=======
+
+        _money = DataForNextScene.Money;
+>>>>>>> parent of 81826e37 (1)
     }
 
     public void SlowDown()
@@ -58,12 +63,6 @@ public class Player : MonoBehaviour
     public void AddMoney(int money)
     {
         _money += money;
-        IsMoneyChanged?.Invoke(_money);
-    }
-
-    public void SetMoney(int money)
-    {
-        _money = money;
         IsMoneyChanged?.Invoke(_money);
     }
 

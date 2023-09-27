@@ -302,10 +302,13 @@ RectTransform:
   - {fileID: 188641157}
   - {fileID: 841130404}
   - {fileID: 1715881300}
+<<<<<<< HEAD
   - {fileID: 1661921620}
   - {fileID: 314000454}
   - {fileID: 2004771307}
   - {fileID: 1095444889}
+=======
+>>>>>>> parent of 81826e37 (1)
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -412,6 +415,7 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+<<<<<<< HEAD
 --- !u!1 &314000453
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,6 +551,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 314000453}
   m_CullTransparentMesh: 1
+=======
+--- !u!1001 &489364555
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6186553526550903122, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186553526550903122, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186553526550903122, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186553526550903122, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186553526550903122, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186553526550903122, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186553526550903122, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186553526550903122, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186553526550903122, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186553526550903122, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186553526550903122, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186553526550903132, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+      propertyPath: m_Name
+      value: LeanLocalization
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8c156affef91147ef9f83d68fbac2c39, type: 3}
+>>>>>>> parent of 81826e37 (1)
 --- !u!1 &583407466
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,10 +620,13 @@ GameObject:
   m_Component:
   - component: {fileID: 583407468}
   - component: {fileID: 583407467}
+<<<<<<< HEAD
   - component: {fileID: 583407469}
   - component: {fileID: 583407471}
   - component: {fileID: 583407470}
   - component: {fileID: 583407472}
+=======
+>>>>>>> parent of 81826e37 (1)
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -595,6 +661,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!114 &583407469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -727,6 +794,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+>>>>>>> parent of 81826e37 (1)
 --- !u!1 &841130403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,6 +1143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1007961149a45d890b19c501ac773b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   _startGameButton: {fileID: 1464779412}
   _loader: {fileID: 583407470}
   _soundOfClick: {fileID: 1464779416}
@@ -1081,6 +1151,11 @@ MonoBehaviour:
   _debugText2: {fileID: 314000455}
   _debugText3: {fileID: 2004771308}
   _debugText4: {fileID: 1095444890}
+=======
+  _nextLevel: Level1
+  _button: {fileID: 1464779412}
+  _audio: {fileID: 1464779416}
+>>>>>>> parent of 81826e37 (1)
 --- !u!82 &1464779416
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1177,6 +1252,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+<<<<<<< HEAD
 --- !u!1 &1661921619
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,6 +1388,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661921619}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> parent of 81826e37 (1)
 --- !u!1 &1696089295
 GameObject:
   m_ObjectHideFlags: 0

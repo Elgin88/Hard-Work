@@ -1,5 +1,10 @@
 using System.Collections;
+<<<<<<< HEAD
 using TMPro;
+=======
+using System.Collections.Generic;
+using Agava.YandexGames;
+>>>>>>> parent of 81826e37 (1)
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,6 +13,7 @@ using UnityEngine.UI;
 
 public class StartGameButton : MonoBehaviour
 {
+<<<<<<< HEAD
     [SerializeField] private Button _startGameButton;
     [SerializeField] private AudioSource _soundOfClick;
     [SerializeField] private TMP_Text _debugText1;
@@ -24,6 +30,14 @@ public class StartGameButton : MonoBehaviour
     {
         _startGameButton.onClick.AddListener(OnStartGameButtonClick);
     }
+=======
+    [SerializeField] private string _nextLevel;
+    [SerializeField] private Button _button;
+    [SerializeField] private AudioSource _audio;
+
+    private WaitForSeconds _delay = new WaitForSeconds(0.5f);
+    private Coroutine _loadScene;
+>>>>>>> parent of 81826e37 (1)
 
     private void Update()
     {
@@ -38,6 +52,7 @@ public class StartGameButton : MonoBehaviour
 
     private void OnStartGameButtonClick()
     {
+<<<<<<< HEAD
         _soundOfClick.Play();
 
         _sceneNameForLoad = _sceneNameOfLevel1;
@@ -63,3 +78,26 @@ public class StartGameButton : MonoBehaviour
     //    }
     //}
 }
+=======
+        _audio.Play();
+        _loadScene = StartCoroutine(LoadScene());
+
+#if UNITY_EDITOR
+        return;
+#endif
+
+#if UNITY_WEBGL
+        Agava.YandexGames.PlayerPrefs.Load();
+#endif
+    }
+
+    private IEnumerator LoadScene()
+    {
+        while (true)
+        {
+            yield return _delay;
+            SceneManager.LoadScene(_nextLevel);
+        }
+    }
+}
+>>>>>>> parent of 81826e37 (1)

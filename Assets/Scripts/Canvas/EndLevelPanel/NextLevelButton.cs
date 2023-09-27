@@ -10,6 +10,7 @@ public class NextLevelButton : MonoBehaviour
     private EnderLevel _enderLevel;
     private Button _nextLevelButton;
     private Player _player;
+<<<<<<< HEAD
 
     private string _currentLevelName;
 
@@ -22,28 +23,43 @@ public class NextLevelButton : MonoBehaviour
         }
 
         _currentLevelName = SceneManager.GetActiveScene().name;
+=======
+
+    private void OnEnable()
+    {
+        _enderLevel = FindObjectOfType<EnderLevel>();
+        _player = FindObjectOfType<Player>();
+>>>>>>> parent of 81826e37 (1)
 
         _nextLevelButton = GetComponent<Button>();
-        _nextLevelButton.onClick.AddListener(OnNextLevelButtonClick);
+        _nextLevelButton.onClick.AddListener(OnButtonClick);
     }
 
     private void OnDisable()
     {
-        _nextLevelButton.onClick.RemoveListener(OnNextLevelButtonClick);
+        _nextLevelButton.onClick.RemoveListener(OnButtonClick);
     }
 
-    private void OnNextLevelButtonClick()
+    private void OnButtonClick()
     {
+<<<<<<< HEAD
         SceneManager.LoadScene(_enderLevel.NextSceneName);
+=======
+        DataForNextScene.SetMoney(_player.Money);
+        SceneManager.LoadScene(_enderLevel.NextScene);        
+
+        ShowVideo();
+>>>>>>> parent of 81826e37 (1)
     }
 
-    private void ShowVideoInBrauser()
+    private void ShowVideo()
     {
 #if UNITY_EDITOR
         return;
 #endif
 
 #if UNITY_WEBGL
+        Agava.YandexGames.PlayerPrefs.Save();
         VideoAd.Show();
 #endif
     }

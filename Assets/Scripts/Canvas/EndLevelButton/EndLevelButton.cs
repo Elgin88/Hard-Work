@@ -17,18 +17,18 @@ public class EndLevelButton : MonoBehaviour
 
     private void OnEnable()
     {
-        _endLevelButton.onClick.AddListener(OnNextLevelButtonClick);
+        _endLevelButton.onClick.AddListener(OnButtonClick);
     }
 
     private void OnDisable()
     {
         if (_endLevelButton != null)
         {
-            _endLevelButton.onClick.RemoveListener(OnNextLevelButtonClick);
+            _endLevelButton.onClick.RemoveListener(OnButtonClick);
         }        
     }
 
-    private void OnNextLevelButtonClick()
+    private void OnButtonClick()
     {
         _endLevelPanel.gameObject.SetActive(true);
     }

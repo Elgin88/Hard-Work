@@ -24,7 +24,7 @@ public class EnderLevel : MonoBehaviour
     public int MaxNumberBlocks => _allBlocks;
     public int MiddleNumberBlocks => _middleNumberBlocks;
     public int MinNumberBlocks => _minNumberBlocks;
-    public string NextSceneName => _nextScene;
+    public string NextScene => _nextScene;
     public int MaxProcent => _maxProcent;
     public int MiddleProcent => _middleProcent;
     public int MinProcent => _minProcent;   
