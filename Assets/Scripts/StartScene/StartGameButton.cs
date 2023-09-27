@@ -16,12 +16,6 @@ public class StartGameButton : MonoBehaviour
 
     private WaitForSeconds _delay = new WaitForSeconds(0.5f);
     private Coroutine _loadScene;
-    private Loader _loader;
-
-    private void Start()
-    {
-        _loader = FindObjectOfType<Loader>();
-    }
 
     private void OnEnable()
     {
@@ -33,16 +27,6 @@ public class StartGameButton : MonoBehaviour
         _audio.Play();
 
         _loadLevelName = _level1Name;
-
-        if (PlayerPrefs.HasKey(_savedLevelName) == false)
-        {
-            _loader.LoadPlayersPrefsFromCloud();
-        }
-
-        if (PlayerPrefs.HasKey(_savedLevelName))
-        {
-            _loadLevelName = _loader.GetSavedDataLevelName();
-        }
 
         _loadScene = StartCoroutine(LoadScene());
     }
