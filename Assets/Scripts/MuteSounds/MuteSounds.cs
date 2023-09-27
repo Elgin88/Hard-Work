@@ -25,12 +25,12 @@ public class MuteSounds : MonoBehaviour
         if (VideoAd.IsVideoAdOpen)
         {
             _audioMixer.SetFloat("Master", _targetValue);
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
         }
         else
         {
             _audioMixer.SetFloat("Master", _startValue);
-            Time.timeScale = 1;
+            //Time.timeScale = 1;
         }
 #endif
     }

@@ -1,58 +1,65 @@
-using System;
 using System.Collections;
-using Agava;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Button))]
+
 public class StartGameButton : MonoBehaviour
 {
-    [SerializeField] private string _loadLevelName;
-    [SerializeField] private Button _button;
-    [SerializeField] private AudioSource _audio;
+    [SerializeField] private Button _startGameButton;
+    [SerializeField] private AudioSource _soundOfClick;
+    [SerializeField] private TMP_Text _debugText1;
+    [SerializeField] private TMP_Text _debugText2;
+    [SerializeField] private TMP_Text _debugText3;
+    [SerializeField] private TMP_Text _debugText4;
 
-    private string _level1Name = "Level1";
-    private string _savedLevelName = "currentLevelName";
-
-    private WaitForSeconds _delay = new WaitForSeconds(0.5f);
-    private Coroutine _loadScene;
-    private Loader _loader;
+    private WaitForSeconds _delayLoadOfScene = new WaitForSeconds(0.5f);    
+    private Coroutine _loadNextLevel;
+    private string _sceneNameOfLevel1 = "Level1";
+    private string _sceneNameForLoad = "";
 
     private void Start()
     {
-        _loader = FindObjectOfType<Loader>();
+        _startGameButton.onClick.AddListener(OnStartGameButtonClick);
     }
 
-    private void OnEnable()
+    private void Update()
     {
-        _button.onClick.AddListener(OnButtonClick);
+#if UNITY_EDITOR
+        return;
+#endif
+
+#if UNITY_WEBGL
+        _debugText1.text = Agava.YandexGames.YandexGamesSdk.IsInitialized.ToString() + " - работа SDK";
+#endif
     }
 
-    private void OnButtonClick()
+    private void OnStartGameButtonClick()
     {
-        _audio.Play();
+        _soundOfClick.Play();
 
-        _loadLevelName = _level1Name;
+        _sceneNameForLoad = _sceneNameOfLevel1;
 
-        if (PlayerPrefs.HasKey(_savedLevelName) == false)
-        {
-            _loader.LoadPlayersPrefsFromCloud();
-        }
+        SceneManager.LoadScene(_sceneNameForLoad);
 
-        if (PlayerPrefs.HasKey(_savedLevelName))
-        {
-            _loadLevelName = _loader.GetSavedDataLevelName();
-        }
+        _startGameButton.onClick.RemoveListener(OnStartGameButtonClick);
 
-        _loadScene = StartCoroutine(LoadScene());
+        //_loadNextLevel = StartCoroutine(LoadNextLevel());
     }
 
-    private IEnumerator LoadScene()
-    {
-        while (true)
-        {
-            yield return _delay;
-            SceneManager.LoadScene(_loadLevelName);
-        }
-    }
+    //private IEnumerator LoadNextLevel()
+    //{
+    //    _soundOfClick.Play();
+
+    //    yield return _delayLoadOfScene;
+
+    //    _nextSceneName = _loader.GetSavedSceneNameForLoad();
+
+    //    if (_nextSceneName == "")
+    //    {
+    //        _nextSceneName = _level1SceneName;
+    //    }
+    //}
 }
